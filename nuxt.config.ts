@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  typescript: { strict: false },
   devtools: { enabled: true },
+  $production: {
+    routeRules: {
+      '/**': { isr: true },
+    },
+  },
   modules: [
     '@nuxtjs/google-fonts',
     '@nuxt/image',
@@ -13,13 +19,11 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Selamat datang di smartnation ID',
       titleTemplate: '%s - smartnation',
-      // titleTemplate: (titleChunk) => {
-      //   return titleChunk ? `${titleChunk} - smartnation ID` : 'Site Title';
-      // },
     },
   },
+
+  css: ['~/assets/css/global.css'],
 
   // Configuration modules
   image: {
