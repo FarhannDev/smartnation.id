@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-black">
       <div class="logo">
         <img src="/logo.png" alt="Logo" />
       </div>
@@ -151,7 +151,7 @@ nav {
   max-width: 100%;
   height: 39px;
   padding: 24px 80px;
-  background: rgba(0, 0, 0, 0.2);
+  background: black;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
     0px 0px 0px 1px rgba(103, 110, 118, 0.16),
     0px 2px 5px 0px rgba(103, 110, 118, 0.08);
