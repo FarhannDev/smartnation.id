@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-danger text-capitalize">Halaman Utama</h1>
+    <h1 class="text-danger text-capitalize">Halaman Utama a</h1>
     <NuxtLink to="/about" class="text-danger">Go About page</NuxtLink>
   </div>
 </template>
