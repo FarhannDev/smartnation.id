@@ -4,7 +4,7 @@
       <h1 class="text-danger text-capitalize">Halaman Utama </h1>
       <NuxtLink to="/about"
         class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger">
-        Lanjutkan ke halaman Tentang Kami
+        Lanjutkan ke halaman Detail
         <BootstrapIcon name="arrow-right" />
       </NuxtLink>
 
