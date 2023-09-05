@@ -15,6 +15,13 @@ export default defineNuxtConfig({
     'nuxt-bootstrap-icons',
   ],
 
+  plugins: [
+    {
+      src: '~/plugins/useBootstrap.client.ts',
+      mode: 'client',
+    },
+  ],
+
   app: {
     head: {
       charset: 'utf-8',
@@ -35,14 +42,7 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      Roboto: true,
-      'Josefin+Sans': true,
-      Lato: [100, 300],
       Poppins: [300, 400, 500, 600],
-      Raleway: {
-        wght: [100, 400],
-        ital: [100],
-      },
     },
     // options...
   },
