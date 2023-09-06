@@ -27,6 +27,12 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       titleTemplate: '%s - Smartnation',
+      script: [
+        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"},
+        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"},
+        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"},
+        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw-src.js"},
+      ]
     },
   },
 
