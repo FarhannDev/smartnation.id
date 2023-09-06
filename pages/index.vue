@@ -2,7 +2,7 @@
   <div>
     <div class="container py-3">
       <h1 class="text-danger text-capitalize">Halaman Utama </h1>
-      <NuxtLink to="/about"
+      <NuxtLink to="/detail"
         class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger">
         Lanjutkan ke halaman Detail
         <BootstrapIcon name="arrow-right" />

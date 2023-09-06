@@ -12,28 +12,34 @@
       <div class="col-8">
         <h1 class="text-danger text-capitalize fw-bolder fs-3 pb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, dolores inventore.</h1>
         <div class="row pb-2">
-          <div class="col">
-            <div class="row">
-              <div class="col-1">
-                <img src="../public/icon/date.png" alt="DATE">
+          <div class="col-3">
+            <div class="row align-items-center">
+              <div class="col-1 d-flex align-items-center" >
+                <img width="15" height="15" src="../public/icon/date.svg" alt="DATE">
               </div>
-              <div class="col-9">26 December 2022</div>
+              <div class="col-10">
+                <p class="dateFormat m-0">26 December 2022</p>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="row">
-              <div class="col-1">
-                <img src="../public/icon/comment.png" alt="COMMENT">
+          <div class="col-3">
+            <div class="row align-items-center">
+              <div class="col-1 d-flex align-items-center" >
+                <img width="15" height="15" src="../public/icon/comment.svg" alt="COMMENT">
               </div>
-              <div class="col-9">2 Komentar</div>
+              <div class="col-10">
+                <p class="dateFormat m-0">2 Komentar</p>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="row">
-              <div class="col-1">
-                <img src="../public/icon/eye.png" alt="READ">
+          <div class="col-3" style="margin-left: -30px;">
+            <div class="row align-items-center">
+              <div class="col-1 d-flex align-items-center" >
+                <img width="15" height="15" src="../public/icon/eye.svg" alt="COMMENT">
               </div>
-              <div class="col-9">383</div>
+              <div class="col-10">
+                <p class="dateFormat m-0">383</p>
+              </div>
             </div>
           </div>
         </div>
@@ -45,107 +51,110 @@
           class="btn btn-outline-danger btn-md rounded text-center text-dark me-2 my-1">{{ category }}</button>
         </div>
         <div class="container p-0">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates repellendus consequuntur ab aperiam provident ratione qui consectetur sed quas sapiente necessitatibus iste quibusdam recusandae sequi corporis dolore quia earum laudantium, enim culpa aliquam! Ipsa dicta ex hic vero error modi debitis soluta facere repellendus fugit, reprehenderit, itaque provident laborum illo suscipit facilis voluptatum. Laudantium incidunt explicabo impedit voluptates. Libero, explicabo corporis, iste magni porro nesciunt dicta alias officiis soluta dignissimos repudiandae accusantium eveniet voluptate? Doloremque ducimus ex aut accusamus quidem nemo tempore eaque pariatur repudiandae facilis, ratione, doloribus magni. Assumenda, fuga rem! Id error eius ducimus molestias modi quasi quia?</p>
+          <p class="contentArticle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates repellendus consequuntur ab aperiam provident ratione qui consectetur sed quas sapiente necessitatibus iste quibusdam recusandae sequi corporis dolore quia earum laudantium, enim culpa aliquam! Ipsa dicta ex hic vero error modi debitis soluta facere repellendus fugit, reprehenderit, itaque provident laborum illo suscipit facilis voluptatum. Laudantium incidunt explicabo impedit voluptates. Libero, explicabo corporis, iste magni porro nesciunt dicta alias officiis soluta dignissimos repudiandae accusantium eveniet voluptate? Doloremque ducimus ex aut accusamus quidem nemo tempore eaque pariatur repudiandae facilis, ratione, doloribus magni. Assumenda, fuga rem! Id error eius ducimus molestias modi quasi quia?</p>
         </div>
-        <div class="container bg-primary">
-          <p>Komentar</p>
-          <p>Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai *</p>
+        <div class="container" style="border: 1.5px solid #D1D1D1; padding: 22px 30px; border-radius: 24px;">
+          <p class="titleComment">Komentar</p>
+          <p class="descComment">Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai *</p>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <text class="form-control commentTextArea" id="exampleFormControlTextarea1" rows="3"></text>
           </div>
           <div class="row">
             <div class="col-3">
-              <input type="text" class="form-control text-center" id="exampleFormControlInput1" placeholder="Nama Lengkap">
+              <input type="text" class="form-control text-center nameForm" id="exampleFormControlInput1" placeholder="Nama Lengkap">
             </div>
             <div class="col-3">
-              <input type="email" class="form-control text-center" id="exampleFormControlInput2" placeholder="Alamat Email">
+              <input type="email" class="form-control text-center emailForm" id="exampleFormControlInput2" placeholder="Alamat Email">
             </div>
             <div class="col-3">
-              <input type="text" class="form-control text-center" id="exampleFormControlInput3" placeholder="Web URL">
+              <input type="text" class="form-control text-center webForm" id="exampleFormControlInput3" placeholder="Web URL">
             </div>
           </div>
-          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-          <p>Simpan nama, email, dan situs web saya pada peramban ini untuk komentar saya berikutnya.</p>
-          <button type="button" class="btn btn-danger">KIRIM</button>
+          <div class="row pt-3">
+            <div class="col-1" style="width: fit-content;">
+              <input class="form-check-input mt-0" type="radio" value="">
+            </div>
+            <div class="col-11" style="margin-left: -15px;">
+              <p class="labelCheckBox">Simpan nama, email, dan situs web saya pada peramban ini untuk komentar saya berikutnya.</p>
+            </div>
+          </div>
+          <button type="button" class="btn btnComment">KIRIM</button>
         </div>
-        <div class="container mb-3">
+        <div class="container mt-5 mb-4 pt-3 pb-2" style="border: 1.5px solid #E7E7E7; border-radius: 16px; background-color: #F6F6F6;">
           <div class="row">
-            <div class="col-2 bg-danger">
+            <div class="col-2">
               <div class="container">
-                <img src="../public/img/Image-female.jpg" alt="Image-female">
+                <img width="75" height="75" src="../public/img/image-person-1.png" alt="Image-Person">
               </div>
             </div>
-            <div class="col-8 bg-danger">
-              <p>ATIKA PUTRI</p>
-              <p>30 Menit yang lalu</p>
-              <p>Wahh Sangat  Menarik</p>
+            <div class="col-8">
+              <p class="nameUserComment">MAMAN RACING</p>
+              <p class="timeUserComment">30 Menit yang lalu</p>
+              <p class="contentUserComment">Wahh Sangat  Menarik</p>
+              <div class="row mt-3">
+                <div class="col-2">
+                  <div class="row align-items-center">
+                    <div class="col-1 d-flex align-items-center" >
+                      <img width="15" height="15" src="../public/icon/thumb_up.svg" alt="Like">
+                    </div>
+                    <div class="col-6">
+                      <p class="dataLikes m-0">0</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="row align-items-center">
+                    <div class="col-1 d-flex align-items-center" >
+                      <img width="15" height="15" src="../public/icon/thumb_down.svg" alt="Dislike">
+                    </div>
+                    <div class="col-6">
+                      <p class="dataDislikes m-0">0</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2" style="margin-top: -7px;">
+                  <button type="button" class="btn btn-link" style="text-decoration: none; font-size: 14px; font-weight: 400; color: #888888;">Balas</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container mb-4 pt-3 pb-2" style="border: 1.5px solid #E7E7E7; border-radius: 16px; background-color: #F6F6F6;">
+          <div class="row">
+            <div class="col-2">
+              <div class="container">
+                <img width="75" height="75" src="../public/img/image-person-1.png" alt="Image-Person">
+              </div>
+            </div>
+            <div class="col-8">
+              <p class="nameUserComment">AGUSTI</p>
+              <p class="timeUserComment">30 Menit yang lalu</p>
+              <p class="contentUserComment">Wahh Sangat  Menarik</p>
               <div class="row">
                 <div class="col-2">
-                  <div class="row">
-                    <div class="col-1">
-                      <img style="cursor: pointer;" on-click="" src="../public/icon/thumb_up.png" alt="LIKE">
+                  <div class="row align-items-center">
+                    <div class="col-1 d-flex align-items-center" >
+                      <img width="15" height="15" src="../public/icon/thumb_up.svg" alt="Like">
                     </div>
-                    <div class="col-1">0</div>
+                    <div class="col-6">
+                      <p class="dataLikes m-0">0</p>
+                    </div>
                   </div>
                 </div>
                 <div class="col-2">
-                  <div class="row">
-                    <div class="col-1">
-                      <img style="cursor: pointer;" on-click="" src="../public/icon/thumb_down.png" alt="DISLIKE">
+                  <div class="row align-items-center">
+                    <div class="col-1 d-flex align-items-center" >
+                      <img width="15" height="15" src="../public/icon/thumb_down.svg" alt="Dislike">
                     </div>
-                    <div class="col-1">0</div>
+                    <div class="col-6">
+                      <p class="dataDislikes m-0">0</p>
+                    </div>
                   </div>
                 </div>
-                <div class="col-2">
-                  <div class="row">
-                    <button type="button" class="btn btn-link">Balas</button>
-                  </div>
-                </div>
+                <div class="col-2" style="margin-top: -7px;">
+                  <button type="button" class="btn btn-link" style="text-decoration: none; font-size: 14px; font-weight: 400; color: #888888;">Balas</button>
+                </div>  
               </div>
-            </div>
-            <div class="col-2 bg-danger">
-              <img on-click="" src="../public/icon/icon _options vertical_.png" alt="OPTIONS">
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-2 bg-primary">
-              <div class="container">
-                <img src="../public/img/Image-male.jpg" alt="Image-male">
-              </div>
-            </div>
-            <div class="col-8 bg-primary">
-              <p>AGUSTI</p>
-              <p>30 Menit yang lalu</p>
-              <p>Wahh Sangat  Menarik</p>
-              <div class="row">
-                <div class="col-2">
-                  <div class="row">
-                    <div class="col-1">
-                      <img style="cursor: pointer;" on-click="" src="../public/icon/thumb_up.png" alt="LIKE">
-                    </div>
-                    <div class="col-1">0</div>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <div class="row">
-                    <div class="col-1">
-                      <img style="cursor: pointer;" on-click="" src="../public/icon/thumb_down.png" alt="DISLIKE">
-                    </div>
-                    <div class="col-1">0</div>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <div class="row">
-                    <button type="button" class="btn btn-link">Balas</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-2 bg-primary">
-              <img on-click="" src="../public/icon/icon _options vertical_.png" alt="OPTIONS">
             </div>
           </div>
         </div>
@@ -161,13 +170,102 @@
 </div>
 </template>
 
+<style scoped>
+
+.dateFormat {
+  font-size: 14px;
+  font-weight: 400;
+  color: #888888;
+}
+
+.titleComment {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #4F4F4F;
+}
+
+.descComment {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 9.6px;
+  color: #888888;
+}
+.commentTextArea {
+  border-radius: 12px;
+  border: 1px solid #d1d1d1;
+  background-color: #f6f6f6;
+  height: 140px;
+}
+.nameForm, .emailForm, .webForm {
+  border-radius: 8px;
+  border: 1px solid #d1d1d1;
+  background-color: #f6f6f6;
+  height: 30px;
+  color: #b0b0b0;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.labelCheckBox {
+  font-size: 10px;
+  font-weight: 400;
+  color: #888888;
+}
+
+.btnComment {
+  width: 80px;
+  height: 25px;
+  color: #F6F6F6;
+  font-size: 8px;
+  font-weight: 400;
+  border-radius: 8px;
+  background-color: #8E0D3D;
+}
+
+.nameUserComment {
+  font-size: 14px;
+  font-weight: 600;
+  color: #454545;
+  margin-bottom: 4px;
+}
+.timeUserComment {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888888;
+  margin-bottom: 8px;
+}
+
+.contentUserComment {
+  font-size: 13px;
+  font-weight: 400;
+  color: #3D3D3D;
+  margin-bottom: 8px;
+}
+
+.dataLikes, .dataDislikes {
+  font-size: 14px;
+  font-weight: 400;
+  color: #888888;
+}
+
+.contentArticle {
+  text-align: justify;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #454545;
+}
+
+</style>
+
 <script setup>
 import { categoriesData } from "../utils/data/categories"
 
 useSeoMeta({
-  title: "Tentang Kami",
-  ogTitle: 'Tentang Kami',
-  description: 'Ini adalah deskripsi dari halaman Tentang Kami....',
+  title: "Halaman Detail",
+  ogTitle: 'Halaman Detail',
+  description: 'Ini adalah deskripsi dari halaman Detail....',
 })
 
 
