@@ -7,7 +7,7 @@
                     <p id="address" class="text-white mb-0">Jl. Jatinegara Barat 1 No.5-6, RT.2/RW.4, Bali Mester,</p>
                     <p id="address" class="text-white mb-0">Kecamatan Jatinegara, Kota Jakarta Timur,</p>
                     <p id="address" class="text-white mb-3">Daerah Khusus Ibukota Jakarta 13310</p>
-                    <div id="dummy_map"></div>
+                    <div id="dummy_map" ref="map" class="leaflet-map"></div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-3">Follow us</h5>
@@ -24,12 +24,12 @@
                             <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-danger mt-3">
+                    <a type="button" class="btn btn-danger mt-3" rel=”noreferrer” href="https://www.instagram.com/smartnation.id/">
                         <div class="row align-items-center">
                             <div class="col-1"><img style="width:18px" src="../public/icon-ig.png" alt=""></div>
                             <div id="text-button" class="col-10">Follow on Instagram</div>
                         </div>
-                    </button>
+                    </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h5 class="text-white mb-4">Populer Tags    </h5>
@@ -61,6 +61,30 @@
         </div>
     </footer>
 </template>
+
+<script>
+import 'leaflet/dist/leaflet.css';
+
+export default {
+  data() {
+    return {
+      map: null,
+    };
+  },
+  mounted() {
+    this.initMap();
+  },
+  methods: {
+    initMap() {
+      this.map = L.map('map').setView([51.505, -0.09], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+      }).addTo(this.map);
+    },
+  },
+};
+</script>
+
 
 <style scoped>
 img
@@ -125,9 +149,16 @@ p
     text-align: center;
 }
 
-button
+a
 {
     border-radius: 6px;
     background: var(--primary-600, #D71149);
+}
+
+.leaflet-map {
+    height: 140px;
+    width: 500px; 
+    z-index: 3;
+    border-radius: 10px;
 }
 </style>
