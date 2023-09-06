@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  typescript: { strict: false },
   devtools: { enabled: true },
+  $production: {
+    routeRules: {
+      '/**': { isr: true },
+    },
+  },
   modules: [
     '@nuxtjs/google-fonts',
     '@nuxt/image',
@@ -9,17 +15,22 @@ export default defineNuxtConfig({
     'nuxt-bootstrap-icons',
   ],
 
+  plugins: [
+    {
+      src: '~/plugins/useBootstrap.client.ts',
+      mode: 'client',
+    },
+  ],
+
   app: {
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Selamat datang di smartnation ID',
-      titleTemplate: '%s - smartnation',
-      // titleTemplate: (titleChunk) => {
-      //   return titleChunk ? `${titleChunk} - smartnation ID` : 'Site Title';
-      // },
+      titleTemplate: '%s - Smartnation',
     },
   },
+
+  css: ['~/assets/css/global.css'],
 
   // Configuration modules
   image: {
@@ -31,14 +42,7 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      Roboto: true,
-      'Josefin+Sans': true,
-      Lato: [100, 300],
       Poppins: [300, 400, 500, 600],
-      Raleway: {
-        wght: [100, 400],
-        ital: [100],
-      },
     },
     // options...
   },
