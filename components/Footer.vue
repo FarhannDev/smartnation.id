@@ -15,13 +15,13 @@
                     <p id="address" class="text-white mb-2">Toward Indonesia Smart Nation</p>
                     <div class="row mb-0 mt-0">
                         <div class="col">
-                            <div id="dummy_ig"></div>
+                            <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-1.jpeg" alt=""></div>
                         </div>
                         <div class="col">
-                            <div id="dummy_ig"></div>
+                            <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-2.jpeg" alt=""></div>
                         </div>
                         <div class="col">
-                            <div id="dummy_ig"></div>
+                            <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-danger mt-3">
@@ -63,6 +63,12 @@
 </template>
 
 <style scoped>
+img
+{
+    z-index: 2;
+    border-radius: 8px;
+}
+
 footer
 {
     display: flex;
