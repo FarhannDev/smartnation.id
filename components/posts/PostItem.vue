@@ -1,5 +1,5 @@
 <template>
-  <div class="card post-card__item">
+  <div class="card post-card__item mb-5">
     <NuxtImg :src="sourceMedia" loading="lazy" :quality="50" class="card-img-top border-0"
       style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
     <div class="card-body">

@@ -6,13 +6,13 @@
         <div class="col">
           <PostsPostHeadingTitle title="Postingan Terpopuler" />
           <div class="row justify-content-between g-3 py-3">
-            <div class="col-lg-8">
+            <div class="col-lg-8 col-md-6 col-sm-12">
               <PostsPostFeaturedItem v-for="post in posts.slice(0, 1)" :key="post.id" :title="post.title.rendered"
                 :dateTime="post.date.toString()"
                 :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
 
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="vstack gap-2 px-2" style="height: 578px; overflow: auto; ">
                 <PostsPostItem v-for="post in posts.slice(0, 5)" :key="post.id" :title="post.title.rendered"
                   :dateTime="post.date.toString()"
@@ -22,7 +22,7 @@
           </div>
         </div>
       </article>
-      <article class="row justify-content-start g-2 py-5">
+      <article class="row justify-content-start g-2 py-3">
         <div class="col">
           <div class="d-flex justify-content-between g-2">
             <PostsPostHeadingTitle :title="'Postingan Terbaru'" />
@@ -31,8 +31,10 @@
             </PostsPostLink>
           </div>
           <div class="row justify-content-start g-3 pt-3">
-            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
-              :space-between="10" :navigation="true" :pagination="{
+            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :grabCursor="true"
+              :slides-per-view="1" :space-between="10" :navigation="true" :pagination="{
+                clickable: true,
+                clickable: true,
                 dynamicBullets: true,
               }" :breakpoints="{
   '640': {
@@ -57,8 +59,9 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide v-for="post in posts.slice(0, 12)" :key="post.id">
-                <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
+              <SwiperSlide v-for="post in posts.slice(0, 8)" :key="post.id">
+                <PostsPostItem v-show="post.status === 'publish'" :title="post.title.rendered"
+                  :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
               </SwiperSlide>
 
@@ -67,7 +70,7 @@
           </div>
         </div>
       </article>
-      <article class="row justify-content-start g-2 py-5">
+      <article class="row justify-content-start g-2 py-3">
         <div class="col">
           <div class="d-flex justify-content-between g-2">
             <PostsPostHeadingTitle :title="'Artikel'" />
@@ -78,7 +81,9 @@
           <div class="row justify-content-start g-3 pt-3">
             <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
               :space-between="10" :navigation="true" :pagination="{
+                clickable: true,
                 dynamicBullets: true,
+
               }" :breakpoints="{
   '640': {
     slidesPerView: 1,
@@ -113,7 +118,7 @@
         </div>
       </article>
 
-      <article class="row justify-content-start g-2 py-5">
+      <article class="row justify-content-start g-2 py-3">
         <div class="col">
           <div class="d-flex justify-content-between g-2">
             <PostsPostHeadingTitle :title="'Smart City'" />
@@ -124,6 +129,7 @@
           <div class="row justify-content-start g-3 pt-3">
             <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
               :space-between="10" :navigation="true" :pagination="{
+                clickable: true,
                 dynamicBullets: true,
               }" :breakpoints="{
   '640': {
@@ -159,7 +165,7 @@
         </div>
       </article>
 
-      <article class="row justify-content-start g-2 py-5">
+      <article class="row justify-content-start g-2 py-3">
         <div class="col">
           <div class="d-flex justify-content-between g-2">
             <PostsPostHeadingTitle :title="'Internasional'" />
@@ -170,6 +176,7 @@
           <div class="row justify-content-start g-3 pt-3">
             <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
               :space-between="10" :navigation="true" :pagination="{
+                clickable: true,
                 dynamicBullets: true,
               }" :breakpoints="{
   '640': {
@@ -205,7 +212,7 @@
         </div>
       </article>
 
-      <article class="row justify-content-start g-2 py-5">
+      <article class="row justify-content-start g-2 py-3">
         <div class="col">
           <div class="d-flex justify-content-between g-2">
             <PostsPostHeadingTitle :title="'Nasional'" />
@@ -216,6 +223,7 @@
           <div class="row justify-content-start g-3 pt-3">
             <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
               :space-between="10" :navigation="true" :pagination="{
+                clickable: true,
                 dynamicBullets: true,
               }" :breakpoints="{
   '640': {
@@ -251,7 +259,7 @@
         </div>
       </article>
 
-      <article class="row justify-content-start g-2 py-5">
+      <article class="row justify-content-start g-2 py-3">
         <div class="col">
           <div class="d-flex justify-content-between g-2">
             <PostsPostHeadingTitle :title="'Daerah'" />
@@ -262,6 +270,7 @@
           <div class="row justify-content-start g-3 pt-3">
             <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
               :space-between="10" :navigation="true" :pagination="{
+                clickable: true,
                 dynamicBullets: true,
               }" :breakpoints="{
   '640': {
@@ -317,3 +326,9 @@ const { data: posts, pending, error } = await useFetch<GetPosts[]>('/posts', {
 
 </script>
 
+
+<style>
+.swiper-button-next {
+  border: 1px solid black;
+}
+</style>
