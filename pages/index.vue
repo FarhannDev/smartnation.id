@@ -59,7 +59,7 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide v-for="post in posts.slice(0, 8)" :key="post.id">
+              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 8)" :key="post.id">
                 <PostsPostItem v-show="post.status === 'publish'" :title="post.title.rendered"
                   :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
@@ -107,7 +107,7 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide v-for="post in posts.slice(0, 12)" :key="post.id">
+              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
                 <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
               </SwiperSlide>
@@ -154,7 +154,7 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide v-for="post in posts.slice(0, 12)" :key="post.id">
+              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
                 <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
               </SwiperSlide>
@@ -201,7 +201,7 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide v-for="post in posts.slice(0, 12)" :key="post.id">
+              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
                 <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
               </SwiperSlide>
@@ -248,7 +248,7 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide v-for="post in posts.slice(0, 12)" :key="post.id">
+              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
                 <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
               </SwiperSlide>
@@ -295,7 +295,7 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide v-for="post in posts.slice(0, 12)" :key="post.id">
+              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
                 <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
               </SwiperSlide>
