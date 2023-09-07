@@ -46,18 +46,22 @@
         <img class="img-fluid" src="https://smartnation.id/wp-content/uploads/2022/12/web-3-des-2048x1195.png" alt="image-content">
         <div class="d-flex flex-wrap py-3">
           <div v-show="isLoading" class="text-start text-dark fst-normal fs-6 mb-3">Sedang memuat...</div>
-          
           <button v-for="category in categories" :key="category" type="button"
-          class="btn btn-outline-danger btn-md rounded text-center text-dark me-2 my-1">{{ category }}</button>
+          class="btn me-2 my-1 btnCategory">{{ category }}</button>
         </div>
         <div class="container p-0">
           <p class="contentArticle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates repellendus consequuntur ab aperiam provident ratione qui consectetur sed quas sapiente necessitatibus iste quibusdam recusandae sequi corporis dolore quia earum laudantium, enim culpa aliquam! Ipsa dicta ex hic vero error modi debitis soluta facere repellendus fugit, reprehenderit, itaque provident laborum illo suscipit facilis voluptatum. Laudantium incidunt explicabo impedit voluptates. Libero, explicabo corporis, iste magni porro nesciunt dicta alias officiis soluta dignissimos repudiandae accusantium eveniet voluptate? Doloremque ducimus ex aut accusamus quidem nemo tempore eaque pariatur repudiandae facilis, ratione, doloribus magni. Assumenda, fuga rem! Id error eius ducimus molestias modi quasi quia?</p>
+        </div>
+        <div class="d-flex flex-row-reverse pb-4">
+          <img width="24" height="24" src="../public/icon/Twitter.svg" class="float-end ms-4" alt="TWITTER">
+          <img width="24" height="24" src="../public/icon/Facebook.svg" class="float-end ms-4" alt="FACEBOOK">
+          <img width="24" height="24" src="../public/icon/Instagram.svg" class="float-end ms-4" alt="INSTAGRAM">
         </div>
         <div class="container" style="border: 1.5px solid #D1D1D1; padding: 22px 30px; border-radius: 24px;">
           <p class="titleComment">Komentar</p>
           <p class="descComment">Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai *</p>
           <div class="mb-3">
-            <text class="form-control commentTextArea" id="exampleFormControlTextarea1" rows="3"></text>
+            <textarea class="form-control commentTextArea" id="exampleFormControlTextarea1" rows="7"></textarea>
           </div>
           <div class="row">
             <div class="col-3">
@@ -70,13 +74,11 @@
               <input type="text" class="form-control text-center webForm" id="exampleFormControlInput3" placeholder="Web URL">
             </div>
           </div>
-          <div class="row pt-3">
-            <div class="col-1" style="width: fit-content;">
-              <input class="form-check-input mt-0" type="radio" value="">
-            </div>
-            <div class="col-11" style="margin-left: -15px;">
-              <p class="labelCheckBox">Simpan nama, email, dan situs web saya pada peramban ini untuk komentar saya berikutnya.</p>
-            </div>
+          <div class="form-check pt-3 pb-2">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label labelCheckBox" for="flexRadioDefault1">
+              Simpan nama, email, dan situs web saya pada peramban ini untuk komentar saya berikutnya.
+            </label>
           </div>
           <button type="button" class="btn btnComment">KIRIM</button>
         </div>
@@ -84,10 +86,10 @@
           <div class="row">
             <div class="col-2">
               <div class="container">
-                <img width="75" height="75" src="../public/img/image-person-1.png" alt="Image-Person">
+                <img width="75" height="75" src="../public/img/image-male.png" alt="Image-Person">
               </div>
             </div>
-            <div class="col-8">
+            <div class="col-8" style="margin-left: -35px;">
               <p class="nameUserComment">MAMAN RACING</p>
               <p class="timeUserComment">30 Menit yang lalu</p>
               <p class="contentUserComment">Wahh Sangat  Menarik</p>
@@ -123,11 +125,11 @@
           <div class="row">
             <div class="col-2">
               <div class="container">
-                <img width="75" height="75" src="../public/img/image-person-1.png" alt="Image-Person">
+                <img width="75" height="75" src="../public/img/image-female.png" alt="Image-Person">
               </div>
             </div>
-            <div class="col-8">
-              <p class="nameUserComment">AGUSTI</p>
+            <div class="col-8" style="margin-left: -35px;">
+              <p class="nameUserComment">BANG PIOR</p>
               <p class="timeUserComment">30 Menit yang lalu</p>
               <p class="contentUserComment">Wahh Sangat  Menarik</p>
               <div class="row">
@@ -173,12 +175,14 @@
 <style scoped>
 
 .dateFormat {
+  font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   color: #888888;
 }
 
 .titleComment {
+  font-family: Poppins;
   font-size: 20px;
   font-weight: 400;
   line-height: 19.2px;
@@ -186,37 +190,54 @@
 }
 
 .descComment {
+  font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
   line-height: 9.6px;
   color: #888888;
 }
+
 .commentTextArea {
   border-radius: 12px;
   border: 1px solid #d1d1d1;
   background-color: #f6f6f6;
-  height: 140px;
+  height: 180px;
+  font-family: Poppins;
 }
+
 .nameForm, .emailForm, .webForm {
   border-radius: 8px;
   border: 1px solid #d1d1d1;
   background-color: #f6f6f6;
   height: 30px;
   color: #b0b0b0;
+  font-family: Poppins;
   font-size: 10px;
   font-weight: 400;
 }
 
 .labelCheckBox {
-  font-size: 10px;
+  font-family: Poppins;
+  font-size: 12px;
   font-weight: 400;
   color: #888888;
+}
+
+.btnCategory {
+  color: #6d6d6d;
+  font-family: Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 5px;
+  background-color: #e7e7e7;
 }
 
 .btnComment {
   width: 80px;
   height: 25px;
   color: #F6F6F6;
+  font-family: Poppins;
   font-size: 8px;
   font-weight: 400;
   border-radius: 8px;
@@ -224,12 +245,15 @@
 }
 
 .nameUserComment {
+  font-family: Poppins;
   font-size: 14px;
   font-weight: 600;
   color: #454545;
   margin-bottom: 4px;
 }
+
 .timeUserComment {
+  font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
   color: #888888;
@@ -237,6 +261,7 @@
 }
 
 .contentUserComment {
+  font-family: Poppins;
   font-size: 13px;
   font-weight: 400;
   color: #3D3D3D;
@@ -244,6 +269,7 @@
 }
 
 .dataLikes, .dataDislikes {
+  font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   color: #888888;
@@ -251,6 +277,7 @@
 
 .contentArticle {
   text-align: justify;
+  font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
