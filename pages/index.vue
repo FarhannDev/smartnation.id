@@ -13,7 +13,7 @@
 
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <div class="vstack gap-2 px-2" style="height: 578px; overflow: auto; ">
+              <div class="vstack gap-2 px-2 post-featured-card">
                 <PostsPostItem v-for="post in posts.slice(0, 5)" :key="post.id" :title="post.title.rendered"
                   :dateTime="post.date.toString()"
                   :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
@@ -328,7 +328,28 @@ const { data: posts, pending, error } = await useFetch<GetPosts[]>('/posts', {
 
 
 <style>
-.swiper-button-next {
-  border: 1px solid black;
+.post-featured-card {
+  width: 100%;
+  height: 578px;
+  overflow: auto;
+
+}
+
+.post-featured-card::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+  scroll-behavior: smooth;
+}
+
+.post-featured-card::-webkit-scrollbar-thumb {
+  background-color: #D1D1D1;
+  /* border: 2px solid #555555; */
+  border-radius: 10px;
+}
+
+.post-featured-card::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
 }
 </style>
