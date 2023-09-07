@@ -1,8 +1,8 @@
 <template>
-  <div class="card post-card__item ">
+  <div class="card post-card__item">
     <NuxtImg :src="sourceMedia" loading="lazy" :quality="50" class="card-img-top border-0"
       style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
-    <div class="card-body">
+    <div class="card-body ">
       <div class="vstack gap-2">
 
         <span class="d-inline post-card__item__datetime">
@@ -14,7 +14,7 @@
 
 
         <NuxtLink to="/"
-          class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link">
+          class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
           <div v-html="title" class="post-card__item__title"></div>
         </NuxtLink>
         <div class="hstack gap-2 mx-0 px-0">
@@ -50,6 +50,7 @@ const timeStamp = new Date(props.dateTime).toLocaleDateString('id-ID', {
 
 <style lang="css" scoped>
 .post-card__item {
+  position: relative;
   width: 100%;
   height: auto;
   border: 1px solid #E7E7E7;
@@ -68,7 +69,10 @@ const timeStamp = new Date(props.dateTime).toLocaleDateString('id-ID', {
   color: #5D5D5D;
   margin-bottom: 8px;
   margin-top: 8px;
+  transition: ease-in 300ms;
 }
+
+
 
 .post-card__item__datetime {
   font-family: Poppins;

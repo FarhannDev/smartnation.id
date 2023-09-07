@@ -34,7 +34,6 @@
             <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :grabCursor="true"
               :slides-per-view="1" :space-between="10" :navigation="true" :pagination="{
                 clickable: true,
-                clickable: true,
                 dynamicBullets: true,
               }" :breakpoints="{
   '640': {
@@ -319,7 +318,7 @@ useSeoMeta({
 
 const apiBaseUrl: string = 'https://smartnation.id/wp-json/wp/v2';
 
-const { data: posts, pending, error } = await useFetch<GetPosts[]>('/posts', {
+const { data: posts, pending, error } = await useFetch<Posts[]>('/posts', {
   baseURL: apiBaseUrl,
   lazy: true
 })

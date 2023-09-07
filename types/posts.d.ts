@@ -1,4 +1,4 @@
-type GetPosts = {
+type Posts = {
   id: number;
   date: string | number | boolean | null | undefined | symbol | Date;
   date_gmt: string | number | boolean | null | undefined | symbol | Date;
@@ -37,71 +37,71 @@ type GetPosts = {
   _links: {
     self: [
       {
-        href: 'https://smartnation.id/wp-json/wp/v2/posts/10220';
+        href: string;
       }
     ];
     collection: [
       {
-        href: 'https://smartnation.id/wp-json/wp/v2/posts';
+        href: string;
       }
     ];
     about: [
       {
-        href: 'https://smartnation.id/wp-json/wp/v2/types/post';
+        href: string;
       }
     ];
     author: [
       {
-        embeddable: true;
-        href: 'https://smartnation.id/wp-json/wp/v2/users/6';
+        embeddable: boolean | undefined | null;
+        href: string;
       }
     ];
     replies: [
       {
-        embeddable: true;
-        href: 'https://smartnation.id/wp-json/wp/v2/comments?post=10220';
+        embeddable: boolean | undefined | null;
+        href: string;
       }
     ];
     'version-history': [
       {
-        count: 3;
-        href: 'https://smartnation.id/wp-json/wp/v2/posts/10220/revisions';
+        count: number;
+        href: string;
       }
     ];
     'predecessor-version': [
       {
-        id: 10232;
-        href: 'https://smartnation.id/wp-json/wp/v2/posts/10220/revisions/10232';
+        id: number;
+        href: string;
       }
     ];
     'wp:featuredmedia': [
       {
-        embeddable: true;
-        href: 'https://smartnation.id/wp-json/wp/v2/media/10223';
+        embeddable: boolean | undefined | null;
+        href: string;
       }
     ];
     'wp:attachment': [
       {
-        href: 'https://smartnation.id/wp-json/wp/v2/media?parent=10220';
+        href: string;
       }
     ];
     'wp:term': [
       {
-        taxonomy: 'category';
-        embeddable: true;
-        href: 'https://smartnation.id/wp-json/wp/v2/categories?post=10220';
+        taxonomy: string;
+        embeddable: boolean | undefined | null;
+        href: string;
       },
       {
         taxonomy: 'post_tag';
-        embeddable: true;
-        href: 'https://smartnation.id/wp-json/wp/v2/tags?post=10220';
+        embeddable: boolean | undefined | null;
+        href: string;
       }
     ];
     curies: [
       {
-        name: 'wp';
-        href: 'https://api.w.org/{rel}';
-        templated: true;
+        name: string;
+        href: string;
+        templated: boolean | undefined | null;
       }
     ];
   };
@@ -255,29 +255,110 @@ type Media = {
   _links: {
     self: [
       {
-        href: 'https://smartnation.id/wp-json/wp/v2/media/10223';
+        href: string;
       }
     ];
     collection: [
       {
-        href: 'https://smartnation.id/wp-json/wp/v2/media';
+        href: string;
       }
     ];
     about: [
       {
-        href: 'https://smartnation.id/wp-json/wp/v2/types/attachment';
+        href: string;
       }
     ];
     author: [
       {
-        embeddable: true;
-        href: 'https://smartnation.id/wp-json/wp/v2/users/6';
+        embeddable: boolean | undefined | null;
+        href: string;
       }
     ];
     replies: [
       {
-        embeddable: true;
-        href: 'https://smartnation.id/wp-json/wp/v2/comments?post=10223';
+        embeddable: boolean | undefined | null;
+        href: string;
+      }
+    ];
+  };
+};
+
+type Category = {
+  id: number;
+  count: number;
+  description: string | null;
+  link: string;
+  name: string;
+  slug: string;
+  taxonomy: string;
+  parent: null;
+  meta: any[];
+  _links: {
+    self: [
+      {
+        href: string;
+      }
+    ];
+    collection: [
+      {
+        href: string;
+      }
+    ];
+    about: [
+      {
+        href: string;
+      }
+    ];
+    'wp:post_type': [
+      {
+        href: string;
+      }
+    ];
+    curies: [
+      {
+        name: string;
+        href: string;
+        templated: boolean | undefined | null;
+      }
+    ];
+  };
+};
+
+type Tags = {
+  id: number;
+  count: number;
+  description: string | undefined;
+  link: string;
+  name: string;
+  slug: string;
+  taxonomy: string;
+  meta: any[];
+  _links: {
+    self: [
+      {
+        href: string;
+      }
+    ];
+    collection: [
+      {
+        href: string;
+      }
+    ];
+    about: [
+      {
+        href: string;
+      }
+    ];
+    'wp:post_type': [
+      {
+        href: string;
+      }
+    ];
+    curies: [
+      {
+        name: string;
+        href: string;
+        templated: boolean | undefined | null;
       }
     ];
   };
