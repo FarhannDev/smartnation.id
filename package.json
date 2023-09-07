@@ -15,12 +15,13 @@
     "@nuxtjs/google-fonts": "^3.0.2",
     "@nuxtjs/i18n": "^7.3.1",
     "@nuxtjs/robots": "^3.0.0",
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "leaflet": "^1.9.4",
     "nuxt": "^3.7.0",
     "nuxt-bootstrap-icons": "^1.0.2"
   },
   "dependencies": {
     "axios": "^1.5.0",
-    "bootstrap": "^5.3.1",
-    "leaflet": "^1.9.4"
+    "bootstrap": "^5.3.1"
   }
 }

@@ -9,12 +9,12 @@
                     <p id="address" class="text-white mb-3">Daerah Khusus Ibukota Jakarta 13310</p>
                     <!-- <div id="dummy_map"></div> -->
                     <div id="map">
-                        <l-map :useGlobalLeaflet="false" ref="map" v-model:zoom="zoom" :center="center">
-                            <l-tile-layer :url="url" layer-type="base" name="OpenStreetMap"></l-tile-layer>
-                            <l-marker :lat-lng="markerLatLng" :visible="true">
-                                
-                                <l-popup><a id="marker" href="https://www.google.com/maps/place/Citiasia+Co-Creation+Lab/@-6.2194251,106.8625244,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f3382c07455d:0x8dcc8b271afc13d7!8m2!3d-6.2194304!4d106.8650993!16s%2Fg%2F11tslq0lyh?entry=ttu">Citiasia Co-Creation Lab</a></l-popup>
-                            </l-marker>
+                        <l-map ref="map" v-model:zoom="zoom" :center="[-6.219409062382584, 106.8650349228692]">
+                            <l-tile-layer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            layer-type="base"
+                            name="OpenStreetMap"
+                            ></l-tile-layer>
                         </l-map>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></div>
                         </div>
                     </div>
-                    <a id="ig" type="button" class="btn btn-danger mt-3" rel=”noreferrer” href="https://www.instagram.com/smartnation.id/">
+                    <a type="button" class="btn btn-danger mt-3" rel=”noreferrer” href="https://www.instagram.com/smartnation.id/">
                         <div class="row align-items-center">
                             <div class="col-1"><img style="width:18px" src="../public/icon-ig.png" alt=""></div>
                             <div id="text-button" class="col-10">Follow on Instagram</div>
@@ -71,29 +71,32 @@
     </footer>
 </template>
 
-<script lang="ts">
+<script>
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
-import type L from "leaflet";
+import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 
 export default {
-    components: {
-        LMap,
-        LTileLayer,
-        LMarker,
-        LPopup
-    },
-    data() {
-        return {
-            zoom: 16,
-            url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            attribution:
-            '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-            // zoom: 3,
-            center: [-6.219409062382584, 106.8650349228692],
-            markerLatLng: [-6.219409062382584, 106.8650349228692] as L.LatLngExpression
-        };
-    },
+  components: {
+    LMap,
+    LTileLayer,
+  },
+  data() {
+    return {
+      zoom: 16,
+    };
+  },
+//   mounted() {
+    // this.map = L.map("mapContainer").setView([46.05, 11.05], 5);
+    // L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+    //   attribution:
+    //     '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    // }).addTo(this.map);
+    //use a mix of renderers
+  //   var customPane = this.map.createPane("customPane");
+  //   var canvasRenderer = L.canvas({ pane: "customPane" });
+  //   customPane.style.zIndex = 399; // put just behind the standard overlay pane which is at 400
+//     L.marker([50, 14]).addTo(this.map);
+// }
 };
 </script>
 
@@ -169,7 +172,7 @@ p
     text-align: center;
 }
 
-#ig
+a
 {
     border-radius: 6px;
     background: #D71149;
