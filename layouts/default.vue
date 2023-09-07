@@ -1,6 +1,7 @@
 <template>
+    <!-- <Navbar /> -->
 
-    <Navbar />
-    <slot/>
-    <footer/>
+    <slot />
+
+    <footer />
 </template> 
