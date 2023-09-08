@@ -9,7 +9,7 @@
                     <p id="address" class="text-white mb-3">Daerah Khusus Ibukota Jakarta 13310</p>
                     <!-- <div id="dummy_map"></div> -->
                     <div id="map">
-                        <l-map :useGlobalLeaflet="false" ref="map" v-model:zoom="zoom" :center="center">
+                        <l-map id="map2" :useGlobalLeaflet="false" ref="map" v-model:zoom="zoom" :center="center">
                             <l-tile-layer :url="url" layer-type="base" name="OpenStreetMap"></l-tile-layer>
                             <l-marker :lat-lng="markerLatLng" :visible="true">
                                 
@@ -24,13 +24,13 @@
                     <p id="address" class="text-white mb-2">Toward Indonesia Smart Nation</p>
                     <div class="row mb-0 mt-0">
                         <div class="col">
-                            <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-1.jpeg" alt=""></div>
+                            <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-1.jpeg" alt=""></a></div>
                         </div>
                         <div class="col">
-                            <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-2.jpeg" alt=""></div>
+                            <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-2.jpeg" alt=""></a></div>
                         </div>
                         <div class="col">
-                            <div id="dummy_ig"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></div>
+                            <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></a></div>
                         </div>
                     </div>
                     <a id="ig" type="button" class="btn btn-danger mt-3" rel=”noreferrer” href="https://www.instagram.com/smartnation.id/">
@@ -85,7 +85,7 @@ export default {
     },
     data() {
         return {
-            zoom: 16,
+            zoom: 15,
             url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             attribution:
             '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -139,6 +139,11 @@ footer
     height: 140px;
     width: 500px; 
     z-index: 2;
+    border-radius: 10px;
+}
+
+#map2
+{
     border-radius: 10px;
 }
 
