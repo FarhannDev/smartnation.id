@@ -52,10 +52,10 @@
         <div class="container p-0">
           <p class="contentArticle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates repellendus consequuntur ab aperiam provident ratione qui consectetur sed quas sapiente necessitatibus iste quibusdam recusandae sequi corporis dolore quia earum laudantium, enim culpa aliquam! Ipsa dicta ex hic vero error modi debitis soluta facere repellendus fugit, reprehenderit, itaque provident laborum illo suscipit facilis voluptatum. Laudantium incidunt explicabo impedit voluptates. Libero, explicabo corporis, iste magni porro nesciunt dicta alias officiis soluta dignissimos repudiandae accusantium eveniet voluptate? Doloremque ducimus ex aut accusamus quidem nemo tempore eaque pariatur repudiandae facilis, ratione, doloribus magni. Assumenda, fuga rem! Id error eius ducimus molestias modi quasi quia?</p>
         </div>
-        <div class="d-flex flex-row-reverse pb-4">
-          <img width="24" height="24" src="../public/icon/Twitter.svg" class="float-end ms-4" alt="TWITTER">
-          <img width="24" height="24" src="../public/icon/Facebook.svg" class="float-end ms-4" alt="FACEBOOK">
-          <img width="24" height="24" src="../public/icon/Instagram.svg" class="float-end ms-4" alt="INSTAGRAM">
+        <div class="d-flex flex-row-reverse pb-5">
+          <img width="24" height="24" src="../public/icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
+          <img width="24" height="24" src="../public/icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
+          <img width="24" height="24" src="../public/icon/Instagram.svg" class="float-end ms-3" alt="INSTAGRAM">
         </div>
         <div class="container" style="border: 1.5px solid #D1D1D1; padding: 22px 30px; border-radius: 24px;">
           <p class="titleComment">Komentar</p>
@@ -89,7 +89,7 @@
                 <img width="75" height="75" src="../public/img/image-male.png" alt="Image-Person">
               </div>
             </div>
-            <div class="col-8" style="margin-left: -35px;">
+            <div class="col-8">
               <p class="nameUserComment">MAMAN RACING</p>
               <p class="timeUserComment">30 Menit yang lalu</p>
               <p class="contentUserComment">Wahh Sangat  Menarik</p>
@@ -128,7 +128,7 @@
                 <img width="75" height="75" src="../public/img/image-female.png" alt="Image-Person">
               </div>
             </div>
-            <div class="col-8" style="margin-left: -35px;">
+            <div class="col-8">
               <p class="nameUserComment">BANG PIOR</p>
               <p class="timeUserComment">30 Menit yang lalu</p>
               <p class="contentUserComment">Wahh Sangat  Menarik</p>
