@@ -10,7 +10,7 @@
     
     <div class="row">
       <div class="col-8">
-        <h1 class="text-danger text-capitalize fw-bolder fs-3 pb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, dolores inventore.</h1>
+        <h1 class="text-danger text-capitalize fw-bolder fs-3 pb-2">Makin Keren, iphone 14 Punya Fitur Komunikasi Satelit untuk Keadaan Darurat</h1>
         <div class="row pb-2">
           <div class="col-3">
             <div class="row align-items-center">
@@ -50,9 +50,14 @@
           class="btn me-2 my-1 btnCategory">{{ category }}</button>
         </div>
         <div class="container p-0">
-          <p class="contentArticle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates repellendus consequuntur ab aperiam provident ratione qui consectetur sed quas sapiente necessitatibus iste quibusdam recusandae sequi corporis dolore quia earum laudantium, enim culpa aliquam! Ipsa dicta ex hic vero error modi debitis soluta facere repellendus fugit, reprehenderit, itaque provident laborum illo suscipit facilis voluptatum. Laudantium incidunt explicabo impedit voluptates. Libero, explicabo corporis, iste magni porro nesciunt dicta alias officiis soluta dignissimos repudiandae accusantium eveniet voluptate? Doloremque ducimus ex aut accusamus quidem nemo tempore eaque pariatur repudiandae facilis, ratione, doloribus magni. Assumenda, fuga rem! Id error eius ducimus molestias modi quasi quia?</p>
+          <p class="contentArticle">September 2022 lalu, Apple resmi luncurkan iPhone 14 series. Selain menawarkan fitur-fitur yang tidak ada di tipe lain, iPhone 14 memiliki fitur konektivitas satelit untuk berkomunikasi ketika pengguna dalam kondisi darurat atau saat tidak bisa menjangkau sinyal operator seluler maupun internet.</p>
+          <p class="contentArticle">Cara kerja fitur ini adalah dengan membantu pengguna mengarahkan ponsel ke arah yang akan memberikan sinyal terbaik. Setelah tersambung satelit, pengguna dapat menerima pesan dan membuka pesan yang akan terhubung ke penyedia layanan darurat.</p>
+          <p class="contentArticle">Sayangnya, proses pengiriman tersebut lumayan memakan waktu yang lama karena konektivitas satelit cukup terbatas. Apalagi kalau pengguna ada di bawah dedaunan lebat atau terhalang benda lain, hal itu akan menghambat pesan untuk sampai ke satelit.</p>
+          <p class="contentArticle">Pesan itu akan berisi beberapa pertanyaan seperti “Ada yang terluka?”, serta beberapa opsi jawaban yang bisa pengguna pilih untuk meresponsnya. Pesan tersebut dikompres hingga sepertiga dari pesan normal, sehingga pengirimannya bisa lebih cepat.</p>
+          <p class="contentArticle">Ketika pesan dikirim ke satelit, selanjutnya pesan tersebut akan diteruskan ke pusat tanggap darurat. Bila lembaga tersebut hanya menerima panggilan suara, maka pesan pengguna akan dikirimkan ke pusat respons yang terhubung ke pusat tanggap darurat.</p>
+          <p class="contentArticle">Untuk tahap awal, Apple menyediakan fitur ini untuk pengguna iPhone 14 series di AS dan Kanada, kemudian kedepannya akan dirilis ke pasar lain. Bagaimana menurut Anda?</p>
         </div>
-        <div class="d-flex flex-row-reverse pb-5">
+        <div class="d-flex flex-row-reverse py-2 pb-5">
           <img width="24" height="24" src="../public/icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
           <img width="24" height="24" src="../public/icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
           <img width="24" height="24" src="../public/icon/Instagram.svg" class="float-end ms-3" alt="INSTAGRAM">
