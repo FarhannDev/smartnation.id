@@ -166,10 +166,6 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <div class="col-4">
-        Column
-=======
       <div class="col-4 d-flex justify-content-end">
         <div class="row">
           <div class="col">
@@ -206,7 +202,6 @@
             </a>
           </div>
         </div>
->>>>>>> 5d56931 (+styling left column content)
       </div>
     </div>
     
@@ -328,8 +323,6 @@
   color: #454545;
 }
 
-<<<<<<< HEAD
-=======
 #dummy_ig
 {
   background-color: #F6F6F6;
@@ -389,7 +382,6 @@
   line-height: 120%; /* 18px */
 }
 
->>>>>>> 5d56931 (+styling left column content)
 </style>
 
 <script setup>
