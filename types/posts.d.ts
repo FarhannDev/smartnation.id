@@ -32,8 +32,8 @@ type Posts = {
     cybocfi_hide_featured_image: string | undefined;
     footnotes: string | undefined;
   };
-  categories: number[];
-  tags: number[];
+  categories: Array<number>;
+  tags: Array<number>;
   _links: {
     self: [
       {

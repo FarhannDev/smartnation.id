@@ -1,7 +1,6 @@
 <template>
   <div class="card post-card__item">
-    <NuxtImg :src="sourceMedia" loading="lazy" :quality="50" class="card-img-top border-0"
-      style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
+    <NuxtImg :src="featuredMedia" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
     <div class="card-body ">
       <div class="vstack gap-2">
 
@@ -18,9 +17,8 @@
           <div v-html="title" class="post-card__item__title"></div>
         </NuxtLink>
         <div class="hstack gap-2 mx-0 px-0">
-          <button type="button" class="post-item__btn">Berita</button>
-          <button type="button" class="post-item__btn">Nasional</button>
-          <button type="button" class="post-item__btn">Smart City</button>
+          <NuxtLink v-for="cat in category.slice(0, 3)" :key="cat.id" class="gray-button text-decoration-none" to="/">
+            {{ cat.name }}</NuxtLink>
         </div>
       </div>
     </div>
@@ -29,21 +27,33 @@
 
 <script lang="ts" setup>
 
-const apiBaseUrl: string = 'https://smartnation.id/wp-json/wp/v2';
+import axios from 'axios';
+import { API_BASE_URL } from '~/utils/config/api';
 
 const props = defineProps({
   title: { required: true, type: String },
   dateTime: { type: String },
-  sourceMedia: { type: String },
+  featuredMedia: { type: String },
+  categories: { type: Array<Number> },
+  postId: { type: Number }
 })
 
-const { data: media } = await useAsyncData<Media>(`/media/${props?.sourceMedia}`, () => $fetch(`/media/${props?.sourceMedia}`, {
-  baseURL: apiBaseUrl
-}))
-
-const timeStamp = new Date(props.dateTime).toLocaleDateString('id-ID', {
+const category = ref<Category[]>([])
+const timeStamp: string = new Date(props.dateTime).toLocaleDateString('id-ID', {
   dateStyle: "long",
 })
+
+const fetchCategoryPost = async () => {
+  const response: Response = await fetch(`${API_BASE_URL}/categories?posts=${props.postId}`)
+  const responseData = await response.json()
+  category.value = responseData
+}
+
+onMounted(() => {
+  fetchCategoryPost();
+})
+
+
 
 </script>
 
@@ -97,5 +107,18 @@ const timeStamp = new Date(props.dateTime).toLocaleDateString('id-ID', {
   transition: background-color 03s;
   font-family: poppins;
 
+}
+
+.gray-button {
+  background-color: #E7E7E7;
+  color: #6D6D6D;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 03s;
+  font-family: poppins;
 }
 </style>

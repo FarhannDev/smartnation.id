@@ -7,25 +7,29 @@
           <PostsPostHeadingTitle title="Postingan Terpopuler" />
           <div class="row justify-content-between g-3 py-3">
             <div class="col-lg-8 col-md-6 col-sm-12">
-              <PostsPostFeaturedItem v-for="post in posts.slice(0, 1)" :key="post.id" :title="post.title.rendered"
-                :dateTime="post.date.toString()"
-                :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
+              <PostsPostFeaturedItem v-for="popular in posts.slice(0, 1)" :key="popular.id"
+                :title="popular.title.rendered" :dateTime="popular.date.toString()"
+                :featuredMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'"
+                :categories="popular.categories" :postId="popular.id" />
 
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
               <div class="vstack gap-2 px-2 post-featured-card">
-                <PostsPostItem v-for="post in posts.slice(0, 5)" :key="post.id" :title="post.title.rendered"
-                  :dateTime="post.date.toString()"
-                  :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
+                <PostsPostItem v-for="post in posts.slice(0, 5).filter((obj, index, self) => {
+                  return index === self.findIndex((o) => o.title.rendered === obj.title.rendered)
+                })" :key="post.id" :title="post.title.rendered" :dateTime="post.date.toString()"
+                  :featuredMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'"
+                  :categories="post.categories" :postId="post.id" />
               </div>
             </div>
           </div>
         </div>
       </article>
-      <article class="row justify-content-start g-2 py-3">
+
+      <article v-for="category in categories" :key="category.id" class="row justify-content-start g-2 py-3">
         <div class="col">
           <div class="d-flex justify-content-between g-2">
-            <PostsPostHeadingTitle :title="'Postingan Terbaru'" />
+            <PostsPostHeadingTitle :title="category.name" />
             <PostsPostLink title="Lihat Selengkapnya" links="/">
               <BootstrapIcon name="chevron-right" />
             </PostsPostLink>
@@ -58,249 +62,13 @@
     translate: ['100%', 0, 0],
   },
 }">
-              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 8)" :key="post.id">
+              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
                 <PostsPostItem v-show="post.status === 'publish'" :title="post.title.rendered"
                   :dateTime="post.date.toString()"
-                  :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
+                  :featuredMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'"
+                  :categories="post.categories" :postId="post.id" />
               </SwiperSlide>
-
             </Swiper>
-
-          </div>
-        </div>
-      </article>
-      <article class="row justify-content-start g-2 py-3">
-        <div class="col">
-          <div class="d-flex justify-content-between g-2">
-            <PostsPostHeadingTitle :title="'Artikel'" />
-            <PostsPostLink title="Lihat Selengkapnya" links="/">
-              <BootstrapIcon name="chevron-right" />
-            </PostsPostLink>
-          </div>
-          <div class="row justify-content-start g-3 pt-3">
-            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
-              :space-between="10" :navigation="true" :pagination="{
-                clickable: true,
-                dynamicBullets: true,
-
-              }" :breakpoints="{
-  '640': {
-    slidesPerView: 1,
-    spaceBetween: 20,
-  },
-  '768': {
-    slidesPerView: 2,
-    spaceBetween: 20,
-  },
-  '1024': {
-    slidesPerView: 3,
-    spaceBetween: 20,
-  },
-}" :effect="'creative'" :creative-effect="{
-
-  prev: {
-    shadow: false,
-    translate: ['-20%', 0, -1],
-  },
-  next: {
-    translate: ['100%', 0, 0],
-  },
-}">
-              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
-                <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
-                  :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
-              </SwiperSlide>
-
-            </Swiper>
-
-          </div>
-        </div>
-      </article>
-
-      <article class="row justify-content-start g-2 py-3">
-        <div class="col">
-          <div class="d-flex justify-content-between g-2">
-            <PostsPostHeadingTitle :title="'Smart City'" />
-            <PostsPostLink title="Lihat Selengkapnya" links="/">
-              <BootstrapIcon name="chevron-right" />
-            </PostsPostLink>
-          </div>
-          <div class="row justify-content-start g-3 pt-3">
-            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
-              :space-between="10" :navigation="true" :pagination="{
-                clickable: true,
-                dynamicBullets: true,
-              }" :breakpoints="{
-  '640': {
-    slidesPerView: 1,
-    spaceBetween: 20,
-  },
-  '768': {
-    slidesPerView: 2,
-    spaceBetween: 20,
-  },
-  '1024': {
-    slidesPerView: 3,
-    spaceBetween: 20,
-  },
-}" :effect="'creative'" :creative-effect="{
-
-  prev: {
-    shadow: false,
-    translate: ['-20%', 0, -1],
-  },
-  next: {
-    translate: ['100%', 0, 0],
-  },
-}">
-              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
-                <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
-                  :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
-              </SwiperSlide>
-
-            </Swiper>
-
-          </div>
-        </div>
-      </article>
-
-      <article class="row justify-content-start g-2 py-3">
-        <div class="col">
-          <div class="d-flex justify-content-between g-2">
-            <PostsPostHeadingTitle :title="'Internasional'" />
-            <PostsPostLink title="Lihat Selengkapnya" links="/">
-              <BootstrapIcon name="chevron-right" />
-            </PostsPostLink>
-          </div>
-          <div class="row justify-content-start g-3 pt-3">
-            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
-              :space-between="10" :navigation="true" :pagination="{
-                clickable: true,
-                dynamicBullets: true,
-              }" :breakpoints="{
-  '640': {
-    slidesPerView: 1,
-    spaceBetween: 20,
-  },
-  '768': {
-    slidesPerView: 2,
-    spaceBetween: 20,
-  },
-  '1024': {
-    slidesPerView: 3,
-    spaceBetween: 20,
-  },
-}" :effect="'creative'" :creative-effect="{
-
-  prev: {
-    shadow: false,
-    translate: ['-20%', 0, -1],
-  },
-  next: {
-    translate: ['100%', 0, 0],
-  },
-}">
-              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
-                <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
-                  :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
-              </SwiperSlide>
-
-            </Swiper>
-
-          </div>
-        </div>
-      </article>
-
-      <article class="row justify-content-start g-2 py-3">
-        <div class="col">
-          <div class="d-flex justify-content-between g-2">
-            <PostsPostHeadingTitle :title="'Nasional'" />
-            <PostsPostLink title="Lihat Selengkapnya" links="/">
-              <BootstrapIcon name="chevron-right" />
-            </PostsPostLink>
-          </div>
-          <div class="row justify-content-start g-3 pt-3">
-            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
-              :space-between="10" :navigation="true" :pagination="{
-                clickable: true,
-                dynamicBullets: true,
-              }" :breakpoints="{
-  '640': {
-    slidesPerView: 1,
-    spaceBetween: 20,
-  },
-  '768': {
-    slidesPerView: 2,
-    spaceBetween: 20,
-  },
-  '1024': {
-    slidesPerView: 3,
-    spaceBetween: 20,
-  },
-}" :effect="'creative'" :creative-effect="{
-
-  prev: {
-    shadow: false,
-    translate: ['-20%', 0, -1],
-  },
-  next: {
-    translate: ['100%', 0, 0],
-  },
-}">
-              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
-                <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
-                  :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
-              </SwiperSlide>
-
-            </Swiper>
-
-          </div>
-        </div>
-      </article>
-
-      <article class="row justify-content-start g-2 py-3">
-        <div class="col">
-          <div class="d-flex justify-content-between g-2">
-            <PostsPostHeadingTitle :title="'Daerah'" />
-            <PostsPostLink title="Lihat Selengkapnya" links="/">
-              <BootstrapIcon name="chevron-right" />
-            </PostsPostLink>
-          </div>
-          <div class="row justify-content-start g-3 pt-3">
-            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :slides-per-view="1"
-              :space-between="10" :navigation="true" :pagination="{
-                clickable: true,
-                dynamicBullets: true,
-              }" :breakpoints="{
-  '640': {
-    slidesPerView: 1,
-    spaceBetween: 20,
-  },
-  '768': {
-    slidesPerView: 2,
-    spaceBetween: 20,
-  },
-  '1024': {
-    slidesPerView: 3,
-    spaceBetween: 20,
-  },
-}" :effect="'creative'" :creative-effect="{
-
-  prev: {
-    shadow: false,
-    translate: ['-20%', 0, -1],
-  },
-  next: {
-    translate: ['100%', 0, 0],
-  },
-}">
-              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
-                <PostsPostItem :title="post.title.rendered" :dateTime="post.date.toString()"
-                  :sourceMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'" />
-              </SwiperSlide>
-
-            </Swiper>
-
           </div>
         </div>
       </article>
@@ -309,6 +77,9 @@
 </template>
 
 <script lang="ts" setup>
+import axios from "axios"
+import { API_BASE_URL } from "../utils/config/api"
+
 // Set Meta SEO
 useSeoMeta({
   title: "Beranda",
@@ -316,12 +87,10 @@ useSeoMeta({
   description: 'Selamat datang di smartnation.id',
 })
 
-const apiBaseUrl: string = 'https://smartnation.id/wp-json/wp/v2';
+const category = ref<number>(82)
 
-const { data: posts, pending, error } = await useFetch<Posts[]>('/posts', {
-  baseURL: apiBaseUrl,
-  lazy: true
-})
+const { data: posts } = await useAsyncData<Posts[]>(`/posts?categories=${category.value}`, () => $fetch(`${API_BASE_URL}/posts?categories=${category.value}`))
+const { data: categories } = await useAsyncData<Category[]>(`/categories`, () => $fetch(`${API_BASE_URL}/categories`))
 
 </script>
 

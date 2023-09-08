@@ -1,6 +1,6 @@
 <template>
   <div class="card mb-3 post-card__featured__item position-relative" style="border-radius: 12px; ">
-    <NuxtImg :src="sourceMedia" class="card-img-top border-0" style="border-radius: 9px 9px 0 0;" alt="Lorem ipsum" />
+    <NuxtImg :src="featuredMedia" class="card-img-top border-0" style="border-radius: 9px 9px 0 0;" alt="Lorem ipsum" />
     <div class="card-body">
       <div class="d-flex flex-row">
         <BootstrapIcon name="clock" style="color: #888888;" />
@@ -8,14 +8,13 @@
       </div>
 
       <NuxtLink to="/" :aria-label="title"
-        :class="'link-offset-2 link-underline link-underline-opacity-0 px-0 stretched-link post-heading__title'">{{ title
-        }}
+        :class="'link-offset-2 link-underline link-underline-opacity-0 px-0 stretched-link post-heading__title'">
+        <div v-html="title"></div>
       </NuxtLink>
 
       <div class="d-flex flex-wrap">
-        <NuxtLink class="gray-button text-decoration-none" to="/">Artikel</NuxtLink>
-        <NuxtLink class="gray-button text-decoration-none" to="/">Nasional</NuxtLink>
-        <NuxtLink class="gray-button text-decoration-none" to="/">Smart City</NuxtLink>
+        <NuxtLink v-for="cat in category" :key="cat.id" class="gray-button text-decoration-none" to="/">
+          {{ cat.name }}</NuxtLink>
 
       </div>
     </div>
@@ -24,21 +23,35 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue'
-const apiBaseUrl: string = 'https://smartnation.id/wp-json/wp/v2';
+import { API_BASE_URL } from '~/utils/config/api';
 
 const props = defineProps({
   title: { type: String },
   dateTime: { type: String },
-  sourceMedia: { type: String },
+  featuredMedia: { type: String },
+  categories: { type: Array<Number> },
+  postId: { type: Number }
 })
 
+const category = ref<Category[]>([])
 const timeStamp = new Date(props.dateTime).toLocaleDateString('id-ID', {
   dateStyle: "long",
 })
 
-const { data: media } = await useAsyncData<Media>(`/media/${props?.sourceMedia}`, () => $fetch(`/media/${props.sourceMedia}`, {
-  baseURL: apiBaseUrl
-}))
+
+const fetchCategoryPost = async () => {
+  const response: Response = await fetch(`${API_BASE_URL}/categories?posts=${props.postId}`)
+  const responseData = await response.json()
+
+  category.value = responseData
+}
+
+
+
+onMounted(() => {
+  fetchCategoryPost()
+})
+
 
 </script>
 
