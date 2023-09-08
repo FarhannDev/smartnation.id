@@ -166,8 +166,47 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="col-4">
         Column
+=======
+      <div class="col-4 d-flex justify-content-end">
+        <div class="row">
+          <div class="col">
+            <h5 class="mb-3 titleInstagramContent">Follow us</h5>
+            <h5 class="mb-1 leadInstagramContent">Smartnation.id</h5>
+            <p id="address" class="mb-2 descInstagramContent">Toward Indonesia Smart Nation</p>
+            <div class="row mb-2 mt-0">
+              <div class="col-4">
+                <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-1.jpeg" alt=""></a></div>
+              </div>
+              <div class="col-4">
+                <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-2.jpeg" alt=""></a></div>
+              </div>
+              <div class="col-4">
+                <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></a></div>
+              </div>
+            </div>
+            <div class="row mb-0 mt-0">
+              <div class="col-4">
+                <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-1.jpeg" alt=""></a></div>
+              </div>
+              <div class="col-4">
+                <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-2.jpeg" alt=""></a></div>
+              </div>
+              <div class="col-4">
+                <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></a></div>
+              </div>
+            </div>
+            <a id="ig" type="button" class="btn mt-3" rel=”noreferrer” href="https://www.instagram.com/smartnation.id/">
+              <div class="row align-items-center contentButton">
+                <div class="col-1"><img style="width:18px; color: #FE3565;" src="../public/icon/ig_in_detail.svg" alt=""></div>
+                <div id="text-button" class="col-10">Follow on Instagram</div>
+              </div>
+            </a>
+          </div>
+        </div>
+>>>>>>> 5d56931 (+styling left column content)
       </div>
     </div>
     
@@ -289,6 +328,68 @@
   color: #454545;
 }
 
+<<<<<<< HEAD
+=======
+#dummy_ig
+{
+  background-color: #F6F6F6;
+  height: 80px;
+  width: 80px; 
+  z-index: 1;
+  border-radius: 8px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#text-button
+{
+  font-size: 13px;
+  color: #FFF;
+  text-align: center;
+}
+
+#ig
+{
+  border-radius: 12px;
+  border: 1px solid #D71149;
+}
+#ig .contentButton > div {
+  color: #FE3565;
+  font-family: Poppins;
+  font-size: 9.75px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.titleInstagramContent {
+  color:  #CE2F2F;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 21.6px */
+}
+
+.leadInstagramContent {
+  color: #6D6D6D;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+}
+
+.descInstagramContent {
+  color: #454545;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 18px */
+}
+
+>>>>>>> 5d56931 (+styling left column content)
 </style>
 
 <script setup>
