@@ -2,6 +2,7 @@
     <footer class="w-100 py-4 flex-shrink-0">
         <div class="container py-4">
             <div class="row gy-4 gx-5">
+
                 <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-12 col-sm-12 col-xs-12 col-xxs-12">
                     <h5 class="text-white mb-3">Lokasi</h5>
                     <p id="address" class="text-white mb-0">Jl. Jatinegara Barat 1 No.5-6, RT.2/RW.4, Bali Mester,</p>
@@ -18,6 +19,7 @@
                         </l-map>
                     </div>
                 </div>
+
                 <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 col-xxs-8">
                     <h5 class="text-white mb-3">Follow us</h5>
                     <h5 class="text-white mb-1">Smartnation.id</h5>
@@ -40,6 +42,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h5 class="text-white mb-4">Populer Tags    </h5>
                     <div class="row">

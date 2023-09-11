@@ -1,3 +1,4 @@
+<template>
 
   <section class="articles-section position-relative pt-5 mt-5">
     <div class="container">
