@@ -1,4 +1,4 @@
-<template>
+
   <section class="articles-section position-relative pt-5 mt-5">
     <div class="container">
       <!-- Section Posts Featured -->
@@ -74,7 +74,7 @@
       </article>
     </div>
   </section>
-</template>
+
 
 <script lang="ts" setup>
 import axios from "axios"

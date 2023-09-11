@@ -2,6 +2,6 @@
   <NuxtLayout>
     <!-- PINDAHIN NAVBAR KESINI <Navbar /> -->
     <NuxtLoadingIndicator />
-    <NuxtPage />
+    <!-- <NuxtPage /> -->
   </NuxtLayout>
 </template>
