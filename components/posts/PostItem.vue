@@ -12,7 +12,7 @@
         </span>
 
 
-        <NuxtLink to="/"
+        <NuxtLink :to="`/${postId}`"
           class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
           <div v-html="title" class="post-card__item__title"></div>
         </NuxtLink>

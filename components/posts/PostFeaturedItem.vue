@@ -7,7 +7,7 @@
         <span style="color: #888888;" class="ms-1">{{ timeStamp }}</span>
       </div>
 
-      <NuxtLink to="/" :aria-label="title"
+      <NuxtLink :to="`/${postId}`" :aria-label="title"
         :class="'link-offset-2 link-underline link-underline-opacity-0 px-0 stretched-link post-heading__title'">
         <div v-html="title"></div>
       </NuxtLink>
