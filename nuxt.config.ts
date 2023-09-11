@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/color-mode',
     'nuxt-bootstrap-icons',
+    'nuxt-swiper',
   ],
 
   plugins: [
@@ -42,7 +43,7 @@ export default defineNuxtConfig({
   image: {
     // options
     inject: true,
-    quality: 80,
+    quality: 50,
     format: ['webp'],
   },
 
