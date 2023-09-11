@@ -1,6 +1,5 @@
 <template>
-
     <Navbar />
-    <slot/>
-    <footer/>
+    <Hero />
+    <Halaman />
 </template> 
