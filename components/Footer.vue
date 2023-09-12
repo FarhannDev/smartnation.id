@@ -1,5 +1,5 @@
 <template>
-    <footer class="w-100 py-4 flex-shrink-0">
+    <footer class="w-100 py-4 flex-shrink-0 position-absolute">
         <div class="container py-4">
             <div class="row gy-4 gx-5">
 
