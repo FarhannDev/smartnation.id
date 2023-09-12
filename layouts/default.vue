@@ -2,4 +2,5 @@
     <Navbar />
     <Hero />
     <slot />
+    <Footer />
 </template>
