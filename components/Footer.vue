@@ -19,7 +19,7 @@
                         </l-map>
                     </div>
                 </div>
-
+                
                 <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 col-xxs-8">
                     <h5 class="text-white mb-3">Follow us</h5>
                     <h5 class="text-white mb-1">Smartnation.id</h5>
