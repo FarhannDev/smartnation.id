@@ -311,7 +311,42 @@
       </div>
     </section>
     <!-- Section Post Terkini End -->
-    <!-- Todo:Section Post Event -->
+    <!-- Section Post Event Start -->
+    <section class="position-relative py-5">
+      <div class="container">
+        <h1 class="text-start text-capitalize text-danger fst-medium fs-3 ">Acara
+        </h1>
+
+        <div class="row justify-content-start g-3 pt-3">
+          <div class="col-lg-3">
+            <ActivityPictureCover title="Implementasi Smart Branding..."
+              description="Smart branding merupakan salah satu pilar dari pendekatan smart city..."
+              featuredImage="https://s3-alpha-sig.figma.com/img/8be4/029a/ffe32bf641c9dae627cfbe7dc1724c3a?Expires=1695600000&Signature=ZuMzwBhCA9ahwb~4Xy-3IEFs1nqFy23nCQZNzEt3L6-lcAmdhqBH~ABZ0IOtI3pwiV6Zf5LFc-74ZjI-mzZH6Y~3RiaUmXe-prmlf8jWFsZOQ2TxLoRCArubRN6NxD~QKaAqODc3mv9udZsgDwACPBcnh9rBFUhmi1sYVei3cqoSGF-eN08j1rtuHi9ByXc0I8TJ5s2tW1~TU~I6HOIHlo2jKvZcDk0BGTe0Xu5LOrBsf389Xw0~MEXISbV-o0vefz4wiKBZA1C2ZGySSPSFO1vjU-Ri2kTIgmUKiOyBMQW6A5WCeOSsg9zVTr0IL30uPbttC93JeZ8dhZpGHi3DpA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              alternative="kEGIATAN 1" />
+          </div>
+          <div class="col-lg-3">
+            <ActivityPictureCover title="Siap-siap, di Pertengahan Nov..."
+              description="Indonesia Smart Nation Award (ISNA) 2022 kembali diadakan secara langsung..."
+              featuredImage="https://s3-alpha-sig.figma.com/img/8d76/d5b8/8949094df2533c9e64c0bc55ae352e0d?Expires=1695600000&Signature=SjqnubkJBtUaHH6~nzHOWwSYHR6C9m6qHhvqWq7M1DaYP9vPIbmCMtZSEpWsAp5WaRLdROmTzX2VhrRafGxoLNIGR2aXzmwHiXganyArlFOVrd3tITROpBUNvAlb8yIVx7kKzHiS9PTT~VMXEKrt2nMM0n-kWQFIxK0iklSowZDHuB6MKLyoslzuT26JNX35OKzTXWm6kUb2~Sk~SIu9Jd6Y-cxtfFxShP~ADGiM4U43~iT6Uc5VxxBZstJjT-vOUtcBUULl3lbbPN4Lzujlsh6I5JJmoWOG88n~oAmZheKZPvg40SsV8XX2zVTNuh6CZaBC10dTQkxZ-q57RXgprA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              alternative="kEGIATAN 2" />
+          </div>
+          <div class="col-lg-3">
+            <ActivityPictureCover title="Inovasi Layanan Drive Thru..."
+              description="Pemerintah Kabupaten Batang terpilih sebagai penerima apresiasi..."
+              featuredImage="https://s3-alpha-sig.figma.com/img/fed1/1fb5/3ae4e8a31339533688a483c54e564dfc?Expires=1695600000&Signature=HgW7HhNy50WM6s3E2kEA5P~qYeAThiL0gEqQMI9ZWKt7BzAb6E2GUSDIPVf95ZxuGcxtmIwsbkRoRMkp14DJ9QmIaKksC8Bij8qK-0RNN8VicyibF19B1DJ7SR6CFZNd0kc6Sk2pU15OBi78uj2VwlfM0CCvKOKgSq5UVLczDjbHbe~gDte83nFZGuQCQmxCljYwIVAyog9QX8Sr4TzfcVBaIuCBRH~EepoNhX871T-aHzgoni0rpPF9y5ZaAtUW5UoKqxRLQMyM9D7XO5brWY5v~6c3AHX0QOGCRaoUTLS73Yxk1~fcDnu3DPrCFT8Nln3CQloDGmlWq8PAuUmadQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              alternative="kEGIATAN 3" />
+          </div>
+          <div class="col-lg-3">
+            <ActivityPictureCover title="Inovasi Cek Bantuan Sosial Co..."
+              description="Banyuwangi meraih award kategori Smart Society berupa inovasi penggunaan TIK..."
+              featuredImage="https://s3-alpha-sig.figma.com/img/3947/c926/9ad23ea579c994f82e0367996313af54?Expires=1695600000&Signature=hSS7X4LfSlvpzlijW86XnP~5GRJ~H5IzzJk2J3IMSlNhXByZ2GPzdnLeyHAJqWRILk8jvOQLoJC3KS8khRE2G6oJLW5ZJRHiKTEZ2PrbdWEe0Nps~HAqGuU9co46eBUPNcrAwLXohHnTE2bkkKbl2BNGqwtaEnTqyEyKW1jdPXaWYEwKn6Y5SPZTDnGFoIKrGTPs8F5O9jeM3xtWOcf-z~da7ivwKCshzhA1KDnL5EF4yxt5xnyhNvJWnqqdcLTapt4v6ItUKpU7nyLCPpiU8ADmNvk2IQHRJUgzi570QO3-8WzmIGjhrOS~fZ0luu-ktrWKOam791mbBe2nuETyLQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              alternative="kEGIATAN 4" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- Section Post Event End -->
     <!-- Todo:Section Articles -->
     <!-- Todo:Section Subcription -->
   </main>
@@ -319,6 +354,8 @@
 
 
 <script lang="ts" setup>
+
+import ActivityPictureCover from '~/components/events/ActivityPictureCover.vue';
 
 // Set Meta SEO
 useSeoMeta({
