@@ -16,6 +16,13 @@
   background-position: center;
   filter: brightness(50%);
   overflow: hidden;
+  transition: ease-in 500ms;
+
+}
+
+.figure img:hover {
+  filter: brightness(75%);
+  opacity: 1;
 }
 
 .figure .figure-caption {
@@ -31,6 +38,7 @@
   overflow: hidden;
   color: rgba(255, 255, 255, 0.80);
   text-overflow: ellipsis;
+  text-shadow: 2px 2px 8px #1c1616;
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -43,6 +51,7 @@
   overflow: hidden;
   color: rgba(255, 255, 255, 0.80);
   text-overflow: ellipsis;
+  text-shadow: 2px 2px 8px #1c1616;
   font-family: Poppins;
   font-size: 13px;
   font-style: normal;
