@@ -355,7 +355,7 @@
 
         <div class="row justify-content-start align-items-start g-3 pt-3">
           <div class="col-lg-8">
-            <div class="d-grid gap-3 overflow-auto" style="height: 550px;">
+            <div class="d-grid gap-3 overflow-auto">
               <div class="card border-0 rounded-0">
                 <div class="row justify-content-start align-items-start g-0">
                   <div class="col-lg-6">
@@ -624,7 +624,13 @@
       </div>
     </section>
     <!-- End Section Articles -->
-    <!-- Todo:Section Subcription -->
+    <!-- Section Subcription -->
+    <section class="position-relative py-5 " style="background-color: #FFF0F2;">
+      <div class="container">
+        <Subscribe />
+      </div>
+    </section>
+    <!-- End Section Subcription -->
   </main>
 </template>
 
@@ -632,6 +638,7 @@
 <script lang="ts" setup>
 
 import ActivityPictureCover from '~/components/events/ActivityPictureCover.vue';
+import Subscribe from '~/components/Subscribe/Subscribe.vue';
 
 // Set Meta SEO
 useSeoMeta({
