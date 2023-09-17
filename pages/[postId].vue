@@ -1,76 +1,45 @@
 <template>
-  <div>
-    <div class="container py-5">
-      <h1 class="text-danger text-capitalize">Halaman Detail</h1>
-      <NuxtLink to="/"
-        class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger">
-        Kembali ke halaman Utama
-        <BootstrapIcon name="arrow-right" />
-      </NuxtLink>
+  <section class="position-relative py-5">
+    <div class="container">
+      <div class="row justify-content-start g-3">
+        <div class="col-12 col-lg-7 col-md-12 col-sm-12 ">
+          <div class="d-flex flex-column justify-content-start">
+            <HeadingTitle class="text-capitalize fw-bold fs-3 " :title="post.title" />
 
-      <div class="row">
-        <div class="col-8">
-          <h1 class="text-danger text-capitalize fw-bolder fs-3 pb-2">Makin Keren, iphone 14 Punya Fitur Komunikasi
-            Satelit untuk Keadaan Darurat</h1>
-          <div class="row pb-2">
-            <div class="col-3">
-              <div class="row align-items-center">
-                <div class="col-1 d-flex align-items-center">
-                  <img width="15" height="15" src="../public/icon/date.svg" alt="DATE">
+            <div class="hstack g-2 mb-3">
+              <span class="d-inline me-3">
+                <div class="d-flex">
+                  <BootstrapIcon name="clock" class="me-1 px-0 mx-0" />
+                  <p class="dateFormat m-0 pt-1">{{ post.createdAt }}</p>
                 </div>
-                <div class="col-10">
-                  <p class="dateFormat m-0">26 December 2022</p>
+              </span>
+              <span class="d-inline me-3">
+                <div class="d-flex">
+                  <BootstrapIcon name="chat" class="me-1 px-0 mx-0" />
+                  <p class="dateFormat m-0 pt-1">0 Komentar</p>
                 </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="row align-items-center">
-                <div class="col-1 d-flex align-items-center">
-                  <img width="15" height="15" src="../public/icon/comment.svg" alt="COMMENT">
+              </span>
+              <span class="d-inline me-3">
+                <div class="d-flex">
+                  <BootstrapIcon name="eye" class="me-1 px-0 mx-0" />
+                  <p class="dateFormat m-0 pt-1">0</p>
                 </div>
-                <div class="col-10">
-                  <p class="dateFormat m-0">2 Komentar</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-3" style="margin-left: -30px;">
-              <div class="row align-items-center">
-                <div class="col-1 d-flex align-items-center">
-                  <img width="15" height="15" src="../public/icon/eye.svg" alt="COMMENT">
-                </div>
-                <div class="col-10">
-                  <p class="dateFormat m-0">383</p>
-                </div>
-              </div>
+              </span>
             </div>
           </div>
-          <img class="img-fluid" src="https://smartnation.id/wp-content/uploads/2022/12/web-3-des-2048x1195.png"
-            alt="image-content">
-          <div class="d-flex flex-wrap py-3">
-            <div v-show="isLoading" class="text-start text-dark fst-normal fs-6 mb-3">Sedang memuat...</div>
-            <button v-for="category in categories" :key="category" type="button" class="btn me-2 my-1 btnCategory">{{
-              category }}</button>
+          <div class="d-grid g-2">
+            <NuxtImg class="img-fluid" :src="post.thumbnail" :height="433" :alt="post.title" />
+            <div class="d-flex flex-wrap justify-content-start g-2 py-3">
+              <button v-for="category in post.categories" :key="category" type="button"
+                class="btn me-2 my-1 btnCategory">{{
+                  category }}</button>
+            </div>
+            <div class="contentArticle  mb-3" v-html="post.content"></div>
+            <div class="contentArticle  mb-3" v-html="post.content"></div>
+            <div class="contentArticle  mb-3" v-html="post.content"></div>
+            <div class="contentArticle  mb-3" v-html="post.content"></div>
           </div>
-          <div class="container p-0">
-            <p class="contentArticle">September 2022 lalu, Apple resmi luncurkan iPhone 14 series. Selain menawarkan
-              fitur-fitur yang tidak ada di tipe lain, iPhone 14 memiliki fitur konektivitas satelit untuk berkomunikasi
-              ketika pengguna dalam kondisi darurat atau saat tidak bisa menjangkau sinyal operator seluler maupun
-              internet.</p>
-            <p class="contentArticle">Cara kerja fitur ini adalah dengan membantu pengguna mengarahkan ponsel ke arah yang
-              akan memberikan sinyal terbaik. Setelah tersambung satelit, pengguna dapat menerima pesan dan membuka pesan
-              yang akan terhubung ke penyedia layanan darurat.</p>
-            <p class="contentArticle">Sayangnya, proses pengiriman tersebut lumayan memakan waktu yang lama karena
-              konektivitas satelit cukup terbatas. Apalagi kalau pengguna ada di bawah dedaunan lebat atau terhalang benda
-              lain, hal itu akan menghambat pesan untuk sampai ke satelit.</p>
-            <p class="contentArticle">Pesan itu akan berisi beberapa pertanyaan seperti “Ada yang terluka?”, serta
-              beberapa opsi jawaban yang bisa pengguna pilih untuk meresponsnya. Pesan tersebut dikompres hingga sepertiga
-              dari pesan normal, sehingga pengirimannya bisa lebih cepat.</p>
-            <p class="contentArticle">Ketika pesan dikirim ke satelit, selanjutnya pesan tersebut akan diteruskan ke pusat
-              tanggap darurat. Bila lembaga tersebut hanya menerima panggilan suara, maka pesan pengguna akan dikirimkan
-              ke pusat respons yang terhubung ke pusat tanggap darurat.</p>
-            <p class="contentArticle">Untuk tahap awal, Apple menyediakan fitur ini untuk pengguna iPhone 14 series di AS
-              dan Kanada, kemudian kedepannya akan dirilis ke pasar lain. Bagaimana menurut Anda?</p>
-          </div>
+
           <div class="d-flex flex-row-reverse py-2 pb-5">
             <img width="24" height="24" src="../public/icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
             <img width="24" height="24" src="../public/icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
@@ -187,56 +156,28 @@
             </div>
           </div>
         </div>
-        <div class="col-4 d-flex justify-content-end">
-          <div class="row">
-            <div class="col">
-              <h5 class="mb-3 titleInstagramContent">Follow us</h5>
-              <h5 class="mb-1 leadInstagramContent">Smartnation.id</h5>
-              <p id="address" class="mb-2 descInstagramContent">Toward Indonesia Smart Nation</p>
-              <div class="row mb-2 mt-0">
-                <div class="col-4">
-                  <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px"
-                        src="../public/follow-us-1.jpeg" alt=""></a></div>
-                </div>
-                <div class="col-4">
-                  <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px"
-                        src="../public/follow-us-2.jpeg" alt=""></a></div>
-                </div>
-                <div class="col-4">
-                  <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px"
-                        src="../public/follow-us-3.jpeg" alt=""></a></div>
-                </div>
-              </div>
-              <div class="row mb-0 mt-0">
-                <div class="col-4">
-                  <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px"
-                        src="../public/follow-us-1.jpeg" alt=""></a></div>
-                </div>
-                <div class="col-4">
-                  <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px"
-                        src="../public/follow-us-2.jpeg" alt=""></a></div>
-                </div>
-                <div class="col-4">
-                  <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px"
-                        src="../public/follow-us-3.jpeg" alt=""></a></div>
-                </div>
-              </div>
-              <a id="ig" type="button" class="btn mt-3" rel=”noreferrer” href="https://www.instagram.com/smartnation.id/">
-                <div class="row align-items-center contentButton">
-                  <div class="col-1"><img style="width:18px; color: #FE3565;" src="../public/icon/ig_in_detail.svg"
-                      alt=""></div>
-                  <div id="text-button" class="col-10">Follow on Instagram</div>
-                </div>
-              </a>
+
+        <div class="col-12 col-lg-4 col-sm-12">
+          <div class="d-flex flex-column justify-content-start g-0 px-md-2 mx-md-2">
+            <HeadingTitle class="text-capitalize fw-bold fs-5 " title="Berita Terpopuler" />
+
+            <div class="d-grid g-2 py-3">
+              <PostsPostItem class="mb-3" title="KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan"
+                featured-media="https://s3-alpha-sig.figma.com/img/9ae6/86f3/9be269859e4e6f73c0b49e3193968198?Expires=1695600000&Signature=fHQtM5WByZb3is8Z81LUapNSKrT~QdRAnVD~aasyvXi~pJ2TptOpuy9oCPmQ5sJpU-7bT1fdGVG7NwfTXlbiFFMqwkN5ARiyhEPyJAupTRIaLlke7Vz0FQNi1uu3ZqXYXrNjKQ9ZcFHPlhNQ8QrG9abdqyiVKNOzcOWIGKJDYsPLilgsDb8hsY12PM5-DU9uh9HY1i---MchuGDNm0Odh~RQieefXfibBTWWGVnO7dEh6FpYi57PuO4kr~ukkE5Jz6-rjjn32KR1e5YMQv1mQdvKJHekXXmShMHQ6nhavqdWX54kP7Cc-s2XbizUyoj4jVQ4wu2v0wVOX7jO0cAdYg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
+              <PostsPostItem class="mb-3" title="Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan"
+                featured-media="https://s3-alpha-sig.figma.com/img/7413/1e7a/6c29dbbdf04b8bc24f703ca04d4e6f21?Expires=1695600000&Signature=oE4CW1GwG~I8S6cJ2Ya7pNDv9OR9c~guBtZ~RslWdevOHO1Z9RcSTu~9TmZBp6YbJEPSJ1~k6rZ9CHtl61ZG5u2PkBPnakPVlqZGCuGwJ2rgLg69Pu4dOm5EB0M7ogZtONWvT~qUPwQbbxzuHYNJewxU8~X4bqHts4qB8JpsAyaOh0qJAkre4o5zHHPF-X1AOBj9eCS8llU2A1kGfiYqj97oXJGu261aIT9mYNgXNA5PdcWFNUJRU-0jNUN6H-uRUJ2szBfEUr74TEq7Bayp5X6fs2fTp6WtomuEQ~3acDoaMSL9t7XGHktYBnbWm44iw13tLVA0O9C661pkxbWsWA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
+              <PostsPostItem class="mb-3"
+                title="Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City"
+                featured-media="https://s3-alpha-sig.figma.com/img/47b5/d96b/f1cbaac7d792d44cdb90469223ab7537?Expires=1695600000&Signature=YBDWRItt21Z1s3iu6J9UUISYIfDtkqiHKH~8u0z0-fGKT~y37MslGocSW661VSFVpQ~UPFqxyG9juwwfpz4yLLOsgCa6n70FLwP0yiq2dTPdCX3T9MNhTbz3i3e3heQHnzSuRUpgw7V94b~pchz~nfOYaIb-YwN7-tCi~E4AMS27P2p~Lu9bKXd8e55XWOg4ag9GVBH6qwg2F6cnAjyM1PCGrIbU~hyqrSsBM-~b794pgjFCPuEMlBgcjZfQ2OYjJ17VE-eiDKfzqWJqxzru4h7VJbkh1VToEMhbMIHKI7ojxCFhrxnn9MHxwB6EpoQ58dwy7A44SJ7AfqCtAlXX9w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
+
             </div>
           </div>
+
         </div>
       </div>
 
-      <div class="container text-center">
-      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -416,28 +357,27 @@
 
 <script setup>
 import { categoriesData } from "../utils/data/categories"
+import { posts } from "~/utils/data/getInitialData";
+
+const route = useRoute()
+
+const { postId } = route.params
+
+const post = posts.find((post) => post.slug === postId)
 
 useSeoMeta({
-  title: "Halaman Detail",
-  ogTitle: 'Halaman Detail',
-  description: 'Ini adalah deskripsi dari halaman Detail....',
+  title: post.title,
+  author: 'smartNation',
+  description: post.excerpt,
+  ogTitle: post.title,
+  ogDescription: post.excerpt,
+  ogImage: post.thumbnail,
+  ogImageAlt: post.title,
+  ogImageType: "image/png",
+  ogImageWidth: 100,
+  ogImageHeight: 443,
+  ogImageUrl: 'https://s3-alpha-sig.figma.com'
 })
-
-
-const categories = ref([])
-const isLoading = ref(false)
-
-const getCategoryData = () => {
-  isLoading.value = true
-  setTimeout(() => {
-    isLoading.value = false
-
-    categories.value = categoriesData
-  }, 300);
-}
-
-
-onMounted(() => getCategoryData())
 
 
 </script>
