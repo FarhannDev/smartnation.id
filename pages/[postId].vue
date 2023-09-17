@@ -356,6 +356,16 @@
 </style>
 
 <script setup>
+definePageMeta({
+  layout: 'default',
+  layoutTransition: {
+    name: 'slide-in',
+    mode: 'out-in'
+  },
+  pageTransition: { name: 'fade', mode: 'out-in' }
+
+})
+
 import { categoriesData } from "../utils/data/categories"
 import { posts } from "~/utils/data/getInitialData";
 
@@ -364,6 +374,8 @@ const route = useRoute()
 const { postId } = route.params
 
 const post = posts.find((post) => post.slug === postId)
+
+
 
 useSeoMeta({
   title: post.title,
