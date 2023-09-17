@@ -1,11 +1,10 @@
 <template>
   <main class="position-relative pt-5 content-wrapper">
+
     <!-- Section Latest Post Start -->
     <section class="position-relative py-5">
       <div class="container">
-        <h1 class="text-start text-capitalize text-danger fst-medium fs-3 ">Postingan Terbaru
-        </h1>
-
+        <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
         <div class="row justify-content-arround g-3 py-3">
           <div class="col-lg-4">
             <div class="card border-0 rounded-0 mb-3">
@@ -143,7 +142,8 @@
           </div>
 
           <div class="col-lg-4">
-            <h5 class="text-start text-danger fw-medium ">Terpopuler</h5>
+            <HeadingTitle class="text-start text-capitalize fst-medium fs-4" title="Terpopuler" />
+
 
             <div class="d-flex flex-column pt-4">
               <div class="vstack g-3">
@@ -182,11 +182,11 @@
     <!-- Section Post Terkini Start -->
     <section class="position-relative py-5" style="background-color: #A60B40;">
       <div class="container">
-        <h1 class="text-start text-capitalize text-white fst-medium fs-3">Berita Terkini</h1>
-
+        <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3" title="Berita Terkini" />
         <div class="row justify-content-arround g-3 py-3">
+
           <div class="col-lg-5 me-md-1 ">
-            <div class="card border-0 rounded-0 mb-3" style="background-color: #A60B40;">
+            <div class=" card border-0 rounded-0 mb-3" style="background-color: #A60B40;">
               <NuxtImg :class="'card-img-top img-fluid rounded'"
                 :src="'https://s3-alpha-sig.figma.com/img/50e8/b7e3/d01ef7ce9776c225532c958b75f35f9f?Expires=1695600000&Signature=FN2aG9-Zd~9kgWXDnAvFGL354cK02JqcxUJsLh-reRR-sZJWYwqgGlbSxz8RAZuxwk~eDB0EeRO4Eml7B0if~5CUNsRl6svOS0gyHkWaTQdfkolksSwmSDakmymG4uIRP0~k45JhHQYC2IRb806OjzmqJH4GIfUX27FOHSsMPZCs8rdau5YqS3JgiH2k7FqkQIs50NkFn5bA5bJzfT0vn-w8wVS6R1CvZssKQfM~cX9bDfkf0mqD1vHf9nPkpbpfGAfCm9r2Jk682T4Hm0COQxL9mKCWkE9A57z2bIS1hpNF5UT1NxAyIt~a7gt9ACoFNTIUsS6Rj0hAzHBCrzVpNw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'"
                 :height="253" loading="lazy" :alt="'Cover Alt'" />
@@ -206,7 +206,8 @@
                 </NuxtLink>
 
                 <p class="card-text text-start text-white lh-base pt-2">
-                  Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar yang
+                  Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar
+                  yang
                   terdiri dari E–Office, Dashboard Jabar dan Jabar Skytrek. Launching aplikasi ini diresmikan langsung
                   oleh Sekretaris Daerah Provinsi Jawa Barat...
 
@@ -214,6 +215,7 @@
               </div>
             </div>
           </div>
+
 
           <div class="col-lg-6">
             <div class="row justify-content-start g-2">
@@ -314,45 +316,20 @@
     <!-- Section Post Event Start -->
     <section class="position-relative py-5">
       <div class="container">
-        <h1 class="text-start text-capitalize text-danger fst-medium fs-3 ">Acara
-        </h1>
-
+        <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
         <div class="row justify-content-start g-3 pt-3">
-          <div class="col-lg-3">
-            <ActivityPictureCover title="Implementasi Smart Branding..."
-              description="Smart branding merupakan salah satu pilar dari pendekatan smart city..."
-              featuredImage="https://s3-alpha-sig.figma.com/img/8be4/029a/ffe32bf641c9dae627cfbe7dc1724c3a?Expires=1695600000&Signature=ZuMzwBhCA9ahwb~4Xy-3IEFs1nqFy23nCQZNzEt3L6-lcAmdhqBH~ABZ0IOtI3pwiV6Zf5LFc-74ZjI-mzZH6Y~3RiaUmXe-prmlf8jWFsZOQ2TxLoRCArubRN6NxD~QKaAqODc3mv9udZsgDwACPBcnh9rBFUhmi1sYVei3cqoSGF-eN08j1rtuHi9ByXc0I8TJ5s2tW1~TU~I6HOIHlo2jKvZcDk0BGTe0Xu5LOrBsf389Xw0~MEXISbV-o0vefz4wiKBZA1C2ZGySSPSFO1vjU-Ri2kTIgmUKiOyBMQW6A5WCeOSsg9zVTr0IL30uPbttC93JeZ8dhZpGHi3DpA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              alternative="kEGIATAN 1" />
-          </div>
-          <div class="col-lg-3">
-            <ActivityPictureCover title="Siap-siap, di Pertengahan Nov..."
-              description="Indonesia Smart Nation Award (ISNA) 2022 kembali diadakan secara langsung..."
-              featuredImage="https://s3-alpha-sig.figma.com/img/8d76/d5b8/8949094df2533c9e64c0bc55ae352e0d?Expires=1695600000&Signature=SjqnubkJBtUaHH6~nzHOWwSYHR6C9m6qHhvqWq7M1DaYP9vPIbmCMtZSEpWsAp5WaRLdROmTzX2VhrRafGxoLNIGR2aXzmwHiXganyArlFOVrd3tITROpBUNvAlb8yIVx7kKzHiS9PTT~VMXEKrt2nMM0n-kWQFIxK0iklSowZDHuB6MKLyoslzuT26JNX35OKzTXWm6kUb2~Sk~SIu9Jd6Y-cxtfFxShP~ADGiM4U43~iT6Uc5VxxBZstJjT-vOUtcBUULl3lbbPN4Lzujlsh6I5JJmoWOG88n~oAmZheKZPvg40SsV8XX2zVTNuh6CZaBC10dTQkxZ-q57RXgprA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              alternative="kEGIATAN 2" />
-          </div>
-          <div class="col-lg-3">
-            <ActivityPictureCover title="Inovasi Layanan Drive Thru..."
-              description="Pemerintah Kabupaten Batang terpilih sebagai penerima apresiasi..."
-              featuredImage="https://s3-alpha-sig.figma.com/img/fed1/1fb5/3ae4e8a31339533688a483c54e564dfc?Expires=1695600000&Signature=HgW7HhNy50WM6s3E2kEA5P~qYeAThiL0gEqQMI9ZWKt7BzAb6E2GUSDIPVf95ZxuGcxtmIwsbkRoRMkp14DJ9QmIaKksC8Bij8qK-0RNN8VicyibF19B1DJ7SR6CFZNd0kc6Sk2pU15OBi78uj2VwlfM0CCvKOKgSq5UVLczDjbHbe~gDte83nFZGuQCQmxCljYwIVAyog9QX8Sr4TzfcVBaIuCBRH~EepoNhX871T-aHzgoni0rpPF9y5ZaAtUW5UoKqxRLQMyM9D7XO5brWY5v~6c3AHX0QOGCRaoUTLS73Yxk1~fcDnu3DPrCFT8Nln3CQloDGmlWq8PAuUmadQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              alternative="kEGIATAN 3" />
-          </div>
-          <div class="col-lg-3">
-            <ActivityPictureCover title="Inovasi Cek Bantuan Sosial Co..."
-              description="Banyuwangi meraih award kategori Smart Society berupa inovasi penggunaan TIK..."
-              featuredImage="https://s3-alpha-sig.figma.com/img/3947/c926/9ad23ea579c994f82e0367996313af54?Expires=1695600000&Signature=hSS7X4LfSlvpzlijW86XnP~5GRJ~H5IzzJk2J3IMSlNhXByZ2GPzdnLeyHAJqWRILk8jvOQLoJC3KS8khRE2G6oJLW5ZJRHiKTEZ2PrbdWEe0Nps~HAqGuU9co46eBUPNcrAwLXohHnTE2bkkKbl2BNGqwtaEnTqyEyKW1jdPXaWYEwKn6Y5SPZTDnGFoIKrGTPs8F5O9jeM3xtWOcf-z~da7ivwKCshzhA1KDnL5EF4yxt5xnyhNvJWnqqdcLTapt4v6ItUKpU7nyLCPpiU8ADmNvk2IQHRJUgzi570QO3-8WzmIGjhrOS~fZ0luu-ktrWKOam791mbBe2nuETyLQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              alternative="kEGIATAN 4" />
+          <div v-for="post in  posts.slice(0, 4)" :key="post.id" class="col-lg-3">
+            <ActivityPictureCover :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
+              :alternative="post.title" />
           </div>
         </div>
-
       </div>
     </section>
     <!-- Section Post Event End -->
     <!-- Section Articles -->
     <section class="position-relative py-5">
       <div class="container">
-        <h1 class="text-start text-capitalize text-danger fst-medium fs-3 ">Artikel
-        </h1>
-
+        <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
         <div class="row justify-content-start align-items-start g-3 pt-3">
           <div class="col-lg-8">
             <div class="d-grid gap-3 overflow-auto">
@@ -560,67 +537,19 @@
 
           </div>
 
-
-
           <div class="col-lg-4">
-            <h5 class="text-start text-danger fw-medium ">Seputar Citiasia Inc</h5>
-
+            <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
             <div class="d-flex flex-column pt-4">
               <div class="vstack g-3">
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">01</span>
-                  <p class="text-start">Tingkatkan SDM Daerah Melalui Seminar Smart City 2022</p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">02</span>
-                  <p class="text-start">KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan</p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">03</span>
-                  <p class="text-start">Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan</p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">04</span>
-                  <p class="text-start">Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City
-                  </p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">05</span>
-                  <p class="text-start">Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City
-                  </p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">05</span>
-                  <p class="text-start">Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City
-                  </p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">05</span>
-                  <p class="text-start">Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City
-                  </p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">05</span>
-                  <p class="text-start">Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City
-                  </p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">05</span>
-                  <p class="text-start">Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City
-                  </p>
-                </div>
-                <div class="d-flex justify-content-arround mb-4 ">
-                  <span class="text-danger fs-medium fs-5 me-3 align-middle">05</span>
-                  <p class="text-start">Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City
-                  </p>
+                <div v-for="(post, index) in posts.slice(0, 10)" :key="post.id"
+                  class="d-flex justify-content-arround mb-4 ">
+                  <span class="text-danger fs-medium fs-5 me-3 align-middle">{{ index + 1 }}</span>
+                  <p class="text-start">{{ post.title }}</p>
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
     <!-- End Section Articles -->
@@ -637,8 +566,10 @@
 
 <script lang="ts" setup>
 
+import HeadingTitle from '~/components/HeadingTitle.vue';
 import ActivityPictureCover from '~/components/events/ActivityPictureCover.vue';
 import Subscribe from '~/components/Subscribe/Subscribe.vue';
+import { posts } from '~/utils/data/getInitialData';
 
 // Set Meta SEO
 useSeoMeta({
@@ -646,5 +577,6 @@ useSeoMeta({
   ogTitle: 'Beranda',
   description: 'Selamat datang di smartnation.id',
 })
+
 
 </script>

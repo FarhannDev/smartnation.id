@@ -34,14 +34,28 @@ export default defineNuxtConfig({
 
   // Configuration modules
   image: {
-    // options
     inject: true,
-    quality: 50,
+    quality: 75,
     format: ['webp'],
   },
 
   googleFonts: {
-    families: { Poppins: [300, 400, 500, 600] },
+    display: 'swap', // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+    prefetch: true,
+    preconnect: true,
+    preload: true,
+    useStylesheet: true,
+    families: {
+      Roboto: true,
+      Inter: [400, 700],
+      'Josefin+Sans': true,
+      Lato: [100, 300],
+      Raleway: {
+        wght: [100, 400],
+        ital: [100],
+      },
+      Poppins: [300, 400, 500, 600, 700],
+    },
     // options...
   },
 });

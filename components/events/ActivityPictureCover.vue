@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.figure img {
+.figure .figure-img {
   width: 100%;
   min-width: 282px;
   height: auto;
@@ -20,7 +20,7 @@
 
 }
 
-.figure img:hover {
+.figure .figure-img:hover {
   filter: brightness(75%);
   opacity: 1;
 }
@@ -63,19 +63,25 @@
 
 <template>
   <figure class="figure">
-    <NuxtImg :src="featuredImage" :alt="alternative" :height="156" loading="lazy"
-      :class="'figure-img img-fluid rounded'" />
+    <NuxtLink :to="`/${postId}`" aria-label="Baca Selengkapnya">
+      <NuxtPicture :class="'figure-img img-fluid rounded'" :img-attrs="{ class: 'figure-img img-fluid rounded' }"
+        format="webp" :src="featuredImage" :alt="alternative" :height="156" loading="lazy" />
+      <!-- <NuxtImg :src="featuredImage" :alt="alternative" :height="156" loading="lazy"
+        :class="'figure-img img-fluid rounded'" /> -->
 
-    <figcaption class="figure-caption">
-      <h5 class="event-cover__title">{{ title }}</h5>
-      <p class="event-cover__desc">{{ description }} </p>
-    </figcaption>
+      <figcaption class="figure-caption">
+        <h5 class="event-cover__title">{{ title }}</h5>
+        <p class="event-cover__desc">{{ description }} </p>
+      </figcaption>
+
+    </NuxtLink>
   </figure>
 </template>
 
 <script lang="ts" setup>
 
 const props = defineProps({
+  postId: { type: String },
   alternative: { type: String },
   featuredImage: { type: String },
   title: { type: String },
