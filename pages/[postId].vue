@@ -109,7 +109,7 @@
             <div class="row">
               <div class="col-2">
                 <div class="container">
-                  <img width="75" height="75" src="/img/image-male.png" alt="Image-Person">
+                  <img width="75" height="75" src="/img/Image-male.png" alt="Image-Person">
                 </div>
               </div>
               <div class="col-8">
@@ -150,7 +150,7 @@
             <div class="row">
               <div class="col-2">
                 <div class="container">
-                  <img width="75" height="75" src="/img/image-female.png" alt="Image-Person">
+                  <img width="75" height="75" src="/img/Image-female.png" alt="Image-Person">
                 </div>
               </div>
               <div class="col-8">
