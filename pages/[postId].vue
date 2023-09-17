@@ -357,7 +357,6 @@
 
 <script setup>
 definePageMeta({
-  layout: 'default',
   layoutTransition: {
     name: 'slide-in',
     mode: 'out-in'
@@ -366,7 +365,6 @@ definePageMeta({
 
 })
 
-import { categoriesData } from "../utils/data/categories"
 import { posts } from "~/utils/data/getInitialData";
 
 const route = useRoute()

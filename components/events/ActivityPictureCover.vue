@@ -70,8 +70,13 @@
         :class="'figure-img img-fluid rounded'" /> -->
 
       <figcaption class="figure-caption">
-        <h5 class="event-cover__title">{{ title }}</h5>
-        <p class="event-cover__desc">{{ description }} </p>
+        <h5 class="event-cover__title">{{ title.length >= 25
+          ? `${title.substring(0, 25)}...`
+          : title
+        }}</h5>
+        <p class="event-cover__desc">{{ description.length >= 50
+          ? `${description.substring(0, 50)}...`
+          : description }} </p>
       </figcaption>
 
     </NuxtLink>

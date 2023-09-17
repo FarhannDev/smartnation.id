@@ -319,34 +319,33 @@
         <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
         <div class="row justify-content-start g-3 pt-3">
           <div v-for="post in  posts.slice(0, 4)" :key="post.id" class="col-lg-3">
-            <ActivityPictureCover :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
-              :alternative="post.title" />
+            <ActivityPictureCover :postId="post.slug" :title="post.title" :description="post.excerpt"
+              :featuredImage="post.thumbnail" :alternative="post.title" />
           </div>
         </div>
       </div>
     </section>
     <!-- Section Post Event End -->
     <!-- Section Articles -->
-    <section class="position-relative py-5">
+    <section class="position-relative py-5 article-section">
       <div class="container">
         <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
         <div class="row justify-content-start align-items-start g-3 pt-3">
           <div class="col-lg-8">
-            <div class="d-grid gap-3 overflow-auto">
-              <div class="card border-0 rounded-0">
+            <article class="d-grid gap-2  article-list-item" @scroll="articleScroll">
+              <div v-for="post in posts.slice(0, 5)" :key="post.id" class="card border-0 rounded-0">
                 <div class="row justify-content-start align-items-start g-0">
                   <div class="col-lg-6">
-                    <NuxtImg :class="'card-img-top img-fluid rounded'"
-                      :src="'https://s3-alpha-sig.figma.com/img/7413/1e7a/6c29dbbdf04b8bc24f703ca04d4e6f21?Expires=1695600000&Signature=oE4CW1GwG~I8S6cJ2Ya7pNDv9OR9c~guBtZ~RslWdevOHO1Z9RcSTu~9TmZBp6YbJEPSJ1~k6rZ9CHtl61ZG5u2PkBPnakPVlqZGCuGwJ2rgLg69Pu4dOm5EB0M7ogZtONWvT~qUPwQbbxzuHYNJewxU8~X4bqHts4qB8JpsAyaOh0qJAkre4o5zHHPF-X1AOBj9eCS8llU2A1kGfiYqj97oXJGu261aIT9mYNgXNA5PdcWFNUJRU-0jNUN6H-uRUJ2szBfEUr74TEq7Bayp5X6fs2fTp6WtomuEQ~3acDoaMSL9t7XGHktYBnbWm44iw13tLVA0O9C661pkxbWsWA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'"
-                      :height="253" loading="lazy" :alt="'Cover Alt'" />
+                    <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :height="253" loading="lazy"
+                      :alt="'Cover Alt'" />
                   </div>
 
                   <div class="col-lg-6 " style="margin-top: -22px;">
                     <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-                      <NuxtLink :to="'/'"
+                      <NuxtLink :to="`/${post.slug}`"
                         :aria-label="'Baca Selengkapnya Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas '"
-                        :class="'card-title  text-dark-50 text-start fw-normal fs-5 lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                        Pemprov Jawa Barat Resmi Rilis Empat Aplikasi Besar untuk ASN
+                        :class="'card-title  text-dark-50 text-start fw-medium fs-5 lh-base link-offset-2 link-underline link-underline-opacity-0 '">
+                        {{ post.title }}
                       </NuxtLink>
 
                       <div class="d-flex flex-wrap mb-2">
@@ -355,193 +354,24 @@
                         </span>
                       </div>
 
-                      <p class="card-text text-start text-dark-50 lh-base pt-2">
-                        Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar
-                        yang
-                        terdiri dari E–Office, Dashboard Jabar dan Jabar Skytrek. Launching aplikasi ini diresmikan
-                        langsung
-                        oleh Sekretaris Daerah Provinsi Jawa Barat...
+                      <div class="card-text text-dark fw-normal" v-html="post.excerpt"></div>
 
-                      </p>
-
-                      <div class="hstack">
-                        <span class="badge text-bg-danger rounded-pill me-2">Artikel</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Nasional</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Smart City</span>
+                      <div class="hstack pt-3">
+                        <span v-for="category in post.categories" :key="category"
+                          class="badge text-bg-danger rounded-pill me-2">{{ category }}</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card border-0 rounded-0">
-                <div class="row justify-content-start align-items-start g-0">
-                  <div class="col-lg-6">
-                    <NuxtImg :class="'card-img-top img-fluid rounded'"
-                      :src="'https://s3-alpha-sig.figma.com/img/0587/bbcc/ed2473469afed9b191fbac73e951db16?Expires=1695600000&Signature=TfY4OYSAH0jlw99331339szvbeR8O0yzrgI1zDLRSCfuh~7ZizkVS3zOpuoOzlFVTfV12LA2Uazze9r9x3pnswv0ktYtHpO3cl98dQjPf9fmNnFx70jgSTXoQcssAop4jFM1brnJRHa-esSUAyjD-qG4YqEdLy9R~~k67bqRAtQs5-~1AFuXufrodhuU4OkZ~nTVwYs7x8M5lRUo5WC0h~0pm2f~4tk7~NRM4Hi-p4WmXM8jiPUC0yTCSevp-6XaM-zOcd8ix06XFGwYrjnA1Z1MVJNxXCngGYDEDgC3RPhW9oNUqAt3kMFVFYRB-qG5PXoxd6JuQyvmhKZNQlI78A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'"
-                      :height="253" loading="lazy" :alt="'Cover Alt'" />
-                  </div>
-
-                  <div class="col-lg-6 " style="margin-top: -22px;">
-                    <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-                      <NuxtLink :to="'/'"
-                        :aria-label="'Baca Selengkapnya Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas '"
-                        :class="'card-title  text-dark-50 text-start fw-normal fs-5 lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                        Pemprov Jawa Barat Resmi Rilis Empat Aplikasi Besar untuk ASN
-                      </NuxtLink>
-
-                      <div class="d-flex flex-wrap mb-2">
-                        <span class="text-start text-secondary fst-normal">
-                          <BootstrapIcon name="clock" /> 16 Desember 2022
-                        </span>
-                      </div>
-
-                      <p class="card-text text-start text-dark-50 lh-base pt-2">
-                        Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar
-                        yang
-                        terdiri dari E–Office, Dashboard Jabar dan Jabar Skytrek. Launching aplikasi ini diresmikan
-                        langsung
-                        oleh Sekretaris Daerah Provinsi Jawa Barat...
-
-                      </p>
-
-                      <div class="hstack">
-                        <span class="badge text-bg-danger rounded-pill me-2">Artikel</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Nasional</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Smart City</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card border-0 rounded-0">
-                <div class="row justify-content-start align-items-start g-0">
-                  <div class="col-lg-6">
-                    <NuxtImg :class="'card-img-top img-fluid rounded'"
-                      :src="'https://s3-alpha-sig.figma.com/img/0587/bbcc/ed2473469afed9b191fbac73e951db16?Expires=1695600000&Signature=TfY4OYSAH0jlw99331339szvbeR8O0yzrgI1zDLRSCfuh~7ZizkVS3zOpuoOzlFVTfV12LA2Uazze9r9x3pnswv0ktYtHpO3cl98dQjPf9fmNnFx70jgSTXoQcssAop4jFM1brnJRHa-esSUAyjD-qG4YqEdLy9R~~k67bqRAtQs5-~1AFuXufrodhuU4OkZ~nTVwYs7x8M5lRUo5WC0h~0pm2f~4tk7~NRM4Hi-p4WmXM8jiPUC0yTCSevp-6XaM-zOcd8ix06XFGwYrjnA1Z1MVJNxXCngGYDEDgC3RPhW9oNUqAt3kMFVFYRB-qG5PXoxd6JuQyvmhKZNQlI78A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'"
-                      :height="253" loading="lazy" :alt="'Cover Alt'" />
-                  </div>
-
-                  <div class="col-lg-6 " style="margin-top: -22px;">
-                    <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-                      <NuxtLink :to="'/'"
-                        :aria-label="'Baca Selengkapnya Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas '"
-                        :class="'card-title  text-dark-50 text-start fw-normal fs-5 lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                        Pemprov Jawa Barat Resmi Rilis Empat Aplikasi Besar untuk ASN
-                      </NuxtLink>
-
-                      <div class="d-flex flex-wrap mb-2">
-                        <span class="text-start text-secondary fst-normal">
-                          <BootstrapIcon name="clock" /> 16 Desember 2022
-                        </span>
-                      </div>
-
-                      <p class="card-text text-start text-dark-50 lh-base pt-2">
-                        Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar
-                        yang
-                        terdiri dari E–Office, Dashboard Jabar dan Jabar Skytrek. Launching aplikasi ini diresmikan
-                        langsung
-                        oleh Sekretaris Daerah Provinsi Jawa Barat...
-
-                      </p>
-
-                      <div class="hstack">
-                        <span class="badge text-bg-danger rounded-pill me-2">Artikel</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Nasional</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Smart City</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card border-0 rounded-0">
-                <div class="row justify-content-start align-items-start g-0">
-                  <div class="col-lg-6">
-                    <NuxtImg :class="'card-img-top img-fluid rounded'"
-                      :src="'https://s3-alpha-sig.figma.com/img/0587/bbcc/ed2473469afed9b191fbac73e951db16?Expires=1695600000&Signature=TfY4OYSAH0jlw99331339szvbeR8O0yzrgI1zDLRSCfuh~7ZizkVS3zOpuoOzlFVTfV12LA2Uazze9r9x3pnswv0ktYtHpO3cl98dQjPf9fmNnFx70jgSTXoQcssAop4jFM1brnJRHa-esSUAyjD-qG4YqEdLy9R~~k67bqRAtQs5-~1AFuXufrodhuU4OkZ~nTVwYs7x8M5lRUo5WC0h~0pm2f~4tk7~NRM4Hi-p4WmXM8jiPUC0yTCSevp-6XaM-zOcd8ix06XFGwYrjnA1Z1MVJNxXCngGYDEDgC3RPhW9oNUqAt3kMFVFYRB-qG5PXoxd6JuQyvmhKZNQlI78A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'"
-                      :height="253" loading="lazy" :alt="'Cover Alt'" />
-                  </div>
-
-                  <div class="col-lg-6 " style="margin-top: -22px;">
-                    <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-                      <NuxtLink :to="'/'"
-                        :aria-label="'Baca Selengkapnya Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas '"
-                        :class="'card-title  text-dark-50 text-start fw-normal fs-5 lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                        Pemprov Jawa Barat Resmi Rilis Empat Aplikasi Besar untuk ASN
-                      </NuxtLink>
-
-                      <div class="d-flex flex-wrap mb-2">
-                        <span class="text-start text-secondary fst-normal">
-                          <BootstrapIcon name="clock" /> 16 Desember 2022
-                        </span>
-                      </div>
-
-                      <p class="card-text text-start text-dark-50 lh-base pt-2">
-                        Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar
-                        yang
-                        terdiri dari E–Office, Dashboard Jabar dan Jabar Skytrek. Launching aplikasi ini diresmikan
-                        langsung
-                        oleh Sekretaris Daerah Provinsi Jawa Barat...
-
-                      </p>
-
-                      <div class="hstack">
-                        <span class="badge text-bg-danger rounded-pill me-2">Artikel</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Nasional</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Smart City</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card border-0 rounded-0">
-                <div class="row justify-content-start align-items-start g-0">
-                  <div class="col-lg-6">
-                    <NuxtImg :class="'card-img-top img-fluid rounded'"
-                      :src="'https://s3-alpha-sig.figma.com/img/0587/bbcc/ed2473469afed9b191fbac73e951db16?Expires=1695600000&Signature=TfY4OYSAH0jlw99331339szvbeR8O0yzrgI1zDLRSCfuh~7ZizkVS3zOpuoOzlFVTfV12LA2Uazze9r9x3pnswv0ktYtHpO3cl98dQjPf9fmNnFx70jgSTXoQcssAop4jFM1brnJRHa-esSUAyjD-qG4YqEdLy9R~~k67bqRAtQs5-~1AFuXufrodhuU4OkZ~nTVwYs7x8M5lRUo5WC0h~0pm2f~4tk7~NRM4Hi-p4WmXM8jiPUC0yTCSevp-6XaM-zOcd8ix06XFGwYrjnA1Z1MVJNxXCngGYDEDgC3RPhW9oNUqAt3kMFVFYRB-qG5PXoxd6JuQyvmhKZNQlI78A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'"
-                      :height="253" loading="lazy" :alt="'Cover Alt'" />
-                  </div>
-
-                  <div class="col-lg-6 " style="margin-top: -22px;">
-                    <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-                      <NuxtLink :to="'/'"
-                        :aria-label="'Baca Selengkapnya Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas '"
-                        :class="'card-title  text-dark-50 text-start fw-normal fs-5 lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                        Pemprov Jawa Barat Resmi Rilis Empat Aplikasi Besar untuk ASN
-                      </NuxtLink>
-
-                      <div class="d-flex flex-wrap mb-2">
-                        <span class="text-start text-secondary fst-normal">
-                          <BootstrapIcon name="clock" /> 16 Desember 2022
-                        </span>
-                      </div>
-
-                      <p class="card-text text-start text-dark-50 lh-base pt-2">
-                        Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar
-                        yang
-                        terdiri dari E–Office, Dashboard Jabar dan Jabar Skytrek. Launching aplikasi ini diresmikan
-                        langsung
-                        oleh Sekretaris Daerah Provinsi Jawa Barat...
-
-                      </p>
-
-                      <div class="hstack">
-                        <span class="badge text-bg-danger rounded-pill me-2">Artikel</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Nasional</span>
-                        <span class="badge text-bg-danger rounded-pill me-2">Smart City</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            </article>
           </div>
 
           <div class="col-lg-4">
             <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
             <div class="d-flex flex-column pt-4">
               <div class="vstack g-3">
-                <div v-for="(post, index) in posts.slice(0, 10)" :key="post.id"
+                <div v-for="(post, index) in posts.slice(0, 5)" :key="post.id"
                   class="d-flex justify-content-arround mb-4 ">
                   <span class="text-danger fs-medium fs-5 me-3 align-middle">{{ index + 1 }}</span>
                   <p class="text-start">{{ post.title }}</p>
@@ -564,12 +394,40 @@
 </template>
 
 
+<style scoped>
+.article-list-item {
+  width: 100%;
+  height: 510px;
+  overflow-y: scroll;
+}
+
+.article-list-item::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+  scroll-behavior: smooth;
+  display: none;
+}
+
+.article-list-item::-webkit-scrollbar-thumb {
+  display: none;
+  background-color: #D1D1D1;
+  /* border: 2px solid #555555; */
+  border-radius: 10px;
+}
+
+.article-list-item::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+</style>
+
 <script lang="ts" setup>
 
 import HeadingTitle from '~/components/HeadingTitle.vue';
 import ActivityPictureCover from '~/components/events/ActivityPictureCover.vue';
 import Subscribe from '~/components/Subscribe/Subscribe.vue';
-import { posts } from '~/utils/data/getInitialData';
+import { Posts, posts } from '~/utils/data/getInitialData';
 
 // Set Meta SEO
 useSeoMeta({
@@ -578,5 +436,13 @@ useSeoMeta({
   description: 'Selamat datang di smartnation.id',
 })
 
+
+const articleScroll = () => {
+  const articleItem = document.querySelector('.article-list-item')
+
+  articleItem.classList.add('article-list-item::-webkit-scrollbar')
+  articleItem.classList.add('article-list-item::-webkit-scrollbar-thumb')
+  articleItem.classList.add('article-list-item::-webkit-scrollbar-track')
+}
 
 </script>
