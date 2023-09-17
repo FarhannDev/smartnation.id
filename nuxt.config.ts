@@ -11,8 +11,8 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@nuxtjs/robots',
-    '@nuxtjs/color-mode',
     'nuxt-bootstrap-icons',
+    'nuxt-swiper',
   ],
 
   plugins: [
@@ -36,25 +36,12 @@ export default defineNuxtConfig({
   image: {
     // options
     inject: true,
-    quality: 80,
+    quality: 50,
     format: ['webp'],
   },
 
   googleFonts: {
-    families: {
-      Poppins: [300, 400, 500, 600],
-    },
+    families: { Poppins: [300, 400, 500, 600] },
     // options...
-  },
-
-  colorMode: {
-    preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
-    hid: 'nuxt-color-mode-script',
-    globalName: '__NUXT_COLOR_MODE__',
-    componentName: 'ColorScheme',
-    classPrefix: '',
-    classSuffix: '-mode',
-    storageKey: 'nuxt-color-mode',
   },
 });

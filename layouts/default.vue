@@ -1,4 +1,6 @@
 <template>
-    <slot/>
-    <footer/>
-</template> 
+    <Navbar />
+    <Hero />
+    <slot />
+    <Footer />
+</template>
