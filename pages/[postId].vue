@@ -5,7 +5,6 @@
         <div class="col-12 col-lg-7 col-md-12 col-sm-12 ">
           <div class="d-flex flex-column justify-content-start">
             <HeadingTitle class="text-capitalize fw-bold fs-3 " :title="post.title" />
-
             <div class="hstack g-2 mb-3">
               <span class="d-inline me-3">
                 <div class="d-flex">
@@ -41,9 +40,9 @@
           </div>
 
           <div class="d-flex flex-row-reverse py-2 pb-5">
-            <img width="24" height="24" src="../public/icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
-            <img width="24" height="24" src="../public/icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
-            <img width="24" height="24" src="../public/icon/Instagram.svg" class="float-end ms-3" alt="INSTAGRAM">
+            <img width="24" height="24" src="./icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
+            <img width="24" height="24" src="./icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
+            <img width="24" height="24" src="./icon/Instagram.svg" class="float-end ms-3" alt="INSTAGRAM">
           </div>
           <div class="container" style="border: 1.5px solid #D1D1D1; padding: 22px 30px; border-radius: 24px;">
             <p class="titleComment">Komentar</p>
@@ -78,7 +77,7 @@
             <div class="row">
               <div class="col-2">
                 <div class="container">
-                  <img width="75" height="75" src="../public/img/image-male.png" alt="Image-Person">
+                  <img width="75" height="75" src="./img/image-male.png" alt="Image-Person">
                 </div>
               </div>
               <div class="col-8">
@@ -89,7 +88,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="../public/icon/thumb_up.svg" alt="Like">
+                        <img width="15" height="15" src="./icon/thumb_up.svg" alt="Like">
                       </div>
                       <div class="col-6">
                         <p class="dataLikes m-0">0</p>
@@ -99,7 +98,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="../public/icon/thumb_down.svg" alt="Dislike">
+                        <img width="15" height="15" src="./icon/thumb_down.svg" alt="Dislike">
                       </div>
                       <div class="col-6">
                         <p class="dataDislikes m-0">0</p>
@@ -119,7 +118,7 @@
             <div class="row">
               <div class="col-2">
                 <div class="container">
-                  <img width="75" height="75" src="../public/img/image-female.png" alt="Image-Person">
+                  <img width="75" height="75" src="./img/image-female.png" alt="Image-Person">
                 </div>
               </div>
               <div class="col-8">
@@ -130,7 +129,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="../public/icon/thumb_up.svg" alt="Like">
+                        <img width="15" height="15" src="./icon/thumb_up.svg" alt="Like">
                       </div>
                       <div class="col-6">
                         <p class="dataLikes m-0">0</p>
@@ -140,7 +139,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="../public/icon/thumb_down.svg" alt="Dislike">
+                        <img width="15" height="15" src="./icon/thumb_down.svg" alt="Dislike">
                       </div>
                       <div class="col-6">
                         <p class="dataDislikes m-0">0</p>
