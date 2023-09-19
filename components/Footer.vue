@@ -46,13 +46,13 @@
                     <h5 class="text-white mb-1">Smartnation.id</h5>
                     <p id="address" class="text-white mb-2">Toward Indonesia Smart Nation</p>
                     <div class="row mb-0 mt-0">
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.tiktok.com/@smartnation.id/"><img style="width:80px" src="../public/follow-ig-1.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.tiktok.com/@smartnation.id/"><img style="width:80px" src="../public/follow-ig-2.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.tiktok.com/@smartnation.id/"><img style="width:80px" src="../public/follow-ig-3.jpeg" alt=""></a></div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@ footer
 #map
 {
     height: 140px;
-    width: 500px; 
+    width: 100%; 
     z-index: 2;
     border-radius: 10px;
 }
@@ -183,7 +183,7 @@ p
 
 .leaflet-map {
     height: 140px;
-    width: 500px; 
+    width: 100%; 
     z-index: 3;
     border-radius: 10px;
 }
