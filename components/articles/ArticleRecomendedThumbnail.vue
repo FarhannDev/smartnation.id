@@ -1,18 +1,14 @@
-
-
 <template>
   <li class="list-group-item mx-md-2 px-md-2 mx-0 px-0 ">
     <div class="vstack g-2">
       <div class="d-flex justify-content-between">
-        <div>
-          <span class="article-info-timestamps ">
-            <BootstrapIcon name="clock" /> {{ useTimestamps(timestamp) }}
-          </span>
+
+        <div class="d-flex justify-content-arround ">
+          <span class="article-number me-3 align-middle">{{ number + 1 }}</span>
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title link-offset-2   d-block link-underline-opacity-0 '">
             {{ title }}
           </NuxtLink>
-          <ArticlesArticleButton :categories="categories" />
         </div>
 
         <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
@@ -52,10 +48,20 @@
 .article-thumbnail {
   background-size: cover;
   background-repeat: no-repeat;
-  width: 86px;
-  height: 86px;
+  width: 81px;
+  height: 54px;
   opacity: 1;
   border-radius: 4px;
+}
+
+.article-number {
+  color: #D71149;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  /* 24px */
 }
 </style>
 
@@ -68,9 +74,10 @@ import { Posts } from "~/utils/data/getInitialData"
 
 const props = defineProps({
   postId: { type: String },
+  number: { type: Number },
   title: { type: String },
   featuredImage: { type: String },
-  categories: { type: Array<String> },
+  categories: { type: Object as PropType<Posts[]> },
   timestamp: { type: String }
 })
 

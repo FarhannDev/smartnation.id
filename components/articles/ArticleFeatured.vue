@@ -1,5 +1,4 @@
 
-import { ArticlesArticleButton } from '#build/components';
 <template>
   <div class="card border-0 rounded-0 mb-3">
 
@@ -90,7 +89,7 @@ const props = defineProps({
   title: { type: String },
   excerpt: { type: String },
   featuredImage: { type: String },
-  categories: { type: Object as PropType<Posts[]> },
+  categories: { type: Array<String> },
   timestamp: { type: String }
 })
 
