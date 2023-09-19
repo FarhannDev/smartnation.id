@@ -39,11 +39,11 @@
             <div class="contentArticle  mb-3" v-html="post.content"></div>
           </div>
 
-          <!-- <div class="d-flex flex-row-reverse py-2 pb-5">
-            <img width="24" height="24" src="./icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
-            <img width="24" height="24" src="./icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
-            <img width="24" height="24" src="./icon/Instagram.svg" class="float-end ms-3" alt="INSTAGRAM">
-          </div> -->
+          <div class="d-flex flex-row-reverse py-2 pb-5">
+            <img width="24" height="24" src="/icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
+            <img width="24" height="24" src="/icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
+            <img width="24" height="24" src="/icon/Instagram.svg" class="float-end ms-3" alt="INSTAGRAM">
+          </div>
           <div class="container" style="border: 1.5px solid #D1D1D1; padding: 22px 30px; border-radius: 24px;">
             <p class="titleComment">Komentar</p>
             <p class="descComment">Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai *</p>
@@ -77,7 +77,7 @@
             <div class="row">
               <div class="col-2">
                 <div class="container">
-                  <img width="75" height="75" src="./img/image-male.png" alt="Image-Person">
+                  <img width="75" height="75" src="/img/image-male.png" alt="Image-Person">
                 </div>
               </div>
               <div class="col-8">
@@ -88,7 +88,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="./icon/thumb_up.svg" alt="Like">
+                        <img width="15" height="15" src="/icon/thumb_up.svg" alt="Like">
                       </div>
                       <div class="col-6">
                         <p class="dataLikes m-0">0</p>
@@ -98,7 +98,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="./icon/thumb_down.svg" alt="Dislike">
+                        <img width="15" height="15" src="/icon/thumb_down.svg" alt="Dislike">
                       </div>
                       <div class="col-6">
                         <p class="dataDislikes m-0">0</p>
@@ -118,7 +118,7 @@
             <div class="row">
               <div class="col-2">
                 <div class="container">
-                  <img width="75" height="75" src="./img/image-female.png" alt="Image-Person">
+                  <img width="75" height="75" src="/img/image-female.png" alt="Image-Person">
                 </div>
               </div>
               <div class="col-8">
@@ -129,7 +129,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="./icon/thumb_up.svg" alt="Like">
+                        <img width="15" height="15" src="/icon/thumb_up.svg" alt="Like">
                       </div>
                       <div class="col-6">
                         <p class="dataLikes m-0">0</p>
@@ -139,7 +139,7 @@
                   <div class="col-2">
                     <div class="row align-items-center">
                       <div class="col-1 d-flex align-items-center">
-                        <img width="15" height="15" src="./icon/thumb_down.svg" alt="Dislike">
+                        <img width="15" height="15" src="/icon/thumb_down.svg" alt="Dislike">
                       </div>
                       <div class="col-6">
                         <p class="dataDislikes m-0">0</p>
