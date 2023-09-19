@@ -11,8 +11,8 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@nuxtjs/robots',
-    '@nuxtjs/color-mode',
     'nuxt-bootstrap-icons',
+    'nuxt-swiper',
   ],
 
   plugins: [
@@ -27,12 +27,6 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       titleTemplate: '%s - Smartnation',
-      script: [
-        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"},
-        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"},
-        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"},
-        {async:true, src: "https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw-src.js"},
-      ]
     },
   },
 
@@ -40,27 +34,28 @@ export default defineNuxtConfig({
 
   // Configuration modules
   image: {
-    // options
     inject: true,
-    quality: 80,
+    quality: 75,
     format: ['webp'],
   },
 
   googleFonts: {
+    display: 'swap', // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+    prefetch: true,
+    preconnect: true,
+    preload: true,
+    useStylesheet: true,
     families: {
-      Poppins: [300, 400, 500, 600],
+      Roboto: true,
+      Inter: [400, 700],
+      'Josefin+Sans': true,
+      Lato: [100, 300],
+      Raleway: {
+        wght: [100, 400],
+        ital: [100],
+      },
+      Poppins: [300, 400, 500, 600, 700],
     },
     // options...
-  },
-
-  colorMode: {
-    preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
-    hid: 'nuxt-color-mode-script',
-    globalName: '__NUXT_COLOR_MODE__',
-    componentName: 'ColorScheme',
-    classPrefix: '',
-    classSuffix: '-mode',
-    storageKey: 'nuxt-color-mode',
   },
 });

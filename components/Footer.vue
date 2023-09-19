@@ -1,12 +1,12 @@
 <template>
-    <footer class="w-100 py-4 flex-shrink-0">
+    <footer class="w-100 py-4 flex-shrink-0 position-absolute">
         <div class="container py-4">
             <div class="row gy-4 gx-5">
                 <div class="col-xxl-5 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
                     <h5 class="text-white mb-3">Lokasi</h5>
-                    <p id="address" class="text-white mb-0">Jl. Jatinegara Barat 1 No.5-6, RT.2/RW.4, Bali Mester,</p>
-                    <p id="address" class="text-white mb-0">Kecamatan Jatinegara, Kota Jakarta Timur,</p>
-                    <p id="address" class="text-white mb-3">Daerah Khusus Ibukota Jakarta 13310</p>
+                    <p id="address" class="text-white mb-0 col-xxl-9 col-xl-4 col-lg-5 col-md-7 col-sm-9 col-xs-11 col-12">Jl. Jatinegara Barat 1 No.5-6, RT.2/RW.4, Bali Mester, Kecamatan Jatinegara, Kota Jakarta Timur,</p>
+                    <!-- <p id="address" class="text-white mb-0">Kecamatan Jatinegara, Kota Jakarta Timur,</p>-->
+                    <p id="address" class="text-white mb-3 col-9">Daerah Khusus Ibukota Jakarta 13310</p> 
                     <!-- <div id="dummy_map"></div> -->
                     <div id="map">
                         <l-map id="map2" :useGlobalLeaflet="false" ref="map" v-model:zoom="zoom" :center="center">
@@ -24,13 +24,13 @@
                     <h5 class="text-white mb-1">Smartnation.id</h5>
                     <p id="address" class="text-white mb-2">Toward Indonesia Smart Nation</p>
                     <div class="row mb-0 mt-0">
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-1.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-2.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></a></div>
                         </div>
                     </div>
@@ -46,13 +46,13 @@
                     <h5 class="text-white mb-1">Smartnation.id</h5>
                     <p id="address" class="text-white mb-2">Toward Indonesia Smart Nation</p>
                     <div class="row mb-0 mt-0">
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.tiktok.com/@smartnation.id/"><img style="width:80px" src="../public/follow-ig-1.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.tiktok.com/@smartnation.id/"><img style="width:80px" src="../public/follow-ig-2.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.tiktok.com/@smartnation.id/"><img style="width:80px" src="../public/follow-ig-3.jpeg" alt=""></a></div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@ footer
 {
     background-color: #F6F6F6;
     height: 140px;
-    width: 500px; 
+    width: 100%; 
     z-index: 1;
     border-radius: 10px;
 }
@@ -138,7 +138,7 @@ footer
 #map
 {
     height: 140px;
-    width: 500px; 
+    width: 100%; 
     z-index: 2;
     border-radius: 10px;
 }
@@ -183,7 +183,7 @@ p
 
 .leaflet-map {
     height: 140px;
-    width: 500px; 
+    width: 100%; 
     z-index: 3;
     border-radius: 10px;
 }
