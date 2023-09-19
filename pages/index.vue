@@ -3,7 +3,9 @@
 
     <div class="border-0 text-center p-2 position-fixed w-100 z-1" style="background-color: #A60B40;">
       <NuxtLink to="/news" class="link-offset-2 link-underline link-underline-opacity-0 text-white">Lanjutkan Ke
-        Halaman Berita</NuxtLink>
+        Halaman Berita
+        <BootstrapIcon name="arrow-right" />
+      </NuxtLink>
     </div>
 
     <section class="latest-article-section position-relative py-5">
