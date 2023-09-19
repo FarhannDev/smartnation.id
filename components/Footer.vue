@@ -24,13 +24,13 @@
                     <h5 class="text-white mb-1">Smartnation.id</h5>
                     <p id="address" class="text-white mb-2">Toward Indonesia Smart Nation</p>
                     <div class="row mb-0 mt-0">
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-1.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-2.jpeg" alt=""></a></div>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <div id="dummy_ig"><a href="https://www.instagram.com/smartnation.id/"><img style="width:80px" src="../public/follow-us-3.jpeg" alt=""></a></div>
                         </div>
                     </div>
