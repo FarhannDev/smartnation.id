@@ -4,9 +4,9 @@
             <div class="row gy-4 gx-5">
                 <div class="col-xxl-5 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
                     <h5 class="text-white mb-3">Lokasi</h5>
-                    <p id="address" class="text-white mb-0">Jl. Jatinegara Barat 1 No.5-6, RT.2/RW.4, Bali Mester,</p>
-                    <p id="address" class="text-white mb-0">Kecamatan Jatinegara, Kota Jakarta Timur,</p>
-                    <p id="address" class="text-white mb-3">Daerah Khusus Ibukota Jakarta 13310</p>
+                    <p id="address" class="text-white mb-0 col-xxl-9 col-xl-4 col-lg-5 col-md-7 col-sm-9 col-xs-11 col-12">Jl. Jatinegara Barat 1 No.5-6, RT.2/RW.4, Bali Mester, Kecamatan Jatinegara, Kota Jakarta Timur,</p>
+                    <!-- <p id="address" class="text-white mb-0">Kecamatan Jatinegara, Kota Jakarta Timur,</p>-->
+                    <p id="address" class="text-white mb-3 col-9">Daerah Khusus Ibukota Jakarta 13310</p> 
                     <!-- <div id="dummy_map"></div> -->
                     <div id="map">
                         <l-map id="map2" :useGlobalLeaflet="false" ref="map" v-model:zoom="zoom" :center="center">
