@@ -9,7 +9,7 @@
         </NuxtLink>
       </div>
 
-      <div class="col-lg-6 " style="margin-top: -22px;">
+      <div class="col-lg-6">
         <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
@@ -32,6 +32,13 @@
 </template>
 
 <style scoped>
+@media (min-width: 992px) {
+  .card-body {
+    margin-top: -20px;
+  }
+
+}
+
 .article-title {
   color: #5D5D5D;
   font-family: Poppins;
@@ -96,7 +103,7 @@ const props = defineProps({
   title: { type: String },
   excerpt: { type: String },
   featuredImage: { type: String },
-  categories: { type: Object as PropType<Posts[]> },
+  categories: { type: Array<String> },
   timestamp: { type: String }
 })
 
