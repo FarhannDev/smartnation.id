@@ -1,85 +1,283 @@
 <template>
-  <section class="articles-section position-relative pt-5 mt-5">
-    <div class="container">
-      <!-- Section Posts Featured -->
-      <article class="row justify-content-start g-2  py-3">
-        <div class="col">
-          <PostsPostHeadingTitle title="Postingan Terpopuler" />
-          <div class="row justify-content-between g-3 py-3">
-            <div class="col-lg-8 col-md-6 col-sm-12">
-              <PostsPostFeaturedItem v-for="popular in posts.slice(0, 1)" :key="popular.id"
-                :title="popular.title.rendered" :dateTime="popular.date.toString()"
-                :featuredMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'"
-                :categories="popular.categories" :postId="popular.id" />
+  <main class="position-relative pt-5 content-wrapper">
+    <section class="latest-article-section position-relative py-5">
+      <div class="container">
+        <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
+        <div class="row justify-content-arround g-3 py-3">
 
+          <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-lg-6 col-xxl-4 col-md-12">
+            <ArticlesArticleFeatured :postId="post.slug" :title="post.title" :excerpt="post.excerpt"
+              :featuredImage="post.thumbnail" :categories="post.categories" :timestamp="post.createdAt" />
+          </div>
+
+
+          <div class="col-lg-6 col-xxl-4 col-md-6 ">
+            <div class="d-flex flex-column border border-start-0 border-top-0">
+              <ul class="list-group list-group-flush">
+                <ArticlesArticleFeaturedListThumbnail v-for="post in posts.slice(0, 4)" :key="post.id" :postId="post.slug"
+                  :title="post.title" :featuredImage="post.thumbnail" :categories="post.categories"
+                  :timestamp="post.createdAt" />
+              </ul>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <div class="vstack gap-2 px-2 post-featured-card">
-                <PostsPostItem v-for="post in posts.slice(0, 5).filter((obj, index, self) => {
-                  return index === self.findIndex((o) => o.title.rendered === obj.title.rendered)
-                })" :key="post.id" :title="post.title.rendered" :dateTime="post.date.toString()"
-                  :featuredMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'"
-                  :categories="post.categories" :postId="post.id" />
+          </div>
+
+          <div class="col-xxl-4 col-md-6">
+            <HeadingTitle class="text-start text-capitalize fst-medium fs-4" title="Terpopuler" />
+            <div class="d-flex flex-column pt-4">
+              <div class="vstack g-3">
+                <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 5)" :key="post.id" :number="index"
+                  :postId="post.slug" :title="post.title" />
               </div>
             </div>
           </div>
         </div>
-      </article>
+      </div>
+    </section>
+    <section class="latest-newsfeed-section position-relative py-5">
+      <div class="container">
+        <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3" title="Berita Terkini" />
+        <div class="row justify-content-arround gx-3 py-3">
+          <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-xxl-6 col-lg-6">
+            <div class="card border-0 rounded-0 mb-3">
 
-      <article v-for="category in categories" :key="category.id" class="row justify-content-start g-2 py-3">
-        <div class="col">
-          <div class="d-flex justify-content-between g-2">
-            <PostsPostHeadingTitle :title="category.name" />
-            <PostsPostLink title="Lihat Selengkapnya" links="/">
-              <BootstrapIcon name="chevron-right" />
-            </PostsPostLink>
+              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
+                <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="post.thumbnail" :height="253"
+                  loading="lazy" :alt="post.title" />
+              </NuxtLink>
+              <div class="card-body px-0 mx-0">
+
+                <div class="d-flex flex-wrap mb-2">
+                  <span class="article-timestamp">
+                    <BootstrapIcon name="clock" class="article-timestamp-icon " /> {{ useTimestamps(post.createdAt) }}
+                  </span>
+                </div>
+                <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+                  :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
+                  {{ post.title }}
+                </NuxtLink>
+
+                <div class="card-text text-start lh-base article-desc pt-2" v-html="post.excerpt"> </div>
+
+              </div>
+            </div>
           </div>
-          <div class="row justify-content-start g-3 pt-3">
-            <Swiper :modules="[SwiperAutoplay, SwiperScrollbar, SwiperPagination, SwiperNavigation]" :grabCursor="true"
-              :slides-per-view="1" :space-between="10" :navigation="true" :pagination="{
-                clickable: true,
-                dynamicBullets: true,
-              }" :breakpoints="{
-  '640': {
-    slidesPerView: 1,
-    spaceBetween: 20,
-  },
-  '768': {
-    slidesPerView: 2,
-    spaceBetween: 20,
-  },
-  '1024': {
-    slidesPerView: 3,
-    spaceBetween: 20,
-  },
-}" :effect="'creative'" :creative-effect="{
 
-  prev: {
-    shadow: false,
-    translate: ['-20%', 0, -1],
-  },
-  next: {
-    translate: ['100%', 0, 0],
-  },
-}">
-              <SwiperSlide class="mb-5" v-for="post in posts.slice(0, 12)" :key="post.id">
-                <PostsPostItem v-show="post.status === 'publish'" :title="post.title.rendered"
-                  :dateTime="post.date.toString()"
-                  :featuredMedia="'https://smartnation.id/wp-content/uploads/2022/12/Artikel13.jpg'"
-                  :categories="post.categories" :postId="post.id" />
-              </SwiperSlide>
-            </Swiper>
+          <div class="col-xxl-6 col-lg-6">
+            <div class="row justify-content-start gx-3">
+              <div v-for="post in posts.slice(0, 4)" :key="post.id" class="col-xxl-6 col-lg-6 col-md-6">
+                <div class="card border-0 rounded-0 mb-3" style="background-color: #A60B40;">
+                  <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
+                    <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :height="253" loading="lazy"
+                      :alt="post.title" />
+                  </NuxtLink>
+                  <div class="card-body px-0 mx-0">
+
+                    <div class="d-flex flex-wrap mb-2">
+                      <span class="article-timestamp">
+                        <BootstrapIcon name="clock" class="article-timestamp-icon " /> {{ useTimestamps(post.createdAt) }}
+                      </span>
+                    </div>
+                    <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+                      :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
+                      {{ post.title }}
+                    </NuxtLink>
+
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
-      </article>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <section class="position-relative py-5">
+      <div class="container">
+        <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
+        <div class="row justify-content-start g-3 pt-3">
+          <div v-for="post in  posts.slice(0, 4)" :key="post.id" class="col-xxl-3 col-lg-4 col-md-6 ">
+            <ActivityPictureCover :postId="post.slug" :title="post.title" :description="post.excerpt"
+              :featuredImage="post.thumbnail" :alternative="post.title" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="position-relative py-5 article-section">
+      <div class="container">
+        <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
+        <div class="row justify-content-start align-items-start g-3 pt-3">
+          <div class="col-lg-8 ">
+            <article class="d-grid gap-2  article-list-item" @scroll="articleScroll">
+              <ArticlesArticleFeaturedColumn v-for="post in posts.slice(0, 5)" :key="post.id" :postId="post.slug"
+                :title="post.title" :featuredImage="post.thumbnail" :excerpt="post.excerpt" :categories="post.categories"
+                :timestamp="post.createdAt" />
+            </article>
+          </div>
+
+          <div class="col-lg-4 ">
+            <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
+            <div class="d-flex flex-column pt-4">
+              <div class="vstack g-3">
+                <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id" :number="index"
+                  :postId="post.slug" :title="post.title" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row justify-content-arround g-2 py-5">
+          <div class="col-xxl-4 col-lg-6 col-md-6">
+            <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
+              title="Daerah" />
+
+            <div class="line-break mx-md-3"></div>
+            <div class="d-grid pt-3 gap-4">
+              <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.slice(0, 5)" :key="post.id"
+                :number="index" :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
+                :timestamp="post.createdAt" />
+            </div>
+          </div>
+          <div class=" col-xxl-4 col-lg-6 col-md-6">
+            <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
+              title="Nasional" />
+            <div class="line-break mx-md-3"></div>
+            <div class="d-grid pt-3 gap-4">
+              <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.slice(0, 5)" :key="post.id"
+                :number="index" :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
+                :timestamp="post.createdAt" />
+            </div>
+          </div>
+          <div class="col-xxl-4 col-lg-6 col-md-6">
+            <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
+              title="Internasional" />
+
+            <div class="line-break mx-md-3"></div>
+            <div class="d-grid pt-3 gap-4">
+              <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.slice(0, 5)" :key="post.id"
+                :number="index" :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
+                :timestamp="post.createdAt" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="position-relative py-5 " style="background-color: #FFF0F2;">
+      <div class="container">
+        <Subscribe />
+      </div>
+    </section>
+  </main>
 </template>
 
 
+<style scoped>
+.article-list-item {
+  width: 100%;
+  height: 510px;
+  overflow-y: scroll;
+}
+
+.article-list-item::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+  scroll-behavior: smooth;
+  display: none;
+}
+
+.article-list-item::-webkit-scrollbar-thumb {
+  display: none;
+  background-color: #D1D1D1;
+  /* border: 2px solid #555555; */
+  border-radius: 10px;
+}
+
+.article-list-item::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+
+/* 
+  Section Latest Feed Article
+ */
+.latest-newsfeed-section {
+  width: 100%;
+  height: auto;
+  background-color: #A60B40;
+}
+
+.latest-newsfeed-section .card {
+  background-color: #A60B40;
+}
+
+.article-title {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  transition: ease-in 300ms;
+}
+
+/* .article-title:hover {
+  color: #D71149;
+} */
+
+.article-desc {
+  overflow: hidden;
+  color: #fff;
+  text-align: justify;
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  /* 18px */
+}
+
+.article-timestamp-icon {
+  font-size: 12px;
+}
+
+.article-timestamp {
+  color: var(--font-400, #fff);
+
+  /* Font/Caption Reguler */
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 12px */
+}
+
+.article-thumbnail {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 253px;
+  opacity: 1;
+}
+
+
+.line-break {
+  border-bottom: 1px solid var(--danger-600, #CE2F2F);
+}
+</style>
+
 <script lang="ts" setup>
-import axios from "axios"
-import { API_BASE_URL } from "../utils/config/api"
+
+import HeadingTitle from '~/components/HeadingTitle.vue';
+import ActivityPictureCover from '~/components/events/ActivityPictureCover.vue';
+import Subscribe from '~/components/Subscribe/Subscribe.vue';
+import { Posts, posts } from '~/utils/data/getInitialData';
 
 // Set Meta SEO
 useSeoMeta({
@@ -88,37 +286,13 @@ useSeoMeta({
   description: 'Selamat datang di smartnation.id',
 })
 
-const category = ref<number>(82)
 
-const { data: posts } = await useAsyncData<Posts[]>(`/posts?categories=${category.value}`, () => $fetch(`${API_BASE_URL}/posts?categories=${category.value}`))
-const { data: categories } = await useAsyncData<Category[]>(`/categories`, () => $fetch(`${API_BASE_URL}/categories`))
+const articleScroll = () => {
+  const articleItem = document.querySelector('.article-list-item')
+
+  articleItem.classList.add('article-list-item::-webkit-scrollbar')
+  articleItem.classList.add('article-list-item::-webkit-scrollbar-thumb')
+  articleItem.classList.add('article-list-item::-webkit-scrollbar-track')
+}
 
 </script>
-
-
-<style>
-.post-featured-card {
-  width: 100%;
-  height: 578px;
-  overflow: auto;
-
-}
-
-.post-featured-card::-webkit-scrollbar {
-  width: 10px;
-  background-color: #F5F5F5;
-  scroll-behavior: smooth;
-}
-
-.post-featured-card::-webkit-scrollbar-thumb {
-  background-color: #D1D1D1;
-  /* border: 2px solid #555555; */
-  border-radius: 10px;
-}
-
-.post-featured-card::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5;
-  border-radius: 10px;
-}
-</style>
