@@ -39,11 +39,11 @@
             <div class="contentArticle  mb-3" v-html="post.content"></div>
           </div>
 
-          <div class="d-flex flex-row-reverse py-2 pb-5">
+          <!-- <div class="d-flex flex-row-reverse py-2 pb-5">
             <img width="24" height="24" src="./icon/Twitter.svg" class="float-end ms-3" alt="TWITTER">
             <img width="24" height="24" src="./icon/Facebook.svg" class="float-end ms-3" alt="FACEBOOK">
             <img width="24" height="24" src="./icon/Instagram.svg" class="float-end ms-3" alt="INSTAGRAM">
-          </div>
+          </div> -->
           <div class="container" style="border: 1.5px solid #D1D1D1; padding: 22px 30px; border-radius: 24px;">
             <p class="titleComment">Komentar</p>
             <p class="descComment">Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai *</p>
