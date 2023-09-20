@@ -1,16 +1,16 @@
 <template>
-  
   <hero-konstan />
   <section class="berita-section-container position-relative py-5">
     <div class="container">
       <div class="row justify-content-start align-content-start g-3">
-        <div class="col-lg-8">
+        <div class="col-xl-8">
           <article class="article-section position-relative mb-3">
             <h1 class="berita-section-title">Berita Terbaru</h1>
             <div class="line-break"></div>
 
             <div class="row justify-content-arround g-3 py-3">
-              <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-lg-6 col-xxl-6 col-md-12">
+              <div v-for="post in posts.slice(0, 1)" :key="post.id"
+                class="col-lg-6 col-xxl-6 col-md-12 article-list-container">
                 <div class="card border-0 rounded-0 mb-3">
 
                   <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
@@ -21,14 +21,17 @@
 
                     <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                       :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                      {{ post.title }}
+                      {{ post.title.length >= 80
+                        ? `${post.title.substring(0, 80)}...`
+                        : post.title
+                      }}
                     </NuxtLink>
 
                     <div class="card-text text-start lh-base article-desc pt-2" v-html="post.excerpt"> </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-xxl-6 col-md-6 ">
+              <div class="col-lg-6 col-xxl-6 col-md-7 ">
                 <div class="d-flex flex-column justify-content-start g-2">
                   <div v-for="post in posts.slice(0, 4)" :key="post.id">
                     <div class="mb-3">
@@ -41,9 +44,12 @@
                           <div class="d-flex flex-column">
                             <span class="article-info-tag ">Berita</span>
                             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                              :class="'link-secondary link-offset-2 link-underline link-underline-opacity-0 text-start text-secondary fs-6 fw-normal '"
+                              :class="'article-list-title link-offset-2 link-underline link-underline-opacity-0 text-start text-secondary  fw-normal '"
                               style="color: #5D5D5D;">
-                              {{ post.title }}
+                              {{ post.title.length >= 80
+                                ? `${post.title.substring(0, 80)}...`
+                                : post.title
+                              }}
                             </NuxtLink>
                           </div>
                         </div>
@@ -52,13 +58,27 @@
                   </div>
                 </div>
               </div>
+
+              <div class="col-lg-6 col-xxl-6 col-md-5 d-lg-none d-block">
+                <article>
+                  <h1 class="berita-section-title">Terpopuler</h1>
+                  <div class="line-break"></div>
+
+                  <div class="d-flex flex-column pt-4">
+                    <div class="vstack g-3">
+                      <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id"
+                        :number="index" :postId="post.slug" :title="post.title" />
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
           </article>
           <article class="article-section position-relative mb-3">
             <h1 class="berita-section-title">Berita Terpopuler</h1>
             <div class="line-break"></div>
             <div class="row justify-content-arround g-3 py-3">
-              <div v-for="post in posts.slice(0, 2)" :key="post.id" class="col-lg-6 col-xxl-6 col-md-12">
+              <div v-for="post in posts.slice(0, 2)" :key="post.id" class="col-lg-6 col-xxl-6 col-md-6">
                 <div class="card border-0 rounded-0 mb-3">
 
                   <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
@@ -75,7 +95,10 @@
 
                     <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                       :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                      {{ post.title }}
+                      {{ post.title.length >= 80
+                        ? `${post.title.substring(0, 80)}...`
+                        : post.title
+                      }}
                     </NuxtLink>
                   </div>
                 </div>
@@ -102,14 +125,14 @@
                 <li v-for="post in posts.slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0 ">
                   <div class="card border-0 rounded-0">
                     <div class="row justify-content-start align-items-start g-2">
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                         <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                           <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :width="256"
                             :height="151" loading="lazy" :alt="post.title" />
                         </NuxtLink>
                       </div>
 
-                      <div class="col-lg-6">
+                      <div class="col-lg-6 col-md-6">
                         <div class="card-body px-0 mx-0 px-md-1 mx-md-1 ">
                           <div class="d-flex justify-content-between g-2 mb-2">
                             <span class="article-info-tag ">Berita</span>
@@ -119,7 +142,10 @@
 
                           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                             :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                            {{ post.title }}
+                            {{ post.title.length >= 80
+                              ? `${post.title.substring(0, 80)}...`
+                              : post.title
+                            }}
                           </NuxtLink>
                           <div class="article-desc mb-3" v-html="post.excerpt"></div>
                         </div>
@@ -131,7 +157,7 @@
             </div>
           </article>
         </div>
-        <div class="col-xxl-4 col-md-6">
+        <div class="col-xl-4  col-md-6 d-lg-block d-none">
           <article>
             <h1 class="berita-section-title">Terpopuler</h1>
             <div class="line-break"></div>
@@ -339,6 +365,34 @@
 .hero-social-media-container .social-media__icons {
   width: 32.567px;
   height: 30.588px;
+}
+
+.article-list-container {
+  border-right: 0
+}
+
+@media (min-width: 992px) {
+  .article-list-container {
+    border-right: 1px solid var(--font-100, #E7E7E7);
+  }
+
+}
+
+
+.article-list-title {
+  margin-top: 5px;
+  color: var(--font-600, #5D5D5D);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  transition: ease-in 300ms;
+  /* 16.8px */
+}
+
+.article-list-title:hover {
+  color: #D71149 !important;
 }
 </style>
 

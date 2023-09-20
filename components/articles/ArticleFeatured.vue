@@ -4,7 +4,7 @@
 
     <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
       <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="featuredImage" :height="253"
-        loading="lazy" :alt="title" />
+        loading="lazy" :alt="title" format="webp" />
     </NuxtLink>
     <div class="card-body px-0 mx-0">
 
@@ -14,8 +14,11 @@
         </span>
       </div>
       <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
-        :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-        {{ title }}
+        :class="'card-title text-start  text-wrap lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
+        {{ title.length >= 80
+          ? `${title.substring(0, 80)}...`
+          : title
+        }}
       </NuxtLink>
 
       <div class="card-text text-start lh-base article-desc pt-2" v-html="excerpt"> </div>

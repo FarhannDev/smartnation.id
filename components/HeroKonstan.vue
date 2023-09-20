@@ -30,7 +30,7 @@
                         </NuxtLink>
                         
                         <!-- fb -->
-                        <NuxtLink to="https://  m.facebook.com/watch/?refsrc=deprecated&_rdr" target="_blank" aria-label="Selengkapnya" class="link-offset-2 link-underline link-underline-opacity-0 link-secondary mb-5">
+                        <NuxtLink to="https://www.facebook.com/smartnation.id" target="_blank" aria-label="Selengkapnya" class="link-offset-2 link-underline link-underline-opacity-0 link-secondary mb-5">
                             <div :hidden="pasifFb" @mouseover="hidePasiveFb" width="32" height="32">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="31" viewBox="0 0 17 31" fill="none">
                                     <path d="M15.8532 17.2723L16.7053 11.901H11.3792V8.41529C11.3792 6.94608 12.123 5.51304 14.5085 5.51304H16.9296V0.940302C16.9296 0.940302 14.7328 0.577637 12.6319 0.577637C8.24603 0.577637 5.3793 3.15061 5.3793 7.80775V11.9019H0.503662V17.2732H5.3793V30.2587H11.3792V17.2732L15.8532 17.2723Z" fill="#D1D1D1" />
@@ -44,7 +44,7 @@
                         </NuxtLink>
                         
                         <!-- wa -->
-                        <NuxtLink id="wa" to="/" target="_blank" aria-label="Selengkapnya" class="link-offset-2 link-underline link-underline-opacity-0 link-secondary mb-5">
+                        <NuxtLink id="wa" to="https://wa.me/6285882002191" target="_blank" aria-label="Selengkapnya" class="link-offset-2 link-underline link-underline-opacity-0 link-secondary mb-5">
                             <div :hidden="pasifWa" @mouseover="hidePasiveWa" width="32" height="32">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                                     <path d="M0.195435 31.8469L2.38811 23.8399C1.03558 21.4964 0.324152 18.8381 0.325146 16.1146C0.328625 7.59468 7.26199 0.663086 15.7817 0.663086C19.9161 0.664825 23.7967 2.27404 26.715 5.19478C29.633 8.11551 31.2395 11.9979 31.238 16.127C31.2343 24.6467 24.2999 31.5793 15.7817 31.5793C15.7812 31.5793 15.782 31.5793 15.7817 31.5793H15.775C13.1882 31.5783 10.6467 30.9295 8.38913 29.6983L0.195435 31.8469ZM8.76858 26.901L9.23798 27.1791C11.21 28.3495 13.471 28.9684 15.7767 28.9697H15.7817C22.8622 28.9697 28.6251 23.2077 28.6281 16.126C28.6294 12.6942 27.2945 9.46704 24.869 7.03956C22.4432 4.61207 19.2181 3.27445 15.7864 3.27296C8.70024 3.27296 2.93752 9.03418 2.93479 16.1156C2.93379 18.5423 3.61267 20.9055 4.89885 22.9505L5.20449 23.4366L3.90638 28.1758L8.76858 26.901Z" fill="#B0B0B0" />
@@ -155,7 +155,7 @@ export default {
 
 .hero-image-parallax {
     position: relative;
-    background-image: url('/images/hero1.png');
+    background-image: url('/images/bg-berita.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
