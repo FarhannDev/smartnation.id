@@ -4,7 +4,7 @@
 
     <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
       <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="featuredImage" :height="253"
-        loading="lazy" :alt="title" />
+        loading="lazy" :alt="title" format="webp" />
     </NuxtLink>
     <div class="card-body px-0 mx-0">
 
