@@ -3,7 +3,10 @@
     <span class="article-number me-3">{{ number + 1 }}</span>
     <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
       :class="'article-title text-start fw-normal fs-6 lh-base link-offset-2 d-block link-underline-opacity-0 '">
-      {{ title }}
+      {{ title.length >= 80
+        ? `${title.substring(0, 80)}...`
+        : title
+      }}
     </NuxtLink>
   </div>
 </template>
@@ -31,7 +34,12 @@
   line-height: 150%;
   text-decoration: none;
   text-align: start;
+  transition: ease-in 300ms;
   /* 18px */
+}
+
+.article-title:hover {
+  color: #D71149;
 }
 </style>
 

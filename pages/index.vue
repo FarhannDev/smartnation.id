@@ -1,11 +1,11 @@
 <template>
-  <main class="position-relative content-wrapper">
-    <div class="border-0 text-center p-2 position-fixed w-100 z-1" style="background-color: #A60B40;">
-      <NuxtLink to="/news" class="link-offset-2 link-underline link-underline-opacity-0 text-white">Lanjutkan Ke
-        Halaman Berita
-        <BootstrapIcon name="arrow-right" />
-      </NuxtLink>
-    </div>
+  <div class="border-0 text-center p-2 position-fixed w-100 z-1" style="background-color: #A60B40;">
+    <NuxtLink to="/news" class="link-offset-2 link-underline link-underline-opacity-0 text-white fw-normal">Lanjutkan Ke
+      Halaman Berita
+      <BootstrapIcon name="arrow-right" />
+    </NuxtLink>
+  </div>
+  <main class="position-relative content-wrapper pt-5">
 
     <section class="latest-article-section position-relative py-5">
       <div class="container">
@@ -19,7 +19,7 @@
 
 
           <div class="col-lg-6 col-xxl-4 col-md-6 ">
-            <div class="d-flex flex-column border border-start-0 border-top-0">
+            <div class="d-flex flex-column article-list-container">
               <ul class="list-group list-group-flush">
                 <ArticlesArticleFeaturedListThumbnail v-for="post in posts.slice(0, 4)" :key="post.id" :postId="post.slug"
                   :title="post.title" :featuredImage="post.thumbnail" :categories="post.categories"
@@ -60,10 +60,20 @@
                 </div>
                 <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                   :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                  {{ post.title }}
+                  {{ post.title.length >= 80
+                    ? `${post.title.substring(0, 80)}...`
+                    : post.title
+                  }}
                 </NuxtLink>
 
                 <div class="card-text text-start lh-base article-desc pt-2" v-html="post.excerpt"> </div>
+
+                <div class="hstack g-2 pt-2">
+                  <NuxtLink :to="`/${category}`" aria-label="Lihat Selengkapnya" v-for="category in post.categories"
+                    :key="category" class="badge bg-white text-danger rounded-pill text-decoration-none fw-normal me-2">{{
+                      category }}</NuxtLink>
+
+                </div>
 
               </div>
             </div>
@@ -86,7 +96,10 @@
                     </div>
                     <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                       :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                      {{ post.title }}
+                      {{ post.title.length >= 80
+                        ? `${post.title.substring(0, 80)}...`
+                        : post.title
+                      }}
                     </NuxtLink>
 
 
@@ -184,7 +197,7 @@
 <style scoped>
 .article-list-item {
   width: 100%;
-  height: 510px;
+  /* height: 510px; */
   overflow-y: scroll;
 }
 
@@ -276,6 +289,17 @@
 
 .line-break {
   border-bottom: 1px solid var(--danger-600, #CE2F2F);
+}
+
+.article-list-container {
+  border-right: 0
+}
+
+@media (min-width: 992px) {
+  .article-list-container {
+    border-right: 1px solid var(--font-100, #E7E7E7);
+  }
+
 }
 </style>
 

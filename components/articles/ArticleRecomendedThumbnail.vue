@@ -7,7 +7,10 @@
           <span class="article-number me-3 align-middle">{{ number + 1 }}</span>
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title link-offset-2   d-block link-underline-opacity-0 '">
-            {{ title }}
+            {{ title.length >= 80
+              ? `${title.substring(0, 80)}...`
+              : title
+            }}
           </NuxtLink>
         </div>
 
@@ -31,8 +34,15 @@
   font-weight: 500;
   line-height: 150%;
   text-decoration: none;
+  transition: ease-in 300ms;
   /* 18px */
 }
+
+
+.article-title:hover {
+  color: #D71149;
+}
+
 
 
 .article-info-timestamps {
