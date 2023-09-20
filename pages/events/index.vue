@@ -30,7 +30,7 @@
                 <button style="width: 150px; height: 35px; text-align: center; border-radius: 4px; vertical-align:top;" class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Pilih Tahun
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 150px;">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="#">2015</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">2016</a></li>
