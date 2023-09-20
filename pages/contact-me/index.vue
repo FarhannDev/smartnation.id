@@ -89,13 +89,16 @@
               <div class="mb-3">
                 <label for="inputMessage" class="form-label contact-form__label__input">Pesan <span
                     class="text-danger">*</span></label>
-                <textarea v-model="inputMessage" placeholder="Tuliskan Isi Pesan" class="form-control " id="inputMessage"
-                  rows="7" :maxlength="limitKarakter"></textarea>
+                <textarea v-model="inputMessage" placeholder="Tuliskan Isi Pesan"
+                  class="form-control contact-form__input__textarea " id="inputMessage" rows="7"
+                  :maxlength="limitKarakter"></textarea>
 
-                <div class="text-end fw-normal pt-2">{{ limitKarakter - inputMessage.length }} Karakter Tersisa</div>
+                <div class="text-end text-secondary fw-normal">{{ limitKarakter - inputMessage.length }} Karakter Tersisa
+                </div>
               </div>
               <button :disabled="!inputName || !inputEmail || !inputMessage" type="submit"
-                class="btn btn-danger rounded text-center">Kirimkan</button>
+                class="btn  rounded text-center text-white fw-normal"
+                style="background: var(--primary-600, #D71149);">Kirimkan</button>
             </form>
           </div>
         </div>
@@ -216,17 +219,29 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  height: 50px;
-  transition: ease 300ms;
-  border-radius: 4px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--Primary, #545F71);
+  background: var(--Background, #FFF);
   /* 19.2px */
 }
 
-.contact-form__input:hover {
-  border: 1px solid #CE2F2F;
+.contact-form__input:focus {}
+
+.contact-form__input__textarea {
+  color: var(--font-600, #5D5D5D);
+  /* Font/Body 2 */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  border-radius: 12px;
+  border: 1px solid var(--Primary, #545F71);
+  height: 176px;
+  /* 19.2px */
 }
 
-.contact-form__input:focus {}
 
 @media (min-width: 992px) {
   .hero-image-parallax {
