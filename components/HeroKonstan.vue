@@ -233,7 +233,7 @@ export default {
 
 .hero-social-media-container {
     position: absolute;
-    top: 45%;
+    top: 37%;
     right: 10%;
     
 }
