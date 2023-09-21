@@ -15,7 +15,6 @@
                 <div id="explain">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis corporis laboriosam voluptatibus ad minima illo facere quibusdam, odit accusamus laborum rerum hic repellendus similique iste!
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis corporis laboriosam voluptatibus ad minima illo facere quibusdam, odit accusamus laborum rerum hic repellendus similique iste!
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis corporis laboriosam voluptatibus ad minima illo facere quibusdam, odit accusamus laborum rerum hic repellendus similique iste!
                 </div>
               </div>            
             </div>
@@ -27,7 +26,7 @@
                 <h5 class="berita-section-title" style="color: red;">Postingan Terkini ISNA</h5>
               </div>
               <div class="dropdown" style="width: 150px;">
-                <button style="width: 150px; height: 35px; text-align: center; border-radius: 4px; vertical-align:top;" class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button style="width: 130px; text-align: center; border-radius: 4px; vertical-align:top;" class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Pilih Tahun
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -44,32 +43,34 @@
             </div>
             <div class="d-flex flex-column py-3">
               <ul class="list-group list-group-flush">
-                <li v-for="post in posts.slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0 ">
+                <li v-for="post in posts.slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0 ">
                   <div class="card border-0 rounded-0">
-                    <div class="row justify-content-start align-items-start g-2">
-                      <div class="col-lg-6 col-md-6">
+                    <div class="row justify-content-start align-items-center g-2">
+                      <div class="col-xl-4 col-lg-4 col-md-4">
                         <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                          <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :width="256"
-                          :height="151" loading="lazy" :alt="post.title" />
+                          <NuxtImg :class="'article-thumbnail__acara'" :src="post.thumbnail" loading="lazy" :alt="post.title" />
                         </NuxtLink>
                       </div>
-                      
-                      <div class="col-lg-6 col-md-6">
-                        <div class="card-body px-0 mx-0 px-md-1 mx-md-1 ">
-                          <div class="d-flex justify-content-between g-2 mb-2">
-                            <span class="article-info-tag ">Berita</span>
+
+                      <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
+                          <div class="d-flex justify-content-between g-2 mb-3">
+                            <span class="article-info-tag ">{{ id }}</span>
                             <span class="article-info-tag text-start text-secondary">{{
                               useFormatter(post.createdAt) }}</span>
-                            </div>
-                            
-                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+                          </div>
+
+                          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                             :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                            {{ post.title.length >= 80
-                              ? `${post.title.substring(0, 80)}...`
+                            {{ post.title.length >= 50
+                              ? `${post.title.substring(0, 50)}...`
                               : post.title
                             }}
                           </NuxtLink>
-                          <div class="article-desc mb-3" v-html="post.excerpt"></div>
+                          <div class="article-desc pt-2" v-html="post.excerpt.length >= 70
+                                ? `${post.excerpt.substring(0, 70)}...`
+                                : post.excerpt
+                              "></div>
                         </div>
                       </div>
                     </div>
@@ -78,6 +79,32 @@
               </ul>
             </div>
           </article>
+          <!-- Pagination start -->
+          <div class="d-flex justify-content-center g-2 pt-3 ">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item mx-2">
+                    <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item mx-1 "><a class="page-link text-center text-white border-0 rounded bg-danger"
+                      href="#">1</a></li>
+                  <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
+                      href="#">2</a>
+                  </li>
+                  <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
+                      href="#">3</a>
+                  </li>
+                  <li class="page-item  mx-2">
+                    <a class="page-link   border-0 text-dark" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- Pagination end -->
         </div>
         <div class="col-xl-4  col-md-6 d-lg-block d-none">
           <article>
@@ -126,6 +153,16 @@ a{
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 20px;
+}
+
+.article-thumbnail__acara{
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
 }
 
 .berita-section-title {
