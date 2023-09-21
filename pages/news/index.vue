@@ -120,21 +120,22 @@
                 <BootstrapIcon name="chevron-right" />
               </span>
             </div>
+
             <div class="d-flex flex-column py-3">
               <ul class="list-group list-group-flush">
-                <li v-for="post in posts.slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0 ">
+                <li v-for="post in posts.sort().reverse().slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0 ">
                   <div class="card border-0 rounded-0">
-                    <div class="row justify-content-start align-items-start g-2">
-                      <div class="col-lg-6 col-md-6">
+                    <div class="row justify-content-start align-items-center g-2">
+                      <div class="col-xl-4 col-lg-4 col-md-4">
                         <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                          <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :width="256"
-                            :height="151" loading="lazy" :alt="post.title" />
+                          <NuxtImg :class="'article-list__thumbnail '" :src="post.thumbnail" loading="lazy"
+                            :alt="post.title" />
                         </NuxtLink>
                       </div>
 
-                      <div class="col-lg-6 col-md-6">
-                        <div class="card-body px-0 mx-0 px-md-1 mx-md-1 ">
-                          <div class="d-flex justify-content-between g-2 mb-2">
+                      <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
+                          <div class="d-flex justify-content-between g-2 mb-3">
                             <span class="article-info-tag ">Berita</span>
                             <span class="article-info-tag text-start text-secondary">{{
                               useFormatter(post.createdAt) }}</span>
@@ -142,12 +143,15 @@
 
                           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                             :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                            {{ post.title.length >= 80
-                              ? `${post.title.substring(0, 80)}...`
+                            {{ post.title.length >= 50
+                              ? `${post.title.substring(0, 50)}...`
                               : post.title
                             }}
                           </NuxtLink>
-                          <div class="article-desc mb-3" v-html="post.excerpt"></div>
+                          <div class="article-desc pt-2" v-html="post.excerpt.length >= 70
+                                ? `${post.excerpt.substring(0, 70)}...`
+                                : post.excerpt
+                              "></div>
                         </div>
                       </div>
                     </div>
@@ -155,6 +159,7 @@
                 </li>
               </ul>
             </div>
+
           </article>
         </div>
         <div class="col-xl-4  col-md-6 d-lg-block d-none">
@@ -371,13 +376,6 @@
   border-right: 0
 }
 
-@media (min-width: 992px) {
-  .article-list-container {
-    border-right: 1px solid var(--font-100, #E7E7E7);
-  }
-
-}
-
 
 .article-list-title {
   margin-top: 5px;
@@ -390,6 +388,32 @@
   transition: ease-in 300ms;
   /* 16.8px */
 }
+
+.article-list__thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+}
+
+
+
+@media (min-width: 992px) {
+  .article-list-container {
+    border-right: 1px solid var(--font-100, #E7E7E7);
+  }
+
+  .article-list__thumbnail {
+    width: 256px;
+    height: 151px;
+  }
+
+}
+
+
 
 .article-list-title:hover {
   color: #D71149 !important;
