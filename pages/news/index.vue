@@ -2,7 +2,7 @@
   <hero-konstan />
   <section class="berita-section-container position-relative py-5">
     <div class="container">
-      <div class="row justify-content-start align-content-start g-3">
+      <div class="row justify-content-start align-content-start g-5">
         <div class="col-xl-8">
           <article class="article-section position-relative mb-3">
             <h1 class="berita-section-title">Berita Terbaru</h1>
