@@ -7,8 +7,8 @@
           <span class="article-number me-3 align-middle">{{ number + 1 }}</span>
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title link-offset-2   d-block link-underline-opacity-0 '">
-            {{ title.length >= 80
-              ? `${title.substring(0, 80)}...`
+            {{ title.length >= 60
+              ? `${title.substring(0, 60)}...`
               : title
             }}
           </NuxtLink>

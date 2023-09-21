@@ -13,7 +13,10 @@
         <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-            {{ title }}
+            {{ title.length >= 60
+              ? `${title.substring(0, 60)}...`
+              : title
+            }}
           </NuxtLink>
 
           <div class="d-flex flex-wrap mb-2 pt-1">
