@@ -92,7 +92,7 @@ onMounted(() => {
   padding: 4px 10px;
   font-size: 14px;
   cursor: pointer;
-  margin: 5px;
+  margin: 3px;
   transition: background-color 03s;
   font-family: poppins;
 }
