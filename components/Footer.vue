@@ -66,7 +66,7 @@
                     </NuxtLink>
                 </div>
                 <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 col-8">
-                    <h5 class="mb-3" id="a">a</h5>
+                    <h5 class="mb-3" id="a">Ikuti Kami</h5>
                     <h5 class="text-white mb-1">Smartnation.id</h5>
                     <p id="address" class="text-white mb-2">Towards Indonesia Smart Nation</p>
                     <div class="row mb-0 mt-0">
