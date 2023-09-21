@@ -1,7 +1,11 @@
 <template>
   <NuxtLayout name="page.layout">
     <NavbarScroll />
-    <HeroKonstan />
+
+    <HeroParallaxBackground v-for="post in posts.slice(0, 1)" :key="post.id" :text="post.title" :desc="post.excerpt"
+      :background="post.thumbnail" />
+
+
     <section class="latest-article-section position-relative py-5">
       <div class="container">
         <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
