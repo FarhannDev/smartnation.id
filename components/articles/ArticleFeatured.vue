@@ -3,8 +3,8 @@
   <div class="card border-0 rounded-0 mb-3">
 
     <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
-      <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="featuredImage" :height="253"
-        loading="lazy" :alt="title" format="webp" />
+      <NuxtImg :class="'card-img-top img-fluid article-thumbnail'" :src="featuredImage" :height="253" loading="lazy"
+        :alt="title" format="webp" />
     </NuxtLink>
     <div class="card-body px-0 mx-0">
 
@@ -77,8 +77,11 @@
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
   min-height: 253px;
-  opacity: 1;
+  border-radius: 8px;
+  /* opacity: 1; */
 }
 </style>
 

@@ -233,7 +233,7 @@
           <div class="col-12 col-lg-4 col-sm-12">
             <div class="d-flex flex-column justify-content-start g-0 px-md-3 mx-md-2 ">
               <HeadingTitle class="text-capitalize fw-bold fs-5 " title="Berita Terpopuler" />
-              <div class="d-grid gap-2 py-3 ">
+              <div class="d-grid gap-4 py-3 ">
                 <PostsPostItem v-for="post in posts.sort().reverse().slice(0, 5)" :key="post.id" :postId="post.slug"
                   :title="post.title" :featured-media="post.thumbnail" :categories="post.categories"
                   :dateTime="post.createdAt" />
@@ -284,7 +284,7 @@
   background-position: center;
   background-attachment: scroll;
   width: 100%;
-  min-height: 433.57px;
+  min-height: auto;
 }
 
 
@@ -370,57 +370,6 @@
   /* 9.6px */
 }
 
-.dateFormat {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 400;
-  color: #888888;
-}
-
-.titleComment {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 19.2px;
-  color: #4F4F4F;
-}
-
-.descComment {
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 9.6px;
-  color: #888888;
-}
-
-.commentTextArea {
-  border-radius: 12px;
-  border: 1px solid #d1d1d1;
-  background-color: #f6f6f6;
-  height: 180px;
-  font-family: Poppins;
-}
-
-.nameForm,
-.emailForm,
-.webForm {
-  border-radius: 8px;
-  border: 1px solid #d1d1d1;
-  background-color: #f6f6f6;
-  height: 30px;
-  color: #b0b0b0;
-  font-family: Poppins;
-  font-size: 10px;
-  font-weight: 400;
-}
-
-.labelCheckBox {
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  color: #888888;
-}
-
 .btnCategory {
   color: #6d6d6d;
   font-family: Poppins;
@@ -431,116 +380,13 @@
   background-color: #e7e7e7;
 }
 
-.btnComment {
-  width: 80px;
-  height: 25px;
-  color: #F6F6F6;
-  font-family: Poppins;
-  font-size: 8px;
-  font-weight: 400;
-  border-radius: 8px;
-  background-color: #8E0D3D;
-}
 
-.nameUserComment {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 600;
-  color: #454545;
-  margin-bottom: 4px;
-}
+@media (min-width: 1200px) {
+  .article-details__cover {
+    min-height: 433.57px;
+  }
 
-.timeUserComment {
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  color: #888888;
-  margin-bottom: 8px;
-}
 
-.contentUserComment {
-  font-family: Poppins;
-  font-size: 13px;
-  font-weight: 400;
-  color: #3D3D3D;
-  margin-bottom: 8px;
-}
-
-.dataLikes,
-.dataDislikes {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 400;
-  color: #888888;
-}
-
-.contentArticle {
-  text-align: justify;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
-  color: #454545;
-}
-
-#dummy_ig {
-  background-color: #F6F6F6;
-  height: 80px;
-  width: 80px;
-  z-index: 1;
-  border-radius: 8px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-}
-
-#text-button {
-  font-size: 13px;
-  color: #FFF;
-  text-align: center;
-}
-
-#ig {
-  border-radius: 12px;
-  border: 1px solid #D71149;
-}
-
-#ig .contentButton>div {
-  color: #FE3565;
-  font-family: Poppins;
-  font-size: 9.75px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-}
-
-.titleInstagramContent {
-  color: #CE2F2F;
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  /* 21.6px */
-}
-
-.leadInstagramContent {
-  color: #6D6D6D;
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 14.4px */
-}
-
-.descInstagramContent {
-  color: #454545;
-  font-family: Poppins;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  /* 18px */
 }
 </style>
 

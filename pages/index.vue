@@ -1,7 +1,11 @@
 <template>
   <NuxtLayout name="page.layout">
     <NavbarScroll />
-    <HeroKonstan />
+
+    <HeroParallaxBackground v-for="post in posts.slice(0, 1)" :key="post.id" :text="post.title" :desc="post.excerpt"
+      :background="post.thumbnail" />
+
+
     <section class="latest-article-section position-relative py-5">
       <div class="container">
         <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
@@ -55,8 +59,8 @@
                 </div>
                 <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                   :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                  {{ post.title.length >= 80
-                    ? `${post.title.substring(0, 80)}...`
+                  {{ post.title.length >= 60
+                    ? `${post.title.substring(0, 60)}...`
                     : post.title
                   }}
                 </NuxtLink>
@@ -91,17 +95,14 @@
                     </div>
                     <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                       :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                      {{ post.title.length >= 80
-                        ? `${post.title.substring(0, 80)}...`
+                      {{ post.title.length >= 60
+                        ? `${post.title.substring(0, 60)}...`
                         : post.title
                       }}
                     </NuxtLink>
-
-
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -237,12 +238,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
-  transition: ease-in 300ms;
+  transition: ease 300ms;
 }
 
-/* .article-title:hover {
-  color: #D71149;
-} */
+.article-title:hover {
+  color: #D1D1D1;
+}
 
 .article-desc {
   overflow: hidden;
@@ -277,8 +278,10 @@
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
   min-height: 253px;
-  opacity: 1;
+  border-radius: 8px;
 }
 
 

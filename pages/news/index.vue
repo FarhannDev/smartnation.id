@@ -1,8 +1,10 @@
 <template>
-  <hero-konstan />
+  <HeroParallaxBackground text="Daftar Berita" desc="Daftar berita dari semua kategori"
+    background="/images/background/bg-berita.png" />
+
   <section class="berita-section-container position-relative py-5">
     <div class="container">
-      <div class="row justify-content-start align-content-start g-3">
+      <div class="row justify-content-start align-content-start g-5">
         <div class="col-xl-8">
           <article class="article-section position-relative mb-3">
             <h1 class="berita-section-title">Berita Terbaru</h1>
@@ -281,97 +283,6 @@
   /* 19.2px */
 }
 
-
-.hero-image-parallax {
-  position: relative;
-  background-image: url('/images/hero1.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  width: 100%;
-  height: 500px;
-  scroll-behavior: smooth;
-}
-
-
-
-.hero-image-bg__gradient {
-  padding: 0;
-  height: 500px;
-  flex-shrink: 0;
-  position: relative;
-  width: 100%;
-  background: linear-gradient(0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 100%),
-    linear-gradient(102deg,
-      rgba(166, 11, 64, 0.75) 16.57%,
-      rgba(217, 217, 217, 0) 95.59%);
-}
-
-.hero-heading-container {
-  position: absolute;
-  top: 45%;
-  z-index: 1000;
-}
-
-.hero-heading__title {
-  color: var(--font-50, #F6F6F6);
-  /* Font/Heading 1 Bold */
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-  /* 73.2px */
-}
-
-.hero-heading__desc {
-  color: var(--Background, #FFF);
-
-  /* Font/Title 1 */
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 37.2px */
-}
-
-
-@media (min-width: 992px) {
-  .hero-image-parallax {
-    min-height: 100vh;
-    background-attachment: fixed;
-  }
-
-  .hero-image-bg__gradient {
-    min-height: 100vh;
-  }
-
-  .hero-heading__title {
-    font-size: 61px;
-  }
-
-  .hero-heading__desc {
-    font-size: 31px;
-  }
-
-}
-
-.hero-social-media-container {
-  position: absolute;
-  top: 45%;
-  right: 10%;
-}
-
-
-.hero-social-media-container .social-media__icons {
-  width: 32.567px;
-  height: 30.588px;
-}
-
 .article-list-container {
   border-right: 0
 }
@@ -412,8 +323,6 @@
   }
 
 }
-
-
 
 .article-list-title:hover {
   color: #D71149 !important;

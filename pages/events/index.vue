@@ -1,5 +1,6 @@
 <template>
-  <hero-konstan />
+  <HeroParallaxBackground text="Hubungi Kami" desc="Jangan ragu untuk menghubungi kami."
+    background="/images/background/bg-contact-me.png" />
   <section class="berita-section-container position-relative py-5">
     <div class="container">
       <div class="row justify-content-start align-content-start g-3">
@@ -9,35 +10,49 @@
             <div class="row">
               <div class="col-5">
                 <div id="tentang"></div>
-              </div>            
+              </div>
               <div class="col-7">
                 <h6 id="explain">Apa itu ISNA?</h6>
                 <div id="explain">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis corporis laboriosam voluptatibus ad minima illo facere quibusdam, odit accusamus laborum rerum hic repellendus similique iste!
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis corporis laboriosam voluptatibus ad minima illo facere quibusdam, odit accusamus laborum rerum hic repellendus similique iste!
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis
+                  corporis laboriosam voluptatibus ad minima illo facere quibusdam, odit accusamus laborum rerum hic
+                  repellendus similique iste!
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis
+                  corporis laboriosam voluptatibus ad minima illo facere quibusdam, odit accusamus laborum rerum hic
+                  repellendus similique iste!
                 </div>
-              </div>            
+              </div>
             </div>
           </article>
-          
+
           <article class="article-section position-relative mb-3">
             <div class="d-flex flex-wrap justify-content-between g-0">
               <div>
                 <h5 class="berita-section-title" style="color: red;">Postingan Terkini ISNA</h5>
               </div>
               <div class="dropdown" style="width: 150px;">
-                <button style="width: 130px; text-align: center; border-radius: 4px; vertical-align:top;" class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button style="width: 130px; text-align: center; border-radius: 4px; vertical-align:top;"
+                  class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown" aria-expanded="false">
                   Pilih Tahun
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="#">2015</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
                   <li><a class="dropdown-item" href="#">2016</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
                   <li><a class="dropdown-item" href="#">2018</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
                   <li><a class="dropdown-item" href="#">2020</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
                 </ul>
               </div>
             </div>
@@ -48,7 +63,8 @@
                     <div class="row justify-content-start align-items-center g-2">
                       <div class="col-xl-4 col-lg-4 col-md-4">
                         <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                          <NuxtImg :class="'article-thumbnail__acara'" :src="post.thumbnail" loading="lazy" :alt="post.title" />
+                          <NuxtImg :class="'article-thumbnail__acara'" :src="post.thumbnail" loading="lazy"
+                            :alt="post.title" />
                         </NuxtLink>
                       </div>
 
@@ -81,30 +97,30 @@
           </article>
           <!-- Pagination start -->
           <div class="d-flex justify-content-center g-2 pt-3 ">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item mx-2">
-                    <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item mx-1 "><a class="page-link text-center text-white border-0 rounded bg-danger"
-                      href="#">1</a></li>
-                  <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
-                      href="#">2</a>
-                  </li>
-                  <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
-                      href="#">3</a>
-                  </li>
-                  <li class="page-item  mx-2">
-                    <a class="page-link   border-0 text-dark" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <!-- Pagination end -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item mx-2">
+                  <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item mx-1 "><a class="page-link text-center text-white border-0 rounded bg-danger"
+                    href="#">1</a></li>
+                <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
+                    href="#">2</a>
+                </li>
+                <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
+                    href="#">3</a>
+                </li>
+                <li class="page-item  mx-2">
+                  <a class="page-link   border-0 text-dark" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Pagination end -->
         </div>
         <div class="col-xl-4  col-md-6 d-lg-block d-none">
           <article>
@@ -112,7 +128,7 @@
             <div class="d-flex flex-column pt-4">
               <div class="vstack g-3">
                 <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id" :number="index"
-                :postId="post.slug" :title="post.title" />
+                  :postId="post.slug" :title="post.title" />
               </div>
             </div>
           </article>
@@ -123,23 +139,23 @@
 </template>
 
 <style scoped>
-#tentang{
+#tentang {
   background-color: #5D5D5D;
   z-index: 535;
   width: 100%;
   height: 350px;
 }
 
-#explain{
+#explain {
   font-family: Poppins;
   font-style: normal;
 }
 
-.dropdown-item{
+.dropdown-item {
   margin-top: 25px;
 }
 
-a{
+a {
   font-family: Poppins;
   font-style: normal;
   font-size: 20px;
@@ -148,14 +164,14 @@ a{
   margin-bottom: 10px;
 }
 
-.dropdown-divider{
+.dropdown-divider {
   width: 95px;
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 20px;
 }
 
-.article-thumbnail__acara{
+.article-thumbnail__acara {
   width: 100%;
   height: auto;
   border-radius: 4px;
@@ -216,7 +232,7 @@ a{
 
 .article-timestamp {
   color: var(--font-400, #888);
-  
+
   /* Font/Caption Reguler */
   font-family: Poppins;
   font-size: 12px;
@@ -255,97 +271,6 @@ a{
   /* 19.2px */
 }
 
-
-.hero-image-parallax {
-  position: relative;
-  background-image: url('/images/hero1.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  width: 100%;
-  height: 500px;
-  scroll-behavior: smooth;
-}
-
-
-
-.hero-image-bg__gradient {
-  padding: 0;
-  height: 500px;
-  flex-shrink: 0;
-  position: relative;
-  width: 100%;
-  background: linear-gradient(0deg,
-  rgba(0, 0, 0, 0.2) 0%,
-  rgba(0, 0, 0, 0.2) 100%),
-  linear-gradient(102deg,
-  rgba(166, 11, 64, 0.75) 16.57%,
-  rgba(217, 217, 217, 0) 95.59%);
-}
-
-.hero-heading-container {
-  position: absolute;
-  top: 45%;
-  z-index: 1000;
-}
-
-.hero-heading__title {
-  color: var(--font-50, #F6F6F6);
-  /* Font/Heading 1 Bold */
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-  /* 73.2px */
-}
-
-.hero-heading__desc {
-  color: var(--Background, #FFF);
-  
-  /* Font/Title 1 */
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 37.2px */
-}
-
-
-@media (min-width: 992px) {
-  .hero-image-parallax {
-    min-height: 100vh;
-    background-attachment: fixed;
-  }
-  
-  .hero-image-bg__gradient {
-    min-height: 100vh;
-  }
-  
-  .hero-heading__title {
-    font-size: 61px;
-  }
-  
-  .hero-heading__desc {
-    font-size: 31px;
-  }
-  
-}
-
-.hero-social-media-container {
-  position: absolute;
-  top: 45%;
-  right: 10%;
-}
-
-
-.hero-social-media-container .social-media__icons {
-  width: 32.567px;
-  height: 30.588px;
-}
-
 .article-list-container {
   border-right: 0
 }
@@ -354,7 +279,7 @@ a{
   .article-list-container {
     border-right: 1px solid var(--font-100, #E7E7E7);
   }
-  
+
 }
 
 
