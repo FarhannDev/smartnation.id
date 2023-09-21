@@ -108,12 +108,12 @@
           <article class="article-section position-relative mb-3">
             <div class="d-flex flex-wrap justify-content-between g-0">
               <div>
-                <h1 class="berita-section-title">Artikel</h1>
+                <h1 class="berita-section-title">Berita</h1>
                 <div class="line-break"></div>
               </div>
 
               <span>
-                <NuxtLink to="/" aria-label="Lihat Selengkapnya"
+                <NuxtLink :to="`/category/berita`" aria-label="Lihat Selengkapnya"
                   class="link-offset-2 link-underline link-underline-opacity-0 link-secondary article-link-title">
                   Selengkapnya
                 </NuxtLink>
