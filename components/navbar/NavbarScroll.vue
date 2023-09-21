@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-xl fixed-top" :class="{ 'navbar-scrolled': scrolled }">
     <div class="container">
-      <NuxtLink to="/" class="navbar-brandd">
-        <NuxtImg src="/images/logo.png" alt="Logo" class="d-inline-block align-text-top logo" />
+      <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd">
+        <NuxtImg src="/images/logo.png" alt="Logo Smart Nation" class="d-inline-block align-text-top logo" />
       </NuxtLink>
 
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -26,15 +26,16 @@
             <div :class="{
               active: isActiveBerita,
             }" class="dropdown-brt" @mouseenter="openDropdown('dropdown2')" @mouseleave="closeDropdown('dropdown2')">
-              <a href="#" class="dropdown-togglee brt text-decoration-none" @mouseenter="toggleHover('dropdown2', true)"
-                @mouseleave="toggleHover('dropdown2', false)" @click="activateNavItem('Berita')">
+              <NuxtLink to="/news" class="dropdown-togglee brt text-decoration-none"
+                @mouseenter="toggleHover('dropdown2', true)" @mouseleave="toggleHover('dropdown2', false)"
+                @click="activateNavItem('Berita')">
                 <span :class="{
                   'text-hover-reds': isHoveredText['dropdown2'],
                   active: isActiveBerita,
                 }" style="transition: color 0.3s" class="dropdown-text">
                   Berita
                 </span>
-              </a>
+              </NuxtLink>
               <NuxtImg :src="isActiveBerita && scrolled
                 ? nextImage
                 : isHoveredText['dropdown2']
@@ -47,13 +48,13 @@
               <div v-if="showDropdown['dropdown2']" class="dropdown-menu dropdown-menu-brt"
                 @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
                 <div class="drp-brt">
-                  <a class="brta" href="/event1">Berita</a>
+                  <NuxtLink class="brta" to="/category/berita" aria-label="News">Berita</NuxtLink>
                 </div>
                 <div class="drp-brt">
-                  <a class="brta" href="/citiasia">Citiasia</a>
+                  <NuxtLink class="brta" to="/category/citiasia" aria-label="News">Citiasia</NuxtLink>
                 </div>
                 <div class="drp-brt">
-                  <a class="brta" href="/reverensi">Referensi</a>
+                  <NuxtLink class="brta" to="/category/artikel" aria-label="News">Artikel</NuxtLink>
                 </div>
                 <!-- Tambahkan pilihan dropdown lainnya di sini jika diperlukan -->
               </div>
@@ -63,15 +64,16 @@
             <div :class="{
               active: isActiveAcara,
             }" class="dropdown-env" @mouseenter="openDropdown('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
-              <a href="#" class="dropdown-togglee env text-decoration-none" @mouseenter="toggleHover('dropdown1', true)"
-                @mouseleave="toggleHover('dropdown1', false)" @click="activateNavItem('Acara')">
+              <NuxtLink to="/events" class="dropdown-togglee env text-decoration-none"
+                @mouseenter="toggleHover('dropdown1', true)" @mouseleave="toggleHover('dropdown1', false)"
+                @click="activateNavItem('Acara')">
                 <span :class="{
                   'text-hover-reds': isHoveredText['dropdown1'],
                   active: isActiveAcara,
                 }" style="transition: color 0.3s" class="dropdown-text">
                   Acara
                 </span>
-              </a>
+              </NuxtLink>
               <NuxtImg :src="isActiveAcara && scrolled
                 ? nextImage
                 : isHoveredText['dropdown1']
@@ -115,7 +117,7 @@
                 !isActiveTentangKami,
               'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
                 isActiveTentangKami,
-            }" @click="activateNavItem('TentangKami')" to="/" class="text-decoration-none"><span
+            }" @click="activateNavItem('TentangKami')" to="/tentang-kamu" class="text-decoration-none"><span
                 class="text-hover-reds" style="transition: color 0.3s">
                 Tentang Kami
               </span></NuxtLink>
@@ -126,7 +128,7 @@
                 !isActiveHubungiKami,
               'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
                 isActiveHubungiKami,
-            }" @click="activateNavItem('HubungiKami')" to="/" class="text-decoration-none"><span
+            }" @click="activateNavItem('HubungiKami')" to="/contact-me" class="text-decoration-none"><span
                 class="text-hover-reds" style="transition: color 0.3s">
                 Hubungi Kami
               </span></NuxtLink>

@@ -1,12 +1,7 @@
 <template>
-  <div class="border-0 text-center p-2 position-fixed w-100 z-1" style="background-color: #A60B40;">
-    <NuxtLink to="/news" class="link-offset-2 link-underline link-underline-opacity-0 text-white fw-normal">Lanjutkan Ke
-      Halaman Berita
-      <BootstrapIcon name="arrow-right" />
-    </NuxtLink>
-  </div>
-  <main class="position-relative content-wrapper pt-5">
-
+  <NuxtLayout name="page.layout">
+    <NavbarScroll />
+    <HeroKonstan />
     <section class="latest-article-section position-relative py-5">
       <div class="container">
         <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
@@ -190,7 +185,7 @@
         <Subscribe />
       </div>
     </section>
-  </main>
+  </NuxtLayout>
 </template>
 
 
