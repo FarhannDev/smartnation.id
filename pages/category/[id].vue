@@ -16,12 +16,11 @@
   <section class="berita-section-container position-relative py-5">
     <div class="container">
       <div class="row justify-content-start align-content-start g-3">
-        <div class="col-lg-7 col-md-10">
+        <div class="col-lg-8 col-md-10">
           <article class="article-section position-relative mb-3">
             <div class="d-flex flex-wrap justify-content-between g-0">
               <div>
-                <h1 class="berita-section-title">Artikel</h1>
-
+                <h1 class="berita-section-title">{{ id }}</h1>
               </div>
             </div>
 
@@ -30,16 +29,16 @@
                 <li v-for="post in posts.slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0 ">
                   <div class="card border-0 rounded-0">
                     <div class="row justify-content-start align-items-center g-2">
-                      <div class="col-lg-4 col-md-5">
+                      <div class="col-xl-4 col-lg-4 col-md-4">
                         <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                           <NuxtImg :class="'article-thumbnail'" :src="post.thumbnail" loading="lazy" :alt="post.title" />
                         </NuxtLink>
                       </div>
 
-                      <div class="col-lg-8 col-md-7">
+                      <div class="col-xl-8 col-lg-8 col-md-8">
                         <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
                           <div class="d-flex justify-content-between g-2 mb-3">
-                            <span class="article-info-tag ">Berita</span>
+                            <span class="article-info-tag ">{{ id }}</span>
                             <span class="article-info-tag text-start text-secondary">{{
                               useFormatter(post.createdAt) }}</span>
                           </div>
@@ -63,7 +62,7 @@
               </ul>
             </div>
             <!-- Pagination start -->
-            <div class="d-flex justify-content-center g-2 border pt-3 ">
+            <div class="d-flex justify-content-center g-2 pt-3 ">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item mx-2">
@@ -90,7 +89,7 @@
             <!-- Pagination end -->
           </article>
         </div>
-        <div class="col-lg-4 ">
+        <div class="col-lg-4">
           <article>
             <h1 class="berita-section-title">Terpopuler</h1>
             <div class="line-break"></div>
@@ -120,6 +119,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
+  text-transform: capitalize;
   /* 28.8px */
   /* 24px */
 }
