@@ -2,11 +2,11 @@
   <NuxtLayout name="page.layout">
     <NavbarScroll />
 
-    <HeroParallaxBackground v-for="post in posts.slice(0, 1)" :key="post.id" :text="post.title" :desc="post.excerpt"
+    <HeroParallaxBackground v-for="post in posts.slice(0, 1)" :key="post.id" :text="post.title"
       :background="post.thumbnail" />
 
-
     <section class="latest-article-section position-relative py-5">
+
       <div class="container">
         <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
         <div class="row justify-content-arround g-3 py-3">
@@ -307,6 +307,7 @@ import HeadingTitle from '~/components/HeadingTitle.vue';
 import ActivityPictureCover from '~/components/events/ActivityPictureCover.vue';
 import Subscribe from '~/components/Subscribe/Subscribe.vue';
 import { Posts, posts } from '~/utils/data/getInitialData';
+import { API_BASE_URL } from '~/utils/config/api';
 
 // Set Meta SEO
 useSeoMeta({
@@ -323,5 +324,9 @@ const articleScroll = () => {
   articleItem.classList.add('article-list-item::-webkit-scrollbar-thumb')
   articleItem.classList.add('article-list-item::-webkit-scrollbar-track')
 }
+
+
+
+
 
 </script>

@@ -52,7 +52,7 @@
                   <NuxtLink class="brta" to="/category/berita" aria-label="News">Berita</NuxtLink>
                 </div>
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/citiasia" aria-label="News">Citiasia</NuxtLink>
+                  <NuxtLink class="brta" to="/category/citiasia" aria-label="News">Citiasia Inc</NuxtLink>
 
                 </div>
                 <div class="drp-brt">

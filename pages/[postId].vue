@@ -4,7 +4,6 @@
       <div class="container">
         <div class="row justify-content-start g-3 py-5">
           <div class="col-12 col-lg-8 col-md-12 col-sm-12 ">
-
             <!-- Article Content Start -->
             <div class="row justify-content-start">
               <div class="col">
@@ -546,7 +545,6 @@ const route = useRoute()
 const { postId } = route.params
 
 const post = posts.find((post) => post.slug === postId)
-
 
 
 useSeoMeta({
