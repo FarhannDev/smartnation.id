@@ -6,228 +6,254 @@
           <div class="col-12 col-lg-8 col-md-12 col-sm-12 ">
 
             <!-- Article Content Start -->
-            <section class="article-details-container">
-              <div class="d-grid gap-3">
+            <div class="row justify-content-start">
+              <div class="col">
 
-                <div class="article-details__title__wrapper">
-                  <h1 class="article-details__title"> {{ post.title }}</h1>
-                </div>
+                <div class="article-details-container d-grid gap-3">
 
-                <div class="article-details__info__wrapper">
-                  <div class="d-flex flex-wrap justify-content-start g-2">
-                    <div class="article-details__info__created me-3">
-                      <BootstrapIcon name="clock" /> {{ useFormatter(post.createdAt) }}
+                  <div class="article-details__title__wrapper">
+                    <h1 class="article-details__title"> {{ post.title }}</h1>
+                  </div>
+
+                  <div class="article-details__info__wrapper">
+                    <div class="d-flex flex-wrap justify-content-start g-2">
+                      <div class="article-details__info__created me-3">
+                        <BootstrapIcon name="clock" /> {{ useFormatter(post.createdAt) }}
+                      </div>
+                      <div class="article-details__info__comments me-3">
+                        <BootstrapIcon name="chat" /> 10
+                      </div>
+                      <span class="article-details__info__views me-3">
+                        <BootstrapIcon name="eye" /> 10
+                      </span>
                     </div>
-                    <div class="article-details__info__comments me-3">
-                      <BootstrapIcon name="chat" /> 10
+                  </div>
+
+                  <div class="article-details__content__wrapper">
+                    <div class="article-details__content__cover__wrapper">
+                      <NuxtImg class="img-fluid article-details__cover" :src="post.thumbnail" :height="433"
+                        :alt="post.title" />
                     </div>
-                    <span class="article-details__info__views me-3">
-                      <BootstrapIcon name="eye" /> 10
-                    </span>
+                    <div class="article-details__content__tags">
+                      <div class="d-flex flex-wrap justify-content-start g-2 py-3">
+                        <button v-for="category in post.categories" :key="category" type="button"
+                          class="btn me-2 my-1 btnCategory">{{
+                            category }}</button>
+                      </div>
+                    </div>
+
+                    <div v-html="post.content" class="article-details__content"></div>
+
+                    article-details__content__share__medsos
+                    article-details__content__share__medsos
+                    article-details__content__share__medsos
+                    <div class="article-details__content__share pt-3">
+                      <div class="d-flex flex-wrap justify-content-end g-2">
+                        <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
+                          aria-label="Bagikan Ke Twiter"
+                          class="link-offset-2 link-underline link-underline-opacity-0 me-2 ">
+                          <BootstrapIcon name="twitter" class="article-details__content__share__medsos" />
+                        </NuxtLink>
+                        <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
+                          aria-label="Bagikan Ke Twiter"
+                          class="link-offset-2 link-underline link-underline-opacity-0 me-2 ">
+                          <BootstrapIcon name="facebook" class="article-details__content__share__medsos" />
+                        </NuxtLink>
+                        <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
+                          aria-label="Bagikan Ke Twiter"
+                          class="link-offset-2 link-underline link-underline-opacity-0 me-2 ">
+                          <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
+                        </NuxtLink>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="article-details__content__wrapper">
-                  <div class="article-details__content__cover__wrapper">
-                    <NuxtImg class="img-fluid article-details__cover" :src="post.thumbnail" :height="433"
-                      :alt="post.title" />
-                  </div>
-                  <div class="article-details__content__tags">
-                    <div class="d-flex flex-wrap justify-content-start g-2 py-3">
-                      <button v-for="category in post.categories" :key="category" type="button"
-                        class="btn me-2 my-1 btnCategory">{{
-                          category }}</button>
-                    </div>
-                  </div>
-
-                  <div v-html="post.content" class="article-details__content"></div>
-
-                  article-details__content__share__medsos
-                  article-details__content__share__medsos
-                  article-details__content__share__medsos
-                  <div class="article-details__content__share pt-3">
-                    <div class="d-flex flex-wrap justify-content-end g-2">
-                      <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
-                        aria-label="Bagikan Ke Twiter"
-                        class="link-offset-2 link-underline link-underline-opacity-0 me-2 ">
-                        <BootstrapIcon name="twitter" class="article-details__content__share__medsos" />
-                      </NuxtLink>
-                      <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
-                        aria-label="Bagikan Ke Twiter"
-                        class="link-offset-2 link-underline link-underline-opacity-0 me-2 ">
-                        <BootstrapIcon name="facebook" class="article-details__content__share__medsos" />
-                      </NuxtLink>
-                      <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
-                        aria-label="Bagikan Ke Twiter"
-                        class="link-offset-2 link-underline link-underline-opacity-0 me-2 ">
-                        <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
-                      </NuxtLink>
-                    </div>
-
-
-                  </div>
-
-                </div>
               </div>
-            </section>
+            </div>
             <!-- Article Content End -->
             <!-- Article Comments Start -->
-            <section class="article-comments-container position-relative py-5">
 
-              <div class="d-flex flex-column justify-content-start g-2">
-                <div class="container" style="border: 1.5px solid #D1D1D1; padding: 22px 30px; border-radius: 24px;">
-                  <p class="titleComment">Komentar</p>
-                  <p class="descComment">Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai *</p>
-                  <div class="mb-3">
-                    <textarea class="form-control commentTextArea" id="exampleFormControlTextarea1" rows="7"></textarea>
-                  </div>
-                  <div class="row">
-                    <div class="col-3">
-                      <input type="text" class="form-control text-center nameForm" id="exampleFormControlInput1"
-                        placeholder="Nama Lengkap">
-                    </div>
-                    <div class="col-3">
-                      <input type="email" class="form-control text-center emailForm" id="exampleFormControlInput2"
-                        placeholder="Alamat Email">
-                    </div>
-                    <div class="col-3">
-                      <input type="text" class="form-control text-center webForm" id="exampleFormControlInput3"
-                        placeholder="Web URL">
-                    </div>
-                  </div>
-                  <div class="form-check pt-3 pb-2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label labelCheckBox" for="flexRadioDefault1">
-                      Simpan nama, email, dan situs web saya pada peramban ini untuk komentar saya berikutnya.
-                    </label>
-                  </div>
-                  <button type="button" class="btn btnComment">KIRIM</button>
-                </div>
-              </div>
-              <div class="d-flex flex-column justify-content-start g-2 py-5">
+            <div class="row justify-content-start">
+              <div class="col">
+                <div class="article-comments__card">
+                  <div class="article-comments__body">
+                    <h3 class="article-comments-title">Komentar</h3>
+                    <p class="article-comments__text">Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib
+                      Ditandai <span class="article-comments__text__label">*</span></p>
 
-                <div class="article-comments-card mb-3">
-                  <div class="d-flex justify-content-start align-content-start">
-                    <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
+
                     <div class="d-flex flex-column justify-content-start g-2">
-                      <div class="article-comments__name">Atika Putri</div>
-                      <div class="article-comments__created">30 Menit yang lalu</div>
-                      <div class="article-comments__content">Wahh Sangat Menarik</div>
-                      <div class="article-comments__action ">
-                        <div class="hstack gap-3">
-                          <span class="d-inline">
-                            <BootstrapIcon name="hand-thumbs-up" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            <BootstrapIcon name="hand-thumbs-down" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            Balas
-                          </span>
+                      <form class="article-form__input-container">
+                        <div class="mb-3">
+                          <label for="exampleFormControlTextarea1" class="form-label" hidden>Example textarea</label>
+                          <textarea class="form-control article-form__input__text" id="exampleFormControlTextarea1"
+                            rows="3"></textarea>
                         </div>
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="article-comments-card mb-3">
-                  <div class="d-flex justify-content-start align-content-start">
-                    <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
-                    <div class="d-flex flex-column justify-content-start g-2">
-                      <div class="article-comments__name">Atika Putri</div>
-                      <div class="article-comments__created">30 Menit yang lalu</div>
-                      <div class="article-comments__content">Wahh Sangat Menarik</div>
-                      <div class="article-comments__action ">
-                        <div class="hstack gap-3">
-                          <span class="d-inline">
-                            <BootstrapIcon name="hand-thumbs-up" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            <BootstrapIcon name="hand-thumbs-down" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            Balas
-                          </span>
+                        <div class="mb-3">
+                          <div class="row">
+                            <div class="col-sm-6 mb-3">
+                              <input type="text" class="form-control article-form__input" placeholder="Nama Lengkap"
+                                aria-label="Nama Lengkap">
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                              <input type="text" class="form-control article-form__input" placeholder="Alamat Email"
+                                aria-label="Alamat Email">
+                            </div>
+                          </div>
                         </div>
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="article-comments-card mb-3">
-                  <div class="d-flex justify-content-start align-content-start">
-                    <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
-                    <div class="d-flex flex-column justify-content-start g-2">
-                      <div class="article-comments__name">Atika Putri</div>
-                      <div class="article-comments__created">30 Menit yang lalu</div>
-                      <div class="article-comments__content">Wahh Sangat Menarik</div>
-                      <div class="article-comments__action ">
-                        <div class="hstack gap-3">
-                          <span class="d-inline">
-                            <BootstrapIcon name="hand-thumbs-up" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            <BootstrapIcon name="hand-thumbs-down" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            Balas
-                          </span>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input rounded-0" id="exampleCheck1">
+                          <label class="form-check-label article-form__input_check__label" for="exampleCheck1">Simpan
+                            nama, email, dan situs web saya pada
+                            peramban ini untuk komentar saya berikutnya.</label>
                         </div>
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="article-comments-card mb-3">
-                  <div class="d-flex justify-content-start align-content-start">
-                    <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
-                    <div class="d-flex flex-column justify-content-start g-2">
-                      <div class="article-comments__name">Atika Putri</div>
-                      <div class="article-comments__created">30 Menit yang lalu</div>
-                      <div class="article-comments__content">Wahh Sangat Menarik</div>
-                      <div class="article-comments__action ">
-                        <div class="hstack gap-3">
-                          <span class="d-inline">
-                            <BootstrapIcon name="hand-thumbs-up" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            <BootstrapIcon name="hand-thumbs-down" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            Balas
-                          </span>
+                        <div class="mb-3">
+                          <button disabled type="submit" class="article-form__button ">Kirim</button>
                         </div>
 
-                      </div>
+                      </form>
                     </div>
-                  </div>
-                </div>
-                <div class="article-comments-card mb-3">
-                  <div class="d-flex justify-content-start align-content-start">
-                    <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
-                    <div class="d-flex flex-column justify-content-start g-2">
-                      <div class="article-comments__name">Atika Putri</div>
-                      <div class="article-comments__created">30 Menit yang lalu</div>
-                      <div class="article-comments__content">Wahh Sangat Menarik</div>
-                      <div class="article-comments__action ">
-                        <div class="hstack gap-3">
-                          <span class="d-inline">
-                            <BootstrapIcon name="hand-thumbs-up" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            <BootstrapIcon name="hand-thumbs-down" /> 0
-                          </span>
-                          <span class="d-inline ">
-                            Balas
-                          </span>
-                        </div>
 
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
+
+            <div class="row justify-content-start">
+              <div class="col">
+                <div class="d-flex flex-column justify-content-start g-2 py-5">
+
+                  <div class="article-comments-card mb-3">
+                    <div class="d-flex justify-content-start align-content-start">
+                      <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
+                      <div class="d-flex flex-column justify-content-start g-2">
+                        <div class="article-comments__name">Atika Putri</div>
+                        <div class="article-comments__created">30 Menit yang lalu</div>
+                        <div class="article-comments__content">Wahh Sangat Menarik</div>
+                        <div class="article-comments__action ">
+                          <div class="hstack gap-3">
+                            <span class="d-inline">
+                              <BootstrapIcon name="hand-thumbs-up" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              <BootstrapIcon name="hand-thumbs-down" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              Balas
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="article-comments-card mb-3">
+                    <div class="d-flex justify-content-start align-content-start">
+                      <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
+                      <div class="d-flex flex-column justify-content-start g-2">
+                        <div class="article-comments__name">Atika Putri</div>
+                        <div class="article-comments__created">30 Menit yang lalu</div>
+                        <div class="article-comments__content">Wahh Sangat Menarik</div>
+                        <div class="article-comments__action ">
+                          <div class="hstack gap-3">
+                            <span class="d-inline">
+                              <BootstrapIcon name="hand-thumbs-up" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              <BootstrapIcon name="hand-thumbs-down" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              Balas
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="article-comments-card mb-3">
+                    <div class="d-flex justify-content-start align-content-start">
+                      <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
+                      <div class="d-flex flex-column justify-content-start g-2">
+                        <div class="article-comments__name">Atika Putri</div>
+                        <div class="article-comments__created">30 Menit yang lalu</div>
+                        <div class="article-comments__content">Wahh Sangat Menarik</div>
+                        <div class="article-comments__action ">
+                          <div class="hstack gap-3">
+                            <span class="d-inline">
+                              <BootstrapIcon name="hand-thumbs-up" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              <BootstrapIcon name="hand-thumbs-down" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              Balas
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="article-comments-card mb-3">
+                    <div class="d-flex justify-content-start align-content-start">
+                      <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
+                      <div class="d-flex flex-column justify-content-start g-2">
+                        <div class="article-comments__name">Atika Putri</div>
+                        <div class="article-comments__created">30 Menit yang lalu</div>
+                        <div class="article-comments__content">Wahh Sangat Menarik</div>
+                        <div class="article-comments__action ">
+                          <div class="hstack gap-3">
+                            <span class="d-inline">
+                              <BootstrapIcon name="hand-thumbs-up" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              <BootstrapIcon name="hand-thumbs-down" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              Balas
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="article-comments-card mb-3">
+                    <div class="d-flex justify-content-start align-content-start">
+                      <NuxtImg src="/images/user1.png" class="rounded  me-3" :width="70" :height="70" />
+                      <div class="d-flex flex-column justify-content-start g-2">
+                        <div class="article-comments__name">Atika Putri</div>
+                        <div class="article-comments__created">30 Menit yang lalu</div>
+                        <div class="article-comments__content">Wahh Sangat Menarik</div>
+                        <div class="article-comments__action ">
+                          <div class="hstack gap-3">
+                            <span class="d-inline">
+                              <BootstrapIcon name="hand-thumbs-up" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              <BootstrapIcon name="hand-thumbs-down" /> 0
+                            </span>
+                            <span class="d-inline ">
+                              Balas
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
             <!-- Article Comments End -->
           </div>
           <div class="col-12 col-lg-4 col-sm-12">
@@ -378,6 +404,119 @@
   font-weight: 400;
   border-radius: 5px;
   background-color: #e7e7e7;
+}
+
+
+.article-comments__card {
+  width: 100%;
+  /* height: auto; */
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 0.837px solid var(--font-200, #D1D1D1);
+  background: var(--Background, #FFF);
+  overflow: hidden;
+}
+
+.article-comments__card .article-comments__body {
+  padding: 20px;
+}
+
+.article-comments__card,
+.article-comments__title {
+  color: var(--font-700, #4F4F4F);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 19.2px */
+}
+
+.article-comments__card,
+.article-comments__text {
+  color: var(--font-400, #888);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 9.6px */
+}
+
+.article-comments__text__label {
+  color: #CE2F2F;
+}
+
+
+
+.article-form__input-container {
+  width: 100%;
+  height: auto;
+}
+
+
+
+.article-form__input__text {
+  border-radius: 12px;
+  border: 0.837px solid #D1D1D1;
+  background: #F6F6F6;
+  height: 137.268px;
+}
+
+.article-form__input {
+  height: 40px;
+  border-radius: 8px;
+  border: 0.837px solid var(--font-100, #E7E7E7);
+  background: var(--font-50, #F6F6F6);
+  color: var(--font-300, #B0B0B0);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 9.6px */
+}
+
+.article-form__button {
+  border-radius: 8px;
+  background: var(--font-300, #B0B0B0);
+  color: var(--Background, #FFF);
+  width: 74.687px;
+  height: auto;
+  padding: 8.37px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--font-50, #F6F6F6);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 9.6px */
+  transition: ease 300ms;
+}
+
+.article-form__button:hover {
+  background: var(--font-300, #B0B0B0);
+}
+
+.article-form__button:disabled {
+  border-radius: 8px;
+  background: var(--font-300, #B0B0B0);
+
+}
+
+
+.article-form__input_check__label {
+  color: var(--font-400, #888);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 9.6px */
 }
 
 
