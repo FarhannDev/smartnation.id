@@ -5,11 +5,11 @@
     <div class="container">
       <div class="row justify-content-start align-content-start g-3">
         <div class="col-xl-8">
-          <article class="article-section position-relative mb-5">
+          <article class="article-section position-relative mb-5" id="tentang" :hidden="isHidden">
             <h1 class="berita-section-title" style="color: red;">Tentang ISNA</h1>
             <div class="row">
               <div class="col-5">
-                <div id="tentang"></div>
+                <div id="assetTentang"></div>
               </div>
               <div class="col-7">
                 <h6 id="explain">Apa itu ISNA?</h6>
@@ -37,19 +37,19 @@
                   Pilih Tahun
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">2015</a></li>
+                  <li><a @click="hide" class="dropdown-item">2015</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">2016</a></li>
+                  <li><a @click="hide" class="dropdown-item">2016</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">2018</a></li>
+                  <li><a @click="hide" class="dropdown-item">2018</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">2020</a></li>
+                  <li><a @click="hide" class="dropdown-item">2020</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -138,8 +138,23 @@
   </section>
 </template>
 
+<script lang="ts">
+export default {
+  data(){
+    return{
+      isHidden: false
+    }
+  },
+  methods:{
+    hide:function(){
+      this.isHidden=true;
+    }
+  }
+}
+</script>
+
 <style scoped>
-#tentang {
+#assetTentang {
   background-color: #5D5D5D;
   z-index: 535;
   width: 100%;
