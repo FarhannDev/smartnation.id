@@ -86,13 +86,13 @@
               <div v-if="showDropdown['dropdown1']" class="dropdown-menu dropdown-menu-acr"
                 @mouseenter="keepDropdownOpen('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
                 <div class="drp-acr">
-                  <a class="acr" href="/ISNA">ISNA</a>
+                  <a class="acr" href="/events">ISNA</a>
                 </div>
                 <div class="drp-acr">
-                  <a class="acr" href="/ISCIF">ISCIF</a>
+                  <a class="acr" href="/events">ISCIF</a>
                 </div>
                 <div class="drp-acr">
-                  <a class="acr" href="/training">Training</a>
+                  <a class="acr" href="/events">Training</a>
                 </div>
                 <!-- Tambahkan pilihan dropdown lainnya di sini jika diperlukan -->
               </div>
@@ -105,7 +105,7 @@
                 !isActiveGaleri,
               'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
                 isActiveGaleri,
-            }" @click="activateNavItem('Galeri')" to="/" class="text-decoration-none">
+            }" @click="activateNavItem('Galeri')" to="/gallery" class="text-decoration-none">
               <span class="text-hover-reds" style="transition: color 0.3s">
                 Galeri
               </span>
@@ -117,7 +117,7 @@
                 !isActiveTentangKami,
               'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
                 isActiveTentangKami,
-            }" @click="activateNavItem('TentangKami')" to="/tentang-kamu" class="text-decoration-none"><span
+            }" @click="activateNavItem('TentangKami')" to="/about-me" class="text-decoration-none"><span
                 class="text-hover-reds" style="transition: color 0.3s">
                 Tentang Kami
               </span></NuxtLink>

@@ -226,8 +226,8 @@
 <script lang="ts" setup>
 const props = defineProps({
   background: { type: String, required: true },
-  text: { type: String, required: true },
-  desc: { type: String, required: true }
+  text: { type: String },
+  desc: { type: String }
 })
 
 
