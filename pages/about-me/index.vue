@@ -86,7 +86,7 @@
         <div>
           <div class="image-container">
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Cahyana.png" alt="Dr. Ir. Cahyana Ahmadjayadi" />
+              <img style="width: 185px; height: 255px" src="/images/cahyana.png" alt="Dr. Ir. Cahyana Ahmadjayadi" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -106,7 +106,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Farid.png" alt="Farid Subkhan" />
+              <img style="width: 185px; height: 255px" src="/images/farid.png" alt="Farid Subkhan" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -127,7 +127,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Rosidi.png" alt="Rosidi Wiradinata" />
+              <img style="width: 185px; height: 255px" src="/images/rosidi.png" alt="Rosidi Wiradinata" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -148,7 +148,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Fitrah.png" alt="Fitrah Rachmat Kautsar" />
+              <img style="width: 185px; height: 255px" src="/images/fitrah.png" alt="Fitrah Rachmat Kautsar" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -168,7 +168,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Hari.png" alt="Hari Kusdaryanto" />
+              <img style="width: 185px; height: 255px" src="/images/hari.png" alt="Hari Kusdaryanto" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -214,23 +214,23 @@
           </svg>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="aarrlf">
@@ -267,12 +267,12 @@
         ">
           Portofolio
         </p>
-        <img class="image-portofolio" src="/images/Portofolio.png" alt="portofolio" />
+        <img class="image-portofolio" src="/images/portofolio.png" alt="portofolio" />
       </div>
     </div>
     <div class="portofolio">
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Mitra" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -293,7 +293,7 @@
         </p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Swasta" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Swasta" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -314,7 +314,7 @@
         </p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Pemerintah" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Pemerintah" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -335,7 +335,7 @@
         </p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Client" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Client" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -366,16 +366,16 @@ export default {
     return {
       items: [
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
       ],
       dragging: false,
