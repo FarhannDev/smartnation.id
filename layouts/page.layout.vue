@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <slot name="header"></slot>
-  </div>
-  <div>
-    <slot name="hero" />
-  </div>
+  <slot name="header">
+    <NavbarScroll />
+  </slot>
+  <slot name="hero" />
 
   <slot />
 </template>

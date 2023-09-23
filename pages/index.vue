@@ -1,8 +1,6 @@
 <template>
   <NuxtLayout name="page-layout">
-    <template #header>
-      <NavbarScroll />
-    </template>
+
     <template #hero>
       <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :loop="true"
         :grabCursor="true" :pagination="{
@@ -331,11 +329,6 @@
 
 <script lang="ts" setup>
 import { posts } from '~/utils/data/getInitialData';
-
-
-definePageMeta({
-  layout: 'page-layout',
-})
 
 // Set Meta SEO
 useSeoMeta({

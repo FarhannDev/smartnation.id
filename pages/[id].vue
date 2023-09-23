@@ -542,10 +542,11 @@ import { posts } from "~/utils/data/getInitialData";
 
 const route = useRoute()
 
-const { postId } = route.params
+const { id } = route.params
 
-const post = posts.find((post) => post.slug === postId)
+const post = posts.find((post) => post.slug === id)
 
+if (!post) showError({ statusCode: 404, statusMessage: "Page Not Found 😱" })
 
 useSeoMeta({
   title: post.title,

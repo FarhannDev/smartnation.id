@@ -1,8 +1,10 @@
 <template>
-  <NuxtLayout name="page.layout">
-    <NavbarScroll />
-    <HeroParallaxBackground text="Daftar Berita" desc="Daftar berita dari semua kategori"
-      background="/images/background/bg-berita.png" />
+  <NuxtLayout name="page-layout">
+
+    <template #hero>
+      <HeroParallaxBackground text="Daftar Berita" desc="Daftar berita dari semua kategori"
+        background="/images/background/bg-berita.png" />
+    </template>
 
     <section class="berita-section-container position-relative py-5">
       <div class="container">

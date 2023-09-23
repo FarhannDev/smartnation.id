@@ -1,9 +1,10 @@
 <template>
-  <NuxtLayout name="page.layout">
+  <NuxtLayout name="page-layout">
 
-    <NavbarScroll />
-    <HeroParallaxBackground text="Hubungi Kami" desc="Jangan ragu untuk menghubungi kami."
-      background="/images/background/bg-contact-me.png" />
+    <template #hero>
+      <HeroParallaxBackground text="Hubungi Kami" desc="Jangan ragu untuk menghubungi kami."
+        background="/images/background/bg-contact-me.png" />
+    </template>
 
     <!-- Conctme Section Start -->
     <section class="contactme-section-container position-relative py-5">
