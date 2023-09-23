@@ -272,7 +272,7 @@
     </div>
     <div class="portofolio">
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Mitra" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -293,7 +293,7 @@
         </p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Swasta" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Swasta" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -314,7 +314,7 @@
         </p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Pemerintah" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Pemerintah" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -335,7 +335,7 @@
         </p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse 8.png" alt="Client" />
+        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Client" />
         <p style="
           margin-top: 10px;
           width: 170px;
@@ -366,16 +366,16 @@ export default {
     return {
       items: [
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
         {
-          image: "/images/Ellipse 8.png",
+          image: "/images/Ellipse.png",
         },
       ],
       dragging: false,

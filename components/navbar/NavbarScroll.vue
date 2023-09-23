@@ -1,12 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-xl fixed-top" :class="{ 'navbar-scrolled': scrolled }">
     <div class="container">
-      <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd">
+      <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd d-lg-block mx-auto">
         <NuxtImg src="/images/logo.png" alt="Logo Smart Nation" class="d-inline-block align-text-top logo" />
       </NuxtLink>
 
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler border-0 d-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">

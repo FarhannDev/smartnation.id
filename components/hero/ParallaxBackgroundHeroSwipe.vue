@@ -4,10 +4,14 @@
       <div class="hero-image-bg__gradient"></div>
       <div class="container">
         <div class="hero-heading-container">
-          <h1 class="hero-heading__title">{{ text }}</h1>
-          <p class="hero-heading__desc">{{ desc }}</p>
+          <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${text}`"
+            :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
+            {{ text.length >= 50
+              ? `${text.substring(0, 50)}...`
+              : text
+            }}
+          </NuxtLink>
         </div>
-
         <HeroSocialMedia />
       </div>
     </div>
@@ -17,7 +21,7 @@
 
 
 
-<style>
+<style >
 .berita-section-title {
   color: var(--font-600, #5D5D5D);
   font-family: Poppins;
@@ -66,14 +70,18 @@
 }
 
 .hero-heading__title {
+  display: inline-block;
   color: var(--font-50, #F6F6F6);
-
   font-family: Poppins;
-  font-size: 28px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-  width: 80%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: start;
+  overflow-wrap: break-word;
 }
 
 .hero-heading__desc {
@@ -93,7 +101,7 @@
 
 .hero-social-media-container {
   position: absolute;
-  top: 40%;
+  top: 45%;
   right: 5%;
 }
 
@@ -102,6 +110,24 @@
   width: 32.567px;
   height: 30.588px;
   margin-bottom: 40px;
+}
+
+
+.swiper-pagination-bullet {
+  width: 9.6px;
+  height: 9.6px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #000;
+  opacity: 1;
+  background: var(--grey-400, #BDBDBD);
+
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #C70943;
 }
 
 /* //Set media query X-Large devices (large desktops, 1200px and up) */
@@ -132,8 +158,10 @@
 const props = defineProps({
   background: { type: String, required: true },
   text: { type: String },
-  desc: { type: String }
+  desc: { type: String },
+  postId: { type: String }
 })
+
 
 
 const backgroundStyle = () => {
