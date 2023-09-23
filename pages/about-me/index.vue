@@ -86,7 +86,7 @@
         <div>
           <div class="image-container">
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Cahyana.png" alt="Dr. Ir. Cahyana Ahmadjayadi" />
+              <img style="width: 185px; height: 255px" src="/images/Cahyana.png" alt="Dr. Ir. cahyana Ahmadjayadi" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
