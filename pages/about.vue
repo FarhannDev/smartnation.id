@@ -1,8 +1,11 @@
 <template>
-  <NuxtLayout name="page.layout">
-    <NavbarScroll />
-    <HeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
-      background="/images/background/bg-galeri.png" />
+  <NuxtLayout name="page-layout">
+
+    <template #hero>
+      <HeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
+        background="/images/background/bg-galeri.png" />
+    </template>
+
 
     <div class="container1">
       <div class="box1">#

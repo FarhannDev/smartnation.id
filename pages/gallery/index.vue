@@ -1,7 +1,11 @@
 <template>
-    <NuxtLayout name="page.layout">
-        <NavbarScroll />
-        <HeroParallaxBackground text="Galeri Smartnation" background="/images/background/bg-galeri.png" />
+    <NuxtLayout name="page-layout">
+
+        <template #hero>
+            <HeroParallaxBackground text="Galeri Smartnation" background="/images/background/bg-galeri.png" />
+        </template>
+
+
         <section class="berita-section-container position-relative py-5">
             <div class="container">
                 <div class="row g-5">
