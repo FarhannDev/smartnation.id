@@ -5,11 +5,22 @@
   >
     <div class="container">
       <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd">
-        <NuxtImg src="/images/logo.png" alt="Logo Smart Nation" class="d-inline-block align-text-top logo" />
+        <NuxtImg
+          src="/images/logo.png"
+          alt="Logo Smart Nation"
+          class="d-inline-block align-text-top logo"
+        />
       </NuxtLink>
 
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -66,18 +77,38 @@
                     : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown2')
-                " alt="dropdown2" @mouseover="toggleHover('dropdown2', true)"
-                @mouseout="toggleHover('dropdown2', false)" class="d-inline-block align-text-top dropdown-img" />
-              <div v-if="showDropdown['dropdown2']" class="dropdown-menu dropdown-menu-brt"
-                @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
+                "
+                alt="dropdown2"
+                @mouseover="toggleHover('dropdown2', true)"
+                @mouseout="toggleHover('dropdown2', false)"
+                class="d-inline-block align-text-top dropdown-img"
+              />
+              <div
+                v-if="showDropdown['dropdown2']"
+                class="dropdown-menu dropdown-menu-brt"
+                @mouseenter="keepDropdownOpen('dropdown2')"
+                @mouseleave="closeDropdown('dropdow2')"
+              >
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/berita" aria-label="News">Berita</NuxtLink>
+                  <NuxtLink class="brta" to="/category/berita" aria-label="News"
+                    >Berita</NuxtLink
+                  >
                 </div>
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/citiasia" aria-label="News">Citiasia</NuxtLink>
+                  <NuxtLink
+                    class="brta"
+                    to="/category/citiasia"
+                    aria-label="News"
+                    >Citiasia</NuxtLink
+                  >
                 </div>
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/artikel" aria-label="News">Artikel</NuxtLink>
+                  <NuxtLink
+                    class="brta"
+                    to="/category/artikel"
+                    aria-label="News"
+                    >Artikel</NuxtLink
+                  >
                 </div>
                 <!-- Tambahkan pilihan dropdown lainnya di sini jika diperlukan -->
               </div>
@@ -119,10 +150,18 @@
                     : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown1')
-                " alt="dropdown1" @mouseover="toggleHover('dropdown1', true)"
-                @mouseout="toggleHover('dropdown1', false)" class="d-inline-block align-text-top dropdown-img" />
-              <div v-if="showDropdown['dropdown1']" class="dropdown-menu dropdown-menu-acr"
-                @mouseenter="keepDropdownOpen('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
+                "
+                alt="dropdown1"
+                @mouseover="toggleHover('dropdown1', true)"
+                @mouseout="toggleHover('dropdown1', false)"
+                class="d-inline-block align-text-top dropdown-img"
+              />
+              <div
+                v-if="showDropdown['dropdown1']"
+                class="dropdown-menu dropdown-menu-acr"
+                @mouseenter="keepDropdownOpen('dropdown1')"
+                @mouseleave="closeDropdown('dropdown1')"
+              >
                 <div class="drp-acr">
                   <a class="acr" href="/events">ISNA</a>
                 </div>
@@ -155,25 +194,33 @@
             </NuxtLink>
           </li>
           <li class="nav-item tkm">
-            <NuxtLink :class="{
-              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveTentangKami,
-              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveTentangKami,
-            }" @click="activateNavItem('TentangKami')" to="/about-me" class="text-decoration-none"><span
-                class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveTentangKami,
+                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveTentangKami,
+              }"
+              @click="activateNavItem('TentangKami')"
+              to="/about-me"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Tentang Kami
               </span></NuxtLink
             >
           </li>
           <li class="nav-item hkm">
-            <NuxtLink :class="{
-              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveHubungiKami,
-              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveHubungiKami,
-            }" @click="activateNavItem('HubungiKami')" to="/contact-me" class="text-decoration-none"><span
-                class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveHubungiKami,
+                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveHubungiKami,
+              }"
+              @click="activateNavItem('HubungiKami')"
+              to="/contact-me"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Hubungi Kami
               </span></NuxtLink
             >
@@ -207,9 +254,16 @@
                 </div>
 
                 <div v-show="showDropdown" class="dropdown-content">
-                  <div class="dropdown-item" v-for="(language, index) in languages" :key="index">
-                    <NuxtImg :src="`images/${language.name}.png`" alt="Logo"
-                      class="d-inline-block align-text-top lg-indonesia" />
+                  <div
+                    class="dropdown-item"
+                    v-for="(language, index) in languages"
+                    :key="index"
+                  >
+                    <NuxtImg
+                      :src="`images/${language.name}.png`"
+                      alt="Logo"
+                      class="d-inline-block align-text-top lg-indonesia"
+                    />
 
                     <a
                       href="#"
@@ -230,7 +284,7 @@
 </template>
 
 <script>
-import { categoriesData } from '~/utils/data/categories';
+import { categoriesData } from "~/utils/data/categories";
 
 export default {
   data() {
@@ -268,8 +322,7 @@ export default {
         dropdown1: false,
         dropdown2: false,
       },
-      categories: categoriesData
-
+      categories: categoriesData,
     };
   },
   methods: {
@@ -365,7 +418,7 @@ export default {
     handleScroll() {
       if (process.client) {
         // Hanya jalankan kode ini di sisi klien (browser)
-        if (window.scrollY > 50) {
+        if (window.scrollY > 460) {
           this.currentImagee = "/images/language1.png";
           this.scrolled = true;
         } else {
