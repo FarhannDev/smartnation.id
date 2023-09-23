@@ -1,90 +1,167 @@
 <template>
-  <nav class="navbar navbar-expand-xl fixed-top" :class="{ 'navbar-scrolled': scrolled }">
+  <nav
+    class="navbar navbar-expand-xl fixed-top"
+    :class="{ 'navbar-scrolled': scrolled }"
+  >
     <div class="container">
       <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd">
-        <NuxtImg src="/images/logo.png" alt="Logo Smart Nation" class="d-inline-block align-text-top logo" />
+        <NuxtImg
+          src="/images/logo.png"
+          alt="Logo Smart Nation"
+          class="d-inline-block align-text-top logo"
+        />
       </NuxtLink>
 
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-itembr">
-            <NuxtLink :class="{
-              'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveBeranda,
-              'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveBeranda,
-            }" @click="activateNavItem('Beranda')" to="/" class="text-decoration-none"><span class="text-hover-reds"
-                style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveBeranda,
+                'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveBeranda,
+              }"
+              @click="activateNavItem('Beranda')"
+              to="/"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Beranda
-              </span></NuxtLink>
+              </span></NuxtLink
+            >
           </li>
           <li class="nav-itembrt">
-            <div :class="{
-              active: isActiveBerita,
-            }" class="dropdown-brt" @mouseenter="openDropdown('dropdown2')" @mouseleave="closeDropdown('dropdown2')">
-              <NuxtLink to="/news" class="dropdown-togglee brt text-decoration-none"
-                @mouseenter="toggleHover('dropdown2', true)" @mouseleave="toggleHover('dropdown2', false)"
-                @click="activateNavItem('Berita')">
-                <span :class="{
-                  'text-hover-reds': isHoveredText['dropdown2'],
-                  active: isActiveBerita,
-                }" style="transition: color 0.3s" class="dropdown-text">
+            <div
+              :class="{
+                active: isActiveBerita,
+              }"
+              class="dropdown-brt"
+              @mouseenter="openDropdown('dropdown2')"
+              @mouseleave="closeDropdown('dropdown2')"
+            >
+              <NuxtLink
+                to="/news"
+                class="dropdown-togglee brt text-decoration-none"
+                @mouseenter="toggleHover('dropdown2', true)"
+                @mouseleave="toggleHover('dropdown2', false)"
+                @click="activateNavItem('Berita')"
+              >
+                <span
+                  :class="{
+                    'text-hover-reds': isHoveredText['dropdown2'],
+                    active: isActiveBerita,
+                  }"
+                  style="transition: color 0.3s"
+                  class="dropdown-text"
+                >
                   Berita
                 </span>
               </NuxtLink>
-              <NuxtImg :src="isActiveBerita && scrolled
-                ? nextImage
-                : isHoveredText['dropdown2']
-                  ? nextImage
-                  : scrolled
+              <NuxtImg
+                :src="
+                  isActiveBerita && scrolled
+                    ? nextImage
+                    : isHoveredText['dropdown2']
+                    ? nextImage
+                    : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown2')
-                " alt="dropdown2" @mouseover="toggleHover('dropdown2', true)"
-                @mouseout="toggleHover('dropdown2', false)" class="d-inline-block align-text-top dropdown-img" />
-              <div v-if="showDropdown['dropdown2']" class="dropdown-menu dropdown-menu-brt"
-                @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
+                "
+                alt="dropdown2"
+                @mouseover="toggleHover('dropdown2', true)"
+                @mouseout="toggleHover('dropdown2', false)"
+                class="d-inline-block align-text-top dropdown-img"
+              />
+              <div
+                v-if="showDropdown['dropdown2']"
+                class="dropdown-menu dropdown-menu-brt"
+                @mouseenter="keepDropdownOpen('dropdown2')"
+                @mouseleave="closeDropdown('dropdow2')"
+              >
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/berita" aria-label="News">Berita</NuxtLink>
+                  <NuxtLink class="brta" to="/category/berita" aria-label="News"
+                    >Berita</NuxtLink
+                  >
                 </div>
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/citiasia" aria-label="News">Citiasia</NuxtLink>
+                  <NuxtLink
+                    class="brta"
+                    to="/category/citiasia"
+                    aria-label="News"
+                    >Citiasia</NuxtLink
+                  >
                 </div>
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/artikel" aria-label="News">Artikel</NuxtLink>
+                  <NuxtLink
+                    class="brta"
+                    to="/category/artikel"
+                    aria-label="News"
+                    >Artikel</NuxtLink
+                  >
                 </div>
                 <!-- Tambahkan pilihan dropdown lainnya di sini jika diperlukan -->
               </div>
             </div>
           </li>
           <li class="nav-itemenv">
-            <div :class="{
-              active: isActiveAcara,
-            }" class="dropdown-env" @mouseenter="openDropdown('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
-              <NuxtLink to="/events" class="dropdown-togglee env text-decoration-none"
-                @mouseenter="toggleHover('dropdown1', true)" @mouseleave="toggleHover('dropdown1', false)"
-                @click="activateNavItem('Acara')">
-                <span :class="{
-                  'text-hover-reds': isHoveredText['dropdown1'],
-                  active: isActiveAcara,
-                }" style="transition: color 0.3s" class="dropdown-text">
+            <div
+              :class="{
+                active: isActiveAcara,
+              }"
+              class="dropdown-env"
+              @mouseenter="openDropdown('dropdown1')"
+              @mouseleave="closeDropdown('dropdown1')"
+            >
+              <NuxtLink
+                to="/events"
+                class="dropdown-togglee env text-decoration-none"
+                @mouseenter="toggleHover('dropdown1', true)"
+                @mouseleave="toggleHover('dropdown1', false)"
+                @click="activateNavItem('Acara')"
+              >
+                <span
+                  :class="{
+                    'text-hover-reds': isHoveredText['dropdown1'],
+                    active: isActiveAcara,
+                  }"
+                  style="transition: color 0.3s"
+                  class="dropdown-text"
+                >
                   Acara
                 </span>
               </NuxtLink>
-              <NuxtImg :src="isActiveAcara && scrolled
-                ? nextImage
-                : isHoveredText['dropdown1']
-                  ? nextImage
-                  : scrolled
+              <NuxtImg
+                :src="
+                  isActiveAcara && scrolled
+                    ? nextImage
+                    : isHoveredText['dropdown1']
+                    ? nextImage
+                    : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown1')
-                " alt="dropdown1" @mouseover="toggleHover('dropdown1', true)"
-                @mouseout="toggleHover('dropdown1', false)" class="d-inline-block align-text-top dropdown-img" />
-              <div v-if="showDropdown['dropdown1']" class="dropdown-menu dropdown-menu-acr"
-                @mouseenter="keepDropdownOpen('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
+                "
+                alt="dropdown1"
+                @mouseover="toggleHover('dropdown1', true)"
+                @mouseout="toggleHover('dropdown1', false)"
+                class="d-inline-block align-text-top dropdown-img"
+              />
+              <div
+                v-if="showDropdown['dropdown1']"
+                class="dropdown-menu dropdown-menu-acr"
+                @mouseenter="keepDropdownOpen('dropdown1')"
+                @mouseleave="closeDropdown('dropdown1')"
+              >
                 <div class="drp-acr">
                   <a class="acr" href="/events">ISNA</a>
                 </div>
@@ -100,38 +177,53 @@
           </li>
 
           <li class="nav-item glri">
-            <NuxtLink :class="{
-              'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveGaleri,
-              'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveGaleri,
-            }" @click="activateNavItem('Galeri')" to="/gallery" class="text-decoration-none">
+            <NuxtLink
+              :class="{
+                'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveGaleri,
+                'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveGaleri,
+              }"
+              @click="activateNavItem('Galeri')"
+              to="/gallery"
+              class="text-decoration-none"
+            >
               <span class="text-hover-reds" style="transition: color 0.3s">
                 Galeri
               </span>
             </NuxtLink>
           </li>
           <li class="nav-item tkm">
-            <NuxtLink :class="{
-              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveTentangKami,
-              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveTentangKami,
-            }" @click="activateNavItem('TentangKami')" to="/about-me" class="text-decoration-none"><span
-                class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveTentangKami,
+                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveTentangKami,
+              }"
+              @click="activateNavItem('TentangKami')"
+              to="/about-me"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Tentang Kami
-              </span></NuxtLink>
+              </span></NuxtLink
+            >
           </li>
           <li class="nav-item hkm">
-            <NuxtLink :class="{
-              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveHubungiKami,
-              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveHubungiKami,
-            }" @click="activateNavItem('HubungiKami')" to="/contact-me" class="text-decoration-none"><span
-                class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveHubungiKami,
+                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveHubungiKami,
+              }"
+              @click="activateNavItem('HubungiKami')"
+              to="/contact-me"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Hubungi Kami
-              </span></NuxtLink>
+              </span></NuxtLink
+            >
           </li>
 
           <li class="search-translate">
@@ -139,23 +231,45 @@
               <div class="src">
                 <!-- Kotak Pencarian dengan Gambar sebagai Latar Belakang Input -->
                 <div class="input-group search-box">
-                  <input type="text" class="form-control" placeholder="Search" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                  />
                 </div>
               </div>
-              <div class="col-auto dropdown" @mouseenter="cancelCloseDropdownTimer()"
-                @mouseleave="startCloseDropdownTimer()">
-                <img :src="currentImagee" alt="Logo" class="d-inline-block align-text-top indo" />
+              <div
+                class="col-auto dropdown"
+                @mouseenter="cancelCloseDropdownTimer()"
+                @mouseleave="startCloseDropdownTimer()"
+              >
+                <img
+                  :src="currentImagee"
+                  alt="Logo"
+                  class="d-inline-block align-text-top indo"
+                />
 
                 <div class="language-text" @click="toggleDropdown">
                   {{ selectedLanguage }}
                 </div>
 
                 <div v-show="showDropdown" class="dropdown-content">
-                  <div class="dropdown-item" v-for="(language, index) in languages" :key="index">
-                    <NuxtImg :src="`images/${language.name}.png`" alt="Logo"
-                      class="d-inline-block align-text-top lg-indonesia" />
+                  <div
+                    class="dropdown-item"
+                    v-for="(language, index) in languages"
+                    :key="index"
+                  >
+                    <NuxtImg
+                      :src="`images/${language.name}.png`"
+                      alt="Logo"
+                      class="d-inline-block align-text-top lg-indonesia"
+                    />
 
-                    <a href="#" class="indonesia" @click="changeLanguage(language.code)">
+                    <a
+                      href="#"
+                      class="indonesia"
+                      @click="changeLanguage(language.code)"
+                    >
                       {{ language.name }}
                     </a>
                   </div>
@@ -350,7 +464,7 @@ export default {
 }
 
 .dropdown:hover .dropdown-content,
-.language-text:hover+.dropdown-content,
+.language-text:hover + .dropdown-content,
 .dropdown-content[style*="display: block"] {
   display: block;
 }
@@ -463,8 +577,7 @@ export default {
 
 .text-hover-reds:hover {
   transition: color 0.3s;
-  color: var(--danger-600,
-      #ce2f2f);
+  color: var(--danger-600, #ce2f2f);
   /* Mengubah warna teks menjadi merah saat dihover */
 }
 
@@ -533,14 +646,12 @@ export default {
 
 /* Ubah warna teks menjadi merah saat dihover pada tulisan */
 .dropdown-env:hover .text-hover-reds {
-  color: var(--danger-600,
-      #ce2f2f);
+  color: var(--danger-600, #ce2f2f);
   /* Mengubah warna teks menjadi merah saat dihover */
 }
 
 .dropdown-brt:hover .text-hover-reds {
-  color: var(--danger-600,
-      #ce2f2f);
+  color: var(--danger-600, #ce2f2f);
   /* Mengubah warna teks menjadi merah saat dihover */
 }
 
