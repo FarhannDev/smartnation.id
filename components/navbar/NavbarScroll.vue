@@ -301,7 +301,7 @@ export default {
     handleScroll() {
       if (process.client) {
         // Hanya jalankan kode ini di sisi klien (browser)
-        if (window.scrollY > 50) {
+        if (window.scrollY > 460) {
           this.currentImagee = "/images/language1.png";
           this.scrolled = true;
         } else {
