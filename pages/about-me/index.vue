@@ -5,7 +5,7 @@
       background="/images/background/bg-galeri.png" />
 
     <div class="container1">
-      <div class="box1">
+      <div class="box1">#
         <p>Tentang Citiasia Center for Smart Nation (CCSN)</p>
       </div>
       <div class="box2">
@@ -86,7 +86,8 @@
         <div>
           <div class="image-container">
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Cahyana.png" alt="Dr. Ir. cahyana Ahmadjayadi" />
+              <img style="width: 185px; height: 255px" src="/images/teams/Cahyana.png"
+                alt="Dr. Ir. Cahyana Ahmadjayadi" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -106,7 +107,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Farid.png" alt="Farid Subkhan" />
+              <img style="width: 185px; height: 255px" src="/images/teams/Farid.png" alt="Farid Subkhan" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -127,7 +128,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Rosidi.png" alt="Rosidi Wiradinata" />
+              <img style="width: 185px; height: 255px" src="/images/teams/Rosidi.png" alt="Rosidi Wiradinata" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -148,7 +149,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Fitrah.png" alt="Fitrah Rachmat Kautsar" />
+              <img style="width: 185px; height: 255px" src="/images/teams/Fitrah.png" alt="Fitrah Rachmat Kautsar" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -168,7 +169,7 @@
               </p>
             </div>
             <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/Hari.png" alt="Hari Kusdaryanto" />
+              <img style="width: 185px; height: 255px" src="/images/teams/Hari.png" alt="Hari Kusdaryanto" />
               <p style="
                 color: var(--font-800, #454545);
                 font-size: 20px;
@@ -214,23 +215,23 @@
           </svg>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="img-partner">
-          <img src="/images/Partner.png" alt="DPR" class="card-img" />
+          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
           <p class="partner-name">DPR</p>
         </div>
         <div class="aarrlf">
@@ -257,7 +258,7 @@
         </div>
       </div>
     </div>
-    <div class="container6">
+    <!-- <div class="container6">
       <div class="box8">
         <p style="
           color: var(--primary-600, #d71149);
@@ -269,7 +270,7 @@
         </p>
         <img class="image-portofolio" src="/images/Portofolio.png" alt="portofolio" />
       </div>
-    </div>
+    </div> -->
     <div class="portofolio">
       <div class="image-mitra">
         <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
