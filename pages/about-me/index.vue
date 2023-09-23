@@ -5,7 +5,7 @@
       background="/images/background/bg-galeri.png" />
 
     <div class="container1">
-      <div class="box1">
+      <div class="box1">#
         <p>Tentang Citiasia Center for Smart Nation (CCSN)</p>
       </div>
       <div class="box2">
