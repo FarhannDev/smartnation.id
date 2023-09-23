@@ -258,7 +258,7 @@
         </div>
       </div>
     </div>
-    <div class="container6">
+    <!-- <div class="container6">
       <div class="box8">
         <p style="
           color: var(--primary-600, #d71149);
@@ -270,7 +270,7 @@
         </p>
         <img class="image-portofolio" src="/images/Portofolio.png" alt="portofolio" />
       </div>
-    </div>
+    </div> -->
     <div class="portofolio">
       <div class="image-mitra">
         <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
