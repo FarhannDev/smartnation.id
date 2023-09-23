@@ -307,9 +307,9 @@ export default {
       isDropdownVisible: false, // Tambahkan status untuk mengontrol keterlihatan dropdown
       scrolled: false,
       isScrolled: false,
-      currentImage: "/icons/arrow_down.png",
-      nextImage: "/icons/arrow_down_red.png",
-      scrolledImage: "/icons/arrow_down_black.png",
+      currentImage: "/images/arrow_down.png",
+      nextImage: "/images/arrow_down_red.png",
+      scrolledImage: "/images/arrow_down_black.png",
       showDropdown: {
         dropdown1: false,
         dropdown2: false,
@@ -422,7 +422,7 @@ export default {
           this.currentImagee = "/images/language1.png";
           this.scrolled = true;
         } else {
-          this.currentImagee = "/icons/language.png";
+          this.currentImagee = "/images/language.png";
           this.scrolled = false;
         }
       }
