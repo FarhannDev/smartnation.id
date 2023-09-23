@@ -5,22 +5,11 @@
   >
     <div class="container">
       <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd">
-        <NuxtImg
-          src="/images/logo.png"
-          alt="Logo Smart Nation"
-          class="d-inline-block align-text-top logo"
-        />
+        <NuxtImg src="/images/logo.png" alt="Logo Smart Nation" class="d-inline-block align-text-top logo" />
       </NuxtLink>
 
-      <button
-        class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -77,38 +66,18 @@
                     : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown2')
-                "
-                alt="dropdown2"
-                @mouseover="toggleHover('dropdown2', true)"
-                @mouseout="toggleHover('dropdown2', false)"
-                class="d-inline-block align-text-top dropdown-img"
-              />
-              <div
-                v-if="showDropdown['dropdown2']"
-                class="dropdown-menu dropdown-menu-brt"
-                @mouseenter="keepDropdownOpen('dropdown2')"
-                @mouseleave="closeDropdown('dropdow2')"
-              >
+                " alt="dropdown2" @mouseover="toggleHover('dropdown2', true)"
+                @mouseout="toggleHover('dropdown2', false)" class="d-inline-block align-text-top dropdown-img" />
+              <div v-if="showDropdown['dropdown2']" class="dropdown-menu dropdown-menu-brt"
+                @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
                 <div class="drp-brt">
-                  <NuxtLink class="brta" to="/category/berita" aria-label="News"
-                    >Berita</NuxtLink
-                  >
+                  <NuxtLink class="brta" to="/category/berita" aria-label="News">Berita</NuxtLink>
                 </div>
                 <div class="drp-brt">
-                  <NuxtLink
-                    class="brta"
-                    to="/category/citiasia"
-                    aria-label="News"
-                    >Citiasia</NuxtLink
-                  >
+                  <NuxtLink class="brta" to="/category/citiasia" aria-label="News">Citiasia</NuxtLink>
                 </div>
                 <div class="drp-brt">
-                  <NuxtLink
-                    class="brta"
-                    to="/category/artikel"
-                    aria-label="News"
-                    >Artikel</NuxtLink
-                  >
+                  <NuxtLink class="brta" to="/category/artikel" aria-label="News">Artikel</NuxtLink>
                 </div>
                 <!-- Tambahkan pilihan dropdown lainnya di sini jika diperlukan -->
               </div>
@@ -150,18 +119,10 @@
                     : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown1')
-                "
-                alt="dropdown1"
-                @mouseover="toggleHover('dropdown1', true)"
-                @mouseout="toggleHover('dropdown1', false)"
-                class="d-inline-block align-text-top dropdown-img"
-              />
-              <div
-                v-if="showDropdown['dropdown1']"
-                class="dropdown-menu dropdown-menu-acr"
-                @mouseenter="keepDropdownOpen('dropdown1')"
-                @mouseleave="closeDropdown('dropdown1')"
-              >
+                " alt="dropdown1" @mouseover="toggleHover('dropdown1', true)"
+                @mouseout="toggleHover('dropdown1', false)" class="d-inline-block align-text-top dropdown-img" />
+              <div v-if="showDropdown['dropdown1']" class="dropdown-menu dropdown-menu-acr"
+                @mouseenter="keepDropdownOpen('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
                 <div class="drp-acr">
                   <a class="acr" href="/events">ISNA</a>
                 </div>
@@ -194,33 +155,25 @@
             </NuxtLink>
           </li>
           <li class="nav-item tkm">
-            <NuxtLink
-              :class="{
-                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                  !isActiveTentangKami,
-                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                  isActiveTentangKami,
-              }"
-              @click="activateNavItem('TentangKami')"
-              to="/about-me"
-              class="text-decoration-none"
-              ><span class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink :class="{
+              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                !isActiveTentangKami,
+              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                isActiveTentangKami,
+            }" @click="activateNavItem('TentangKami')" to="/about-me" class="text-decoration-none"><span
+                class="text-hover-reds" style="transition: color 0.3s">
                 Tentang Kami
               </span></NuxtLink
             >
           </li>
           <li class="nav-item hkm">
-            <NuxtLink
-              :class="{
-                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                  !isActiveHubungiKami,
-                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                  isActiveHubungiKami,
-              }"
-              @click="activateNavItem('HubungiKami')"
-              to="/contact-me"
-              class="text-decoration-none"
-              ><span class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink :class="{
+              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                !isActiveHubungiKami,
+              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                isActiveHubungiKami,
+            }" @click="activateNavItem('HubungiKami')" to="/contact-me" class="text-decoration-none"><span
+                class="text-hover-reds" style="transition: color 0.3s">
                 Hubungi Kami
               </span></NuxtLink
             >
@@ -254,16 +207,9 @@
                 </div>
 
                 <div v-show="showDropdown" class="dropdown-content">
-                  <div
-                    class="dropdown-item"
-                    v-for="(language, index) in languages"
-                    :key="index"
-                  >
-                    <NuxtImg
-                      :src="`images/${language.name}.png`"
-                      alt="Logo"
-                      class="d-inline-block align-text-top lg-indonesia"
-                    />
+                  <div class="dropdown-item" v-for="(language, index) in languages" :key="index">
+                    <NuxtImg :src="`images/${language.name}.png`" alt="Logo"
+                      class="d-inline-block align-text-top lg-indonesia" />
 
                     <a
                       href="#"
@@ -284,6 +230,8 @@
 </template>
 
 <script>
+import { categoriesData } from '~/utils/data/categories';
+
 export default {
   data() {
     return {
@@ -296,7 +244,7 @@ export default {
       languageDropdownHovered: false,
       languageDropdownInterval: null, // Tambahkan properti interval
       showDropdown: false, // Status untuk mengontrol keterlihatan dropdown
-      currentImagee: "/images/language.png", // Gambar awal
+      currentImagee: "/icons/language.png", // Gambar awal
       languages: [
         { code: "ID", name: "Indonesia" },
         { code: "EN", name: "Inggris" },
@@ -305,9 +253,9 @@ export default {
       isDropdownVisible: false, // Tambahkan status untuk mengontrol keterlihatan dropdown
       scrolled: false,
       isScrolled: false,
-      currentImage: "images/arrow_down.png",
-      nextImage: "images/arrow_down_red.png",
-      scrolledImage: "images/arrow_down_black.png",
+      currentImage: "/icons/arrow_down.png",
+      nextImage: "/icons/arrow_down_red.png",
+      scrolledImage: "/icons/arrow_down_black.png",
       showDropdown: {
         dropdown1: false,
         dropdown2: false,
@@ -320,6 +268,8 @@ export default {
         dropdown1: false,
         dropdown2: false,
       },
+      categories: categoriesData
+
     };
   },
   methods: {
@@ -415,11 +365,11 @@ export default {
     handleScroll() {
       if (process.client) {
         // Hanya jalankan kode ini di sisi klien (browser)
-        if (window.scrollY > 460) {
+        if (window.scrollY > 50) {
           this.currentImagee = "/images/language1.png";
           this.scrolled = true;
         } else {
-          this.currentImagee = "/images/language.png";
+          this.currentImagee = "/icons/language.png";
           this.scrolled = false;
         }
       }
@@ -690,7 +640,7 @@ export default {
 
 .search-box input[type="text"] {
   color: var(--font-300, #b0b0b0) !important;
-  background-image: url("images/search.png");
+  background-image: url("/icons/search.png");
   /* Tambahkan gambar search sebagai latar belakang input */
   background-repeat: no-repeat;
   background-size: 20px 20px;
@@ -931,11 +881,15 @@ input::placeholder {
 
 .dropdown-menu-brt {
   border-radius: 4px;
-  width: 124px;
-  height: 201px;
+  width: 250px;
+  height: 250px;
+  overflow-x: auto;
+  /* height: 201px; */
   background: var(--Background, #fff);
   display: inline-flex;
-  padding: 24px;
+  padding: 20px;
+  margin: 0 auto;
+  /* padding: 24px; */
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
@@ -949,10 +903,12 @@ input::placeholder {
 .dropdown-menu-acr {
   top: 100%;
   left: 0;
-  width: 116px;
-  height: 201px;
-  display: inline-flex;
-  padding: 24px;
+  width: 250px;
+  height: 250px;
+  overflow-x: auto;
+  /* display: inline-flex; */
+  padding: 20px;
+  margin: 0 auto;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
@@ -962,19 +918,19 @@ input::placeholder {
 }
 
 .drp-brt {
-  width: 76px;
+  /* width: 76px; */
   height: 43px;
   display: flex;
   padding: 12px 0px;
   align-items: center;
   align-self: stretch;
-  border-bottom: 1px solid var(--font-100, #e7e7e7);
+  /* border-bottom: 1px solid var(--font-100, #e7e7e7); */
+  list-style: none;
 }
 
 .brta {
   text-decoration: none;
   color: var(--font-600, #5d5d5d);
-
   /* Font/Body 2 SemiBold */
   font-family: Poppins;
   font-size: 16px;
@@ -998,13 +954,13 @@ input::placeholder {
 }
 
 .drp-acr {
-  width: 68px;
+  /* width: 68px; */
   height: 43px;
   display: flex;
   padding: 12px 0px;
   align-items: center;
   align-self: stretch;
-  border-bottom: 1px solid var(--font-200, #d1d1d1);
+  /* border-bottom: 1px solid var(--font-200, #d1d1d1); */
 }
 
 .acr {

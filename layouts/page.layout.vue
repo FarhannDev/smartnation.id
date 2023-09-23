@@ -1,7 +1,8 @@
 <template>
-  <NavbarScroll />
-  <!-- <slot name="hero-section" /> -->
-  <main class="position-relative content-wrapper pt-5">
-    <slot />
-  </main>
+  <slot name="header">
+    <NavbarScroll />
+  </slot>
+  <slot name="hero" />
+
+  <slot />
 </template>

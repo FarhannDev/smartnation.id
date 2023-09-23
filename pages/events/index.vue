@@ -1,8 +1,12 @@
 <template>
-  <NuxtLayout name="page.layout">
-    <NavbarScroll />
-    <HeroParallaxBackground text="Kumpulan Acara ISNA" desc="Kumpulan Acara ISNA dari beberapa Kategori"
-      background="/images/background/bg-isna.png" />
+  <NuxtLayout name="page-layout">
+
+
+    <template #hero>
+      <HeroParallaxBackground text="Kumpulan Acara ISNA" desc="Kumpulan Acara ISNA dari beberapa Kategori"
+        background="/images/background/bg-isna.png" />
+    </template>
+
     <section class="berita-section-container position-relative py-5">
       <div class="container">
         <div class="row justify-content-start align-content-start g-3">

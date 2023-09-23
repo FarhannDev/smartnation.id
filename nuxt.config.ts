@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   typescript: { strict: false },
   devtools: { enabled: true },
+  ssr: true,
   $production: {
     routeRules: {
       '/**': { isr: true },
@@ -26,7 +27,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      titleTemplate: '%s - Smartnation',
+      titleTemplate: '%s - SmartNation',
     },
   },
 
@@ -46,14 +47,6 @@ export default defineNuxtConfig({
     preload: true,
     useStylesheet: true,
     families: {
-      Roboto: true,
-      Inter: [400, 700],
-      'Josefin+Sans': true,
-      Lato: [100, 300],
-      Raleway: {
-        wght: [100, 400],
-        ital: [100],
-      },
       Poppins: [300, 400, 500, 600, 700],
     },
     // options...
