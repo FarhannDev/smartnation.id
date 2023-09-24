@@ -129,7 +129,7 @@
 
               <div class="d-flex flex-column py-3">
                 <ul class="list-group list-group-flush">
-                  <li v-for="post in posts.sort().reverse().slice(0, 5)" :key="post.id"
+                  <li v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 12)" :key="post.id"
                     class="list-group-item mx-0 px-0 ">
                     <div class="card border-0 rounded-0">
                       <div class="row justify-content-start align-items-center g-2">

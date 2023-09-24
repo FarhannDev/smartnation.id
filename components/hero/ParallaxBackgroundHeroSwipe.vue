@@ -167,7 +167,6 @@ const props = defineProps({
 const backgroundStyle = () => {
   return {
     backgroundImage: `url(${props.background})`,
-    // transform: `translateY(-50%) translateX(-50%) scale(1.1)`,
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

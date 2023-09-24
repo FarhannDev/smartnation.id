@@ -50,7 +50,7 @@
                 @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
 
                 <div class="d-flex flex-column justify-content-arround gx-2">
-                  <div v-for="category in categories" :key="category" class="drp-brt">
+                  <div v-for="category in categoriesData" :key="category" class="drp-brt">
                     <NuxtLink class="brta text-wrap" :to="`/category/${category}`" aria-label="News">{{ category }}
                     </NuxtLink>
                   </div>
@@ -174,7 +174,7 @@
 </template>
 
 <script>
-import { categoriesData } from '~/utils/data/categories';
+import { categories } from '~/utils/data/getInitialData';
 
 export default {
   data() {
@@ -197,9 +197,9 @@ export default {
       isDropdownVisible: false, // Tambahkan status untuk mengontrol keterlihatan dropdown
       scrolled: false,
       isScrolled: false,
-      currentImage: "/icons/arrow_down.png",
-      nextImage: "/icons/arrow_down_red.png",
-      scrolledImage: "/icons/arrow_down_black.png",
+      currentImage: "/images/arrow_down.png",
+      nextImage: "/images/arrow_down_red.png",
+      scrolledImage: "/images/arrow_down_black.png",
       showDropdown: {
         dropdown1: false,
         dropdown2: false,
@@ -212,7 +212,7 @@ export default {
         dropdown1: false,
         dropdown2: false,
       },
-      categories: categoriesData
+      categoriesData: categories
 
     };
   },
@@ -309,11 +309,11 @@ export default {
     handleScroll() {
       if (process.client) {
         // Hanya jalankan kode ini di sisi klien (browser)
-        if (window.scrollY > 50) {
-          this.currentImagee = "/icons/language1.png";
+        if (window.scrollY > 460) {
+          this.currentImagee = "/images/language1.png";
           this.scrolled = true;
         } else {
-          this.currentImagee = "/icons/language.png";
+          this.currentImagee = "/images/language.png";
           this.scrolled = false;
         }
       }
@@ -471,8 +471,7 @@ export default {
 
 .text-hover-reds:hover {
   transition: color 0.3s;
-  color: var(--danger-600,
-      #ce2f2f);
+  color: var(--danger-600, #ce2f2f);
   /* Mengubah warna teks menjadi merah saat dihover */
 }
 
@@ -541,14 +540,12 @@ export default {
 
 /* Ubah warna teks menjadi merah saat dihover pada tulisan */
 .dropdown-env:hover .text-hover-reds {
-  color: var(--danger-600,
-      #ce2f2f);
+  color: var(--danger-600, #ce2f2f);
   /* Mengubah warna teks menjadi merah saat dihover */
 }
 
 .dropdown-brt:hover .text-hover-reds {
-  color: var(--danger-600,
-      #ce2f2f);
+  color: var(--danger-600, #ce2f2f);
   /* Mengubah warna teks menjadi merah saat dihover */
 }
 

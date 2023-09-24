@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   typescript: { strict: false },
   devtools: { enabled: true },
-  ssr: true,
   $production: {
     routeRules: {
       '/**': { isr: true },

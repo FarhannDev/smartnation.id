@@ -43,9 +43,7 @@
 
                     <div v-html="post.content" class="article-details__content"></div>
 
-                    article-details__content__share__medsos
-                    article-details__content__share__medsos
-                    article-details__content__share__medsos
+
                     <div class="article-details__content__share pt-3">
                       <div class="d-flex flex-wrap justify-content-end g-2">
                         <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
@@ -529,14 +527,6 @@
 </style>
 
 <script setup>
-definePageMeta({
-  layoutTransition: {
-    name: 'slide-in',
-    mode: 'out-in'
-  },
-  pageTransition: { name: 'fade', mode: 'out-in' }
-
-})
 
 import { posts } from "~/utils/data/getInitialData";
 

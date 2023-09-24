@@ -451,8 +451,13 @@ const route = useRoute()
 const { id } = route.params
 // Set Meta SEO
 useSeoMeta({
-  title: "Berita Kategori",
-  ogTitle: 'Berita Kategori',
-  description: 'Selamat datang di smartnation.id',
+  title: `Berita Kategori ${id}`,
+  description: `Daftar berita dari kategori Citiasia inc ${id}`,
+  author: "SmartNation",
+  ogTitle: `Berita Kategori ${id}`,
+  ogDescription: `Daftar berita dari kategori Citiasia inc ${id}`,
+  ogType: "website",
+  ogSiteName: "https://smartnation.vercel.app",
+  ogUrl: 'https://smartnation.vercel.app',
 })
 </script>
