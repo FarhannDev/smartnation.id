@@ -1,4 +1,4 @@
-export interface Posts {
+interface Posts {
   id: number | string;
   title: string;
   slug: string;
@@ -8,6 +8,32 @@ export interface Posts {
   thumbnail: string;
   createdAt: string | number | boolean | null | undefined | symbol | Date;
   updatedAt: string | number | boolean | null | undefined | symbol | Date;
+}
+
+export type CategoryPost =
+  | 'Artikel'
+  | 'Berita'
+  | 'Citiasia inc'
+  | 'Daerah'
+  | 'Goverment'
+  | 'Healt'
+  | 'ISNA'
+  | 'Insight'
+  | 'Internasional'
+  | 'Nasional';
+
+interface Teams {
+  id: number | string;
+  name: string;
+  jobs: string;
+  description: string;
+  thumbnail: string;
+}
+
+interface Partner {
+  id: number | string;
+  name: string;
+  logo: string;
 }
 
 const createSlug: (text: string) => string = (text: string) => {
@@ -24,6 +50,19 @@ const generateUniqueId = () => {
 
   return `${timestamp}-${random}`;
 };
+
+const categories: CategoryPost[] = [
+  'Artikel',
+  'Berita',
+  'Citiasia inc',
+  'Daerah',
+  'Goverment',
+  'Healt',
+  'ISNA',
+  'Insight',
+  'Internasional',
+  'Nasional',
+];
 
 const posts: Posts[] = [
   {
@@ -371,4 +410,180 @@ const posts: Posts[] = [
   },
 ];
 
-export { posts };
+const teams: Teams[] = [
+  {
+    id: generateUniqueId(),
+    name: 'Dr. Ir. Cahyana Ahmadjayadi',
+    jobs: 'Co-Founder & Chairman',
+    description:
+      'Dr. Cahyana pernah menjadi pejabat eselon satu di 3 kementrian( Kementrian Otda, Kemendagri, Kominfo), pernah menjadi direktur dan komisaris di beberapa BUMN dan perusahaan swasta (PT. Pos, Bank Mandiri, Lintas Artha), dan seorang figur terkemuka di bidang TIK. Dr. Cahyana merupakan lulusan Insitut Teknologi Bandung yang mengambil Doktor di bidang Cyber Security.',
+    thumbnail: '/images/teams/dr-ir-cahyana-ahmadjayadi.png',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'Farid Subkhan',
+    jobs: 'Co-Founder & Chairman',
+    description:
+      'Farid Subkhan telah berpengalaman memimpin tim perencanaan dan implementasi proyek konsultansi berskala nasional dan internasional selama lebih dari 15 tahun. Sebelum bergabung dengan Citiasia, Farid menjadi executive di konsultan manajemen terbesar di Indonesia dan berpengalaman menjalankan proyek branding untuk berbagai perusahaan dan instansi pemerintah. Farid memiliki dua gelar master, dari University of Turin (Italia) dan dari Fakultas Ekonomi Universitas Indonesia.',
+    thumbnail: '/images/teams/farid-subkhan.png',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'Rosidi Wiradinata',
+    jobs: 'Co-Founder',
+    description:
+      'Mr. Rosidi memiliki pengalaman yang luas selama lebih dari 30 tahun di bidang Telekomunikasi dan industri ICT. Mr. Rosidi memperoleh M.Sc Teleinformatics dari École Nationale des telekomunikasi, Perancis dan M.Sc Informatika dari Université de Technologie de Compiègne, Prancis.',
+    thumbnail: '/images/teams/rosidi-wiradinata.png',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'Fitrah Rachmat Kautsar',
+    jobs: 'Chief Operationg Officer',
+    description:
+      'Fitrah Rachmat Kautsar mengambil Master Ekonomi di Universitas Indonesia dan sejak 2010, sebelum bergabung dengan Citiasia, menjadi staf ahli Bappenas yang memfasilitasi penyusunan RPJMD, Renstra, master plan dan blueprint CSR, e-gov, dan IT, ranperda terkait perencanaan, di lebih dari 15 provinsi dan kabupaten/kota. Fitrah juga memimpin proyek penulisan Buku “Revolusi Digital Menuju Indonesia Smart Nation” dan Studi Tahunan tentang Indeks Kesiapan Daerah Pintar.',
+    thumbnail: '/images/teams/fitrah-rachmat-kautsar.png',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'Hari Kusdaryanto',
+    jobs: 'Chief Strategy Officer',
+    description:
+      'Hari Kusdaryanto memiliki 15 tahun pengalaman dalam mengelola program-program dari berbagai lembaga pembangunan internasional seperti USAID, AUSAID, CIDA Kanada, World Bank, British Embassy, terkait dengan riset, bantuan teknis, dan pengembangan kapasitas untuk kementrian, pemerintah daerah, universitas, atau LSM/CSOs. Hari adalah pemegang Master of Development dari University of Turin, Italia, serta pernah mengenyam pendidikan di National University of Singapore.',
+    thumbnail: '/images/teams/hari-kusdaryanto.png',
+  },
+];
+
+const partner: Partner[] = [
+  {
+    id: generateUniqueId(),
+    name: 'DPR',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'OXFORD',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'SHAPE',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'BAPPENAS',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'INDOSAT',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'TELKOM',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'DATACOMM',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'SOFTWARE ONE',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'ORACLE',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'QLUE',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'VOLTRAS',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'DOT SOLUTION',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'iNEWS',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'SINDO TRIJAYA',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'KORAN SINDO    ',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'TOYOTA',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'PERTAMINA',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'INFOMEDIA',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'PEGADAIAN',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'MANDOM',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'PEKANBARU',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'BANDUNG',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'SAMARINDA',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'APEKSI',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'Muara Enim Smart Regency Kabupaten Muara Enim',
+    logo: '',
+  },
+  {
+    id: generateUniqueId(),
+    name: 'Jeneponto Smart Branding Kabupaten Jeneponto',
+    logo: '',
+  },
+];
+
+export { posts, categories, teams, partner };

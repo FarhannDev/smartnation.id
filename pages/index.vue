@@ -88,8 +88,9 @@
                   <div class="card-text text-start lh-base article-desc pt-2" v-html="post.excerpt"> </div>
 
                   <div class="hstack g-2 pt-2">
-                    <NuxtLink :to="`/${category}`" aria-label="Lihat Selengkapnya" v-for="category in post.categories"
-                      :key="category" class="badge bg-white text-danger rounded-pill text-decoration-none fw-normal me-2">
+                    <NuxtLink :to="`/category/${category}`" aria-label="Lihat Selengkapnya"
+                      v-for="category in post.categories" :key="category"
+                      class="badge bg-white text-danger rounded-pill text-decoration-none fw-normal me-2">
                       {{
                         category }}</NuxtLink>
 
@@ -135,7 +136,8 @@
         <div class="container">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
           <div class="row justify-content-start g-3 pt-3">
-            <div v-for="post in  posts.slice(0, 4)" :key="post.id" class="col-xxl-3 col-lg-4 col-md-6 ">
+            <div v-for="post in  posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" :key="post.id"
+              class="col-xxl-3 col-lg-4 col-md-6 ">
               <EventsActivityPictureCover :postId="post.slug" :title="post.title" :description="post.excerpt"
                 :featuredImage="post.thumbnail" :alternative="post.title" />
             </div>
@@ -149,18 +151,21 @@
           <div class="row justify-content-start align-items-start g-3 pt-3">
             <div class="col-lg-8 ">
               <article class="d-grid gap-2  article-list-item" @scroll="articleScroll">
-                <ArticlesArticleFeaturedColumn v-for="post in posts.slice(0, 5)" :key="post.id" :postId="post.slug"
-                  :title="post.title" :featuredImage="post.thumbnail" :excerpt="post.excerpt"
+                <ArticlesArticleFeaturedColumn
+                  v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)" :key="post.id"
+                  :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail" :excerpt="post.excerpt"
                   :categories="post.categories" :timestamp="post.createdAt" />
               </article>
             </div>
 
-            <div class="col-lg-4 ">
-              <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
-              <div class="d-flex flex-column pt-4">
-                <div class="vstack g-3">
-                  <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id" :number="index"
-                    :postId="post.slug" :title="post.title" />
+            <div class="col-lg-4 position-relative">
+              <div>
+                <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
+                <div class="d-flex flex-column pt-4">
+                  <div class="vstack g-3">
+                    <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id" :number="index"
+                      :postId="post.slug" :title="post.title" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -174,7 +179,8 @@
 
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.slice(0, 5)" :key="post.id"
+                <ArticlesArticleRecomendedThumbnail
+                  v-for="(post, index) in posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 5)" :key="post.id"
                   :number="index" :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
                   :timestamp="post.createdAt" />
               </div>
@@ -184,8 +190,8 @@
                 title="Nasional" />
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.slice(0, 5)" :key="post.id"
-                  :number="index" :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
+                <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.sort().reverse().slice(0, 5)"
+                  :key="post.id" :number="index" :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
                   :timestamp="post.createdAt" />
               </div>
             </div>
@@ -195,7 +201,8 @@
 
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.slice(0, 5)" :key="post.id"
+                <ArticlesArticleRecomendedThumbnail
+                  v-for="(post, index) in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)" :key="post.id"
                   :number="index" :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail"
                   :timestamp="post.createdAt" />
               </div>
@@ -208,6 +215,8 @@
           <Subscribe />
         </div>
       </section>
+
+      {{ JSON.stringify(categories) }}
 
     </main>
     <!-- Content Main End -->
@@ -312,6 +321,7 @@
 
 
 .line-break {
+  width: 92%;
   border-bottom: 1px solid var(--danger-600, #CE2F2F);
 }
 

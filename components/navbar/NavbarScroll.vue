@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-xl fixed-top" :class="{ 'navbar-scrolled': scrolled }">
     <div class="container">
-      <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd d-lg-block mx-lg-0  mx-auto">
+      <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd d-lg-block mx-lg-0 mx-md-0 mx-auto">
         <NuxtImg src="/images/logo.png" alt="Logo Smart Nation" class="d-inline-block align-text-top logo" />
       </NuxtLink>
 
@@ -50,8 +50,8 @@
                 @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
 
                 <div class="d-flex flex-column justify-content-arround gx-2">
-                  <div v-for="category in categories" :key="category" class="drp-brt">
-                    <NuxtLink class="brta text-wrap" :to="`/category/${category}`" aria-label="News">{{ category }}
+                  <div v-for="category in categoriesData.sort()" :key="category" class="drp-brt">
+                    <NuxtLink class="brta text-wrap" :to="`/category/${category}`" :aria-label="category">{{ category }}
                     </NuxtLink>
                   </div>
 
@@ -174,7 +174,7 @@
 </template>
 
 <script>
-import { categoriesData } from '~/utils/data/categories';
+import { categories } from '~/utils/data/getInitialData';
 
 export default {
   data() {
@@ -212,7 +212,8 @@ export default {
         dropdown1: false,
         dropdown2: false,
       },
-      categories: categoriesData
+
+      categoriesData: categories
 
     };
   },

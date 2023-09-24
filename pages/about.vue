@@ -6,274 +6,223 @@
         background="/images/background/bg-galeri.png" />
     </template>
 
+    <main id="content-main">
+      <!-- section tentang Citiasia Center for Smart Nation (CCSN) -->
+      <section class="ccsn-section-container py-5">
+        <div class="container">
+          <div class="row justify-content-between g-3">
+            <div class="col-lg-5 col-md-6">
+              <h1 class="ccsn-title">Tentang Citiasia Center for Smart Nation (CCSN)</h1>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <p class="ccsn-desc">Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari
+                Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation
 
-    <div class="container1">
-      <div class="box1">#
-        <p>Tentang Citiasia Center for Smart Nation (CCSN)</p>
-      </div>
-      <div class="box2">
-        <p>
-          Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap
-          strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa
-          menuju Indonesia Smart Nation
-        </p>
-      </div>
-    </div>
-    <div class="container2">
-      <div class="box3">
-        <p style="
-          color: var(--primary-600, #d71149);
-          font-size: 31px;
-          font-weight: 700;
-          line-height: 140.5%;
-        ">
-          Tentang Citiasia INC.
-        </p>
-        <p>
-          Citiasia, Inc. merupakan pionir konsultan dan implementasi smart city di
-          Indonesia yang berdiri sejak 2015. Citiasia, inc telah melayani
-          institusi publik dan bisnis untuk akselerasi kinerja berkelanjutan dan
-          berkontribusi pada nilai-nilai sosial.
-        </p>
-      </div>
-      <div class="box4">
-        <img class="image-tentang"
-          src="https://s3-alpha-sig.figma.com/img/4c1d/563b/f4b9d3e6567d68c24060a212542e9ab9?Expires=1696204800&Signature=KajgzoYSPUVathejX75B8R8Y5o25SkrP6OCZqWYeeRTt5rYZ9AfYA0sBQrMjAVq07beXcg6qirCXJIZ7c6Vk~TS-B05SJrL69qIfBNlb~Culat2X00dLLBasTOhbqh7basitgjY9FyUsfUnDc2heOWpLpTi3Nq0lxF72zO~hYC74TedcvFlup9Mz~ElWtmPX1~AbUDlyquorTLK-vRDWiKmKLPmYwZIDYtboe1jHxy-67H-bYMkxPgrFgOFzmWOL~HPW7~zwQpgbrQvq6VpmmXeSQ6FHKUhXLMF-Dqk-ZLtpZHl6f7FWE2Fi67UGv4557kQdhp-Tc--OLZDkWw3rew__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-          alt="Tentang Citiasia INC." />
-      </div>
-    </div>
-    <div class="container3">
-      <div class="box5">
-        <img class="image-visimisi" src="/images/visimisi.png" alt="Visi Misi" />
-      </div>
-      <div class="box6">
-        <p style="
-          color: var(--font-50, #f6f6f6);
-          font-size: 31px;
-          font-weight: 600;
-          line-height: 120%;
-        ">
-          Visi
-        </p>
-        <p>
-          Menjadi market leader untuk layanan smart city dan smart enterprise di
-          Indonesia pada tahun 2025.
-        </p>
-        <p style="
-          color: var(--font-50, #f6f6f6);
-          font-size: 31px;
-          font-weight: 600;
-          line-height: 120%;
-        ">
-          Misi
-        </p>
-        <p>
-          Citiasia, Inc. membantu institusi publik dan sektor bisnis dengan
-          memberikan solusi dan layanan aplikatif melalui konsultasi, layanan
-          digital, dan inovasi untuk meningkatkan performa bisnis yang
-          berkelanjutan, mengembangkan smart city, dan memberikan dampak positif
-          sosial untuk Indonesia yang lebih baik.
-        </p>
-      </div>
-    </div>
-    <div class="container4">
-      <div class="box7">
-        <p style="
-          color: var(--primary-600, #d71149);
-          font-size: 31px;
-          font-weight: 700;
-          line-height: 140.5%;
-        ">
-          Tim Citiasia INC.
-        </p>
-        <div>
-          <div class="image-container">
-            <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/teams/Cahyana.png"
-                alt="Dr. Ir. Cahyana Ahmadjayadi" />
-              <p style="
-                color: var(--font-800, #454545);
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 120%;
-              ">
-                Dr. Ir. Cahyana Ahmadjayadi
-              </p>
-              <p style="
-                width: 185px;
-                color: var(--font-600, #5d5d5d);
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 120%;
-              ">
-                Co-Founder & Chairman
-              </p>
-            </div>
-            <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/teams/Farid.png" alt="Farid Subkhan" />
-              <p style="
-                color: var(--font-800, #454545);
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 120%;
-              ">
-                Farid Subkhan
-              </p>
-              <p style="
-                margin-top: 25px;
-                width: 185px;
-                color: var(--font-600, #5d5d5d);
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 120%;
-              ">
-                Co-Founder & Chief Executive Officer
-              </p>
-            </div>
-            <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/teams/Rosidi.png" alt="Rosidi Wiradinata" />
-              <p style="
-                color: var(--font-800, #454545);
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 120%;
-              ">
-                Rosidi Wiradinata
-              </p>
-              <p style="
-                margin-top: 25px;
-                width: 185px;
-                color: var(--font-600, #5d5d5d);
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 120%;
-              ">
-                Co-Founder
-              </p>
-            </div>
-            <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/teams/Fitrah.png" alt="Fitrah Rachmat Kautsar" />
-              <p style="
-                color: var(--font-800, #454545);
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 120%;
-              ">
-                Fitrah Rachmat Kautsar
-              </p>
-              <p style="
-                width: 185px;
-                color: var(--font-600, #5d5d5d);
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 120%;
-              ">
-                Chief Operationg Officer
-              </p>
-            </div>
-            <div class="person">
-              <img style="width: 185px; height: 255px" src="/images/teams/Hari.png" alt="Hari Kusdaryanto" />
-              <p style="
-                color: var(--font-800, #454545);
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 120%;
-              ">
-                Hari Kusdaryanto
-              </p>
-              <p style="
-                margin-top: 25px;
-                width: 185px;
-                color: var(--font-600, #5d5d5d);
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 120%;
-              ">
-                Chief Strategy Officer
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="container5">
-      <div>
-        <p style="
-          color: var(--primary-600, #d71149);
-          font-size: 31px;
-          font-weight: 700;
-          line-height: 140.5%;
-        ">
-          Partner
-        </p>
-      </div>
-    </div>
-    <div class="partner">
-      <div class="lglg-partner">
-        <div class="aarrlf">
-          <svg xmlns="http://www.w3.org/2000/svg" width="49" height="49" viewBox="0 0 49 49" fill="none">
-            <path
-              d="M29.92 32.0852L22.16 24.3252L29.92 16.5652C30.7 15.7852 30.7 14.5252 29.92 13.7452C29.14 12.9652 27.88 12.9652 27.1 13.7452L17.92 22.9252C17.14 23.7052 17.14 24.9652 17.92 25.7452L27.1 34.9252C27.88 35.7052 29.14 35.7052 29.92 34.9252C30.68 34.1452 30.7 32.8652 29.92 32.0852Z"
-              fill="#323232" />
-          </svg>
+      </section>
+      <!-- section Tentang Citiasia INC -->
+      <section class="citiasia-section-container py-5">
+        <div class="container">
+          <div class="row justify-content-between g-3">
+            <div class="col-lg-7 col-md-6">
+              <h1 class="ccsn-title mb-3">Tentang Citiasia INC.</h1>
+              <p class="ccsn-desc">Citiasia, Inc. merupakan pionir konsultan dan implementasi smart city di Indonesia yang
+                berdiri sejak 2015. Citiasia, inc telah melayani institusi publik dan bisnis untuk akselerasi kinerja
+                berkelanjutan dan berkontribusi pada nilai-nilai sosial.
+
+              </p>
+            </div>
+            <div class="col-lg-5 col-md-6">
+              <NuxtImg alt="citiasia"
+                src="https://s3-alpha-sig.figma.com/img/4c1d/563b/f4b9d3e6567d68c24060a212542e9ab9?Expires=1696204800&Signature=KajgzoYSPUVathejX75B8R8Y5o25SkrP6OCZqWYeeRTt5rYZ9AfYA0sBQrMjAVq07beXcg6qirCXJIZ7c6Vk~TS-B05SJrL69qIfBNlb~Culat2X00dLLBasTOhbqh7basitgjY9FyUsfUnDc2heOWpLpTi3Nq0lxF72zO~hYC74TedcvFlup9Mz~ElWtmPX1~AbUDlyquorTLK-vRDWiKmKLPmYwZIDYtboe1jHxy-67H-bYMkxPgrFgOFzmWOL~HPW7~zwQpgbrQvq6VpmmXeSQ6FHKUhXLMF-Dqk-ZLtpZHl6f7FWE2Fi67UGv4557kQdhp-Tc--OLZDkWw3rew__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                class="img-fluid citiasia-img" />
+            </div>
+          </div>
         </div>
-        <div class="img-partner">
-          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
-          <p class="partner-name">DPR</p>
+
+      </section>
+      <!-- section visi misi -->
+
+      <section class="visimisi-section-container py-5">
+        <div class="container">
+          <div class="row justify-content-start g-3">
+            <div class="col-lg-6 col-md-6">
+              <div class="d-flex justify-content-start flex-column">
+                <NuxtImg alt="visimisi"
+                  src="https://s3-alpha-sig.figma.com/img/0db0/6a80/094e4b1155464e45996d69d1d9f1e3f4?Expires=1696204800&Signature=datJGnJs3LlHu6lfQzIL6V-VUgpqUucw4g-joTtwRGFBWUwGNP5jhYg0lOiN~yRSp85Vt9lN3pNlBzikC~RbZZS0hKMACKVnxhV-kd8Ldx2ecC8NgpVQKt7ltkdQ98DZ4Ar0FjckqwMQ9~MexMS3Ip5U~sJqoN9ZRPypCrpTD0q-rUJu4HDLFYmLIIPOvedGj~xZaGkBLmQY1UgG-fG06D2zkGdDPvvTAftiPqYqxAy8ZiNBuwx6Jk8gNAEkV2e8xHEvYEIIwQ59Oo-lDeVVmx844a0Ozcp2p9oMGMnQmRwplfX-Gq4ywoafY8Ov882ylkCHsrs24NJ0nbVIciGyYQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                  class="img-fluid visimisi-cover" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="d-flex justify-content-start flex-column g-2">
+                <div>
+                  <h1 class="visimisi-title">
+                    Visi
+                  </h1>
+                  <p class="visimisi-desc">
+                    Menjadi market leader untuk layanan smart city dan smart enterprise di Indonesia pada tahun 2025.
+                  </p>
+                </div>
+                <div>
+                  <h1 class="visimisi-title">
+                    Misi
+                  </h1>
+                  <p class="visimisi-desc">
+                    Citiasia, Inc. membantu institusi publik dan sektor bisnis dengan memberikan solusi dan layanan
+                    aplikatif melalui konsultasi, layanan digital, dan inovasi untuk meningkatkan performa bisnis yang
+                    berkelanjutan, mengembangkan smart city, dan memberikan dampak positif sosial untuk Indonesia yang
+                    lebih baik.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="img-partner">
-          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
-          <p class="partner-name">DPR</p>
+      </section>
+      <!-- section Tim Citiasia INC -->
+      <section class="teams-citiasia-section-container py-5">
+        <div class="container">
+          <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
+          <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-2 pt-5">
+            <div v-for="team in teams" :key="team.id" class="col">
+              <figure class="figure">
+                <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images"
+                  :alt="team.name" loading="lazy" :quality="75" format="webp" />
+                <figcaption class="figure-caption">
+                  <h3 class="teams-citiasia__name">{{ team.name }} </h3>
+                  <p class="teams-citiasia__job">{{ team.jobs }}</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
-        <div class="img-partner">
-          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
-          <p class="partner-name">DPR</p>
+      </section>
+      <!-- section Partner -->
+      <section class="partner-section-container py-5">
+        <div class="container">
+          <h1 class="partner-citiasia__title">Partner</h1>
+          <div class="row justify-content-start g-5 py-5">
+            <div class="col">
+              <Swiper :modules="[SwiperAutoplay, SwiperNavigation]" :navigation="{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              }" :slidesPerView="1" :spaceBetween="10" :freeMode="true" :grabCursor="true" :breakpoints="{
+  '640': {
+    slidesPerView: 4,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 3,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 6,
+    spaceBetween: 10,
+  },
+}" :autoplay="{
+  delay: 1000,
+}" :creative-effect="{
+  prev: {
+    shadow: false,
+    translate: ['-20%', 0, -1],
+  },
+  next: {
+    translate: ['100%', 0, 0],
+  },
+}">
+                <SwiperSlide v-for="client in partner" :key="client.id">
+                  <figure class="figure">
+                    <NuxtImg :src="'/images/client/Partner.png'" class="figure-img img-fluid rounded partner__images"
+                      :alt="client.name" loading="lazy" :quality="75" format="webp" />
+                    <figcaption class="figure-caption text-center">
+                      <h3 class="partner__name">{{ client.name }} </h3>
+                    </figcaption>
+                  </figure>
+
+                </SwiperSlide>
+                <!-- Custom Navigation -->
+                <div class="custom-navigation">
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"> </div>
+                </div>
+              </Swiper>
+            </div>
+
+
+          </div>
         </div>
-        <div class="img-partner">
-          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
-          <p class="partner-name">DPR</p>
+      </section>
+      <!-- section portofolio -->
+      <section class="portofolio-section-container py-5">
+        <div class="container">
+          <h1 class="portofolio-title">Portofolio</h1>
+          <div class="d-flex flex-column justify-content-start g-2 py-3">
+            <iframe class="rounded"
+              src="https://www.google.com/maps/d/u/0/embed?mid=1LTTSR3Ei-3HpleWwcorxCnEgV89HcS8&ehbc=2E312F" width="auto"
+              height="480"></iframe>
+          </div>
+
+          <div class="d-flex flex-column align-items-start justify-content-start g-3 py-3">
+            <div class="row row-cols-2 row-cols-lg-4 g-3">
+              <div class="col">
+                <div class="d-flex flex-column ">
+                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
+                      viewBox="0 0 70 70" fill="none">
+                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
+                    </svg>
+                  </div>
+                  <div class="portofolio-content">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="d-flex flex-column g-0">
+                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
+                      viewBox="0 0 70 70" fill="none">
+                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
+                    </svg>
+                  </div>
+                  <div class="portofolio-content">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="d-flex flex-column g-0">
+                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
+                      viewBox="0 0 70 70" fill="none">
+                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
+                    </svg>
+                  </div>
+                  <div class="portofolio-content">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="d-flex flex-column g-0">
+                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
+                      viewBox="0 0 70 70" fill="none">
+                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
+                    </svg>
+                  </div>
+                  <div class="portofolio-content">
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
-        <div class="img-partner">
-          <img src="/images/client/Partner.png" alt="DPR" class="card-img" />
-          <p class="partner-name">DPR</p>
-        </div>
-        <div class="aarrlf">
-          <svg xmlns="http://www.w3.org/2000/svg" width="49" height="49" viewBox="0 0 49 49" fill="none">
-            <g clip-path="url(#clip0_1601_16626)">
-              <path
-                d="M19.08 13.7448C18.3 14.5248 18.3 15.7848 19.08 16.5648L26.84 24.3247L19.08 32.0847C18.3 32.8647 18.3 34.1248 19.08 34.9048C19.86 35.6848 21.12 35.6848 21.9 34.9048L31.08 25.7247C31.86 24.9447 31.86 23.6848 31.08 22.9047L21.9 13.7248C21.14 12.9648 19.86 12.9648 19.08 13.7448Z"
-                fill="#323232" />
-            </g>
-            <defs>
-              <clipPath id="clip0_1601_16626">
-                <rect width="48" height="48" fill="white" transform="translate(0.5 0.325195)" />
-              </clipPath>
-            </defs>
-          </svg>
-        </div>
-      </div>
-      <div class="hero-dots">
-        <div v-for="(item, index) in items" :key="index" class="drag-item" @mousedown="startDrag(index)"
-          @mousemove="dragItem(index)" @mouseup="stopDrag">
-          <img :src="item.image" />
-          <i class="fas fa-arrows-alt"></i>
-          <!-- Icon untuk geser -->
-        </div>
-      </div>
-    </div>
-    <!-- <div class="container6">
-      <div class="box8">
-        <p style="
-          color: var(--primary-600, #d71149);
-          font-size: 31px;
-          font-weight: 700;
-          line-height: 140.5%;
-        ">
-          Portofolio
-        </p>
-        <img class="image-portofolio" src="/images/Portofolio.png" alt="portofolio" />
-      </div>
-    </div> -->
+      </section>
+    </main>
+
+
     <div class="portofolio">
       <div class="image-mitra">
         <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
@@ -364,57 +313,296 @@
   </NuxtLayout>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [
-        {
-          image: "/images/Ellipse.png",
-        },
-        {
-          image: "/images/Ellipse.png",
-        },
-        {
-          image: "/images/Ellipse.png",
-        },
-        {
-          image: "/images/Ellipse.png",
-        },
-      ],
-      dragging: false,
-      selectedIndex: -1,
-      startOffsetX: 0,
-      startOffsetY: 0,
-    };
-  },
-  methods: {
-    startDrag(index) {
-      this.dragging = true;
-      this.selectedIndex = index;
-      const item = document.querySelectorAll(".drag-item")[index];
-      const rect = item.getBoundingClientRect();
-      this.startOffsetX = rect.left - event.clientX;
-      this.startOffsetY = rect.top - event.clientY;
-    },
-    dragItem(index) {
-      if (this.dragging && this.selectedIndex === index) {
-        const item = document.querySelectorAll(".drag-item")[index];
-        item.style.left = event.clientX + this.startOffsetX + "px";
-        item.style.top = event.clientY + this.startOffsetY + "px";
-      }
-    },
-    stopDrag() {
-      if (this.dragging) {
-        this.dragging = false;
-        this.selectedIndex = -1;
-      }
-    },
-  },
-};
-</script>
 
 <style scoped>
+.ccsn-section-container {
+  width: 100%;
+  height: auto;
+  background: var(--primary-50, #FFF0F2);
+}
+
+.ccsn-section-container .container {
+  padding-top: 0;
+}
+
+.ccsn-title {
+  color: var(--primary-600, #D71149);
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140.5%;
+  text-align: start;
+  /* 43.555px */
+}
+
+.ccsn-desc {
+  color: var(--font-600, #5D5D5D);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 151%;
+  text-align: start;
+  /* 37.75px */
+}
+
+
+.citiasia-section-container {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  background: var(--Background, #FFF);
+}
+
+.citiasia-section-container .container {
+  padding-top: 0;
+}
+
+.citiasia-img {
+  width: 492px;
+  height: 328.16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.visimisi-section-container {
+  background: var(--primary-800, #A60B40);
+  height: auto;
+  overflow-x: hidden;
+}
+
+.visimisi-section-container .container {
+  padding-top: 0;
+}
+
+.visimisi-cover {
+  width: 500px;
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.visimisi-title {
+  color: var(--font-50, #F6F6F6);
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  /* 37.2px */
+}
+
+.visimisi-desc {
+  color: var(--Background, #FFF);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  /* 37.5px */
+}
+
+.teams-citiasia-section-container {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+}
+
+.teams-citiasia-section-container .container {
+  padding-top: 0;
+}
+
+.teams-citiasia__title {
+  color: var(--primary-600, #D71149);
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140.5%;
+  text-align: start;
+}
+
+.teams-citiasia__images {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  width: 250px;
+  height: 250px;
+  border-radius: 0px !important;
+  border: 0;
+}
+
+.teams-citiasia__name {
+  color: var(--font-800, #454545);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.teams-citiasia__job {
+  color: var(--font-600, #5D5D5D);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-align: center;
+
+}
+
+.portofolio-title {
+  color: var(--danger-600, #CE2F2F);
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+
+.partner-section-container {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+}
+
+.partner-section-container .container {
+  padding-top: 3em;
+}
+
+.partner-citiasia__title {
+  color: var(--danger-600, #CE2F2F);
+  font-family: Poppins;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.partner__images {
+  width: 217px;
+  height: 124.649px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+}
+
+.partner__name {
+  color: var(--font-700, #4F4F4F);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+
+.swiper-button-prev {
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 36px;
+  color: #454545;
+  border: 1px solid var(--font-200, #d1d1d1);
+  background: var(--Background, #fff);
+  /* Medium */
+  /* box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 0px 1px rgba(103, 110, 118, 0.16),
+    0px 2px 5px 0px rgba(103, 110, 118, 0.08); */
+
+}
+
+.swiper-button-next {
+  width: 64px;
+  height: 64px;
+  padding: 8px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 36px;
+  color: #454545;
+  border: 1px solid var(--font-200, #d1d1d1);
+  background: var(--Background, #fff);
+  /* Medium */
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 0px 1px rgba(103, 110, 118, 0.16),
+    0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+}
+
+@media (min-width: 1200px) {
+  .ccsn-section-container .container {
+    padding-top: 3em;
+  }
+
+  .citiasia-section-container .container {
+    padding-top: 3em;
+  }
+
+  .visimisi-section-container .container {
+    padding-top: 3em;
+  }
+
+  .teams-citiasia-section-container .container {
+    padding-top: 3em;
+  }
+
+  .ccsn-title {
+    font-size: 28px;
+  }
+
+  .ccsn-desc {
+    font-size: 22px;
+  }
+
+
+  .visimisi-title {
+    font-size: 28px;
+  }
+
+  .visimisi-desc {
+    font-size: 22px;
+  }
+
+  .teams-citiasia__title {
+    font-size: 28px;
+  }
+
+  .teams-citiasia__name {
+    font-size: 20px;
+  }
+
+  .teams-citiasia__job {
+    font-size: 18px;
+  }
+
+  .portofolio-title {
+    font-size: 28px;
+  }
+
+
+}
+
+
+
+
+
 .container1 {
   display: flex;
   width: 100% auto;
@@ -660,6 +848,8 @@ export default {
 </style>
 
 <script  setup>
+import { teams, partner } from "~/utils/data/getInitialData.ts"
+
 
 // Set Meta SEO
 useSeoMeta({
