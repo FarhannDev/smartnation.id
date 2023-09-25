@@ -22,40 +22,15 @@
 
 
 <style >
-.berita-section-title {
-  color: var(--font-600, #5D5D5D);
-  font-family: Poppins;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  /* 24px */
-}
-
-.line-break {
-  position: relative;
-  top: -5px;
-  left: 1.2px;
-  width: 51px;
-  border: 1px solid #C70943;
-}
-
 .hero-image-parallax {
   position: relative;
   width: 100%;
-  height: 612px;
+  height: 100vh;
   overflow: hidden;
   scroll-behavior: smooth;
   margin-left: 0;
   -webkit-transform: scale(1);
   transform: scale(1);
-}
-
-.hero-image-parallax:hover {
-  -webkit-transform: scale(1.1);
-  -webkit-transition: .3s ease-in-out;
-  transform: scale(1.1);
-  transition: .3s ease-in-out;
 }
 
 
@@ -65,7 +40,7 @@
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  height: 612px;
+  height: 100vh;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -78,18 +53,18 @@
   position: absolute;
   top: 45%;
   z-index: 1000;
-  width: 90%;
+  width: 100%;
 }
 
 .hero-heading__title {
-  display: inline;
+  display: inline-block;
   color: var(--font-50, #F6F6F6);
   font-family: Poppins;
-  font-size: 22px !important;
+  font-size: 28px !important;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-  text-align: start;
+  text-align: left;
 }
 
 .hero-heading__title:hover {
@@ -99,7 +74,7 @@
 .hero-heading__desc {
   color: var(--Background, #FFF);
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -107,11 +82,11 @@
 }
 
 
-
 .hero-social-media-container {
   position: absolute;
-  top: 45%;
-  right: 13px;
+  top: 60%;
+  right: 10px;
+  z-index: 1000;
 }
 
 
@@ -145,8 +120,8 @@
 
   /* Atur gaya untuk layar berukuran tablet */
   .hero-heading__title {
-    display: block;
-    font-size: 31px !important;
+    display: inline-block;
+    font-size: 41px !important;
   }
 
 }
@@ -176,7 +151,17 @@
   }
 
   .hero-social-media-container {
-    display: block;
+    position: absolute;
+    top: 48%;
+    right: 100px;
+    z-index: 1000;
+  }
+
+  .hero-image-parallax:hover {
+    -webkit-transform: scale(1.1);
+    -webkit-transition: .3s ease-in-out;
+    transform: scale(1.1);
+    transition: .3s ease-in-out;
   }
 }
 </style>
