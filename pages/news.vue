@@ -13,7 +13,7 @@
       <!-- section berita start -->
       <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
         <div class="container">
-          <div class="row justify-content-start align-content-start g-5">
+          <div class="row justify-content-start align-content-start g-5 py-5">
             <div class="col-xl-8">
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">Berita Terbaru</h1>
@@ -55,7 +55,7 @@
                               <div class="d-flex flex-column">
                                 <span class="article-info-tag ">Berita</span>
                                 <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                                  :class="'article-list-title link-offset-2 link-underline link-underline-opacity-0 text-start text-secondary  fw-normal '"
+                                  :class="'article-list-title link-offset-2 link-underline link-underline-opacity-0 text-start text-wrap   fw-normal '"
                                   style="color: #5D5D5D;">
                                   {{ post.title.length >= 80
                                     ? `${post.title.substring(0, 80)}...`
@@ -194,7 +194,7 @@
       <!-- section berita end -->
 
       <!-- Section  subcribe start -->
-      <section class="position-relative py-5 " style="background-color: #FFF0F2;">
+      <section class="subscribe-section-container py-5 ">
         <div class="container">
           <Subscribe />
         </div>
@@ -239,7 +239,7 @@
 }
 
 .article-title:hover {
-  color: #D71149;
+  color: #D71149 !important;
 }
 
 .article-desc {
@@ -341,8 +341,68 @@
 
 }
 
+
+.subscribe-section-container {
+  background-color: #FFF0F2;
+}
+
 .article-list-title:hover {
   color: #D71149 !important;
+}
+
+.dark-mode .card {
+  background-color: #262626;
+}
+
+.dark-mode .berita-section-title {
+  color: #D71149;
+}
+
+.dark-mode .article-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-list-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.dark-mode .article-list-container {
+  border-right: 1px solid var(--font-100, #575757);
+}
+
+.dark-mode .article-info-tag {
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.dark-mode .article-link-title {
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.dark-mode .list-group {
+  background: #3D3D3D;
+}
+
+.dark-mode .list-group-flush {
+  background: #3D3D3D;
+}
+
+
+.dark-mode .list-group-item {
+  background: #3D3D3D;
+}
+
+/* .dark-mode .list-group,
+.list-group-flush .list-group-item {
+  background: #3D3D3D;
+
+} */
+
+.dark-mode .subscribe-section-container {
+  background: #3D3D3D;
 }
 </style>
 

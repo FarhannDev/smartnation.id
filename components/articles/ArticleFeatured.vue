@@ -86,6 +86,24 @@
   animation-duration: 1ms;
 
 }
+
+/* 
+  color mode:dark-mode 
+*/
+
+.dark-mode .card {
+  background-color: #262626;
+}
+
+.dark-mode,
+.article-title,
+.article-timestamp {
+  color: #fafafa;
+}
+
+.dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.90);
+}
 </style>
 
 <script lang="ts" setup>

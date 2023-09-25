@@ -65,7 +65,8 @@
       <!-- section  berita terkini start -->
       <section class="latest-newsfeed-section position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3" title="Berita Terkini" />
+          <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3 latest-newsfeed__title"
+            title="Berita Terkini" />
           <div class="row justify-content-arround gx-3 py-3">
             <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-xxl-6 col-lg-6">
               <div class="card border-0 rounded-0 mb-3">
@@ -177,8 +178,8 @@
           <div class="row justify-content-arround g-2 py-5" data-aos="fade-right" data-aos-offset="300"
             data-aos-easing="ease-in-sine" data-aos-duration="1000">
             <div class="col-xxl-4 col-lg-6 col-md-6">
-              <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
-                title="Daerah" />
+              <HeadingTitle style="color: #5D5D5D;"
+                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title " title="Daerah" />
 
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
@@ -189,8 +190,8 @@
               </div>
             </div>
             <div class=" col-xxl-4 col-lg-6 col-md-6">
-              <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
-                title="Nasional" />
+              <HeadingTitle style="color: #5D5D5D;"
+                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Nasional" />
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
                 <ArticlesArticleRecomendedThumbnail v-for="(post, index) in posts.sort().reverse().slice(0, 5)"
@@ -199,8 +200,8 @@
               </div>
             </div>
             <div class="col-xxl-4 col-lg-6 col-md-6">
-              <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
-                title="Internasional" />
+              <HeadingTitle style="color: #5D5D5D;"
+                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Internasional" />
 
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
@@ -216,7 +217,7 @@
 
       <!-- section artikel list end -->
       <!-- section subscribe start -->
-      <section class="position-relative py-5 " style="background-color: #FFF0F2;">
+      <section class="subscribe-section-container py-5 ">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <Subscribe />
         </div>
@@ -333,11 +334,43 @@
   border-right: 0
 }
 
+
+
+.subscribe-section-container {
+  background-color: #FFF0F2;
+}
+
 @media (min-width: 992px) {
   .article-list-container {
     border-right: 1px solid var(--font-100, #E7E7E7);
   }
 
+}
+
+
+
+/* 
+  color mode:dark-mode 
+*/
+.dark-mode .latest-newsfeed-section {
+  background-color: #262626;
+}
+
+.dark-mode .latest-newsfeed__title {
+  color: #D71149 !important;
+}
+
+.dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.80);
+
+}
+
+.dark-mode .card {
+  background-color: #262626 !important;
+}
+
+.dark-mode .subscribe-section-container {
+  background: #3D3D3D;
 }
 </style>
 

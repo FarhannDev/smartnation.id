@@ -10,7 +10,100 @@
                 <div data-aos="fade-up" data-aos-duration="1500" class="container">
 
 
-                    <div class="row justify-content-start g-5 py-3">
+                    <div class="row justify-content-start g-5 py-5">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card album-card">
+
+                                <NuxtLink :to="'/gallery/album-isna-2016'" aria-label="Lihat Selengkapnya"
+                                    title="Lihat Selengkapnya">
+                                    <NuxtImg class="card-img-top img-fluid album-cover__images"
+                                        src="https://s3-alpha-sig.figma.com/img/c88c/15c6/fa61bbeedb8345028255ed3d6c89a9d3?Expires=1696809600&Signature=ckFg5T71GzsfyVbppwEfQ2Z4Q27XEh2uw24sXlGEUe3BaHqzPl1QgqWCzEgEaP3Sr~smQFNMEi3pIC6099QevhADnaT2zzIbgsvtu4Y-ktjclNXya~7tCDzHnqVluzSr~4env7Tpeuqi7JIgDwNa5Bvyetzh1~rr-CVNxyElrn9y0nHT~007fWZPbN2Fmo0dVPUIrFn3STLr7pzzCIeEiHA4x6xXmOHXJS4tY38Efp50mwlmiuqnFm7rP5vEElBjLUqOfKyJ3oVDSy2DtzrpXzGYSOanPOJvkSB7X9uxSm2~ek5Dhd8R7admhy1zQ5~hwV4-EEPK2bEaW46SqYkMtg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                                        alt="Album 1" loading="lazy" format="webp" />
+                                </NuxtLink>
+
+
+                                <div class="card-body">
+                                    <div class="d-flex flex-column justify-content-start align-self-stretch">
+                                        <NuxtLink class="album-cover__title" :to="'/gallery/album-isna-2016'"
+                                            aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya">
+                                            Album ISNA 2016
+                                        </NuxtLink>
+
+                                        <h5 class="card-subtitle album-cover__subtitle ">
+                                            <div class="d-flex flex-wrap">
+                                                <BootstrapIcon name="clock" class="me-1" /> 16 Desember 2022
+                                            </div>
+                                        </h5>
+                                        <p class="album-cover__labels"> <img width="15" height="15" src="/images/photo.svg"
+                                                alt="DATE">10
+                                            Foto
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card album-card">
+
+                                <NuxtLink :to="'/gallery/album-isna-2016'" aria-label="Lihat Selengkapnya"
+                                    title="Lihat Selengkapnya">
+                                    <NuxtImg class="card-img-top img-fluid album-cover__images"
+                                        src="https://s3-alpha-sig.figma.com/img/c88c/15c6/fa61bbeedb8345028255ed3d6c89a9d3?Expires=1696809600&Signature=ckFg5T71GzsfyVbppwEfQ2Z4Q27XEh2uw24sXlGEUe3BaHqzPl1QgqWCzEgEaP3Sr~smQFNMEi3pIC6099QevhADnaT2zzIbgsvtu4Y-ktjclNXya~7tCDzHnqVluzSr~4env7Tpeuqi7JIgDwNa5Bvyetzh1~rr-CVNxyElrn9y0nHT~007fWZPbN2Fmo0dVPUIrFn3STLr7pzzCIeEiHA4x6xXmOHXJS4tY38Efp50mwlmiuqnFm7rP5vEElBjLUqOfKyJ3oVDSy2DtzrpXzGYSOanPOJvkSB7X9uxSm2~ek5Dhd8R7admhy1zQ5~hwV4-EEPK2bEaW46SqYkMtg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                                        alt="Album 1" loading="lazy" format="webp" />
+                                </NuxtLink>
+
+
+                                <div class="card-body">
+                                    <div class="d-flex flex-column justify-content-start align-self-stretch">
+                                        <NuxtLink class="album-cover__title" :to="'/gallery/album-isna-2016'"
+                                            aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya">
+                                            Album ISNA 2016
+                                        </NuxtLink>
+
+                                        <h5 class="card-subtitle album-cover__subtitle ">
+                                            <div class="d-flex flex-wrap">
+                                                <BootstrapIcon name="clock" class="me-1" /> 16 Desember 2022
+                                            </div>
+                                        </h5>
+                                        <p class="album-cover__labels"> <img width="15" height="15" src="/images/photo.svg"
+                                                alt="DATE">10
+                                            Foto
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card album-card">
+
+                                <NuxtLink :to="'/gallery/album-isna-2016'" aria-label="Lihat Selengkapnya"
+                                    title="Lihat Selengkapnya">
+                                    <NuxtImg class="card-img-top img-fluid album-cover__images"
+                                        src="https://s3-alpha-sig.figma.com/img/c88c/15c6/fa61bbeedb8345028255ed3d6c89a9d3?Expires=1696809600&Signature=ckFg5T71GzsfyVbppwEfQ2Z4Q27XEh2uw24sXlGEUe3BaHqzPl1QgqWCzEgEaP3Sr~smQFNMEi3pIC6099QevhADnaT2zzIbgsvtu4Y-ktjclNXya~7tCDzHnqVluzSr~4env7Tpeuqi7JIgDwNa5Bvyetzh1~rr-CVNxyElrn9y0nHT~007fWZPbN2Fmo0dVPUIrFn3STLr7pzzCIeEiHA4x6xXmOHXJS4tY38Efp50mwlmiuqnFm7rP5vEElBjLUqOfKyJ3oVDSy2DtzrpXzGYSOanPOJvkSB7X9uxSm2~ek5Dhd8R7admhy1zQ5~hwV4-EEPK2bEaW46SqYkMtg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                                        alt="Album 1" loading="lazy" format="webp" />
+                                </NuxtLink>
+
+
+                                <div class="card-body">
+                                    <div class="d-flex flex-column justify-content-start align-self-stretch">
+                                        <NuxtLink class="album-cover__title" :to="'/gallery/album-isna-2016'"
+                                            aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya">
+                                            Album ISNA 2016
+                                        </NuxtLink>
+
+                                        <h5 class="card-subtitle album-cover__subtitle ">
+                                            <div class="d-flex flex-wrap">
+                                                <BootstrapIcon name="clock" class="me-1" /> 16 Desember 2022
+                                            </div>
+                                        </h5>
+                                        <p class="album-cover__labels"> <img width="15" height="15" src="/images/photo.svg"
+                                                alt="DATE">10
+                                            Foto
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="card album-card">
 
@@ -163,6 +256,23 @@
     padding: 8px;
     border-radius: 8px;
     margin: 8px;
+}
+
+.dark-mode .album-card {
+    background-color: #262626;
+    border: 0;
+}
+
+.dark-mode .album-card:hover {
+    border: 1px solid #D71149;
+}
+
+.dark-mode .album-card .album-cover__title {
+    color: #fafafa;
+}
+
+.dark-mode .album-card .album-cover__labels {
+    color: rgba(255, 255, 255, 0.80);
 }
 </style>
 
