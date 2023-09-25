@@ -3,8 +3,8 @@
   <div class="card border-0 rounded-0 mb-3">
 
     <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
-      <NuxtImg :class="'card-img-top img-fluid article-thumbnail'" :src="featuredImage" :height="253" loading="lazy"
-        :alt="title" format="webp" />
+      <NuxtImg :class="'card-img-top img-fluid article-thumbnail animate__animated animate__jello'" :src="featuredImage"
+        :height="253" loading="lazy" :alt="title" format="webp" />
     </NuxtLink>
     <div class="card-body px-0 mx-0">
 
@@ -81,14 +81,16 @@
   object-fit: cover;
   min-height: 253px;
   border-radius: 8px;
-  /* opacity: 1; */
+  /* margin-left: 30px; */
+  animation: animate__zoomIn;
+  animation-duration: 1ms;
+
 }
 </style>
 
 <script lang="ts" setup>
 
 import { PropType } from "vue"
-import { Posts } from "~/utils/data/getInitialData"
 
 const props = defineProps({
   postId: { type: String },

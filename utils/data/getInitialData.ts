@@ -10,7 +10,7 @@ interface Posts {
   updatedAt: string | number | boolean | null | undefined | symbol | Date;
 }
 
-export type CategoryPost =
+type CategoryPost =
   | 'Artikel'
   | 'Berita'
   | 'Citiasia inc'

@@ -1,9 +1,10 @@
 <template>
   <NuxtLayout name="page-layout">
 
+    <!-- hero start -->
     <template #hero>
-      <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :loop="true"
-        :grabCursor="true" :pagination="{
+      <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :grabCursor="true"
+        :pagination="{
           clickable: true,
         }" :effect="'creative'" :autoplay="{
   delay: 5000,
@@ -24,11 +25,12 @@
 
     </template>
 
-    <!-- Content Main Start -->
-    <main>
-      <section class="latest-article-section position-relative py-5">
-        <div class="container">
-          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
+    <!-- rendered content main -->
+    <main id="content">
+      <!-- section berita terbaru start -->
+      <section class="latest-article-section position-relative py-5 ">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
+          <HeadingTitle class="text-start text-capitalize fw-bold fs-3 " title="Postingan Terbaru" />
           <div class="row justify-content-arround g-3 py-3">
 
             <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-lg-6 col-xxl-4 col-md-12">
@@ -59,7 +61,9 @@
           </div>
         </div>
       </section>
-      <section class="latest-newsfeed-section position-relative py-5">
+      <!-- section berita terbaru end -->
+      <!-- section  berita terkini start -->
+      <section data-aos="fade-up" data-aos-duration="1500" class="latest-newsfeed-section position-relative py-5">
         <div class="container">
           <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3" title="Berita Terkini" />
           <div class="row justify-content-arround gx-3 py-3">
@@ -93,9 +97,7 @@
                       class="badge bg-white text-danger rounded-pill text-decoration-none fw-normal me-2">
                       {{
                         category }}</NuxtLink>
-
                   </div>
-
                 </div>
               </div>
             </div>
@@ -131,9 +133,10 @@
           </div>
         </div>
       </section>
-
+      <!-- section berita terkini end -->
+      <!-- section acara & kegiatan start -->
       <section class="position-relative py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
           <div class="row justify-content-start g-3 pt-3">
             <div v-for="post in  posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" :key="post.id"
@@ -144,12 +147,13 @@
           </div>
         </div>
       </section>
-
-      <section class="position-relative py-5 article-section">
-        <div class="container">
+      <!-- section acara & kegiatan end -->
+      <!-- section artikel list start -->
+      <section class="position-relative py-5">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
           <div class="row justify-content-start align-items-start g-3 pt-3">
-            <div class="col-lg-8 ">
+            <div class="col-lg-8 " data-aos="fade-up-right">
               <article class="d-grid gap-2  article-list-item" @scroll="articleScroll">
                 <ArticlesArticleFeaturedColumn
                   v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)" :key="post.id"
@@ -158,7 +162,7 @@
               </article>
             </div>
 
-            <div class="col-lg-4 position-relative">
+            <div class="col-lg-4 position-relative" data-aos="fade-left">
               <div>
                 <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
                 <div class="d-flex flex-column pt-4">
@@ -170,9 +174,8 @@
               </div>
             </div>
           </div>
-
-
-          <div class="row justify-content-arround g-2 py-5">
+          <div class="row justify-content-arround g-2 py-5" data-aos="fade-right" data-aos-offset="300"
+            data-aos-easing="ease-in-sine" data-aos-duration="500">
             <div class="col-xxl-4 col-lg-6 col-md-6">
               <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
                 title="Daerah" />
@@ -210,14 +213,16 @@
           </div>
         </div>
       </section>
-      <section class="position-relative py-5 " style="background-color: #FFF0F2;">
-        <div class="container">
+
+      <!-- section artikel list end -->
+      <!-- section subscribe start -->
+      <section class="position-relative py-5 animate__animated animate__fadeInUp animate__faster animate__repeat-2 "
+        style="background-color: #FFF0F2;">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine">
           <Subscribe />
         </div>
       </section>
-
-      {{ JSON.stringify(categories) }}
-
+      <!-- section subscribe end -->
     </main>
     <!-- Content Main End -->
 
@@ -362,7 +367,5 @@ const articleScroll = () => {
 }
 
 
-
-
-
 </script>
+

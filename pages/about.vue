@@ -1,16 +1,18 @@
 <template>
   <NuxtLayout name="page-layout">
 
+    <!-- hero start -->
     <template #hero>
       <HeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
         background="/images/background/bg-galeri.png" />
     </template>
 
+    <!-- rendered content main -->
     <main id="content-main">
-      <!-- section tentang Citiasia Center for Smart Nation (CCSN) -->
+      <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
       <section class="ccsn-section-container py-5">
         <div class="container">
-          <div class="row justify-content-between g-3">
+          <div data-aos="zoom-in-up" data-aos-duration="1500" class="row justify-content-between g-3">
             <div class="col-lg-5 col-md-6">
               <h1 class="ccsn-title">Tentang Citiasia Center for Smart Nation (CCSN)</h1>
             </div>
@@ -23,11 +25,12 @@
           </div>
         </div>
       </section>
-      <!-- section Tentang Citiasia INC -->
+      <!-- section tentang Citiasia Center for Smart Nation (CCSN)  end -->
+      <!-- section Tentang Citiasia INC start -->
       <section class="citiasia-section-container py-5">
         <div class="container">
           <div class="row justify-content-between g-3">
-            <div class="col-lg-7 col-md-6">
+            <div data-aos="fade-down-right" data-aos-duration="1500" class="col-lg-7 col-md-6">
               <h1 class="ccsn-title mb-3">Tentang Citiasia INC.</h1>
               <p class="ccsn-desc">Citiasia, Inc. merupakan pionir konsultan dan implementasi smart city di Indonesia yang
                 berdiri sejak 2015. Citiasia, inc telah melayani institusi publik dan bisnis untuk akselerasi kinerja
@@ -35,29 +38,28 @@
 
               </p>
             </div>
-            <div class="col-lg-5 col-md-6">
+            <div data-aos="fade-down-left" data-aos-duration="1500" class="col-lg-5 col-md-6">
               <NuxtImg alt="citiasia"
                 src="https://s3-alpha-sig.figma.com/img/4c1d/563b/f4b9d3e6567d68c24060a212542e9ab9?Expires=1696204800&Signature=KajgzoYSPUVathejX75B8R8Y5o25SkrP6OCZqWYeeRTt5rYZ9AfYA0sBQrMjAVq07beXcg6qirCXJIZ7c6Vk~TS-B05SJrL69qIfBNlb~Culat2X00dLLBasTOhbqh7basitgjY9FyUsfUnDc2heOWpLpTi3Nq0lxF72zO~hYC74TedcvFlup9Mz~ElWtmPX1~AbUDlyquorTLK-vRDWiKmKLPmYwZIDYtboe1jHxy-67H-bYMkxPgrFgOFzmWOL~HPW7~zwQpgbrQvq6VpmmXeSQ6FHKUhXLMF-Dqk-ZLtpZHl6f7FWE2Fi67UGv4557kQdhp-Tc--OLZDkWw3rew__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                 class="img-fluid citiasia-img" />
             </div>
           </div>
         </div>
-
       </section>
-      <!-- section visi misi -->
-
+      <!-- section Tentang Citiasia INC end -->
+      <!-- section visi misi start-->
       <section class="visimisi-section-container py-5">
         <div class="container">
           <div class="row justify-content-start g-3">
             <div class="col-lg-6 col-md-6">
-              <div class="d-flex justify-content-start flex-column">
+              <div data-aos="fade-up-right" data-aos-duration="1500" class="d-flex justify-content-start flex-column">
                 <NuxtImg alt="visimisi"
                   src="https://s3-alpha-sig.figma.com/img/0db0/6a80/094e4b1155464e45996d69d1d9f1e3f4?Expires=1696204800&Signature=datJGnJs3LlHu6lfQzIL6V-VUgpqUucw4g-joTtwRGFBWUwGNP5jhYg0lOiN~yRSp85Vt9lN3pNlBzikC~RbZZS0hKMACKVnxhV-kd8Ldx2ecC8NgpVQKt7ltkdQ98DZ4Ar0FjckqwMQ9~MexMS3Ip5U~sJqoN9ZRPypCrpTD0q-rUJu4HDLFYmLIIPOvedGj~xZaGkBLmQY1UgG-fG06D2zkGdDPvvTAftiPqYqxAy8ZiNBuwx6Jk8gNAEkV2e8xHEvYEIIwQ59Oo-lDeVVmx844a0Ozcp2p9oMGMnQmRwplfX-Gq4ywoafY8Ov882ylkCHsrs24NJ0nbVIciGyYQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                   class="img-fluid visimisi-cover" />
               </div>
             </div>
             <div class="col-lg-6 col-md-6">
-              <div class="d-flex justify-content-start flex-column g-2">
+              <div data-aos="fade-up-left" data-aos-duration="1500" class="d-flex justify-content-start flex-column g-2">
                 <div>
                   <h1 class="visimisi-title">
                     Visi
@@ -82,9 +84,10 @@
           </div>
         </div>
       </section>
-      <!-- section Tim Citiasia INC -->
+      <!-- section visi misi  end -->
+      <!-- section Tim Citiasia INC start -->
       <section class="teams-citiasia-section-container py-5">
-        <div class="container">
+        <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" class="container">
           <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
           <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-2 pt-5">
             <div v-for="team in teams" :key="team.id" class="col">
@@ -100,9 +103,10 @@
           </div>
         </div>
       </section>
-      <!-- section Partner -->
+      <!-- section Tim Citiasia INC end -->
+      <!-- section partner start -->
       <section class="partner-section-container py-5">
-        <div class="container">
+        <div data-aos="fade-left" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="container">
           <h1 class="partner-citiasia__title">Partner</h1>
           <div class="row justify-content-start g-5 py-5">
             <div class="col">
@@ -150,21 +154,19 @@
                 </div>
               </Swiper>
             </div>
-
-
           </div>
         </div>
       </section>
-      <!-- section portofolio -->
+      <!-- section partner end -->
+      <!-- section portofolio start -->
       <section class="portofolio-section-container py-5">
-        <div class="container">
+        <div data-aos="fade-right" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="container">
           <h1 class="portofolio-title">Portofolio</h1>
           <div class="d-flex flex-column justify-content-start g-2 py-3">
             <iframe class="rounded"
               src="https://www.google.com/maps/d/u/0/embed?mid=1LTTSR3Ei-3HpleWwcorxCnEgV89HcS8&ehbc=2E312F" width="auto"
               height="480"></iframe>
           </div>
-
           <div class="d-flex flex-column align-items-start justify-content-start g-3 py-3">
             <div class="row row-cols-2 row-cols-lg-4 g-3">
               <div class="col">
@@ -220,10 +222,11 @@
           </div>
         </div>
       </section>
+      <!-- section portofolio end -->
     </main>
 
 
-    <div class="portofolio">
+    <div data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="portofolio">
       <div class="image-mitra">
         <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
         <p style="

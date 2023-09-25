@@ -1,61 +1,67 @@
 <template>
   <NuxtLayout name="page-layout">
 
+    <!-- hero start -->
     <template #hero>
       <HeroParallaxBackground text="Hubungi Kami" desc="Jangan ragu untuk menghubungi kami."
         background="/images/background/bg-contact-me.png" />
     </template>
 
-    <!-- Conctme Section Start -->
-    <section class="contactme-section-container position-relative py-5">
-      <div class="container">
+    <!-- rendered content main -->
 
-        <div class="row justify-content-start align-items-center g-3 ">
-          <div class="col-lg-6">
-            <div class="d-flex flex-column justify-content-start contact-heading-container g-2">
-              <h1 class="contact-title ">Mari Berbincang!</h1>
-              <p class="contact-desc">
-                Kami sangat ingin mendengar dari Anda! Apakah Anda memiliki pertanyaan, komentar, atau saran yang ingin
-                Anda
-                sampaikan? Jangan ragu untuk menghubungi kami. Kami senantiasa siap menerima pesan Anda.
-              </p>
+    <main id="content">
+
+      <!-- section kontak start -->
+      <section class="contactme-section-container position-relative py-5">
+        <div class="container">
+
+          <div class="row justify-content-start align-items-center g-3 ">
+            <div data-aos="fade-down-right" data-aos-duration="1500" class="col-lg-6">
+              <div class="d-flex flex-column justify-content-start contact-heading-container g-2">
+                <h1 class="contact-title ">Mari Berbincang!</h1>
+                <p class="contact-desc">
+                  Kami sangat ingin mendengar dari Anda! Apakah Anda memiliki pertanyaan, komentar, atau saran yang ingin
+                  Anda
+                  sampaikan? Jangan ragu untuk menghubungi kami. Kami senantiasa siap menerima pesan Anda.
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="col-lg-6 ">
-            <div class="d-flex flex-column justify-content-start g-2">
-              <form @submit.prevent="sendMessageToEmail">
-                <div class="mb-3">
-                  <label for="inputNama" class="form-label contact-form__label__input">Nama Lengkap <span
-                      class="text-danger">*</span></label>
-                  <input v-model="inputName" type="text" class="form-control contact-form__input" id="inputNama"
-                    placeholder="Isikan Dengan Nama Lengkap Anda" autocomplete="name">
-                </div>
-                <div class="mb-3">
-                  <label for="inputEmail" class="form-label contact-form__label__input">Email <span
-                      class="text-danger">*</span></label>
-                  <input v-model="inputEmail" type="email" class="form-control contact-form__input" id="inputEmail"
-                    aria-describedby="emailHelp" placeholder="Isikan Dengan Alamat Email Anda" autocomplete="email">
-                </div>
-                <div class="mb-3">
-                  <label for="inputMessage" class="form-label contact-form__label__input">Pesan <span
-                      class="text-danger">*</span></label>
-                  <textarea v-model="inputMessage" placeholder="Tuliskan Isi Pesan"
-                    class="form-control contact-form__input__textarea " id="inputMessage" rows="7"
-                    :maxlength="limitKarakter"></textarea>
-
-                  <div class="text-end text-secondary fw-normal">{{ limitKarakter - inputMessage.length }} Karakter
-                    Tersisa
+            <div data-aos="fade-down-left" data-aos-duration="1500" class="col-lg-6 ">
+              <div class="d-flex flex-column justify-content-start g-2">
+                <form @submit.prevent="sendMessageToEmail">
+                  <div class="mb-3">
+                    <label for="inputNama" class="form-label contact-form__label__input">Nama Lengkap <span
+                        class="text-danger">*</span></label>
+                    <input v-model="inputName" type="text" class="form-control contact-form__input" id="inputNama"
+                      placeholder="Isikan Dengan Nama Lengkap Anda" autocomplete="name">
                   </div>
-                </div>
-                <button :disabled="!inputName || !inputEmail || !inputMessage" type="submit"
-                  class="contact-input__button ">Kirim</button>
-              </form>
+                  <div class="mb-3">
+                    <label for="inputEmail" class="form-label contact-form__label__input">Email <span
+                        class="text-danger">*</span></label>
+                    <input v-model="inputEmail" type="email" class="form-control contact-form__input" id="inputEmail"
+                      aria-describedby="emailHelp" placeholder="Isikan Dengan Alamat Email Anda" autocomplete="email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputMessage" class="form-label contact-form__label__input">Pesan <span
+                        class="text-danger">*</span></label>
+                    <textarea v-model="inputMessage" placeholder="Tuliskan Isi Pesan"
+                      class="form-control contact-form__input__textarea " id="inputMessage" rows="7"
+                      :maxlength="limitKarakter"></textarea>
+
+                    <div class="text-end text-secondary fw-normal">{{ limitKarakter - inputMessage.length }} Karakter
+                      Tersisa
+                    </div>
+                  </div>
+                  <button :disabled="!inputName || !inputEmail || !inputMessage" type="submit"
+                    class="contact-input__button ">Kirim</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Conctme Section End -->
+      </section>
+      <!-- section kontak end -->
+    </main>
 
   </NuxtLayout>
 </template>

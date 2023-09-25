@@ -22,6 +22,7 @@
     "nuxt-swiper": "^1.2.2"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^1.5.0",
     "bootstrap": "^5.3.1",
     "sweetalert2": "^11.7.28"
