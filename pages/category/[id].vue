@@ -11,7 +11,7 @@
       <!-- Section berita start -->
       <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
         <div class="container">
-          <div class="row justify-content-start align-content-start g-3">
+          <div class="row justify-content-start align-content-start g-3 py-5">
             <div class="col-lg-8 col-md-10">
               <article class="article-section position-relative mb-3">
                 <div class="d-flex flex-wrap justify-content-between g-0">
@@ -88,8 +88,8 @@
             </div>
             <div class="col-lg-4">
               <article>
-                <h1 class="berita-section-title">Terpopuler</h1>
-                <div class="line-break"></div>
+                <h1 class="berita-section-title text-decoration-underline">Terpopuler</h1>
+
 
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">
@@ -257,7 +257,7 @@
 }
 
 .article-title:hover {
-  color: #D71149;
+  color: #D71149 !important;
 }
 
 .article-desc {
@@ -442,6 +442,45 @@
 
 .article-list-title:hover {
   color: #D71149 !important;
+}
+
+
+.dark-mode .card {
+  background-color: #262626 !important;
+}
+
+.dark-mode .list-group {
+  background-color: #262626;
+}
+
+.dark-mode .list-group-flush {
+  background-color: #262626;
+}
+
+
+.dark-mode .list-group-item {
+  background-color: #262626;
+}
+
+
+.dark-mode .article-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-list-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-info-tag {
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.dark-mode .article-link-title {
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.90);
 }
 </style>
 

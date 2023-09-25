@@ -65,6 +65,21 @@
   opacity: 1;
   border-radius: 4px;
 }
+
+
+/* 
+  color mode:dark-mode 
+*/
+.dark-mode .list-group-item {
+  background-color: #262626;
+  border-bottom: #5D5D5D;
+}
+
+.dark-mode,
+.article-title,
+.article-info-timestamps {
+  color: #fafafa;
+}
 </style>
 
 
@@ -72,7 +87,7 @@
 
 
 import { PropType } from "vue"
-import { Posts } from "~/utils/data/getInitialData"
+
 
 const props = defineProps({
   postId: { type: String },

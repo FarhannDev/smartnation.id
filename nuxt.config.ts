@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     'nuxt-bootstrap-icons',
     'nuxt-swiper',
+    '@nuxtjs/color-mode',
   ],
 
   app: {

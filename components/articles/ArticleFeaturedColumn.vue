@@ -1,6 +1,6 @@
 
 <template>
-  <div class="card border-0 rounded-0">
+  <div class="card border-0 rounded-0 mb-3">
     <div class="row justify-content-start align-items-start g-0">
       <div class="col-lg-6">
         <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
@@ -54,7 +54,7 @@
 }
 
 .article-title:hover {
-  color: #D71149;
+  color: #D71149 !important;
 }
 
 .article-desc {
@@ -94,12 +94,27 @@
   min-height: 253px;
   opacity: 1;
 }
+
+/* 
+  color mode:dark-mode 
+*/
+.dark-mode .card {
+  background-color: #262626;
+}
+
+.dark-mode .article-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-desc,
+.article-timestamp {
+  color: rgba(255, 255, 255, 0.80);
+}
 </style>
 
 <script lang="ts" setup>
 
 import { PropType } from "vue"
-import { Posts } from "~/utils/data/getInitialData"
 
 const props = defineProps({
   postId: { type: String },

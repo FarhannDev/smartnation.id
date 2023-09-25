@@ -73,6 +73,18 @@
   line-height: 150%;
   /* 24px */
 }
+
+/* 
+  color mode:dark-mode 
+*/
+.dark-mode .list-group-item {
+  background-color: #262626;
+  border-bottom: #5D5D5D;
+}
+
+.dark-mode .article-title {
+  color: #fafafa;
+}
 </style>
 
 
@@ -80,7 +92,6 @@
 
 
 import { PropType } from "vue"
-import { Posts } from "~/utils/data/getInitialData"
 
 const props = defineProps({
   postId: { type: String },

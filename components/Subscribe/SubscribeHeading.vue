@@ -27,6 +27,14 @@
   padding-top: 5px;
   /* 14.4px */
 }
+
+.dark-mode .subscribe-title {
+  color: #fafafa;
+}
+
+.dark-mode .subscribe-subtitle {
+  color: #fafafa;
+}
 </style>
 
 

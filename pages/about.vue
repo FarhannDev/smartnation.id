@@ -12,7 +12,7 @@
       <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
       <section class="ccsn-section-container py-5">
         <div data-aos="fade-up" data-aos-duration="1500" class="container">
-          <div class="row justify-content-between g-3">
+          <div class="row justify-content-between g-3 py-5">
             <div class="col-lg-5 col-md-6">
               <h1 class="ccsn-title">Tentang Citiasia Center for Smart Nation (CCSN)</h1>
             </div>
@@ -603,8 +603,44 @@
 }
 
 
+/* dark-mode */
+
+.dark-mode .ccsn-section-container {
+  background-color: #262626;
+}
+
+.dark-mode .ccsn-desc {
+  color: #fafafa
+}
+
+.dark-mode .citiasia-section-container {
+  background-color: #262626;
+}
+
+.dark-mode .visimisi-section-container {
+  background-color: #262626;
+}
+
+.dark-mode .visimisi-title {
+  color: #D71149;
+}
 
 
+.dark-mode .teams-citiasia-section-container {
+  background-color: #262626;
+}
+
+.dark-mode .teams-citiasia__name {
+  color: #fafafa;
+}
+
+.dark-mode .teams-citiasia__job {
+  color: #fafafa;
+}
+
+.dark-mode .partner__name {
+  color: #fafafa;
+}
 
 .container1 {
   display: flex;
