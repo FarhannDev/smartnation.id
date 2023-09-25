@@ -11,8 +11,8 @@
     <main id="content-main">
       <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
       <section class="ccsn-section-container py-5">
-        <div class="container">
-          <div data-aos="zoom-in-up" data-aos-duration="1500" class="row justify-content-between g-3">
+        <div data-aos="fade-up" data-aos-duration="1500" class="container">
+          <div class="row justify-content-between g-3">
             <div class="col-lg-5 col-md-6">
               <h1 class="ccsn-title">Tentang Citiasia Center for Smart Nation (CCSN)</h1>
             </div>
@@ -52,14 +52,14 @@
         <div class="container">
           <div class="row justify-content-start g-3">
             <div class="col-lg-6 col-md-6">
-              <div data-aos="fade-up-right" data-aos-duration="1500" class="d-flex justify-content-start flex-column">
+              <div class="d-flex justify-content-start flex-column">
                 <NuxtImg alt="visimisi"
                   src="https://s3-alpha-sig.figma.com/img/0db0/6a80/094e4b1155464e45996d69d1d9f1e3f4?Expires=1696204800&Signature=datJGnJs3LlHu6lfQzIL6V-VUgpqUucw4g-joTtwRGFBWUwGNP5jhYg0lOiN~yRSp85Vt9lN3pNlBzikC~RbZZS0hKMACKVnxhV-kd8Ldx2ecC8NgpVQKt7ltkdQ98DZ4Ar0FjckqwMQ9~MexMS3Ip5U~sJqoN9ZRPypCrpTD0q-rUJu4HDLFYmLIIPOvedGj~xZaGkBLmQY1UgG-fG06D2zkGdDPvvTAftiPqYqxAy8ZiNBuwx6Jk8gNAEkV2e8xHEvYEIIwQ59Oo-lDeVVmx844a0Ozcp2p9oMGMnQmRwplfX-Gq4ywoafY8Ov882ylkCHsrs24NJ0nbVIciGyYQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                   class="img-fluid visimisi-cover" />
               </div>
             </div>
             <div class="col-lg-6 col-md-6">
-              <div data-aos="fade-up-left" data-aos-duration="1500" class="d-flex justify-content-start flex-column g-2">
+              <div class="d-flex justify-content-start flex-column g-2">
                 <div>
                   <h1 class="visimisi-title">
                     Visi
@@ -87,7 +87,7 @@
       <!-- section visi misi  end -->
       <!-- section Tim Citiasia INC start -->
       <section class="teams-citiasia-section-container py-5">
-        <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" class="container">
+        <div class="container">
           <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
           <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-2 pt-5">
             <div v-for="team in teams" :key="team.id" class="col">
@@ -106,7 +106,7 @@
       <!-- section Tim Citiasia INC end -->
       <!-- section partner start -->
       <section class="partner-section-container py-5">
-        <div data-aos="fade-left" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="container">
+        <div class="container">
           <h1 class="partner-citiasia__title">Partner</h1>
           <div class="row justify-content-start g-5 py-5">
             <div class="col">
@@ -160,7 +160,7 @@
       <!-- section partner end -->
       <!-- section portofolio start -->
       <section class="portofolio-section-container py-5">
-        <div data-aos="fade-right" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="container">
+        <div class="container">
           <h1 class="portofolio-title">Portofolio</h1>
           <div class="d-flex flex-column justify-content-start g-2 py-3">
             <iframe class="rounded"
@@ -226,7 +226,7 @@
     </main>
 
 
-    <div data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="portofolio">
+    <div class="portofolio">
       <div class="image-mitra">
         <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
         <p style="

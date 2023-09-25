@@ -55,4 +55,6 @@ export default defineNuxtConfig({
     useStylesheet: true,
     families: { Poppins: [300, 400, 500, 600, 700] },
   },
+
+  image: { inject: true },
 });
