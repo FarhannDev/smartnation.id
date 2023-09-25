@@ -28,7 +28,7 @@
     <!-- rendered content main -->
     <main id="content">
       <!-- section berita terbaru start -->
-      <section class="latest-article-section position-relative py-5 ">
+      <section class="latest-article-section py-5 ">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3 " title="Postingan Terbaru" />
           <div class="row justify-content-arround g-3 py-3">
@@ -63,8 +63,8 @@
       </section>
       <!-- section berita terbaru end -->
       <!-- section  berita terkini start -->
-      <section data-aos="fade-up" data-aos-duration="1500" class="latest-newsfeed-section position-relative py-5">
-        <div class="container">
+      <section class="latest-newsfeed-section position-relative py-5">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3" title="Berita Terkini" />
           <div class="row justify-content-arround gx-3 py-3">
             <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-xxl-6 col-lg-6">
@@ -175,7 +175,7 @@
             </div>
           </div>
           <div class="row justify-content-arround g-2 py-5" data-aos="fade-right" data-aos-offset="300"
-            data-aos-easing="ease-in-sine" data-aos-duration="500">
+            data-aos-easing="ease-in-sine" data-aos-duration="1000">
             <div class="col-xxl-4 col-lg-6 col-md-6">
               <HeadingTitle style="color: #5D5D5D;" class="text-start text-capitalize fw-normal fs-5 mx-md-3"
                 title="Daerah" />
@@ -216,9 +216,8 @@
 
       <!-- section artikel list end -->
       <!-- section subscribe start -->
-      <section class="position-relative py-5 animate__animated animate__fadeInUp animate__faster animate__repeat-2 "
-        style="background-color: #FFF0F2;">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine">
+      <section class="position-relative py-5 " style="background-color: #FFF0F2;">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <Subscribe />
         </div>
       </section>
