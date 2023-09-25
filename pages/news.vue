@@ -17,7 +17,7 @@
             <div class="col-xl-8">
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">Berita Terbaru</h1>
-                <div class="line-break"></div>
+                <!-- <div class="line-break"></div> -->
 
                 <div class="row justify-content-arround g-3 py-3">
                   <div v-for="post in posts.slice(0, 1)" :key="post.id"
@@ -73,7 +73,7 @@
                   <div class="col-lg-6 col-xxl-6 col-md-5 d-lg-none d-block">
                     <article>
                       <h1 class="berita-section-title">Terpopuler</h1>
-                      <div class="line-break"></div>
+                      <!-- <div class="line-break"></div> -->
 
                       <div class="d-flex flex-column pt-4">
                         <div class="vstack g-3">
@@ -87,7 +87,7 @@
               </article>
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">Berita Terpopuler</h1>
-                <div class="line-break"></div>
+                <!-- <div class="line-break"></div> -->
                 <div class="row justify-content-arround g-3 py-3">
                   <div v-for="post in posts.slice(0, 2)" :key="post.id" class="col-lg-6 col-xxl-6 col-md-6">
                     <div class="card border-0 rounded-0 mb-3">
@@ -120,7 +120,7 @@
                 <div class="d-flex flex-wrap justify-content-between g-0">
                   <div>
                     <h1 class="berita-section-title">Berita</h1>
-                    <div class="line-break"></div>
+                    <!-- <div class="line-break"></div> -->
                   </div>
 
                   <span>
@@ -176,8 +176,8 @@
             </div>
             <div class="col-xl-4  col-md-6 d-lg-block d-none">
               <article>
-                <h1 class="berita-section-title">Terpopuler</h1>
-                <div class="line-break"></div>
+                <h1 class="berita-section-title text-decoration-underline">Terpopuler</h1>
+                <!-- <div class="line-break"></div> -->
 
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">

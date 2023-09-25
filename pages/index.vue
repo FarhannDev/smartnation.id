@@ -139,7 +139,7 @@
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
           <div class="row justify-content-start g-3 pt-3">
-            <div v-for="post in  posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" :key="post.id"
+            <div v-for="post in  posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 4)" :key="post.id"
               class="col-xxl-3 col-lg-4 col-md-6 ">
               <EventsActivityPictureCover :postId="post.slug" :title="post.title" :description="post.excerpt"
                 :featuredImage="post.thumbnail" :alternative="post.title" />
