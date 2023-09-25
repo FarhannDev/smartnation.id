@@ -6,7 +6,7 @@
         </template>
 
 
-        <section class="berita-section-container position-relative py-5">
+        <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
             <div class="container">
                 <div class="row g-5">
                     <div class="col-xl-4 pe-5">
