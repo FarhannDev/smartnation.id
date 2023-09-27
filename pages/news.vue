@@ -1,3 +1,19 @@
+<script lang="ts" setup>
+import { posts } from '~/utils/data/getInitialData';
+
+// Set Meta SEO
+useSeoMeta({
+  title: "Berita",
+  description: 'Kumpulan Berita dari beberapa Kategori',
+  ogTitle: 'Berita',
+  ogDescription: 'Kumpulan Berita dari beberapa Kategori',
+})
+
+
+</script>
+
+
+
 <template>
   <NuxtLayout name="page-layout">
 
@@ -406,16 +422,3 @@
 }
 </style>
 
-<script lang="ts" setup>
-import { posts } from '~/utils/data/getInitialData';
-
-// Set Meta SEO
-useSeoMeta({
-  title: "Berita",
-  description: 'Kumpulan Berita dari beberapa Kategori',
-  ogTitle: 'Berita',
-  ogDescription: 'Kumpulan Berita dari beberapa Kategori',
-})
-
-
-</script>

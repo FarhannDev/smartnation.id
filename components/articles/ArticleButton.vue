@@ -1,3 +1,10 @@
+
+<script lang="ts" setup>
+
+const props = defineProps({ categories: { type: Array<String | Number> } })
+
+</script>
+
 <template>
   <div class="hstack g-2 pt-2">
     <NuxtLink :to="`/category/${category}`" aria-label="Lihat Selengkapnya" v-for="category in categories" :key="category"
@@ -7,9 +14,3 @@
   </div>
 </template>
 
-
-<script lang="ts" setup>
-
-const props = defineProps({ categories: { type: String } })
-
-</script>

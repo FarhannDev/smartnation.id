@@ -6,8 +6,8 @@ interface Posts {
   content: string;
   categories: Array<string>;
   thumbnail: string;
-  createdAt: string | number | boolean | null | undefined | symbol | Date;
-  updatedAt: string | number | boolean | null | undefined | symbol | Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 type CategoryPost =

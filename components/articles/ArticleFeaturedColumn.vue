@@ -13,8 +13,8 @@
         <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-            {{ title.length >= 60
-              ? `${title.substring(0, 60)}...`
+            {{ title.length >= 80
+              ? `${title.substring(0, 80)}...`
               : title
             }}
           </NuxtLink>
@@ -25,7 +25,10 @@
             </span>
           </div>
 
-          <div class="article-desc mb-3" v-html="excerpt"></div>
+          <div class="article-desc mb-3" v-html="excerpt.length >= 250
+            ? `${excerpt.substring(0, 250)}...`
+            : excerpt
+            "></div>
 
           <ArticlesArticleButton :categories="categories" />
         </div>

@@ -1,3 +1,69 @@
+<script lang="ts" setup>
+import Swal from 'sweetalert2'
+
+// Set Meta SEO
+useSeoMeta({
+  title: "Hubungi Kami",
+  description: 'Jangan ragu untuk menghubungi kami.',
+  ogTitle: 'Hubungi Kami',
+  ogDescription: 'Jangan ragu untuk menghubungi kami.',
+})
+
+// Initial State 
+const inputName = ref('') as globalThis.Ref<string | undefined>
+const inputEmail = ref('') as globalThis.Ref<string | undefined>
+const inputMessage = ref('') as globalThis.Ref<string | undefined>
+const limitKarakter = ref(1000) as globalThis.Ref<number>
+
+
+// Handler
+onUpdated(() => {
+  if (inputMessage.value.length >= limitKarakter.value) {
+    Swal.fire({
+      title: 'Gagal!',
+      text: 'Maaf Jumlah Karakter Sudah Mencapai Batas',
+      icon: 'warning',
+      confirmButtonText: 'Ulangi Kembali',
+      confirmButtonColor: '#295B19'
+    })
+  }
+})
+
+const disableButton = () => {
+  return Boolean(inputName.value)
+    && Boolean(inputEmail.value)
+    && Boolean(inputMessage.value)
+}
+const sendMessageToEmail = () => {
+  if (Boolean(inputName.value)
+    && Boolean(inputEmail.value)
+    && Boolean(inputMessage.value)) {
+
+    // Handle logic to send message to email
+    if (inputMessage.value.length <= limitKarakter.value) {
+      console.log('Berhasil dikirim via email')
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: '"Terima kasih atas pesan Anda! Kami telah menerima pesan Anda dengan sukses. Tim kami akan segera meninjau pesan Anda dan akan menghubungi Anda melalui email dalam waktu singkat."',
+        confirmButtonText: "Selesai",
+        confirmButtonColor: '#295B19'
+      })
+
+      // Clear form
+      inputName.value = ''
+      inputEmail.value = ''
+      inputMessage.value = ''
+    } else {
+      return null
+    }
+
+
+  }
+}
+</script> 
+
 <template>
   <NuxtLayout name="page-layout">
 
@@ -202,71 +268,3 @@
 </style>
 
 
-<script lang="ts" setup>
-// ES6 Modules or TypeScript
-import Swal from 'sweetalert2'
-
-// Set Meta SEO
-useSeoMeta({
-  title: "Hubungi Kami",
-  description: 'Jangan ragu untuk menghubungi kami.',
-  ogTitle: 'Hubungi Kami',
-  ogDescription: 'Jangan ragu untuk menghubungi kami.',
-})
-
-// Initial State 
-const inputName = ref('') as globalThis.Ref<string | undefined>
-const inputEmail = ref('') as globalThis.Ref<string | undefined>
-const inputMessage = ref('') as globalThis.Ref<string | undefined>
-const limitKarakter = ref(1000) as globalThis.Ref<number>
-
-
-// Handler
-onUpdated(() => {
-  if (inputMessage.value.length >= limitKarakter.value) {
-    Swal.fire({
-      title: 'Gagal!',
-      text: 'Maaf Jumlah Karakter Sudah Mencapai Batas',
-      icon: 'warning',
-      confirmButtonText: 'Ulangi Kembali',
-      confirmButtonColor: '#295B19'
-    })
-  }
-})
-
-const disableButton = () => {
-  return Boolean(inputName.value)
-    && Boolean(inputEmail.value)
-    && Boolean(inputMessage.value)
-}
-const sendMessageToEmail = () => {
-  if (Boolean(inputName.value)
-    && Boolean(inputEmail.value)
-    && Boolean(inputMessage.value)) {
-
-    // Handle logic to send message to email
-    if (inputMessage.value.length <= limitKarakter.value) {
-      console.log('Berhasil dikirim via email')
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Berhasil',
-        text: '"Terima kasih atas pesan Anda! Kami telah menerima pesan Anda dengan sukses. Tim kami akan segera meninjau pesan Anda dan akan menghubungi Anda melalui email dalam waktu singkat."',
-        confirmButtonText: "Selesai",
-        confirmButtonColor: '#295B19'
-      })
-
-      // Clear form
-      inputName.value = ''
-      inputEmail.value = ''
-      inputMessage.value = ''
-    } else {
-      return null
-    }
-
-
-  }
-}
-
-
-</script> 

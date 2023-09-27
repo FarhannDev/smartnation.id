@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { PropType } from "vue"
+
+const props = defineProps({
+  postId: { type: String, required: true },
+  number: { type: Number, required: true },
+  title: { type: String, required: true },
+  featuredImage: { type: String },
+  categories: { type: Object as PropType<Posts[]> },
+  timestamp: { type: String }
+})
+
+</script>
+
 <template>
   <li class="list-group-item mx-md-2 px-md-2 mx-0 px-0 ">
     <div class="vstack g-2">
@@ -88,18 +102,3 @@
 </style>
 
 
-<script lang="ts" setup>
-
-
-import { PropType } from "vue"
-
-const props = defineProps({
-  postId: { type: String },
-  number: { type: Number },
-  title: { type: String },
-  featuredImage: { type: String },
-  categories: { type: Object as PropType<Posts[]> },
-  timestamp: { type: String }
-})
-
-</script>

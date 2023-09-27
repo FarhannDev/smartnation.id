@@ -1,3 +1,40 @@
+<script setup>
+definePageMeta({
+  layoutTransition: {
+    name: 'slide-in',
+    mode: 'out-in'
+  },
+  pageTransition: { name: 'fade', mode: 'out-in' }
+
+})
+
+import { posts } from "~/utils/data/getInitialData";
+
+const route = useRoute()
+
+const { id } = route.params
+
+
+
+
+// useSeoMeta({
+//     title: post.title,
+//     author: 'smartNation',
+//     description: post.excerpt,
+//     ogTitle: post.title,
+//     ogDescription: post.excerpt,
+//     ogImage: post.thumbnail,
+//     ogImageAlt: post.title,
+//     ogImageType: "image/png",
+//     ogImageWidth: 100,
+//     ogImageHeight: 443,
+//     ogImageUrl: 'https://s3-alpha-sig.figma.com'
+// })
+
+
+</script>
+
+
 <template>
   <section class="berita-section-container position-relative py-5">
     <div class="container">
@@ -486,38 +523,3 @@
 }
 </style>
 
-<script setup>
-definePageMeta({
-  layoutTransition: {
-    name: 'slide-in',
-    mode: 'out-in'
-  },
-  pageTransition: { name: 'fade', mode: 'out-in' }
-
-})
-
-import { posts } from "~/utils/data/getInitialData";
-
-const route = useRoute()
-
-const { id } = route.params
-
-
-
-
-// useSeoMeta({
-//     title: post.title,
-//     author: 'smartNation',
-//     description: post.excerpt,
-//     ogTitle: post.title,
-//     ogDescription: post.excerpt,
-//     ogImage: post.thumbnail,
-//     ogImageAlt: post.title,
-//     ogImageType: "image/png",
-//     ogImageWidth: 100,
-//     ogImageHeight: 443,
-//     ogImageUrl: 'https://s3-alpha-sig.figma.com'
-// })
-
-
-</script>
