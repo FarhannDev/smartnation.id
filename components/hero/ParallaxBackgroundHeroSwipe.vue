@@ -1,3 +1,26 @@
+
+<script lang="ts" setup>
+const props = defineProps({
+  background: { type: String, required: true },
+  text: { type: String, required: true },
+  desc: { type: String },
+  postId: { type: String }
+})
+
+const backgroundStyle = () => {
+  return {
+    backgroundImage: `url(${props.background})`,
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    objectFit: "cover",
+    objectPosition: "center",
+  };
+}
+</script>
+
+
 <template>
   <section class="hero-section">
     <div class="hero-image-parallax" :style="backgroundStyle()">
@@ -25,7 +48,7 @@
 .hero-image-parallax {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 700px;
   overflow: hidden;
   scroll-behavior: smooth;
   margin-left: 0;
@@ -40,7 +63,7 @@
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 700px;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -51,25 +74,22 @@
 
 .hero-heading-container {
   position: absolute;
+  width: 400px;
   top: 45%;
   z-index: 1000;
-  width: 100%;
 }
 
 .hero-heading__title {
-  display: inline-block;
+  /* display: inline; */
   color: var(--font-50, #F6F6F6);
   font-family: Poppins;
-  font-size: 28px !important;
+  font-size: 33px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-  text-align: left;
+  text-align: start;
 }
 
-.hero-heading__title:hover {
-  color: #BDBDBD;
-}
 
 .hero-heading__desc {
   color: var(--Background, #FFF);
@@ -115,32 +135,51 @@
   background: #C70943;
 }
 
-/* Gaya untuk perangkat tablet */
-@media (min-width: 768px) and (max-width: 991px) {
+/* // X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap */
 
-  /* Atur gaya untuk layar berukuran tablet */
-  .hero-heading__title {
-    display: inline-block;
-    font-size: 41px !important;
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .hero-social-media-container {
+    position: absolute;
+    top: 45% !important;
   }
-
 }
 
-/* Gaya untuk layar laptop/PC */
-/* Atur gaya untuk layar berukuran laptop/PC */
-@media (min-width: 992px) {
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  /* Atur gaya untuk layar berukuran tablet */
+  .hero-heading-container {
+    width: 100%;
+  }
+
+  .hero-heading__title {
+    display: block;
+    font-size: 31px !important;
+  }
+
+
+  .hero-social-media-container {
+    position: absolute;
+    top: 45% !important;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
   .hero-image-parallax {
     min-height: 100vh;
-    background-attachment: fixed;
-    scroll-behavior: smooth;
   }
 
   .hero-image-bg__gradient {
-    min-height: 100vh;
+    height: 100vh;
   }
 
   .hero-heading__title {
-    width: 1300px;
     font-size: 61px !important;
     display: block;
   }
@@ -164,34 +203,10 @@
     transition: .3s ease-in-out;
   }
 }
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}
 </style>
-
-<script lang="ts" setup>
-const props = defineProps({
-  background: { type: String, required: true },
-  text: { type: String },
-  desc: { type: String },
-  postId: { type: String }
-})
-
-
-
-const backgroundStyle = () => {
-  return {
-    backgroundImage: `url(${props.background})`,
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    objectFit: "cover",
-    objectPosition: "center",
-  };
-}
-
-
-
-
-</script>
 
 
 

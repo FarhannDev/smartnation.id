@@ -15,6 +15,9 @@ useSeoMeta({
 })
 
 
+const colorMode = useColorMode()
+
+
 </script>
 
 
@@ -27,7 +30,7 @@ useSeoMeta({
         :pagination="{
           clickable: true,
         }" :effect="'creative'" :autoplay="{
-  delay: 5000,
+  delay: 8000,
   disableOnInteraction: true,
 }" :creative-effect="{
   prev: {
@@ -51,6 +54,18 @@ useSeoMeta({
       <section class="latest-article-section py-5 ">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3 " title="Postingan Terbaru" />
+
+          <!-- options color mode -->
+          <div>
+            <h1>Color mode: {{ $colorMode.value }}</h1>
+            <select v-model="$colorMode.preference">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+
+            </select>
+          </div>
+
           <div class="row justify-content-arround g-3 py-3">
 
             <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-lg-6 col-xxl-4 col-md-12">
