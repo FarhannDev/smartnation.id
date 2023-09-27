@@ -1,33 +1,102 @@
+
+
+
+<script lang="ts" setup>
+
+// import { posts } from '~/utils/data/getInitialData';
+
+
+const route = useRoute()
+const { id } = route.params
+const categoryPostName: globalThis.Ref<string> = ref('')
+const categoryId: globalThis.Ref<number> = ref(83)
+const pageParams: globalThis.Ref<number> = ref(1)
+const per_page: globalThis.Ref<number> = ref(18)
+const imageSourceUrl: globalThis.Ref = ref('')
+
+
+const apiBaseUrl: string = 'https://smartnation.id/wp-json/wp/v2';
+
+const { data: posts } = await useFetch(`/posts`, {
+  baseURL: apiBaseUrl,
+  transform: (posts: Posts[]) => {
+    return Array.from(new Map(posts.map(post => [post.title.rendered, post])).values())
+  }
+})
+
+const { data: categories } = await useFetch(`/categories`, {
+  baseURL: apiBaseUrl,
+  transform: (categories: Categories[]) => {
+    return categories.find(category => {
+      const initialCategory = id.toString()
+      if (category.slug === initialCategory) {
+        categoryId.value = category.id
+        categoryPostName.value = category.name
+      }
+    })
+  }
+})
+
+
+const { data: postsCategories } = await useFetch(`/posts?categories=${categoryId.value}&page?=${pageParams.value}&per_page=${per_page.value}`, {
+  baseURL: apiBaseUrl,
+  transform: (posts: Posts[]) => {
+    return posts.map(post => ({
+      id: post.id, slug: post.slug, title: post.title.rendered, excerpt: post.excerpt.rendered,
+      featured_media: post.featured_media, categories: post.categories, tags: post.tags, date: post.date,
+      modified: post.modified,
+    }))
+  }
+})
+
+const { data: postsMedia } = await useFetch(`/media`, {
+  baseURL: apiBaseUrl,
+  transform: (mediaImage: Media[]) => {
+    return postsCategories?.value.forEach(post => {
+      const mediaImageId: number = post.featured_media
+      if (mediaImageId) {
+        mediaImage.map((media) => {
+          imageSourceUrl.value = media.source_url
+        })
+      }
+    })
+  }
+})
+
+useSeoMeta({
+  title: `Berita Kategori ${categoryPostName.value}`,
+  description: ``
+})
+
+</script>
+
+
 <template>
   <NuxtLayout name="page-layout">
-
     <template #hero>
-      <HeroParallaxBackground text="Daftar Berita" :desc="`Daftar berita dari kategori ${id}`"
+      <HeroParallaxBackground text="Daftar Berita" :desc="`Daftar berita dari kategori ${categoryPostName}`"
         background="/images/background/bg-berita.png" />
     </template>
-
 
     <main id="content">
       <!-- Section berita start -->
       <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
         <div class="container">
+
           <div class="row justify-content-start align-content-start g-3 py-5">
             <div class="col-lg-8 col-md-10">
               <article class="article-section position-relative mb-3">
-                <div class="d-flex flex-wrap justify-content-between g-0">
-                  <div>
-                    <h1 class="berita-section-title">{{ id }}</h1>
-                  </div>
-                </div>
+
+                <h1 class="berita-section-title">{{ categoryPostName }}</h1>
 
                 <div class="d-flex flex-column py-3">
                   <ul class="list-group list-group-flush">
-                    <li v-for="post in posts.slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0 ">
+                    <li v-for="post in postsCategories" :key="post.id" class="list-group-item mx-0 px-0 ">
                       <div class="card border-0 rounded-0">
                         <div class="row justify-content-start align-items-center g-2">
                           <div class="col-xl-4 col-lg-4 col-md-4">
                             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                              <NuxtImg :class="'article-thumbnail'" :src="post.thumbnail" loading="lazy"
+                              <NuxtImg :class="'article-thumbnail'" :src="imageSourceUrl" loading="lazy"
                                 :alt="post.title" />
                             </NuxtLink>
                           </div>
@@ -35,7 +104,7 @@
                           <div class="col-xl-8 col-lg-8 col-md-8">
                             <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
                               <div class="d-flex justify-content-between g-2 mb-3">
-                                <span class="article-info-tag ">{{ id }}</span>
+                                <span class="article-info-tag ">{{ categoryPostName }}</span>
                                 <span class="article-info-tag text-start text-secondary">{{
                                   useFormatter(post.createdAt) }}</span>
                               </div>
@@ -47,8 +116,8 @@
                                   : post.title
                                 }}
                               </NuxtLink>
-                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 70
-                                    ? `${post.excerpt.substring(0, 70)}...`
+                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 150
+                                    ? `${post.excerpt.substring(0, 150)}...`
                                     : post.excerpt
                                   "></div>
                             </div>
@@ -58,6 +127,8 @@
                     </li>
                   </ul>
                 </div>
+
+
                 <!-- Pagination start -->
                 <div class="d-flex justify-content-center g-2 pt-3 ">
                   <nav aria-label="Page navigation example">
@@ -93,7 +164,7 @@
 
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">
-                    <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id" :number="index"
+                    <ArticlesArticleRecomended v-for="(post, index) in posts" :key="post.id" :number="index"
                       :postId="post.slug" :title="post.title" />
                   </div>
                 </div>
@@ -104,6 +175,7 @@
         </div>
       </section>
       <!-- Section berita end -->
+
 
     </main>
 
@@ -133,95 +205,7 @@
   border: 1px solid #C70943;
 }
 
-.hero-image-parallax {
-  position: relative;
-  background-image: url('/images/background/bg-berita.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  width: 100%;
-  height: 500px;
-  scroll-behavior: smooth;
-}
 
-
-
-.hero-image-bg__gradient {
-  padding: 0;
-  height: 500px;
-  flex-shrink: 0;
-  position: relative;
-  width: 100%;
-  background: linear-gradient(0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 100%),
-    linear-gradient(102deg,
-      rgba(166, 11, 64, 0.75) 16.57%,
-      rgba(217, 217, 217, 0) 95.59%);
-}
-
-.hero-heading-container {
-  position: absolute;
-  top: 45%;
-  z-index: 1000;
-}
-
-.hero-heading__title {
-  color: var(--font-50, #F6F6F6);
-  /* Font/Heading 1 Bold */
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-  /* 73.2px */
-}
-
-.hero-heading__desc {
-  color: var(--Background, #FFF);
-
-  /* Font/Title 1 */
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 37.2px */
-}
-
-
-@media (min-width: 992px) {
-  .hero-image-parallax {
-    min-height: 100vh;
-    background-attachment: fixed;
-  }
-
-  .hero-image-bg__gradient {
-    min-height: 100vh;
-  }
-
-  .hero-heading__title {
-    font-size: 61px;
-  }
-
-  .hero-heading__desc {
-    font-size: 31px;
-  }
-
-}
-
-.hero-social-media-container {
-  position: absolute;
-  top: 37%;
-  right: 10%;
-
-}
-
-.hero-social-media-container .social-media__icons {
-  width: 32.567px;
-  height: 30.588px;
-}
 
 
 .berita-section-title {
@@ -320,100 +304,14 @@
 }
 
 
-.hero-image-parallax {
-  position: relative;
-  background-image: url('/images/hero1.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  width: 100%;
-  height: 500px;
-  scroll-behavior: smooth;
-}
-
-
-
-.hero-image-bg__gradient {
-  padding: 0;
-  height: 500px;
-  flex-shrink: 0;
-  position: relative;
-  width: 100%;
-  background: linear-gradient(0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 100%),
-    linear-gradient(102deg,
-      rgba(166, 11, 64, 0.75) 16.57%,
-      rgba(217, 217, 217, 0) 95.59%);
-}
-
-.hero-heading-container {
-  position: absolute;
-  top: 45%;
-  z-index: 1000;
-}
-
-.hero-heading__title {
-  color: var(--font-50, #F6F6F6);
-  /* Font/Heading 1 Bold */
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-  /* 73.2px */
-}
-
-.hero-heading__desc {
-  color: var(--Background, #FFF);
-
-  /* Font/Title 1 */
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 37.2px */
-}
-
 
 @media (min-width: 992px) {
-  .hero-image-parallax {
-    min-height: 100vh;
-    background-attachment: fixed;
-  }
-
-  .hero-image-bg__gradient {
-    min-height: 100vh;
-  }
-
-  .hero-heading__title {
-    font-size: 61px;
-  }
-
-  .hero-heading__desc {
-    font-size: 31px;
-  }
-
   .article-thumbnail {
     width: 256px;
     height: 151px;
   }
 
 
-}
-
-.hero-social-media-container {
-  position: absolute;
-  top: 45%;
-  right: 10%;
-}
-
-
-.hero-social-media-container .social-media__icons {
-  width: 32.567px;
-  height: 30.588px;
 }
 
 .article-list-container {
@@ -483,23 +381,3 @@
   color: rgba(255, 255, 255, 0.90);
 }
 </style>
-
-
-<script lang="ts" setup>
-import { posts } from '~/utils/data/getInitialData';
-
-const route = useRoute()
-
-const { id } = route.params
-// Set Meta SEO
-useSeoMeta({
-  title: `Berita Kategori ${id}`,
-  description: `Daftar berita dari kategori Citiasia inc ${id}`,
-  author: "SmartNation",
-  ogTitle: `Berita Kategori ${id}`,
-  ogDescription: `Daftar berita dari kategori Citiasia inc ${id}`,
-  ogType: "website",
-  ogSiteName: "https://smartnation.vercel.app",
-  ogUrl: 'https://smartnation.vercel.app',
-})
-</script>

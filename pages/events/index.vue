@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+import { posts } from '~/utils/data/getInitialData';
+// Set Meta SEO
+useSeoMeta({
+  title: "Kumpulan Acara ISNA",
+  ogTitle: 'Kumpulan Acara ISNA',
+  description: 'Kumpulan Acara ISNA dari beberapa Kategori',
+})
+</script>
+
 <template>
   <NuxtLayout name="page-layout">
 
@@ -323,12 +333,3 @@ a {
 }
 </style>
 
-<script lang="ts" setup>
-import { posts } from '~/utils/data/getInitialData';
-// Set Meta SEO
-useSeoMeta({
-  title: "Kumpulan Acara ISNA",
-  ogTitle: 'Kumpulan Acara ISNA',
-  description: 'Kumpulan Acara ISNA dari beberapa Kategori',
-})
-</script>

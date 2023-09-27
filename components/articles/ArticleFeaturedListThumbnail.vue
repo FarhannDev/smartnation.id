@@ -1,4 +1,16 @@
 
+<script lang="ts" setup>
+
+const props = defineProps({
+  postId: { type: String, required: true },
+  title: { type: String, required: true },
+  featuredImage: { type: String, required: true },
+  categories: { type: Array<string | number>, required: true },
+  date: { type: String, required: true }
+
+})
+
+</script>
 
 <template>
   <li class="list-group-item mx-md-2 px-md-2 mx-0 px-0 ">
@@ -6,14 +18,14 @@
       <div class="d-flex justify-content-between">
         <div>
           <span class="article-info-timestamps ">
-            <BootstrapIcon name="clock" /> {{ useTimestamps(timestamp) }}
+            <BootstrapIcon name="clock" /> {{ useTimestamps(date) }}
           </span>
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title link-offset-2   text-wrap d-block link-underline-opacity-0 '">
-            {{ title.length >= 80
-              ? `${title.substring(0, 80)}...`
+            {{ title?.length > 50 ? `${title.substring(0, 80)}...`
               : title
             }}
+
           </NuxtLink>
           <ArticlesArticleButton :categories="categories" />
         </div>
@@ -82,19 +94,3 @@
 }
 </style>
 
-
-<script lang="ts" setup>
-
-
-import { PropType } from "vue"
-
-
-const props = defineProps({
-  postId: { type: String },
-  title: { type: String },
-  featuredImage: { type: String },
-  categories: { type: Array<String> },
-  timestamp: { type: String }
-})
-
-</script>

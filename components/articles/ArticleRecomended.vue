@@ -1,3 +1,13 @@
+
+<script lang="ts" setup>
+const props = defineProps({
+  number: { type: Number, required: true },
+  postId: { type: String, required: true },
+  title: { type: String, required: true }
+})
+
+</script>
+
 <template>
   <div class="d-flex justify-content-arround mb-4 ">
     <span class="article-number me-3">{{ number + 1 }}</span>
@@ -55,11 +65,3 @@
 }
 </style>
 
-<script lang="ts" setup>
-const props = defineProps({
-  number: { type: Number },
-  postId: { type: String },
-  title: { type: String }
-})
-
-</script>

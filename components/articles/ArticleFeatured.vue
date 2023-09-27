@@ -1,4 +1,16 @@
 
+<script lang="ts" setup>
+const props = defineProps({
+  postId: { type: String, required: true },
+  title: { type: String, required: true },
+  excerpt: { type: String, required: true },
+  featuredImage: { type: String, required: true },
+  categories: { type: Array<String | Number>, required: true },
+  timestamp: { type: String, required: true }
+})
+
+</script>
+
 <template>
   <div class="card border-0 rounded-0 mb-3">
 
@@ -21,7 +33,10 @@
         }}
       </NuxtLink>
 
-      <div class="card-text text-start lh-base article-desc pt-2" v-html="excerpt"> </div>
+      <div class="card-text text-start lh-base article-desc pt-2" v-html="excerpt.length >= 250
+            ? `${excerpt.substring(0, 250)}...`
+            : excerpt
+          "> </div>
 
       <ArticlesArticleButton :categories="categories" />
     </div>
@@ -106,17 +121,3 @@
 }
 </style>
 
-<script lang="ts" setup>
-
-import { PropType } from "vue"
-
-const props = defineProps({
-  postId: { type: String },
-  title: { type: String },
-  excerpt: { type: String },
-  featuredImage: { type: String },
-  categories: { type: Array<String> },
-  timestamp: { type: String }
-})
-
-</script>

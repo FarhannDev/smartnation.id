@@ -1,3 +1,16 @@
+<script  setup>
+import { teams, partner } from "~/utils/data/getInitialData.ts"
+
+// Set Meta SEO
+useSeoMeta({
+  title: "Tentang Kami",
+  ogTitle: 'Tentang Kami',
+  description: 'Citiasia Center for Smart Nation (CCSN)',
+})
+
+</script>
+
+
 <template>
   <NuxtLayout name="page-layout">
 
@@ -886,15 +899,3 @@
 }
 </style>
 
-<script  setup>
-import { teams, partner } from "~/utils/data/getInitialData.ts"
-
-
-// Set Meta SEO
-useSeoMeta({
-  title: "Tentang Kami",
-  ogTitle: 'Tentang Kami',
-  description: 'Citiasia Center for Smart Nation (CCSN)',
-})
-
-</script>

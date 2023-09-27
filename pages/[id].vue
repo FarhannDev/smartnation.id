@@ -1,3 +1,33 @@
+<script setup>
+
+import { posts } from "~/utils/data/getInitialData";
+
+const route = useRoute()
+
+const { id } = route.params
+
+const post = posts.find((post) => post.slug === id)
+
+if (!post) showError({ statusCode: 404, statusMessage: "Page Not Found 😱" })
+
+useSeoMeta({
+  title: post.title,
+  author: 'smartNation',
+  description: post.excerpt,
+  ogTitle: post.title,
+  ogDescription: post.excerpt,
+  ogImage: post.thumbnail,
+  ogImageAlt: post.title,
+  ogImageType: "image/png",
+  ogImageWidth: 100,
+  ogImageHeight: 443,
+  ogImageUrl: 'https://s3-alpha-sig.figma.com'
+})
+
+
+</script>
+
+
 <template>
   <NuxtLayout name="content-layout">
 
@@ -528,31 +558,3 @@
 }
 </style>
 
-<script setup>
-
-import { posts } from "~/utils/data/getInitialData";
-
-const route = useRoute()
-
-const { id } = route.params
-
-const post = posts.find((post) => post.slug === id)
-
-if (!post) showError({ statusCode: 404, statusMessage: "Page Not Found 😱" })
-
-useSeoMeta({
-  title: post.title,
-  author: 'smartNation',
-  description: post.excerpt,
-  ogTitle: post.title,
-  ogDescription: post.excerpt,
-  ogImage: post.thumbnail,
-  ogImageAlt: post.title,
-  ogImageType: "image/png",
-  ogImageWidth: 100,
-  ogImageHeight: 443,
-  ogImageUrl: 'https://s3-alpha-sig.figma.com'
-})
-
-
-</script>

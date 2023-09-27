@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+
+// Set Meta SEO
+useSeoMeta({
+    title: "Galeri Smartnation",
+    ogTitle: 'Galeri Smartnation',
+    description: 'Kumpulan Galeri Smartnation',
+})
+
+</script>
+
 <template>
     <NuxtLayout name="page-layout">
 
@@ -276,13 +287,3 @@
 }
 </style>
 
-<script lang="ts" setup>
-
-// Set Meta SEO
-useSeoMeta({
-    title: "Galeri Smartnation",
-    ogTitle: 'Galeri Smartnation',
-    description: 'Kumpulan Galeri Smartnation',
-})
-
-</script>

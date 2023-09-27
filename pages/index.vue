@@ -1,3 +1,23 @@
+<script lang="ts" setup>
+
+import { posts } from '~/utils/data/getInitialData';
+
+// Set Meta SEO
+useSeoMeta({
+  title: "Beranda",
+  description: 'Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation',
+  author: "SmartNation",
+  ogTitle: 'Beranda',
+  ogDescription: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
+  ogType: "website",
+  ogSiteName: "https://smartnation.vercel.app",
+  ogUrl: 'https://smartnation.vercel.app',
+})
+
+
+</script>
+
+
 <template>
   <NuxtLayout name="page-layout">
 
@@ -44,7 +64,7 @@
                 <ul class="list-group list-group-flush">
                   <ArticlesArticleFeaturedListThumbnail v-for="post in posts.slice(0, 4)" :key="post.id"
                     :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail" :categories="post.categories"
-                    :timestamp="post.createdAt" />
+                    :date="post.createdAt" />
                 </ul>
               </div>
             </div>
@@ -155,7 +175,7 @@
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
           <div class="row justify-content-start align-items-start g-3 pt-3">
             <div class="col-lg-8 " data-aos="fade-up-right">
-              <article class="d-grid gap-2  article-list-item" @scroll="articleScroll">
+              <article class="d-grid gap-2  article-list-item">
                 <ArticlesArticleFeaturedColumn
                   v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)" :key="post.id"
                   :postId="post.slug" :title="post.title" :featuredImage="post.thumbnail" :excerpt="post.excerpt"
@@ -373,31 +393,4 @@
   background: #3D3D3D;
 }
 </style>
-
-<script lang="ts" setup>
-import { posts } from '~/utils/data/getInitialData';
-
-// Set Meta SEO
-useSeoMeta({
-  title: "Beranda",
-  description: 'Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation',
-  author: "SmartNation",
-  ogTitle: 'Beranda',
-  ogDescription: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
-  ogType: "website",
-  ogSiteName: "https://smartnation.vercel.app",
-  ogUrl: 'https://smartnation.vercel.app',
-})
-
-
-const articleScroll = () => {
-  const articleItem = document.querySelector('.article-list-item')
-
-  articleItem.classList.add('article-list-item::-webkit-scrollbar')
-  articleItem.classList.add('article-list-item::-webkit-scrollbar-thumb')
-  articleItem.classList.add('article-list-item::-webkit-scrollbar-track')
-}
-
-
-</script>
 

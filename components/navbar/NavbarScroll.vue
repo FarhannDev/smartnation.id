@@ -50,8 +50,9 @@
                 @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
 
                 <div class="d-flex flex-column justify-content-arround gx-2">
-                  <div v-for="category in categoriesData" :key="category" class="drp-brt">
-                    <NuxtLink class="brta text-wrap" :to="`/category/${category}`" aria-label="News">{{ category }}
+                  <div v-for="category in categoriesPost" :key="category" class="drp-brt">
+                    <NuxtLink class="brta text-wrap" :to="`/category/${category.slug}`" aria-label="News">{{ category.name
+                    }}
                     </NuxtLink>
                   </div>
 
@@ -175,6 +176,10 @@
 
 <script>
 import { categories } from '~/utils/data/getInitialData';
+import axios from '~/utils/config/axios';
+
+
+
 
 export default {
   data() {
@@ -212,7 +217,8 @@ export default {
         dropdown1: false,
         dropdown2: false,
       },
-      categoriesData: categories
+      categoriesData: categories,
+      categoriesPost: []
 
     };
   },
@@ -332,11 +338,28 @@ export default {
     toggleHover(dropdown, isHovered) {
       this.isHoveredText[dropdown] = isHovered;
     },
+
+    async getCategoriesPost() {
+      try {
+        const response = await axios.get('/categories')
+        if (!response.data) throw new Error(`Terjadi kesalahan saat mengambil data! HTPP status code ${response.status}`)
+        const data = await response.data
+
+        this.categoriesPost.push(...data)
+      } catch (error) {
+        console.log(`Terjadi kesalahan saat mengambil data! ${error.message}`)
+      }
+    }
   },
   created() {
     if (process.client) {
       window.addEventListener("scroll", this.handleScroll);
     }
+
+    this.getCategoriesPost()
+
+
+
   },
   mounted() {
     if (process.client) {
