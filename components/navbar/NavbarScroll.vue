@@ -56,8 +56,12 @@
         aria-controls="navbarNavDropdown"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        @click="toggleNavbar"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span
+          class="navbar-toggler-icon"
+          :class="{ 'navbar-toggler-icon-white': !scrolled }"
+        ></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
@@ -323,6 +327,7 @@ import { categories } from "~/utils/data/getInitialData";
 export default {
   data() {
     return {
+      isNavbarOpen: false,
       isSearchVisible: false,
       isActiveBeranda: true,
       isActiveBerita: false,
@@ -361,6 +366,12 @@ export default {
     };
   },
   computed: {
+    iconClass() {
+      return {
+        "navbar-toggler-icon-white": !this.scrolled,
+        "navbar-toggler-icon-black": this.scrolled,
+      };
+    },
     isLargeScreen() {
       if (process.client) {
         // Periksa apakah layar lebih dari 1200px hanya ketika kode dijalankan di sisi klien (browser)
@@ -371,6 +382,9 @@ export default {
     },
   },
   methods: {
+    toggleNavbar() {
+      this.isNavbarOpen = !this.isNavbarOpen;
+    },
     getDropdownImage(dropdownName) {
       // Fungsi ini mengembalikan URL gambar sesuai dengan status isActiveAcara dan isHoveredText
       if (dropdownName === "dropdown1") {
@@ -512,6 +526,13 @@ export default {
 </script>
 
 <style scoped>
+.navbar-toggler-icon-white {
+  filter: brightness(0) invert(1); /* Mengatur warna SVG menjadi putih */
+}
+
+.navbar-toggler-icon-black {
+  filter: brightness(0) invert(0);
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -855,7 +876,7 @@ input::placeholder {
 }
 
 .navbar-toggler {
-  background-color: var(--font-50, #f6f6f6);
+  background-color: var(--font-50, transparent);
 }
 
 .navbar {
@@ -1369,6 +1390,11 @@ a {
     margin-left: 25%;
     display: block !important; /* Tampilkan tombol pencarian pada ukuran layar ini */
   }
+  .navbar-scrolled .btn-src {
+    border-color: #888;
+    /* Warna garis input saat latar belakang putih */
+    color: var(--font-600, #5d5d5d) !important;
+  }
 
   .container {
     justify-content: space-between;
@@ -1460,7 +1486,7 @@ a {
 }
 
 @media screen and (max-width: 428px) {
-  .container{ 
+  .container {
     justify-content: space-evenly;
     gap: 1px;
   }
@@ -1474,5 +1500,4 @@ a {
     margin-right: 5px;
   }
 }
-
 </style>
