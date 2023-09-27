@@ -287,9 +287,9 @@ useSeoMeta({
               <div class="d-flex flex-column justify-content-start g-0 px-md-3 mx-md-2 ">
                 <HeadingTitle class="text-capitalize fw-bold fs-5 " title="Berita Terpopuler" />
                 <div class="d-grid gap-4 py-3 ">
-                  <PostsPostItem v-for="post in posts.sort().reverse().slice(0, 5)" :key="post.id" :postId="post.slug"
-                    :title="post.title" :featured-media="post.thumbnail" :categories="post.categories"
-                    :dateTime="post.createdAt" />
+                  <PostsPostItem v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)"
+                    :key="post.id" :postId="post.slug" :title="post.title" :featured-media="post.thumbnail"
+                    :categories="post.categories" :dateTime="post.createdAt" />
                 </div>
               </div>
             </div>
@@ -553,8 +553,15 @@ useSeoMeta({
   .article-details__cover {
     min-height: 433.57px;
   }
+}
 
 
+.dark-mode .article-comments__card {
+  background-color: #262626;
+}
+
+.dark-mode .article-comments-card {
+  background-color: #262626;
 }
 </style>
 

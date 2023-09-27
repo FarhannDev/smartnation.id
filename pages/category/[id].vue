@@ -106,7 +106,7 @@ useSeoMeta({
                               <div class="d-flex justify-content-between g-2 mb-3">
                                 <span class="article-info-tag ">{{ categoryPostName }}</span>
                                 <span class="article-info-tag text-start text-secondary">{{
-                                  useFormatter(post.createdAt) }}</span>
+                                  useFormatter(post.date) }}</span>
                               </div>
 
                               <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
@@ -165,7 +165,7 @@ useSeoMeta({
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">
                     <ArticlesArticleRecomended v-for="(post, index) in posts" :key="post.id" :number="index"
-                      :postId="post.slug" :title="post.title" />
+                      :postId="post.slug" :title="post.title.rendered" />
                   </div>
                 </div>
               </article>
