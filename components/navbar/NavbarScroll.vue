@@ -1372,6 +1372,9 @@ a {
 }
 
 @media screen and (max-width: 1199px) {
+  .src {
+    display: none;
+  }
   .src-lg {
     display: flex;
   }
