@@ -56,7 +56,7 @@ const props = defineProps({
 }
 
 .article-title:hover {
-  color: #D71149;
+  color: #D71149 !important;
 }
 
 .article-desc {
@@ -110,9 +110,11 @@ const props = defineProps({
   background-color: #262626;
 }
 
-.dark-mode,
-.article-title,
-.article-timestamp {
+.dark-mode .article-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-timestamp {
   color: #fafafa;
 }
 
