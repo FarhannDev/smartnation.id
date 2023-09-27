@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+const props = defineProps({
+  title: { required: true, type: String },
+  dateTime: { type: String },
+  featuredMedia: { type: String },
+  categories: { type: Array<Number> },
+  postId: { type: Number }
+})
+</script>
+
+
+
 <template>
   <div class="card post-card__item">
     <NuxtImg :src="featuredMedia" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
@@ -7,7 +19,7 @@
         <span class="d-inline post-card__item__datetime">
           <BootstrapIcon name="clock" style="color: #888888;" />
           <span style="color: #888888;" class="ms-1">
-            {{ timeStamp }}
+            {{ useFormatter(dateTime, 'id-ID', 'long') }}
           </span>
         </span>
 
@@ -16,46 +28,15 @@
           class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
           <div v-html="title" class="post-card__item__title"></div>
         </NuxtLink>
-        <div class="hstack gap-2 mx-0 px-0">
+        <!-- <div class="hstack gap-2 mx-0 px-0">
           <NuxtLink v-for="cat in category.slice(0, 3)" :key="cat.id" class="gray-button text-decoration-none" to="/">
             {{ cat.name }}</NuxtLink>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-
-import axios from 'axios';
-import { API_BASE_URL } from '~/utils/config/api';
-
-const props = defineProps({
-  title: { required: true, type: String },
-  dateTime: { type: String },
-  featuredMedia: { type: String },
-  categories: { type: Array<Number> },
-  postId: { type: Number }
-})
-
-const category = ref<Category[]>([])
-const timeStamp: string = new Date(props.dateTime).toLocaleDateString('id-ID', {
-  dateStyle: "long",
-})
-
-const fetchCategoryPost = async () => {
-  const response: Response = await fetch(`${API_BASE_URL}/categories?posts=${props.postId}`)
-  const responseData = await response.json()
-  category.value = responseData
-}
-
-onMounted(() => {
-  fetchCategoryPost();
-})
-
-
-
-</script>
 
 
 <style lang="css" scoped>
@@ -82,6 +63,10 @@ onMounted(() => {
   transition: ease-in 300ms;
 }
 
+
+.post-card__item__title:hover {
+  color: #D71149;
+}
 
 
 .post-card__item__datetime {
@@ -120,5 +105,19 @@ onMounted(() => {
   margin: 5px;
   transition: background-color 03s;
   font-family: poppins;
+}
+
+.dark-mode .post-card__item {
+  background-color: #262626;
+  border: 0;
+}
+
+.dark-mode .post-card__item__title {
+  color: #fafafa;
+}
+
+.dark-mode .post-card__item__datetime {
+
+  color: rgba(255, 255, 255, 0.90);
 }
 </style>
