@@ -5,7 +5,7 @@ const props = defineProps({
   postId: { type: String, required: true },
   title: { type: String, required: true },
   featuredImage: { type: String, required: true },
-  categories: { type: Array<string | number>, required: true },
+  categories: { type: Array<Number>, required: true },
   date: { type: String, required: true }
 
 })
@@ -27,7 +27,8 @@ const props = defineProps({
             }}
 
           </NuxtLink>
-          <ArticlesArticleButton :categories="categories" />
+          <ArticlesArticleCategories v-for="(category, index) in categories.slice(0, 3)" :key="index"
+            :categoryId="category" />
         </div>
 
         <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">

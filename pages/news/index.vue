@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { posts } from '~/utils/data/getInitialData';
-
+import { posts, categories } from '~/utils/data/getInitialData';
 // Set Meta SEO
 useSeoMeta({
   title: "Berita",
@@ -9,23 +8,17 @@ useSeoMeta({
   ogDescription: 'Kumpulan Berita dari beberapa Kategori',
 })
 
-
 </script>
-
-
 
 <template>
   <NuxtLayout name="page-layout">
-
     <!-- hero start -->
     <template #hero>
       <HeroParallaxBackground text="Daftar Berita" desc="Daftar berita dari semua kategori"
         background="/images/background/bg-berita.png" />
     </template>
-
     <!-- rendered content main -->
     <main id="content">
-
       <!-- section berita start -->
       <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
         <div class="container">
@@ -33,7 +26,6 @@ useSeoMeta({
             <div class="col-xl-8">
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">Berita Terbaru</h1>
-                <!-- <div class="line-break"></div> -->
 
                 <div class="row justify-content-arround g-3 py-3">
                   <div v-for="post in posts.slice(0, 1)" :key="post.id"
@@ -60,7 +52,8 @@ useSeoMeta({
                   </div>
                   <div class="col-lg-6 col-xxl-6 col-md-7 ">
                     <div class="d-flex flex-column justify-content-start g-2">
-                      <div v-for="post in posts.slice(0, 4)" :key="post.id">
+                      <div v-for="post in posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)"
+                        :key="post.id">
                         <div class="mb-3">
                           <div class="d-flex justify-content-between">
                             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
@@ -85,41 +78,23 @@ useSeoMeta({
                       </div>
                     </div>
                   </div>
-
-                  <div class="col-lg-6 col-xxl-6 col-md-5 d-lg-none d-block">
-                    <article>
-                      <h1 class="berita-section-title">Terpopuler</h1>
-                      <!-- <div class="line-break"></div> -->
-
-                      <div class="d-flex flex-column pt-4">
-                        <div class="vstack g-3">
-                          <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id"
-                            :number="index" :postId="post.slug" :title="post.title" />
-                        </div>
-                      </div>
-                    </article>
-                  </div>
                 </div>
               </article>
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">Berita Terpopuler</h1>
-                <!-- <div class="line-break"></div> -->
                 <div class="row justify-content-arround g-3 py-3">
                   <div v-for="post in posts.slice(0, 2)" :key="post.id" class="col-lg-6 col-xxl-6 col-md-6">
                     <div class="card border-0 rounded-0 mb-3">
-
                       <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                         <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="post.thumbnail"
                           :height="253" loading="lazy" :alt="post.title" />
                       </NuxtLink>
                       <div class="card-body px-0 mx-0">
-
                         <div class="d-flex justify-content-between g-2 mb-2">
                           <span class="article-info-tag ">Berita</span>
                           <span class="article-info-tag text-start text-secondary">{{
                             useFormatter(post.createdAt) }}</span>
                         </div>
-
                         <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                           :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
                           {{ post.title.length >= 80
@@ -132,25 +107,22 @@ useSeoMeta({
                   </div>
                 </div>
               </article>
-              <article class="article-section position-relative mb-3">
+              <article v-for="category in categories" :key="category.id" class="article-section position-relative mb-5">
                 <div class="d-flex flex-wrap justify-content-between g-0">
                   <div>
-                    <h1 class="berita-section-title">Berita</h1>
-                    <!-- <div class="line-break"></div> -->
+                    <h1 class="berita-section-title">{{ category.name }}</h1>
                   </div>
-
                   <span>
-                    <NuxtLink :to="`/category/berita`" aria-label="Lihat Selengkapnya"
+                    <NuxtLink :to="`/category/${category.slug}`" aria-label="Lihat Selengkapnya"
                       class="link-offset-2 link-underline link-underline-opacity-0 link-secondary article-link-title">
                       Selengkapnya
                     </NuxtLink>
                     <BootstrapIcon name="chevron-right" />
                   </span>
                 </div>
-
                 <div class="d-flex flex-column py-3">
                   <ul class="list-group list-group-flush">
-                    <li v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 12)" :key="post.id"
+                    <li v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)" :key="post.id"
                       class="list-group-item mx-0 px-0 ">
                       <div class="card border-0 rounded-0">
                         <div class="row justify-content-start align-items-center g-2">
@@ -160,15 +132,13 @@ useSeoMeta({
                                 :alt="post.title" />
                             </NuxtLink>
                           </div>
-
                           <div class="col-xl-8 col-lg-8 col-md-8">
                             <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
                               <div class="d-flex justify-content-between g-2 mb-3">
-                                <span class="article-info-tag ">Berita</span>
+                                <span class="article-info-tag ">{{ category.name }}</span>
                                 <span class="article-info-tag text-start text-secondary">{{
                                   useFormatter(post.createdAt) }}</span>
                               </div>
-
                               <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                                 :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
                                 {{ post.title.length >= 50
@@ -187,19 +157,15 @@ useSeoMeta({
                     </li>
                   </ul>
                 </div>
-
               </article>
             </div>
-            <div class="col-xl-4  col-md-6 d-lg-block d-none">
+            <div class="col-xl-4  col-md-6 ">
               <article>
-                <h1 class="berita-section-title text-decoration-underline">Terpopuler</h1>
-                <!-- <div class="line-break"></div> -->
-
+                <h1 class="berita-section-title text-decoration-underline">Terpopuler Lainnya</h1>
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">
-
-                    <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id" :number="index"
-                      :postId="post.slug" :title="post.title" />
+                    <ArticlesArticleListTitle :posts="posts.sort((a, b) => b.title.localeCompare(a.title)).slice
+                      (0, 10)" />
                   </div>
                 </div>
               </article>
@@ -208,7 +174,6 @@ useSeoMeta({
         </div>
       </section>
       <!-- section berita end -->
-
       <!-- Section  subcribe start -->
       <section class="subscribe-section-container py-5 ">
         <div class="container">
@@ -217,10 +182,6 @@ useSeoMeta({
       </section>
       <!-- Section subcribe end -->
     </main>
-
-
-
-
   </NuxtLayout>
 </template>
 

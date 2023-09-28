@@ -195,12 +195,12 @@ const backgroundStyle = () => {
     z-index: 1000;
   }
 
-  .hero-image-parallax:hover {
+  /* .hero-image-parallax:hover {
     -webkit-transform: scale(1.1);
     -webkit-transition: .3s ease-in-out;
     transform: scale(1.1);
     transition: .3s ease-in-out;
-  }
+  } */
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */

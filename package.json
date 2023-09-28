@@ -12,6 +12,7 @@
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/color-mode": "^3.3.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@nuxtjs/i18n": "^7.3.1",
     "@nuxtjs/robots": "^3.0.0",

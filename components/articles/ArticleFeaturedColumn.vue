@@ -57,7 +57,7 @@
 }
 
 .article-title:hover {
-  color: #D71149 !important;
+  color: #D71149;
 }
 
 .article-desc {
@@ -109,8 +109,7 @@
   color: #fafafa;
 }
 
-.dark-mode .article-desc,
-.article-timestamp {
+.dark-mode .article-desc {
   color: rgba(255, 255, 255, 0.80);
 }
 </style>

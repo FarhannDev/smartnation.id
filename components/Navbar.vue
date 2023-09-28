@@ -1,87 +1,176 @@
+<script lang="ts" setup>
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types"
+import { RouteLocationNormalizedLoaded } from "vue-router"
+import { categories } from "~/utils/data/getInitialData"
+
+const props = defineProps({ isSticky: { type: Boolean } })
+const route: RouteLocationNormalizedLoaded = useRoute()
+const colorMode: ColorModeInstance = useColorMode()
+const isDropdownVisible: globalThis.Ref<boolean> = ref(false)
+const isDropdownEvents: globalThis.Ref<boolean> = ref(false)
+const isDropdownTranslate: globalThis.Ref<boolean> = ref(false)
+const isLanguage: globalThis.Ref<string> = ref('ID')
+
+const toggleColorMode = () => {
+  const newColorMode: "dark" | "light" = colorMode.preference === 'dark'
+    ? 'light'
+    : 'dark'
+
+  colorMode.preference = newColorMode
+}
+
+onMounted(() => { window.addEventListener('scroll', onNavbarScroll) })
+
+onBeforeMount(() => { window.removeEventListener('scroll', onNavbarScroll) })
+
+const onNavbarScroll = () => {
+  const scrollY = window.scrollY
+  const navbar = document.querySelector('.navbar')
+  scrollY > 250
+    ? navbar?.classList.add('navbar-sticky')
+    : navbar?.classList.remove('navbar-sticky')
+}
+
+
+const showDropdown: (isOpen: boolean) => boolean = (isOpen: boolean) => isDropdownVisible.value = isOpen
+const showDropdownEvents: (isOpen: boolean) => boolean = (isOpen: boolean) => isDropdownEvents.value = isOpen
+const showDropdownTranslate: (isOpen: boolean) => boolean = (isOpen: boolean) => isDropdownTranslate.value = isOpen
+
+
+const updateLanguage = (language: string) => isLanguage.value = language
+
+</script>
+
 <template>
-  <nav class="navbar navbar-expand-lg fixed-top" :class="{ 'navbar-scrolled': scrolled }">
+  <nav :class="`navbar navbar-expand-xl fixed-top `">
     <div class="container">
-      <NuxtLink to="/" class="navbar-brand">
-        <NuxtImg src="/images/logo.png" alt="Logo" class="d-inline-block align-text-top logo" />
+      <NuxtLink to="/" aria-label="Smart Nation Logo" class="navbar-brand">
+        <NuxtImg src="/images/logo.png" alt="Smart Nation Logo"
+          class="d-inline-block align-text-top navbar-brand__logo" />
       </NuxtLink>
 
+      <!-- toggler navigasi -->
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
       </button>
-      <div class="collapse navbar-collapse nav" id="navbarNavDropdown">
+
+      <!-- Navbar Collapse Start -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-itembr">
-            <NuxtLink :class="'br nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active'" to="/">
-              Beranda</NuxtLink>
+          <li class="nav-item">
+            <NuxtLink :class="`nav-link mx-md-2 ${route.path === '/' ? 'active' : ''}`" aria-current="page" to='/'>Beranda
+            </NuxtLink>
+          </li>
+          <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)" class="nav-item dropdown">
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/news' ? 'active' : ''}`" to="/news" role="button"
+              data-bs-toggle="dropdown1" aria-expanded="false">
+              Berita
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                <path
+                  d="M5.74714 6.19354L8.3338 8.7802L10.9205 6.19354C11.1805 5.93354 11.6005 5.93354 11.8605 6.19354C12.1205 6.45354 12.1205 6.87354 11.8605 7.13354L8.80047 10.1935C8.54047 10.4535 8.12047 10.4535 7.86047 10.1935L4.80047 7.13354C4.54047 6.87354 4.54047 6.45354 4.80047 6.19354C5.06047 5.9402 5.48714 5.93354 5.74714 6.19354Z"
+                  fill="#5D5D5D" />
+              </svg>
+            </NuxtLink>
+            <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
+              <li v-for="category in categories" :key="category.id">
+                <NuxtLink class="dropdown-item" :to="`/news/category/${category.slug}`">{{ category.name
+                }}</NuxtLink>
+              </li>
+
+            </ul>
+          </li>
+          <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)" class="nav-item dropdown">
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/events' ? 'active' : ''}`" to="/events" role="button"
+              data-bs-toggle="dropdown1" aria-expanded="false">
+              Acara
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                <path
+                  d="M5.74714 6.19354L8.3338 8.7802L10.9205 6.19354C11.1805 5.93354 11.6005 5.93354 11.8605 6.19354C12.1205 6.45354 12.1205 6.87354 11.8605 7.13354L8.80047 10.1935C8.54047 10.4535 8.12047 10.4535 7.86047 10.1935L4.80047 7.13354C4.54047 6.87354 4.54047 6.45354 4.80047 6.19354C5.06047 5.9402 5.48714 5.93354 5.74714 6.19354Z"
+                  fill="#5D5D5D" />
+              </svg>
+            </NuxtLink>
+            <ul class="dropdown-menu" :class="{ show: isDropdownEvents }">
+              <li><a class="dropdown-item" href="#">ISNA</a></li>
+              <li><a class="dropdown-item" href="#">ISCIF</a></li>
+              <li><a class="dropdown-item" href="#">Training</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/gallery' ? 'active' : ''}`" to="/gallery">Galeri
+            </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="'brt nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive'"
-              to="/" class="text-decoration-none">
-              <span class="text-hover-red" style="transition: color 0.3s">
-                Berita</span>
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/about' ? 'active' : ''}`" to="/about">Tentang Kami
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="'ins nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive'"
-              to="/" class="text-decoration-none">
-              <span class="text-hover-red" style="transition: color 0.3s">
-                Wawasan</span>
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/contact' ? 'active' : ''}`" to="/contact">Hubungi Kami
             </NuxtLink>
           </li>
-          <div class="dropdown-env" @mouseenter="openDropdown('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
-            <a href="/event" class="dropdown-togglee env text-decoration-none"
-              @mouseenter="toggleHover('dropdown1', true)" @mouseleave="toggleHover('dropdown1', false)">
-              <span :class="{ 'text-hover-red': isHoveredText['dropdown1'] }" style="transition: color 0.3s"
-                class="dropdown-text">
-                Acara
-              </span>
-            </a>
-            <NuxtImg :src="isHoveredText['dropdown1'] ? nextImage : currentImage" alt="dropdown1"
-              @mouseover="toggleHover('dropdown1', true)" @mouseout="toggleHover('dropdown1', false)"
-              class="d-inline-block align-text-top dropdown-img" />
-            <div v-if="showDropdown['dropdown1']" class="dropdown-menu" @mouseenter="keepDropdownOpen('dropdown1')"
-              @mouseleave="closeDropdown('dropdown1')">
-              <a href="/event1">Event Page</a>
-              <!-- Tambahkan pilihan dropdown lainnya di sini jika diperlukan -->
-            </div>
-          </div>
-          <li class="nav-item">
-            <NuxtLink :class="'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive'"
-              to="/" class="text-decoration-none">
-              <span class="text-hover-red" style="transition: color 0.3s">
-                Galeri</span>
-            </NuxtLink>
-          </li>
-          <li class="nav-item">
-            <NuxtLink :class="'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive'" to="/"
-              class="text-decoration-none">
-              <span class="text-hover-red" style="transition: color 0.3s">
-                Tentang Kami</span>
-            </NuxtLink>
-          </li>
-          <li class="nav-item-hk">
-            <NuxtLink :class="'nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive'" to="/"
-              class="text-decoration-none">
-              <span class="text-hover-red" style="transition: color 0.3s">
-                Hubungi Kami</span>
-            </NuxtLink>
-          </li>
+
         </ul>
       </div>
+      <!-- Navbar Collapse End -->
 
-      <div class="collapsrc navbar-collapse" id="navbarNavDropdown">
-        <div class="row justify-content-center align-items-center">
-          <div class="src offset-md-3">
-            <!-- Kotak Pencarian dengan Gambar sebagai Latar Belakang Input -->
-            <div class="input-group mb-3 search-box">
-              <input type="text" class="form-control" placeholder="Search" />
-            </div>
+      <div class="d-none d-lg-block d-xl-block">
+        <div class="hstack gx-2">
+          <form class="d-flex" role="search">
+            <input class="form-control search-input-container me-2" type="search" placeholder="Cari..."
+              aria-label="Cari...">
+            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+          </form>
+          <div class="dropdown">
+            <button @click="toggleColorMode" class="btn border-0 translate__button" type="button" :title="colorMode.value"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <svg v-if="colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                fill="currentColor" class="bi bi-brightness-high  " viewBox="0 0 16 16">
+                <path
+                  d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+              </svg>
+
+              <svg v-if="colorMode.preference === 'dark'" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+                <path
+                  d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+              </svg>
+              <svg v-if="colorMode.preference === 'system'" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                fill="currentColor" class="bi bi-display" viewBox="0 0 16 16">
+                <path
+                  d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75c.167-.333.25-.833.25-1.5H2s-2 0-2-2V4zm1.398-.855a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145z" />
+              </svg>
+            </button>
+
           </div>
-          <div class="col-auto">
-            <NuxtLink to="/" class="navbar-brand">
-              <NuxtImg src="/images/language.png" alt="Logo" class="d-inline-block align-text-top language" />
-            </NuxtLink>
+          <div @mouseenter="showDropdownTranslate(true)" @mouseleave="showDropdownTranslate(false)" class="dropdown">
+            <button class="btn border-0 translate__button px-0 mx-0" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-globe me-1"
+                viewBox="0 0 16 16">
+                <path
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z" />
+              </svg>
+              <span class="translate__name">
+                {{ isLanguage }}
+              </span>
+            </button>
+            <ul class="dropdown-menu" :class="{ show: isDropdownTranslate }">
+              <li><button @click="updateLanguage('ID')" title="Ubah bahasa" type="button" class="dropdown-item mb-3">
+                  <NuxtImg src="/icons/indonesia.png" :width="27" :height="18" alt=" Indonesia" loading="lazy"
+                    format="webp" /> Indonesia
+                </button></li>
+              <li><button @click="updateLanguage('EN')" title="Ubah bahasa" type="button" class="dropdown-item">
+                  <NuxtImg src="/icons/inggris.png" :width="27" :height="18" alt=" Inggris" loading="lazy"
+                    format="webp" /> Inggris
+                </button></li>
+
+            </ul>
           </div>
         </div>
       </div>
@@ -89,417 +178,192 @@
   </nav>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      scrolled: false,
-      currentImage: "images/arrow_down.png",
-      nextImage: "images/arrow_down_red.png",
-      showDropdown: {
-        dropdown1: false,
-        dropdown2: false,
-      },
-      hoveringDropdown: {
-        dropdown1: false,
-        dropdown2: false,
-      },
-      isHoveredText: {
-        dropdown1: false,
-        dropdown2: false,
-      },
-    };
-  },
-  methods: {
-    handleScroll() {
-      if (window.scrollY > 50) {
-        this.scrolled = true;
-      } else {
-        this.scrolled = false;
-      }
-    },
-    openDropdown(dropdown) {
-      this.showDropdown[dropdown] = true;
-    },
-    closeDropdown(dropdown) {
-      if (!this.hoveringDropdown[dropdown]) {
-        this.showDropdown[dropdown] = false;
-      }
-    },
-    keepDropdownOpen(dropdown) {
-      this.hoveringDropdown[dropdown] = true;
-    },
-    toggleHover(dropdown, isHovered) {
-      this.isHoveredText[dropdown] = isHovered;
-    },
-  },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
-};
-</script>
 
-<style scoped>
-.navbar-brand {
-  margin: 0;
-}
 
-.text-hover-red {
-  color: white;
-}
 
-.text-hover-red:hover {
-  transition: color 0.3s;
-  color: var(--danger-600,
-      #ce2f2f);
-  /* Mengubah warna teks menjadi merah saat dihover */
-}
-
-.dropdown-text {
-  transition: color 0.3s;
-}
-
-/* Ubah ukuran gambar saat dihover */
-.dropdown-env:hover .dropdown-img,
-.dropdown-glr:hover .dropdown-img {
-  transform: scale(1.1);
-  /* Atur faktor perbesaran sesuai kebutuhan */
-  cursor: pointer;
-}
-
-/* Ubah warna teks menjadi merah saat dihover pada tulisan */
-.dropdown-env:hover .text-hover-red,
-.dropdown-glr:hover .text-hover-red {
-  color: var(--danger-600,
-      #ce2f2f);
-  /* Mengubah warna teks menjadi merah saat dihover */
-}
-
-.col-auto {
-  padding-left: 8px;
-  padding-right: 0;
-}
-
-/* CSS Khusus untuk Kotak Pencarian */
-.search-box {
-  display: flex;
-  align-items: center;
-}
-
-.src {
-  padding: 0;
-  height: 32px;
-  margin: 0;
-  width: 274px;
-}
-
-.search-box input[type="text"] {
-  background-image: url("images/search.png");
-  /* Tambahkan gambar search sebagai latar belakang input */
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  /* Sesuaikan ukuran gambar sesuai kebutuhan */
-  background-position: 10px center;
-  /* Sesuaikan posisi gambar sesuai kebutuhan */
-  padding-left: 40px;
-  /* Menambahkan ruang di kiri input untuk gambar */
-  border: 1px solid #ccc;
-  border-radius: 22px;
-  border-color: white;
-  /* Warna garis input saat latar belakang transparan */
-  background-color: transparent;
-  /* Warna teks input saat latar belakang transparan */
-}
-
-.search-box button {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.input-group-text {
-  background: transparent;
-  border: none;
-  padding: 0;
-}
-
-.input-group-text img {
-  width: 20px;
-  /* Sesuaikan ukuran gambar sesuai kebutuhan */
-  height: 20px;
-  /* Sesuaikan ukuran gambar sesuai kebutuhan */
-  margin-right: 0 !important;
-  /* Jarak antara gambar dan input */
-}
-
-.custom-input-group {
-  display: flex;
-  align-items: center;
-  /* Pusatkan gambar dan input secara vertikal */
-}
-
-.custom-input-group img {
-  margin-right: 10px;
-  /* Jarak antara gambar dan input */
-  border-bottom: 1px solid #ccc;
-  /* Tambahkan garis bawah pada gambar */
-}
-
-.form-control {
-  width: 230px !important;
-  height: 32px;
-  border: none;
-  /* Hapus border input */
-  outline: none;
-  /* Hapus focus outline saat input aktif */
-  border: 1px solid #ccc;
-  /* Tambahkan garis bawah pada input */
-}
-
-.row {
-  align-content: center;
-  margin-left: 0;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  width: 1200px;
-  height: 26.528px;
-  padding: 0;
-  margin: 4px 120px;
-}
-
+<style lang="css" scoped>
 .navbar {
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s;
   width: 100%;
-  height: 60px;
-  /* padding: 24px 120px; */
-  background-color: transparent;
-  /* Warna latar belakang transparan */
-  transition: background-color 0.3s;
-  /* Animasi perubahan warna latar belakang */
-  color: white;
-  /* Warna teks saat latar belakang transparan */
-  box-shadow: 0px 0.91667px 0.91667px 0px rgba(0, 0, 0, 0.12),
-    0px 0px 0px 0.91667px rgba(103, 110, 118, 0.16),
-    0px 1.83333px 4.58333px 0px rgba(103, 110, 118, 0.08);
+  height: auto;
+  background: rgba(40, 39, 39, 0.10);
+  backdrop-filter: blur(6px);
+  transition: ease 500ms;
+}
+
+.navbar-brand .navbar-brand__logo {
+  width: 83.667px;
+  height: 26.528px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.navbar.navbar-sticky {
+  width: 100%;
+  height: auto;
+  background: #FFF;
+  box-shadow: 0px 0.91667px 0.91667px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px 0.91667px rgba(103, 110, 118, 0.16), 0px 1.83333px 4.58333px 0px rgba(103, 110, 118, 0.08);
 }
 
 .nav-link {
-  /* Font/Body 1 Bold */
+  color: #fff;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-  /* 14.4px */
 }
 
-.dropdown-env {
-  position: relative;
-  display: inline-block;
-  width: 62px;
-  height: 30px;
-  display: flex;
-  padding: 6px 0px;
-  align-items: center;
-  gap: 2px;
-  margin-right: 20px;
+.nav-link:hover {
+  color: #CE2F2F !important;
 }
 
-.navbar-scrolled {
-  background-color: white;
-  /* Warna latar belakang putih */
-  color: white;
+.nav-link.active {
+  color: #CE2F2F !important;
 }
 
-.navbar-scrolled .text-hover-red {
-  color: black;
+.navbar-sticky .nav-link {
+  color: #5D5D5D;
 }
 
-.navbar-scrolled .search-box input[type="text"] {
-  border-color: black;
-  /* Warna garis input saat latar belakang putih */
-  color: black;
-  /* Warna teks input saat latar belakang putih */
-}
 
-.dropdown-glr {
-  position: relative;
-  display: inline-block;
-  width: 65px;
-  height: 30px;
-  display: flex;
-  padding: 6px 0px;
-  align-items: center;
-  gap: 2px;
-  margin-right: 20px;
-}
-
-.dropdown-togglee {
-  /* Font/Body 1 Bold */
+.translate__button {
+  color: #FFF;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 120%;
   /* 14.4px */
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--bs-nav-link-color);
-  /* Gaya lainnya sesuai kebutuhan Anda */
 }
 
-.env {
-  width: 42px;
-  height: 14px;
+.dropdown-item {
+  color: var(--font-600, #5D5D5D);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
 }
 
-.glr {
-  width: 45px;
-  height: 14px;
+.dropdown-item.active {
+  color: var(--primary-600, #D71149) !important;
 }
 
-.dropdown-img {
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.3s;
-  width: 16px;
-  height: 16px;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  /* Gaya lainnya sesuai kebutuhan Anda */
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  /* Gaya lainnya sesuai kebutuhan Anda */
-}
-
-/* Tampilkan dropdown saat dihover */
-.dropdown-env:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-env:hover .dropdown-img {
-  transform: scale(1.1);
-  /* Atur faktor perbesaran sesuai kebutuhan */
-  cursor: pointer;
-}
-
-.dropdown-env:hover .text-hover-red {
-  color: red !important;
-  /* Mengubah warna teks menjadi merah saat dihover */
-}
-
-.text-hover-red:hover {
-  color: red !important;
-  /* Mengubah warna teks menjadi merah saat dihover */
-}
-
-.dropdown-glr:hover .dropdown-menu {
-  display: block;
-}
-
-.active {
-  color: var(--danger-600, #ce2f2f) !important;
-  text-decoration: underline !important;
-  padding: 8px 0 !important;
-  margin: 0 !important;
-  width: 53px;
-}
-
-.inactive {
-  padding: 8px 0px !important;
-  margin: 0 !important;
-}
-
-a {
-  padding: 0;
-}
-
-.nav-item {
-  margin-right: 20px;
-  height: 30px;
-}
-
-.brt {
-  width: 37px;
-}
-
-.ins {
-  width: 43px;
-}
-
-.tk {
-  width: 87px;
-}
-
-.nav-item-hk {
-  width: 89px;
-  height: 30px;
-}
-
-.nav-itembr {
-  margin-right: 20px;
-}
-
-.navbar-nav {
-  width: 551px;
-  height: 33px;
-}
-
-.collapse {
-  width: 551px;
-  height: 33px;
-  align-items: center;
-}
-
-.collapsrc {
+.search-input-container {
+  justify-content: center;
   display: flex;
-  width: 320px !important;
+  width: 386px;
+  align-items: center;
+  gap: 4px;
   height: 32px;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
 }
 
-.navbar-brandd {
-  height: 20px;
-  margin: 0;
+.search-input-container,
+input[type="search"] {
+  color: rgba(255, 255, 255, 0.80);
+  background-image: url("/icons/search.png");
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 12px 6px;
+  padding-left: 36px;
+  border: 1px solid #e7e7e7;
+  border-radius: 22px;
+  border-color: #e7e7e7;
+  background-color: transparent;
+  backdrop-filter: blur(6px);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+
 }
 
-/* Mengatur lebar dropdown sesuai dengan logo */
-.dropdown-menu {
-  display: none;
-  min-width: 150px;
-  /* Sesuaikan lebar sesuai kebutuhan */
+.search-input-container,
+input::placeholder {
+  color: rgba(255, 255, 255, 0.80);
 }
 
-.logo {
-  padding: 0;
-  width: 83.667px;
-  height: 26.528px;
-  flex-shrink: 0;
+.navbar-sticky.search-input-container,
+input[type="search"] {
+  color: var(--font-300, #B0B0B0);
+  background-image: url("/icons/search.png");
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 12px 6px;
+  padding-left: 36px;
+  border: 1px solid #e7e7e7;
+  border-radius: 22px;
+  border-color: #e7e7e7;
+  background-color: transparent;
+  backdrop-filter: blur(6px);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
-.language {
-  width: 27.5px;
-  height: 29.333px;
-  flex-shrink: 0;
+.navbar-sticky.search-input-container,
+input::placeholder {
+  color: var(--font-300, #B0B0B0);
+}
+
+.navbar-sticky .bi {
+  color: #5D5D5D;
+}
+
+
+.navbar-sticky .nav-link.active {
+  color: #CE2F2F !important;
+}
+
+.translate__name {
+  color: var(--Background, #FFF);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-left: 3px;
+}
+
+.navbar-sticky .translate__name {
+  color: #262626;
+}
+
+/* Responsive */
+
+@media (min-width: 1200px) {
+  .navbar {
+    width: 100%;
+    height: 60px;
+  }
+
+  .navbar.navbar-sticky {
+    width: 100%;
+    height: 60px;
+  }
+
+  .nav-link.active {
+    border-bottom: 1.833px solid #D71149;
+  }
+}
+
+
+/* Dark Mode */
+.dark-mode .navbar-sticky {
+  background: var(--font-950, #262626);
+}
+
+.dark-mode .navbar-sticky .nav-link {
+  color: #5D5D5D;
+}
+
+
+.dark-mode .dropdown-menu {
+  background: var(--font-950, #262626);
 }
 </style>

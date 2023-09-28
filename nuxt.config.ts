@@ -1,9 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   typescript: { strict: true },
   devtools: { enabled: true },
   ssr: true,
 
+  runtimeConfig: {
+    // Private keys are only available on the server
+    apiSecret: '123',
+    // Public keys that are exposed to the client
+    public: {
+      apiBase:
+        process.env.NUXT_PUBLIC_API_BASE ||
+        'https://smartnation.id/wp-json/wp/v2',
+    },
+  },
+
+  // Nuxt.js modules
   modules: [
     '@nuxtjs/google-fonts',
     '@nuxt/image',
@@ -44,4 +57,16 @@ export default defineNuxtConfig({
   },
 
   image: { inject: true },
+
+  // Nuxt.js Color Mode configuration
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '-mode',
+    storageKey: 'nuxt-color-mode',
+  },
 });

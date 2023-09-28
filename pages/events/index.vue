@@ -19,15 +19,15 @@ useSeoMeta({
 
     <section class="berita-section-container position-relative py-5">
       <div class="container">
-        <div class="row justify-content-start align-content-start g-3">
-          <div class="col-xl-8">
+        <div class="row justify-content-start align-content-start g-5 py-5">
+          <div class="col-lg-8">
             <article class="article-section position-relative mb-5" id="tentang" :hidden="isHidden">
-              <h1 class="berita-section-title" style="color: red;">Tentang ISNA</h1>
+              <h1 class="berita-section-title">Tentang ISNA</h1>
               <div class="row">
-                <div class="col-5">
+                <div class="col-lg-5">
                   <div id="assetTentang"></div>
                 </div>
-                <div class="col-7">
+                <div class="col-lg-7">
                   <h6 id="explain">Apa itu ISNA?</h6>
                   <div id="explain">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, optio quas dolore ab perspiciatis
@@ -41,10 +41,10 @@ useSeoMeta({
               </div>
             </article>
 
-            <article class="article-section position-relative mb-3">
+            <article class="article-section position-relative mb-3 py-5">
               <div class="d-flex flex-wrap justify-content-between g-0">
                 <div>
-                  <h5 class="berita-section-title" style="color: red;">Postingan Terkini ISNA</h5>
+                  <h5 class="berita-section-title">Postingan Terkini ISNA</h5>
                 </div>
                 <div class="dropdown" style="width: 150px;">
                   <button style="width: 130px; text-align: center; border-radius: 4px; vertical-align:top;"
@@ -72,14 +72,16 @@ useSeoMeta({
                   </ul>
                 </div>
               </div>
+
+
               <div class="d-flex flex-column py-3">
                 <ul class="list-group list-group-flush">
-                  <li v-for="post in posts.slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0 ">
+                  <li v-for="post in posts.slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0 ">
                     <div class="card border-0 rounded-0">
                       <div class="row justify-content-start align-items-center g-2">
                         <div class="col-xl-4 col-lg-4 col-md-4">
                           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                            <NuxtImg :class="'article-thumbnail__acara'" :src="post.thumbnail" loading="lazy"
+                            <NuxtImg :class="'article-thumbnail'" :src="post.thumbnail" loading="lazy"
                               :alt="post.title" />
                           </NuxtLink>
                         </div>
@@ -87,7 +89,7 @@ useSeoMeta({
                         <div class="col-xl-8 col-lg-8 col-md-8">
                           <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
                             <div class="d-flex justify-content-between g-2 mb-3">
-                              <span class="article-info-tag ">{{ id }}</span>
+                              <span class="article-info-tag ">Acara</span>
                               <span class="article-info-tag text-start text-secondary">{{
                                 useFormatter(post.createdAt) }}</span>
                             </div>
@@ -99,8 +101,8 @@ useSeoMeta({
                                 : post.title
                               }}
                             </NuxtLink>
-                            <div class="article-desc pt-2" v-html="post.excerpt.length >= 70
-                                  ? `${post.excerpt.substring(0, 70)}...`
+                            <div class="article-desc pt-2" v-html="post.excerpt.length >= 150
+                                  ? `${post.excerpt.substring(0, 150)}...`
                                   : post.excerpt
                                 "></div>
                           </div>
@@ -110,41 +112,43 @@ useSeoMeta({
                   </li>
                 </ul>
               </div>
+              <!-- Pagination start -->
+              <div class="d-flex justify-content-center g-2 pt-3 ">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item mx-2">
+                      <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item mx-1 "><a class="page-link text-center text-white border-0 rounded bg-danger"
+                        href="#">1</a></li>
+                    <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
+                        href="#">2</a>
+                    </li>
+                    <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
+                        href="#">3</a>
+                    </li>
+                    <li class="page-item  mx-2">
+                      <a class="page-link   border-0 text-dark" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- Pagination end -->
+
             </article>
-            <!-- Pagination start -->
-            <div class="d-flex justify-content-center g-2 pt-3 ">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item mx-2">
-                    <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item mx-1 "><a class="page-link text-center text-white border-0 rounded bg-danger"
-                      href="#">1</a></li>
-                  <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
-                      href="#">2</a>
-                  </li>
-                  <li class="page-item mx-1"><a class="page-link text-center text-dark border-0 rounded bg-none"
-                      href="#">3</a>
-                  </li>
-                  <li class="page-item  mx-2">
-                    <a class="page-link   border-0 text-dark" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <!-- Pagination end -->
+
           </div>
-          <div class="col-xl-4  col-md-6 d-lg-block d-none">
+          <div class="col-xl-4  col-md-6 ">
             <article>
-              <h5 class="berita-section-title" style="color: #ff0000; text-decoration:underline">Terpopuler</h5>
+              <h5 class="berita-section-title text-decoration-underline">Terpopuler</h5>
               <div class="d-flex flex-column pt-4">
                 <div class="vstack g-3">
-                  <ArticlesArticleRecomended v-for="(post, index) in posts.slice(0, 10)" :key="post.id" :number="index"
-                    :postId="post.slug" :title="post.title" />
+                  <ArticlesArticleListTitle :posts="posts.sort((a, b) => b.title.localeCompare(a.title)).slice
+                    (0, 10)" />
                 </div>
               </div>
             </article>
@@ -186,9 +190,6 @@ export default {
 
 .dropdown-item {
   margin-top: 25px;
-}
-
-a {
   font-family: Poppins;
   font-style: normal;
   font-size: 20px;
@@ -204,19 +205,10 @@ a {
   margin-bottom: 20px;
 }
 
-.article-thumbnail__acara {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  object-fit: cover;
-}
-
 .berita-section-title {
-  color: var(--font-600, #5D5D5D);
+  color: var(--font-600, #D71149);
   font-family: Poppins;
+  font-size: 22px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
@@ -233,29 +225,31 @@ a {
 
 
 .article-title {
-  color: #5D5D5D;
+  overflow: hidden;
+  color: var(--font-600, #5D5D5D);
+  text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 120%;
+  /* 19.2px */
   transition: ease-in 300ms;
 }
 
 .article-title:hover {
-  color: #D71149;
+  color: #D71149 !important;
 }
 
 .article-desc {
   overflow: hidden;
-  color: #888;
-  text-align: justify;
+  color: var(--font-600, #5D5D5D);
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
+  font-weight: 400;
+  line-height: 120%;
   /* 18px */
 }
 
@@ -273,14 +267,6 @@ a {
   font-weight: 400;
   line-height: 120%;
   /* 12px */
-}
-
-.article-thumbnail {
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 253px;
-  opacity: 1;
 }
 
 
@@ -302,6 +288,27 @@ a {
   font-weight: 400;
   line-height: 120%;
   /* 19.2px */
+}
+
+.article-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+}
+
+
+
+@media (min-width: 992px) {
+  .article-thumbnail {
+    width: 256px;
+    height: 151px;
+  }
+
+
 }
 
 .article-list-container {
@@ -330,6 +337,45 @@ a {
 
 .article-list-title:hover {
   color: #D71149 !important;
+}
+
+
+.dark-mode .card {
+  background-color: #262626 !important;
+}
+
+.dark-mode .list-group {
+  background-color: #262626;
+}
+
+.dark-mode .list-group-flush {
+  background-color: #262626;
+}
+
+
+.dark-mode .list-group-item {
+  background-color: #262626;
+}
+
+
+.dark-mode .article-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-list-title {
+  color: #fafafa;
+}
+
+.dark-mode .article-info-tag {
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.dark-mode .article-link-title {
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.90);
 }
 </style>
 
