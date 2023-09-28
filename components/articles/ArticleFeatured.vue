@@ -1,22 +1,22 @@
 
 <script lang="ts" setup>
+
 const props = defineProps({
   postId: { type: String, required: true },
   title: { type: String, required: true },
   excerpt: { type: String, required: true },
   featuredImage: { type: String, required: true },
-  categories: { type: Array<String | Number>, required: true },
+  categories: { type: Array<Number>, required: true },
   timestamp: { type: String, required: true }
 })
-
 </script>
 
 <template>
   <div class="card border-0 rounded-0 mb-3">
 
     <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
-      <NuxtImg :class="'card-img-top img-fluid article-thumbnail animate__animated animate__jello'" :src="featuredImage"
-        :height="253" loading="lazy" :alt="title" format="webp" />
+      <NuxtImg :class="'card-img-top img-fluid article-thumbnail'" :src="featuredImage" :height="253" loading="lazy"
+        :alt="title" format="webp" />
     </NuxtLink>
     <div class="card-body px-0 mx-0">
 
@@ -38,7 +38,11 @@ const props = defineProps({
             : excerpt
           "> </div>
 
-      <ArticlesArticleButton :categories="categories" />
+      <ArticlesArticleCategories v-for="(category, index) in categories.slice(0, 3)" :key="index"
+        :categoryId="category" />
+
+
+
     </div>
   </div>
 </template>

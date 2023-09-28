@@ -1,10 +1,4 @@
-
-
-
 <script lang="ts" setup>
-
-// import { posts } from '~/utils/data/getInitialData';
-
 
 const route = useRoute()
 const { id } = route.params
@@ -14,8 +8,10 @@ const pageParams: globalThis.Ref<number> = ref(1)
 const per_page: globalThis.Ref<number> = ref(18)
 const imageSourceUrl: globalThis.Ref = ref('')
 
+const config = useRuntimeConfig()
 
-const apiBaseUrl: string = 'https://smartnation.id/wp-json/wp/v2';
+
+const apiBaseUrl = config.public.apiBase;
 
 const { data: posts } = await useFetch(`/posts`, {
   baseURL: apiBaseUrl,

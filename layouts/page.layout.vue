@@ -1,7 +1,5 @@
 <template>
-  <slot name="header">
-    <NavbarScroll />
-  </slot>
+  <Navbar />
   <slot name="hero" />
 
   <slot />

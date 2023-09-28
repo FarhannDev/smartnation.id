@@ -105,7 +105,7 @@ const backgroundStyle = () => {
 .hero-social-media-container {
   position: absolute;
   top: 60%;
-  right: 10px;
+  right: 20px !important;
   z-index: 1000;
 }
 
@@ -192,16 +192,17 @@ const backgroundStyle = () => {
   .hero-social-media-container {
     position: absolute;
     top: 48%;
-    right: 100px;
+    right: 125px !important;
     z-index: 1000;
   }
 
+  /* 
   .hero-image-parallax:hover {
     -webkit-transform: scale(1.1);
     -webkit-transition: .3s ease-in-out;
     transform: scale(1.1);
     transition: .3s ease-in-out;
-  }
+  } */
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */

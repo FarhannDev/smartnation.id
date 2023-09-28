@@ -1,8 +1,29 @@
+<script lang="ts" setup>
+import Swal from 'sweetalert2';
+
+const emits = defineEmits(['inputEmail'])
+const email: globalThis.Ref<string> = ref('')
+
+const onSubmitHandler = () => {
+  if (Boolean(email.value.length)) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Berhasil',
+      text: 'Terima kasih Sudah Berlangganan Buletin Kami Nantikan pembaruan terbaru kami dengan info terbaru',
+      confirmButtonText: "Selesai",
+      confirmButtonColor: '#295B19'
+    })
+    email.value = ''
+  }
+}
+</script>
+
 <template>
   <div class="hstack gap-2">
-    <input class="form-control" style="" type="text" placeholder="Masukan alamat email kamu"
-      aria-label="Masukan alamat email kamu" required autocomplete="email">
-    <button type="button" class="btn btn-danger btn-md rounded">Kirim</button>
+    <input v-model="email" class="form-control" type="email" placeholder="Masukan alamat email kamu"
+      aria-label="Masukan alamat email kamu" required autocomplete="email" />
+    <button :disabled="!email.length" @click="onSubmitHandler" type="button"
+      class="btn btn-danger btn-md rounded">Kirim</button>
   </div>
 </template>
 
