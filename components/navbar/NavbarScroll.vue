@@ -1,61 +1,147 @@
 <template>
-  <nav class="navbar navbar-expand-xl fixed-top" :class="{ 'navbar-scrolled': scrolled }">
+  <nav
+    class="navbar navbar-expand-xl fixed-top"
+    :class="{ 'navbar-scrolled': scrolled }"
+  >
     <div class="container">
-      <NuxtLink to="/" aria-label="Logo Smart Nation" class="navbar-brandd d-lg-block mx-lg-0  mx-auto">
-        <NuxtImg src="/images/logo.png" alt="Logo Smart Nation" class="d-inline-block align-text-top logo" />
+      <NuxtLink
+        to="/"
+        aria-label="Logo Smart Nation"
+        class="navbar-brandd d-lg-block mx-lg-0"
+      >
+        <NuxtImg
+          src="/images/logo.png"
+          alt="Logo Smart Nation"
+          class="d-inline-block align-text-top logo"
+        />
       </NuxtLink>
 
-      <button class="navbar-toggler border-0 d-none" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <!-- Tombol pencarian -->
+      <div class="srcc">
+        <button
+          class="btn-src btn-secondary search-button"
+          @click="toggleSearch"
+          v-if="!isSearchVisible || isLargeScreen"
+        >
+          <NuxtImg
+            src="/images/search.png"
+            alt="Search Icon"
+            class="search-icon"
+          />
+        </button>
+        <div class="src-lg" v-if="isSearchVisible">
+          <!-- Kotak Pencarian dengan Gambar sebagai Latar Belakang Input -->
+          <div class="input-group search-box">
+            <input type="text" class="form-control" placeholder="Search" />
+          </div>
+        </div>
+        <button
+          class="btn-src btn-secondary search-button"
+          @click="toggleSearch"
+          v-if="isSearchVisible"
+        >
+          <NuxtImg
+            src="/images/search.png"
+            alt="Search Icon"
+            class="search-icon"
+          />
+        </button>
+      </div>
+
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        @click="toggleNavbar"
+      >
+        <span
+          class="navbar-toggler-icon"
+          :class="{ 'navbar-toggler-icon-white': !scrolled }"
+        ></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-itembr">
-            <NuxtLink :class="{
-              'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveBeranda,
-              'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveBeranda,
-            }" @click="activateNavItem('Beranda')" to="/" class="text-decoration-none"><span class="text-hover-reds"
-                style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveBeranda,
+                'brnd nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveBeranda,
+              }"
+              @click="activateNavItem('Beranda')"
+              to="/"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Beranda
-              </span></NuxtLink>
+              </span></NuxtLink
+            >
           </li>
           <li class="nav-itembrt">
-            <div :class="{
-              active: isActiveBerita,
-            }" class="dropdown-brt" @mouseenter="openDropdown('dropdown2')" @mouseleave="closeDropdown('dropdown2')">
-              <NuxtLink to="/news" class="dropdown-togglee brt text-decoration-none"
-                @mouseenter="toggleHover('dropdown2', true)" @mouseleave="toggleHover('dropdown2', false)"
-                @click="activateNavItem('Berita')">
-                <span :class="{
-                  'text-hover-reds': isHoveredText['dropdown2'],
-                  active: isActiveBerita,
-                }" style="transition: color 0.3s" class="dropdown-text">
+            <div
+              :class="{
+                active: isActiveBerita,
+              }"
+              class="dropdown-brt"
+              @mouseenter="openDropdown('dropdown2')"
+              @mouseleave="closeDropdown('dropdown2')"
+            >
+              <NuxtLink
+                to="/news"
+                class="dropdown-togglee brt text-decoration-none"
+                @mouseenter="toggleHover('dropdown2', true)"
+                @mouseleave="toggleHover('dropdown2', false)"
+                @click="activateNavItem('Berita')"
+              >
+                <span
+                  :class="{
+                    'text-hover-reds': isHoveredText['dropdown2'],
+                    active: isActiveBerita,
+                  }"
+                  style="transition: color 0.3s"
+                  class="dropdown-text"
+                >
                   Berita
                 </span>
               </NuxtLink>
-              <NuxtImg :src="isActiveBerita && scrolled
-                ? nextImage
-                : isHoveredText['dropdown2']
-                  ? nextImage
-                  : scrolled
+              <NuxtImg
+                :src="
+                  isActiveBerita && scrolled
+                    ? nextImage
+                    : isHoveredText['dropdown2']
+                    ? nextImage
+                    : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown2')
-                " alt="dropdown2" @mouseover="toggleHover('dropdown2', true)"
-                @mouseout="toggleHover('dropdown2', false)" class="d-inline-block align-text-top dropdown-img" />
-              <div v-if="showDropdown['dropdown2']" class="dropdown-menu dropdown-menu-brt"
-                @mouseenter="keepDropdownOpen('dropdown2')" @mouseleave="closeDropdown('dropdow2')">
-
+                "
+                alt="dropdown2"
+                @mouseover="toggleHover('dropdown2', true)"
+                @mouseout="toggleHover('dropdown2', false)"
+                class="d-inline-block align-text-top dropdown-img"
+              />
+              <div
+                v-if="showDropdown['dropdown2']"
+                class="dropdown-menu dropdown-menu-brt"
+                @mouseenter="keepDropdownOpen('dropdown2')"
+                @mouseleave="closeDropdown('dropdow2')"
+              >
                 <div class="d-flex flex-column justify-content-arround gx-2">
-                  <div v-for="category in categoriesPost" :key="category" class="drp-brt">
-                    <NuxtLink class="brta text-wrap" :to="`/category/${category.slug}`" aria-label="News">{{ category.name
-                    }}
+                  <div
+                    v-for="category in categoriesData"
+                    :key="category"
+                    class="drp-brt"
+                  >
+                    <NuxtLink
+                      class="brta text-wrap"
+                      :to="`/category/${category}`"
+                      aria-label="News"
+                      >{{ category }}
                     </NuxtLink>
                   </div>
-
                 </div>
 
                 <!-- Tambahkan pilihan dropdown lainnya di sini jika diperlukan -->
@@ -63,30 +149,53 @@
             </div>
           </li>
           <li class="nav-itemenv">
-            <div :class="{
-              active: isActiveAcara,
-            }" class="dropdown-env" @mouseenter="openDropdown('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
-              <NuxtLink to="/events" class="dropdown-togglee env text-decoration-none"
-                @mouseenter="toggleHover('dropdown1', true)" @mouseleave="toggleHover('dropdown1', false)"
-                @click="activateNavItem('Acara')">
-                <span :class="{
-                  'text-hover-reds': isHoveredText['dropdown1'],
-                  active: isActiveAcara,
-                }" style="transition: color 0.3s" class="dropdown-text">
+            <div
+              :class="{
+                active: isActiveAcara,
+              }"
+              class="dropdown-env"
+              @mouseenter="openDropdown('dropdown1')"
+              @mouseleave="closeDropdown('dropdown1')"
+            >
+              <NuxtLink
+                to="/events"
+                class="dropdown-togglee env text-decoration-none"
+                @mouseenter="toggleHover('dropdown1', true)"
+                @mouseleave="toggleHover('dropdown1', false)"
+                @click="activateNavItem('Acara')"
+              >
+                <span
+                  :class="{
+                    'text-hover-reds': isHoveredText['dropdown1'],
+                    active: isActiveAcara,
+                  }"
+                  style="transition: color 0.3s"
+                  class="dropdown-text"
+                >
                   Acara
                 </span>
               </NuxtLink>
-              <NuxtImg :src="isActiveAcara && scrolled
-                ? nextImage
-                : isHoveredText['dropdown1']
-                  ? nextImage
-                  : scrolled
+              <NuxtImg
+                :src="
+                  isActiveAcara && scrolled
+                    ? nextImage
+                    : isHoveredText['dropdown1']
+                    ? nextImage
+                    : scrolled
                     ? scrolledImage
                     : getDropdownImage('dropdown1')
-                " alt="dropdown1" @mouseover="toggleHover('dropdown1', true)"
-                @mouseout="toggleHover('dropdown1', false)" class="d-inline-block align-text-top dropdown-img" />
-              <div v-if="showDropdown['dropdown1']" class="dropdown-menu dropdown-menu-acr"
-                @mouseenter="keepDropdownOpen('dropdown1')" @mouseleave="closeDropdown('dropdown1')">
+                "
+                alt="dropdown1"
+                @mouseover="toggleHover('dropdown1', true)"
+                @mouseout="toggleHover('dropdown1', false)"
+                class="d-inline-block align-text-top dropdown-img"
+              />
+              <div
+                v-if="showDropdown['dropdown1']"
+                class="dropdown-menu dropdown-menu-acr"
+                @mouseenter="keepDropdownOpen('dropdown1')"
+                @mouseleave="closeDropdown('dropdown1')"
+              >
                 <div class="d-flex flex-column justify-content-arround gx-2">
                   <div class="drp-acr">
                     <a class="acr" href="/events">ISNA</a>
@@ -105,62 +214,100 @@
           </li>
 
           <li class="nav-item glri">
-            <NuxtLink :class="{
-              'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveGaleri,
-              'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveGaleri,
-            }" @click="activateNavItem('Galeri')" to="/gallery" class="text-decoration-none">
+            <NuxtLink
+              :class="{
+                'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveGaleri,
+                'glr nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveGaleri,
+              }"
+              @click="activateNavItem('Galeri')"
+              to="/gallery"
+              class="text-decoration-none"
+            >
               <span class="text-hover-reds" style="transition: color 0.3s">
                 Galeri
               </span>
             </NuxtLink>
           </li>
           <li class="nav-item tkm">
-            <NuxtLink :class="{
-              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveTentangKami,
-              'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveTentangKami,
-            }" @click="activateNavItem('TentangKami')" to="/about" class="text-decoration-none"><span
-                class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveTentangKami,
+                'tk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveTentangKami,
+              }"
+              @click="activateNavItem('TentangKami')"
+              to="/about"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Tentang Kami
-              </span></NuxtLink>
+              </span></NuxtLink
+            >
           </li>
           <li class="nav-item hkm">
-            <NuxtLink :class="{
-              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
-                !isActiveHubungiKami,
-              'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
-                isActiveHubungiKami,
-            }" @click="activateNavItem('HubungiKami')" to="/contact" class="text-decoration-none"><span
-                class="text-hover-reds" style="transition: color 0.3s">
+            <NuxtLink
+              :class="{
+                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 inactive':
+                  !isActiveHubungiKami,
+                'hk nav-link link-offset-2 mx-md-1 link-underline link-underline-opacity-0 active':
+                  isActiveHubungiKami,
+              }"
+              @click="activateNavItem('HubungiKami')"
+              to="/contact"
+              class="text-decoration-none"
+              ><span class="text-hover-reds" style="transition: color 0.3s">
                 Hubungi Kami
-              </span></NuxtLink>
+              </span></NuxtLink
+            >
           </li>
 
           <li class="search-translate">
             <div class="row align-items-center">
               <div class="src">
+                <!-- Tambahkan class d-none untuk menyembunyikan pada layar kecil -->
                 <!-- Kotak Pencarian dengan Gambar sebagai Latar Belakang Input -->
                 <div class="input-group search-box">
-                  <input type="text" class="form-control" placeholder="Search" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                  />
                 </div>
               </div>
-              <div class="col-auto dropdown" @mouseenter="cancelCloseDropdownTimer()"
-                @mouseleave="startCloseDropdownTimer()">
-                <img :src="currentImagee" alt="Logo" class="d-inline-block align-text-top indo" />
+              <div
+                class="col-auto dropdown"
+                @mouseenter="cancelCloseDropdownTimer()"
+                @mouseleave="startCloseDropdownTimer()"
+              >
+                <img
+                  :src="currentImagee"
+                  alt="Logo"
+                  class="d-inline-block align-text-top indo"
+                />
 
                 <div class="language-text" @click="toggleDropdown">
                   {{ selectedLanguage }}
                 </div>
 
                 <div v-show="showDropdown" class="dropdown-content">
-                  <div class="dropdown-item" v-for="(language, index) in languages" :key="index">
-                    <NuxtImg :src="`/icons/${language.name}.png`" alt="Logo"
-                      class="d-inline-block align-text-top lg-indonesia" />
+                  <div
+                    class="dropdown-item"
+                    v-for="(language, index) in languages"
+                    :key="index"
+                  >
+                    <NuxtImg
+                      :src="`/icons/${language.name}.png`"
+                      alt="Logo"
+                      class="d-inline-block align-text-top lg-indonesia"
+                    />
 
-                    <a href="#" class="indonesia" @click="changeLanguage(language.code)">
+                    <a
+                      href="#"
+                      class="indonesia"
+                      @click="changeLanguage(language.code)"
+                    >
                       {{ language.name }}
                     </a>
                   </div>
@@ -175,15 +322,13 @@
 </template>
 
 <script>
-import { categories } from '~/utils/data/getInitialData';
-import axios from '~/utils/config/axios';
-
-
-
+import { categories } from "~/utils/data/getInitialData";
 
 export default {
   data() {
     return {
+      isNavbarOpen: false,
+      isSearchVisible: false,
       isActiveBeranda: true,
       isActiveBerita: false,
       isActiveAcara: false,
@@ -218,11 +363,28 @@ export default {
         dropdown2: false,
       },
       categoriesData: categories,
-      categoriesPost: []
-
     };
   },
+  computed: {
+    iconClass() {
+      return {
+        "navbar-toggler-icon-white": !this.scrolled,
+        "navbar-toggler-icon-black": this.scrolled,
+      };
+    },
+    isLargeScreen() {
+      if (process.client) {
+        // Periksa apakah layar lebih dari 1200px hanya ketika kode dijalankan di sisi klien (browser)
+        return window.innerWidth > 1200;
+      } else {
+        return false; // Atau nilai lain yang sesuai dengan kebutuhan Anda ketika dijalankan pada SSR
+      }
+    },
+  },
   methods: {
+    toggleNavbar() {
+      this.isNavbarOpen = !this.isNavbarOpen;
+    },
     getDropdownImage(dropdownName) {
       // Fungsi ini mengembalikan URL gambar sesuai dengan status isActiveAcara dan isHoveredText
       if (dropdownName === "dropdown1") {
@@ -338,28 +500,17 @@ export default {
     toggleHover(dropdown, isHovered) {
       this.isHoveredText[dropdown] = isHovered;
     },
-
-    async getCategoriesPost() {
-      try {
-        const response = await axios.get('/categories')
-        if (!response.data) throw new Error(`Terjadi kesalahan saat mengambil data! HTPP status code ${response.status}`)
-        const data = await response.data
-
-        this.categoriesPost.push(...data)
-      } catch (error) {
-        console.log(`Terjadi kesalahan saat mengambil data! ${error.message}`)
+    toggleSearch() {
+      if (window.innerWidth <= 1200) {
+        // Hanya toggle keterlihatan elemen pencarian pada ukuran layar kurang dari atau sama dengan 1200px
+        this.isSearchVisible = !this.isSearchVisible;
       }
-    }
+    },
   },
   created() {
     if (process.client) {
       window.addEventListener("scroll", this.handleScroll);
     }
-
-    this.getCategoriesPost()
-
-
-
   },
   mounted() {
     if (process.client) {
@@ -375,13 +526,20 @@ export default {
 </script>
 
 <style scoped>
+.navbar-toggler-icon-white {
+  filter: brightness(0) invert(1); /* Mengatur warna SVG menjadi putih */
+}
+
+.navbar-toggler-icon-black {
+  filter: brightness(0) invert(0);
+}
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
 .dropdown:hover .dropdown-content,
-.language-text:hover+.dropdown-content,
+.language-text:hover + .dropdown-content,
 .dropdown-content[style*="display: block"] {
   display: block;
 }
@@ -605,6 +763,17 @@ export default {
   margin: 0;
 }
 
+.src-lg {
+  display: none;
+  width: 386px;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  height: 32px;
+  margin: 0;
+}
+
 .search-box input[type="text"] {
   color: var(--font-300, #b0b0b0) !important;
   background-image: url("/icons/search.png");
@@ -707,7 +876,7 @@ input::placeholder {
 }
 
 .navbar-toggler {
-  background-color: var(--font-50, #f6f6f6);
+  background-color: var(--font-50, transparent);
 }
 
 .navbar {
@@ -1182,7 +1351,57 @@ a {
   height: 24px;
 }
 
-@media screen and (max-width: 1200px) {
+.btn-src {
+  display: none;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  transition: width 0.3s; /* Efek perluasan kotak pencarian */
+}
+
+/* Gaya tambahan untuk memperluas kotak pencarian saat isSearchVisible adalah true */
+.search-box-expanded {
+  width: 200px; /* Sesuaikan lebar perluasan sesuai kebutuhan Anda */
+}
+.search-icon {
+  width: 24px; /* Sesuaikan ukuran gambar sesuai kebutuhan Anda */
+  height: 24px;
+  background-color: transparent; /* Hapus latar belakang jika tidak diperlukan */
+}
+
+@media screen and (max-width: 1199px) {
+  .src {
+    display: none;
+  }
+  .src-lg {
+    display: flex;
+  }
+  .srcc {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 10%;
+    width: 60%;
+  }
+  .btn-src {
+    border-radius: 50px;
+    border: 1px solid #e7e7e7;
+    background-color: transparent;
+    width: 10%;
+    height: 34px;
+    margin-left: 25%;
+    display: block !important; /* Tampilkan tombol pencarian pada ukuran layar ini */
+  }
+  .navbar-scrolled .btn-src {
+    border-color: #888;
+    /* Warna garis input saat latar belakang putih */
+    color: var(--font-600, #5d5d5d) !important;
+  }
+
+  .container {
+    justify-content: space-between;
+  }
   .navbar-nav {
     width: 100% !important;
   }
@@ -1191,6 +1410,97 @@ a {
     width: 100%;
     padding: 0;
     padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .btn-src {
+    margin-left: 10%;
+  }
+}
+@media screen and (max-width: 901px) {
+  .btn-src {
+    margin-left: 10%;
+  }
+  .srcc {
+    margin-left: 0;
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 801px) {
+  .search-box {
+    width: 80%;
+  }
+  .src-lg {
+    width: 80%;
+  }
+  .btn-src {
+    width: 64px;
+    margin-left: 1%;
+  }
+  .srcc {
+    margin-left: 0;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 551px) {
+  .search-box {
+    width: 90%;
+  }
+  .src-lg {
+    width: 90%;
+  }
+  .btn-src {
+    width: 37px;
+    margin-left: 1%;
+  }
+  .srcc {
+    margin-left: 0;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 474px) {
+  .navbar {
+    padding-right: 4% !important;
+    padding-left: 4% !important;
+  }
+  .search-icon {
+    margin-bottom: 2px;
+    width: 19px;
+    height: 19px;
+  }
+  .search-box {
+    width: 90%;
+  }
+  .src-lg {
+    width: 90%;
+  }
+  .btn-src {
+    margin-left: 0;
+    width: 32px;
+    height: 30px;
+  }
+  .srcc {
+    margin-left: 0;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .container {
+    justify-content: space-evenly;
+    gap: 1px;
+  }
+  .search-box {
+    width: 85%;
+  }
+  .src-lg {
+    width: 75%;
+  }
+  .srcc {
+    margin-right: 5px;
   }
 }
 </style>
