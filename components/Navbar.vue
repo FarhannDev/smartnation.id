@@ -321,7 +321,7 @@ input::placeholder {
 }
 
 .translate__name {
-  color: var(--Background, #FFF);
+  color: #FFF;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -331,7 +331,7 @@ input::placeholder {
 }
 
 .navbar-sticky .translate__name {
-  color: #262626;
+  color: #5D5D5D;
 }
 
 /* Responsive */
