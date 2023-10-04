@@ -1,19 +1,16 @@
-<script  setup>
-import { teams, partner } from "~/utils/data/getInitialData.ts"
+<script setup>
+import { teams, partner } from "~/utils/data/getInitialData.ts";
 
 // Set Meta SEO
 useSeoMeta({
   title: "Tentang Kami",
-  ogTitle: 'Tentang Kami',
-  description: 'Citiasia Center for Smart Nation (CCSN)',
-})
-
+  ogTitle: "Tentang Kami",
+  description: "Citiasia Center for Smart Nation (CCSN)",
+});
 </script>
-
 
 <template>
   <NuxtLayout name="page-layout">
-
     <!-- hero start -->
     <template #hero>
       <HeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
@@ -27,12 +24,15 @@ useSeoMeta({
         <div data-aos="fade-up" data-aos-duration="1500" class="container">
           <div class="row justify-content-between g-3 py-5">
             <div class="col-lg-5 col-md-6">
-              <h1 class="ccsn-title">Tentang Citiasia Center for Smart Nation (CCSN)</h1>
+              <h1 class="ccsn-title">
+                Tentang Citiasia Center for Smart Nation (CCSN)
+              </h1>
             </div>
             <div class="col-lg-7 col-md-6">
-              <p class="ccsn-desc">Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari
-                Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation
-
+              <p class="ccsn-desc">
+                Citiasia Center for Smart Nation (CCSN) merupakan salah satu
+                sayap strategis dari Citiasia Inc. dalam menyebarkan semangat
+                membangun bangsa menuju Indonesia Smart Nation
               </p>
             </div>
           </div>
@@ -45,10 +45,11 @@ useSeoMeta({
           <div class="row justify-content-between g-3">
             <div data-aos="fade-down-right" data-aos-duration="1500" class="col-lg-7 col-md-6">
               <h1 class="ccsn-title mb-3">Tentang Citiasia INC.</h1>
-              <p class="ccsn-desc">Citiasia, Inc. merupakan pionir konsultan dan implementasi smart city di Indonesia yang
-                berdiri sejak 2015. Citiasia, inc telah melayani institusi publik dan bisnis untuk akselerasi kinerja
+              <p class="ccsn-desc">
+                Citiasia, Inc. merupakan pionir konsultan dan implementasi smart
+                city di Indonesia yang berdiri sejak 2015. Citiasia, inc telah
+                melayani institusi publik dan bisnis untuk akselerasi kinerja
                 berkelanjutan dan berkontribusi pada nilai-nilai sosial.
-
               </p>
             </div>
             <div data-aos="fade-down-left" data-aos-duration="1500" class="col-lg-5 col-md-6">
@@ -74,22 +75,21 @@ useSeoMeta({
             <div data-aos="fade-down-left" data-aos-duration="1500" class="col-lg-6 col-md-6">
               <div class="d-flex justify-content-start flex-column g-2">
                 <div>
-                  <h1 class="visimisi-title">
-                    Visi
-                  </h1>
+                  <h1 class="visimisi-title">Visi</h1>
                   <p class="visimisi-desc">
-                    Menjadi market leader untuk layanan smart city dan smart enterprise di Indonesia pada tahun 2025.
+                    Menjadi market leader untuk layanan smart city dan smart
+                    enterprise di Indonesia pada tahun 2025.
                   </p>
                 </div>
                 <div>
-                  <h1 class="visimisi-title">
-                    Misi
-                  </h1>
+                  <h1 class="visimisi-title">Misi</h1>
                   <p class="visimisi-desc">
-                    Citiasia, Inc. membantu institusi publik dan sektor bisnis dengan memberikan solusi dan layanan
-                    aplikatif melalui konsultasi, layanan digital, dan inovasi untuk meningkatkan performa bisnis yang
-                    berkelanjutan, mengembangkan smart city, dan memberikan dampak positif sosial untuk Indonesia yang
-                    lebih baik.
+                    Citiasia, Inc. membantu institusi publik dan sektor bisnis
+                    dengan memberikan solusi dan layanan aplikatif melalui
+                    konsultasi, layanan digital, dan inovasi untuk meningkatkan
+                    performa bisnis yang berkelanjutan, mengembangkan smart
+                    city, dan memberikan dampak positif sosial untuk Indonesia
+                    yang lebih baik.
                   </p>
                 </div>
               </div>
@@ -108,7 +108,7 @@ useSeoMeta({
                 <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images"
                   :alt="team.name" loading="lazy" :quality="75" format="webp" />
                 <figcaption class="figure-caption">
-                  <h3 class="teams-citiasia__name">{{ team.name }} </h3>
+                  <h3 class="teams-citiasia__name">{{ team.name }}</h3>
                   <p class="teams-citiasia__job">{{ team.jobs }}</p>
                 </figcaption>
               </figure>
@@ -126,9 +126,9 @@ useSeoMeta({
               <Swiper :modules="[SwiperAutoplay, SwiperNavigation]" :navigation="{
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
-              }" :slidesPerView="1" :spaceBetween="10" :freeMode="true" :grabCursor="true" :breakpoints="{
+              }" :slidesPerView="3" :spaceBetween="10" :grabCursor="true" :breakpoints="{
   '640': {
-    slidesPerView: 4,
+    slidesPerView: 2,
     spaceBetween: 10,
   },
   '768': {
@@ -140,7 +140,8 @@ useSeoMeta({
     spaceBetween: 10,
   },
 }" :autoplay="{
-  delay: 1000,
+  delay: 2500,
+  disableOnInteraction: false,
 }" :creative-effect="{
   prev: {
     shadow: false,
@@ -152,18 +153,17 @@ useSeoMeta({
 }">
                 <SwiperSlide v-for="client in partner" :key="client.id">
                   <figure class="figure">
-                    <NuxtImg :src="'/images/client/Partner.png'" class="figure-img img-fluid rounded partner__images"
-                      :alt="client.name" loading="lazy" :quality="75" format="webp" />
+                    <NuxtImg :src="client.logo" class="figure-img img-fluid rounded partner__images" :alt="client.name"
+                      loading="lazy" :quality="75" format="webp" />
                     <figcaption class="figure-caption text-center">
-                      <h3 class="partner__name">{{ client.name }} </h3>
+                      <h3 class="partner__name">{{ client.name }}</h3>
                     </figcaption>
                   </figure>
-
                 </SwiperSlide>
                 <!-- Custom Navigation -->
                 <div class="custom-navigation">
                   <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"> </div>
+                  <div class="swiper-button-next"></div>
                 </div>
               </Swiper>
             </div>
@@ -180,161 +180,41 @@ useSeoMeta({
               src="https://www.google.com/maps/d/u/0/embed?mid=1LTTSR3Ei-3HpleWwcorxCnEgV89HcS8&ehbc=2E312F" width="auto"
               height="480"></iframe>
           </div>
-          <div class="d-flex flex-column align-items-start justify-content-start g-3 py-3">
-            <div class="row row-cols-2 row-cols-lg-4 g-3">
-              <div class="col">
-                <div class="d-flex flex-column ">
-                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
-                      viewBox="0 0 70 70" fill="none">
-                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
-                    </svg>
-                  </div>
-                  <div class="portofolio-content">
-
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="d-flex flex-column g-0">
-                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
-                      viewBox="0 0 70 70" fill="none">
-                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
-                    </svg>
-                  </div>
-                  <div class="portofolio-content">
-
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="d-flex flex-column g-0">
-                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
-                      viewBox="0 0 70 70" fill="none">
-                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
-                    </svg>
-                  </div>
-                  <div class="portofolio-content">
-
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="d-flex flex-column g-0">
-                  <div class="portofolio-icons"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
-                      viewBox="0 0 70 70" fill="none">
-                      <circle cx="35" cy="35" r="35" fill="#F6ABAB" />
-                    </svg>
-                  </div>
-                  <div class="portofolio-content">
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
         </div>
       </section>
       <!-- section portofolio end -->
     </main>
 
-
     <div class="portofolio">
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Mitra" />
-        <p style="
-          margin-top: 10px;
-          width: 170px;
-          color: var(--danger-600, #ce2f2f);
-          font-size: 39px;
-          font-weight: 700;
-          line-height: 120%;
-        ">
-          50+
-        </p>
-        <p style="
-          color: var(--font-500, #6d6d6d);
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 120%;
-        ">
-          Mitra
-        </p>
+        <img class="ellipse" src="/images/Ellipse.png" alt="Mitra" />
+        <p class="angka">50+</p>
+        <p class="huruf">Mitra</p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Swasta" />
-        <p style="
-          margin-top: 10px;
-          width: 170px;
-          color: var(--danger-600, #ce2f2f);
-          font-size: 39px;
-          font-weight: 700;
-          line-height: 120%;
-        ">
-          35+
-        </p>
-        <p style="
-          color: var(--font-500, #6d6d6d);
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 120%;
-        ">
-          Swasta
-        </p>
+        <img class="ellipse" src="/images/Ellipse.png" alt="Swasta" />
+        <p class="angka">35+</p>
+        <p class="huruf">Swasta</p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Pemerintah" />
-        <p style="
-          margin-top: 10px;
-          width: 170px;
-          color: var(--danger-600, #ce2f2f);
-          font-size: 39px;
-          font-weight: 700;
-          line-height: 120%;
-        ">
-          50+
-        </p>
-        <p style="
-          color: var(--font-500, #6d6d6d);
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 120%;
-        ">
-          Pemerintah
-        </p>
+        <img class="ellipse" src="/images/Ellipse.png" alt="Pemerintah" />
+        <p class="angka">50+</p>
+        <p class="huruf">Pemerintah</p>
       </div>
       <div class="image-mitra">
-        <img style="width: 70px; height: 70px" src="/images/Ellipse.png" alt="Client" />
-        <p style="
-          margin-top: 10px;
-          width: 170px;
-          color: var(--danger-600, #ce2f2f);
-          font-size: 39px;
-          font-weight: 700;
-          line-height: 120%;
-        ">
-          450+
-        </p>
-        <p style="
-          color: var(--font-500, #6d6d6d);
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 120%;
-        ">
-          Client
-        </p>
+        <img class="ellipse" src="/images/Ellipse.png" alt="Client" />
+        <p class="angka">450+</p>
+        <p class="huruf">Client</p>
       </div>
     </div>
-
   </NuxtLayout>
 </template>
-
 
 <style scoped>
 .ccsn-section-container {
   width: 100%;
   height: auto;
-  background: var(--primary-50, #FFF0F2);
+  background: var(--primary-50, #fff0f2);
 }
 
 .ccsn-section-container .container {
@@ -342,7 +222,7 @@ useSeoMeta({
 }
 
 .ccsn-title {
-  color: var(--primary-600, #D71149);
+  color: var(--primary-600, #d71149);
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
@@ -353,7 +233,7 @@ useSeoMeta({
 }
 
 .ccsn-desc {
-  color: var(--font-600, #5D5D5D);
+  color: var(--font-600, #5d5d5d);
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -363,12 +243,11 @@ useSeoMeta({
   /* 37.75px */
 }
 
-
 .citiasia-section-container {
   width: 100%;
   height: auto;
   overflow-x: hidden;
-  background: var(--Background, #FFF);
+  background: var(--Background, #fff);
 }
 
 .citiasia-section-container .container {
@@ -387,7 +266,7 @@ useSeoMeta({
 }
 
 .visimisi-section-container {
-  background: var(--primary-800, #A60B40);
+  background: var(--primary-800, #a60b40);
   height: auto;
   overflow-x: hidden;
 }
@@ -408,7 +287,7 @@ useSeoMeta({
 }
 
 .visimisi-title {
-  color: var(--font-50, #F6F6F6);
+  color: var(--font-50, #f6f6f6);
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
@@ -418,7 +297,7 @@ useSeoMeta({
 }
 
 .visimisi-desc {
-  color: var(--Background, #FFF);
+  color: var(--Background, #fff);
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -438,7 +317,7 @@ useSeoMeta({
 }
 
 .teams-citiasia__title {
-  color: var(--primary-600, #D71149);
+  color: var(--primary-600, #d71149);
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
@@ -469,25 +348,23 @@ useSeoMeta({
 }
 
 .teams-citiasia__job {
-  color: var(--font-600, #5D5D5D);
+  color: var(--font-600, #5d5d5d);
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
   text-align: center;
-
 }
 
 .portofolio-title {
-  color: var(--danger-600, #CE2F2F);
+  color: var(--danger-600, #ce2f2f);
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
 }
-
 
 .partner-section-container {
   width: 100%;
@@ -500,7 +377,7 @@ useSeoMeta({
 }
 
 .partner-citiasia__title {
-  color: var(--danger-600, #CE2F2F);
+  color: var(--danger-600, #ce2f2f);
   font-family: Poppins;
   font-size: 31px;
   font-style: normal;
@@ -518,7 +395,7 @@ useSeoMeta({
 }
 
 .partner__name {
-  color: var(--font-700, #4F4F4F);
+  color: var(--font-700, #4f4f4f);
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -528,14 +405,13 @@ useSeoMeta({
   flex-wrap: wrap;
 }
 
-
 .swiper-button-prev {
-  width: 64px;
-  height: 64px;
+  width: 5% !important;
+  height: 28.14% !important;
   padding: 8px;
   align-items: center;
   gap: 10px;
-  border-radius: 36px;
+  border-radius: 36px !important;
   color: #454545;
   border: 1px solid var(--font-200, #d1d1d1);
   background: var(--Background, #fff);
@@ -543,16 +419,15 @@ useSeoMeta({
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
     0px 0px 0px 1px rgba(103, 110, 118, 0.16),
     0px 2px 5px 0px rgba(103, 110, 118, 0.08);
-
 }
 
 .swiper-button-next {
-  width: 64px;
-  height: 64px;
+  width: 5% !important;
+  height: 28.14% !important;
   padding: 8px;
   align-items: center;
   gap: 10px;
-  border-radius: 36px;
+  border-radius: 36px !important;
   color: #454545;
   border: 1px solid var(--font-200, #d1d1d1);
   background: var(--Background, #fff);
@@ -560,6 +435,11 @@ useSeoMeta({
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
     0px 0px 0px 1px rgba(103, 110, 118, 0.16),
     0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 100% !important;
 }
 
 @media (min-width: 1200px) {
@@ -587,7 +467,6 @@ useSeoMeta({
     font-size: 22px;
   }
 
-
   .visimisi-title {
     font-size: 28px;
   }
@@ -611,10 +490,7 @@ useSeoMeta({
   .portofolio-title {
     font-size: 28px;
   }
-
-
 }
-
 
 /* dark-mode */
 
@@ -623,7 +499,7 @@ useSeoMeta({
 }
 
 .dark-mode .ccsn-desc {
-  color: #fafafa
+  color: #fafafa;
 }
 
 .dark-mode .citiasia-section-container {
@@ -635,9 +511,8 @@ useSeoMeta({
 }
 
 .dark-mode .visimisi-title {
-  color: #D71149;
+  color: #d71149;
 }
-
 
 .dark-mode .teams-citiasia-section-container {
   background-color: #262626;
@@ -884,18 +759,91 @@ useSeoMeta({
 }
 
 .portofolio {
-  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-family: Poppins;
   font-style: normal;
   flex-shrink: 0;
   display: flex;
-  width: 100%;
-  padding-left: 120px;
+  padding: 0 12% !important;
 }
 
 .image-mitra {
+  width: 15.534%;
   margin: 40px;
 }
-</style>
 
+.angka {
+  margin-top: 10px;
+  width: 100%;
+  color: var(--danger-600, #ce2f2f);
+  font-size: 39px;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.huruf {
+  width: 100%;
+  color: var(--font-500, #6d6d6d);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.ellipse {
+  width: 41.18%;
+}
+
+@media screen and (max-width: 769px) {
+  .ellipse {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 771px) {
+  .swiper {
+    width: 100% !important;
+  }
+
+  .swiper-slide {
+    margin-right: 0 !important;
+    width: 40% !important;
+    margin-right: 1px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .portofolio {
+    padding: 0 5% !important;
+  }
+
+  .angka {
+    font-size: 150%;
+    width: 100%;
+  }
+
+  .huruf {
+    font-size: 70%;
+    width: 100% !important;
+  }
+
+  .image-mitra {
+    margin: 5% !important;
+  }
+
+  .swiper {
+    margin: 0;
+    width: 90% !important;
+  }
+
+  .swiper-slide {
+    background-position: center !important;
+    width: 55% !important;
+  }
+
+  .swiper-wrapper {
+    width: 10% !important;
+  }
+}
+</style>

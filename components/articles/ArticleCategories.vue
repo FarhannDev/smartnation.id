@@ -9,7 +9,7 @@ const categoryPostName = categories.find(category => category.id === Number(prop
 
 <template>
   <div class="d-inline">
-    <NuxtLink :to="`/category/${categoryPostName?.slug}`" aria-label="Lihat Selengkapnya"
+    <NuxtLink :to="`/news/category/${categoryPostName?.slug}`" aria-label="Lihat Selengkapnya"
       class="badge text-bg-danger text-white rounded text-decoration-none fw-normal border-0 me-2 mt-3">{{
         categoryPostName?.name }}</NuxtLink>
   </div>
