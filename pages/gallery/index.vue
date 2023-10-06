@@ -7,6 +7,10 @@ useSeoMeta({
     description: 'Kumpulan Galeri Smartnation',
 })
 
+
+
+const colorMode = useColorMode()
+
 </script>
 
 <template>
@@ -38,6 +42,8 @@ useSeoMeta({
                     </div>
                 </div>
             </section>
+
+            <hr v-show="colorMode.preference === 'dark'" />
         </main>
     </NuxtLayout>
 </template>

@@ -51,7 +51,7 @@ const colorMode = useColorMode()
     <main id="content">
       <!-- section berita terbaru start -->
       <section class="latest-article-section py-5 ">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="container">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3 " title="Postingan Terbaru" />
 
           <div class="row justify-content-arround g-3 py-3">
@@ -75,7 +75,7 @@ const colorMode = useColorMode()
       <!-- section berita terbaru end -->
       <!-- section  berita terkini start -->
       <section class="latest-newsfeed-section position-relative py-5">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="container">
           <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3 latest-newsfeed__title"
             title="Berita Terkini" />
           <div class="row justify-content-arround gx-3 py-3">
@@ -117,7 +117,7 @@ const colorMode = useColorMode()
       <!-- section berita terkini end -->
       <!-- section acara & kegiatan start -->
       <section class="position-relative py-5">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="container">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
           <div class="row justify-content-start g-3 py-3">
             <ArticlesArticleCardBackground :posts="posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" />
@@ -127,14 +127,14 @@ const colorMode = useColorMode()
       <!-- section acara & kegiatan end -->
       <!-- section artikel list start -->
       <section class="position-relative py-5">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="container">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
           <div class="row justify-content-start align-items-start g-3 py-3">
-            <div class="col-lg-8 " data-aos="fade-up-right">
+            <div class="col-lg-8 ">
               <ArticlesArticleListSingleVerticalColumn :posts="posts.slice(0, 5)" />
             </div>
 
-            <div class="col-lg-4 position-relative" data-aos="fade-left">
+            <div class="col-lg-4 position-relative">
               <div>
                 <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
                 <div class="d-flex flex-column pt-4">
@@ -146,8 +146,7 @@ const colorMode = useColorMode()
               </div>
             </div>
           </div>
-          <div class="row justify-content-arround g-2 py-5" data-aos="fade-right" data-aos-offset="300"
-            data-aos-easing="ease-in-sine" data-aos-duration="1000">
+          <div class="row justify-content-arround g-2 py-5">
             <div class="col-xxl-4 col-lg-6 col-md-6">
               <HeadingTitle style="color: #5D5D5D;"
                 class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title " title="Daerah" />
@@ -184,7 +183,7 @@ const colorMode = useColorMode()
       <!-- section artikel list end -->
       <!-- section subscribe start -->
       <section class="subscribe-section-container py-5 ">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="container">
           <Subscribe />
         </div>
       </section>

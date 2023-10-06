@@ -122,8 +122,7 @@ const updateLanguage = (language: string) => isLanguage.value = language
       <div class="d-none d-lg-block d-xl-block">
         <div class="hstack gx-2">
           <form class="d-flex" role="search">
-            <input class="form-control search-input-container me-2" type="search" placeholder="Cari..."
-              aria-label="Cari...">
+            <input class="form-control search-input-container me-2" type="search" placeholder="Cari" aria-label="Cari">
             <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
           </form>
           <div class="dropdown">
@@ -238,14 +237,31 @@ const updateLanguage = (language: string) => isLanguage.value = language
   /* 14.4px */
 }
 
-.dropdown-item {
-  color: var(--font-600, #5D5D5D);
+
+.dropdown-menu {
+  /* margin-top: 15px; */
+  width: 100px;
+  height: auto;
+  overflow: auto;
+  border-radius: 4px;
+
+}
+
+.dropdown-menu .dropdown-item {
+  color: #5D5D5D;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
 }
+
+.dropdown-menu .dropdown-item:hover {
+  background: none;
+  color: #D71149 !important;
+}
+
+
 
 .dropdown-item.active {
   color: var(--primary-600, #D71149) !important;
@@ -359,11 +375,24 @@ input::placeholder {
 }
 
 .dark-mode .navbar-sticky .nav-link {
-  color: #5D5D5D;
+  color: #e7e7e7;
 }
 
 
 .dark-mode .dropdown-menu {
   background: var(--font-950, #262626);
+  color: #e7e7e7;
+}
+
+.dark-mode .bi {
+  color: #e7e7e7;
+}
+
+.dark-mode .translate__name {
+  color: #e7e7e7;
+}
+
+.dark-mode .dropdown-menu .dropdown-item {
+  color: #e7e7e7;
 }
 </style>
