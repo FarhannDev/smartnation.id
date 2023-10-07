@@ -180,7 +180,7 @@ const backgroundStyle = () => {
   }
 
   .hero-heading__title {
-    font-size: 61px !important;
+    font-size: 50px !important;
     display: block;
   }
 

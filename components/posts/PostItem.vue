@@ -13,7 +13,7 @@ const props = defineProps({
 <template>
   <div class="card post-card__item">
     <NuxtImg :src="featuredMedia" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
-    <div class="card-body ">
+    <div class="card-body">
       <div class="vstack gap-2">
 
         <span class="d-inline post-card__item__datetime">

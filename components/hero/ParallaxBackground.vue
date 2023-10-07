@@ -28,7 +28,7 @@ const backgroundStyle = () => {
 
 <template>
   <section class="hero-section">
-    <div class="hero-image-parallax" :style="backgroundStyle()">
+    <div class="hero-image-parallax" :style = "backgroundStyle()">
       <div class="hero-image-bg__gradient"></div>
       <div class="container">
         <div class="hero-heading-container">
@@ -179,8 +179,9 @@ const backgroundStyle = () => {
   }
 
   .hero-heading__title {
-    font-size: 61px !important;
+    font-size: 50px !important;
     display: block;
+    width: 1000px;
   }
 
   .hero-heading__desc {

@@ -54,17 +54,17 @@ const colorMode = useColorMode()
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <HeadingTitle class="text-start text-capitalize fw-bold fs-3 " title="Postingan Terbaru" />
 
-          <div class="row justify-content-arround g-3 py-3">
-            <div class="col-lg-6 col-xxl-4 col-md-12">
+          <div class="row justify-content-center g-3 py-3">
+            <div class="col-lg-8 col-xl-5 col-xxl-4 col-md-12">
               <ArticlesArticleListSingleColumn :posts="posts.slice(0, 1)" />
             </div>
-            <div class="col-lg-6 col-xxl-4 col-md-6 ">
+            <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12 ">
               <div class="d-flex flex-column article-list-container">
                 <ArticlesArticleListThumbnail
                   :posts="posts.sort((a, b) => a.createdAt.toString().localeCompare(b.createdAt.toString())).slice(0, 4)" />
               </div>
             </div>
-            <div class="col-xxl-4 col-md-6">
+            <div class="col-lg-6 col-xl-3 col-xxl-4 col-md-12">
               <HeadingTitle class="text-start text-capitalize fst-medium fs-4" title="Terpopuler" />
               <ArticlesArticleListTitle :posts="posts.sort((a, b) => b.title.localeCompare(a.title)).slice
                 (0, 5)" />
@@ -118,10 +118,10 @@ const colorMode = useColorMode()
       <!-- section acara & kegiatan start -->
       <section class="position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
-          <div class="row justify-content-start g-3 py-3">
-            <ArticlesArticleCardBackground :posts="posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" />
-          </div>
+          <HeadingTitle class="text-start text-capitalize fw-bold fs-3 " title="Acara " />
+            <div class="row justify-content-start align-content-start">
+                <ArticlesArticleCardBackground :posts="posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" />
+            </div>
         </div>
       </section>
       <!-- section acara & kegiatan end -->
@@ -148,7 +148,7 @@ const colorMode = useColorMode()
           </div>
           <div class="row justify-content-arround g-2 py-5" data-aos="fade-right" data-aos-offset="300"
             data-aos-easing="ease-in-sine" data-aos-duration="1000">
-            <div class="col-xxl-4 col-lg-6 col-md-6">
+            <div class="col-xxl-4 col-lg-4 col-md-12 col-xl-4">
               <HeadingTitle style="color: #5D5D5D;"
                 class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title " title="Daerah" />
 
@@ -158,7 +158,7 @@ const colorMode = useColorMode()
                   :posts="posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 5)" />
               </div>
             </div>
-            <div class=" col-xxl-4 col-lg-6 col-md-6">
+            <div class=" col-xxl-4 col-lg-4 col-md-12 col-xl-4">
               <HeadingTitle style="color: #5D5D5D;"
                 class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Nasional" />
               <div class="line-break mx-md-3"></div>
@@ -167,7 +167,7 @@ const colorMode = useColorMode()
                   :posts="posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)" />
               </div>
             </div>
-            <div class="col-xxl-4 col-lg-6 col-md-6">
+            <div class="col-xxl-4 col-lg-4 col-md-12 col-xl-4">
               <HeadingTitle style="color: #5D5D5D;"
                 class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Internasional" />
 
@@ -203,6 +203,9 @@ const colorMode = useColorMode()
   overflow-y: scroll;
 }
 
+.content {
+
+}
 .article-list-item::-webkit-scrollbar {
   width: 10px;
   background-color: #F5F5F5;
@@ -222,7 +225,9 @@ const colorMode = useColorMode()
   background-color: #F5F5F5;
   border-radius: 10px;
 }
+.acara {
 
+}
 
 /* 
   Section Latest Feed Article
@@ -289,7 +294,6 @@ const colorMode = useColorMode()
   min-height: 253px;
   border-radius: 8px;
 }
-
 
 .line-break {
   width: 92%;

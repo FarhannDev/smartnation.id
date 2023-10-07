@@ -18,7 +18,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 <template>
   <ul class="list-group list-group-flush">
-    <li v-for="(post, index) in posts" :key="post.id" class="list-group-item mx-md-2 px-md-2 mx-0 px-0 ">
+    <li v-for="(post, index) in posts" :key="post.id" class="list-group-item mx-md-0 px-md-0 mx-xl-2 px-xl-2 mx-0 px-0 ">
       <div class="vstack g-2">
         <div class="d-flex justify-content-between">
 

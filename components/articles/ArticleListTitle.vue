@@ -55,9 +55,9 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   color: #5D5D5D;
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 14px !important;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 150%;
   text-decoration: none;
   text-align: start;

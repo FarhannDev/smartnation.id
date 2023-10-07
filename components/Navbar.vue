@@ -64,11 +64,11 @@ const updateLanguage = (language: string) => isLanguage.value = language
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-2 ${route.path === '/' ? 'active' : ''}`" aria-current="page" to='/'>Beranda
+            <NuxtLink :class="`nav-link mx-md-1 ${route.path === '/' ? 'active' : ''}`" aria-current="page" to='/'>Beranda
             </NuxtLink>
           </li>
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)" class="nav-item dropdown">
-            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/news' ? 'active' : ''}`" to="/news" role="button"
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/news' ? 'active' : ''}`" to="/news" role="button"
               data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -86,7 +86,7 @@ const updateLanguage = (language: string) => isLanguage.value = language
             </ul>
           </li>
           <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)" class="nav-item dropdown">
-            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/events' ? 'active' : ''}`" to="/events" role="button"
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''}`" to="/events" role="button"
               data-bs-toggle="dropdown1" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -103,15 +103,15 @@ const updateLanguage = (language: string) => isLanguage.value = language
           </li>
 
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/gallery' ? 'active' : ''}`" to="/gallery">Galeri
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/gallery' ? 'active' : ''}`" to="/gallery">Galeri
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/about' ? 'active' : ''}`" to="/about">Tentang Kami
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/about' ? 'active' : ''}`" to="/about">Tentang Kami
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/contact' ? 'active' : ''}`" to="/contact">Hubungi Kami
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/contact' ? 'active' : ''}`" to="/contact">Hubungi Kami
             </NuxtLink>
           </li>
 
@@ -120,8 +120,8 @@ const updateLanguage = (language: string) => isLanguage.value = language
       <!-- Navbar Collapse End -->
 
       <div class="d-none d-lg-block d-xl-block">
-        <div class="hstack gx-2">
-          <form class="d-flex" role="search">
+        <div class="hstack mx-md-1">
+          <form class="d-flex mx-md-1" role="search">
             <input class="form-control search-input-container me-2" type="search" placeholder="Cari..."
               aria-label="Cari...">
             <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
@@ -162,11 +162,11 @@ const updateLanguage = (language: string) => isLanguage.value = language
             </button>
             <ul class="dropdown-menu" :class="{ show: isDropdownTranslate }">
               <li><button @click="updateLanguage('ID')" title="Ubah bahasa" type="button" class="dropdown-item mb-3">
-                  <NuxtImg src="/icons/indonesia.png" :width="27" :height="18" alt=" Indonesia" loading="lazy"
+                  <NuxtImg src="/icons/indonesia.png" :width="23" :height="15" alt=" Indonesia" loading="lazy"
                     format="webp" /> Indonesia
                 </button></li>
               <li><button @click="updateLanguage('EN')" title="Ubah bahasa" type="button" class="dropdown-item">
-                  <NuxtImg src="/icons/inggris.png" :width="27" :height="18" alt=" Inggris" loading="lazy"
+                  <NuxtImg src="/icons/inggris.png" :width="23" :height="15" alt=" Inggris" loading="lazy"
                     format="webp" /> Inggris
                 </button></li>
 
@@ -189,7 +189,9 @@ const updateLanguage = (language: string) => isLanguage.value = language
   backdrop-filter: blur(6px);
   transition: ease 500ms;
 }
-
+.container {
+  /* padding: 30px; */
+}
 .navbar-brand .navbar-brand__logo {
   width: 83.667px;
   height: 26.528px;
@@ -254,7 +256,7 @@ const updateLanguage = (language: string) => isLanguage.value = language
 .search-input-container {
   justify-content: center;
   display: flex;
-  width: 386px;
+  width: 340px;
   align-items: center;
   gap: 4px;
   height: 32px;
@@ -337,10 +339,10 @@ input::placeholder {
 /* Responsive */
 
 @media (min-width: 1200px) {
-  .navbar {
+  /* .container {
     width: 100%;
     height: 60px;
-  }
+  } */
 
   .navbar.navbar-sticky {
     width: 100%;
@@ -365,5 +367,101 @@ input::placeholder {
 
 .dark-mode .dropdown-menu {
   background: var(--font-950, #262626);
+}
+/* / Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+} 
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container {
+    width: 100%;
+    height: 60px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    height: 60px;
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+  .search-input-container {
+  justify-content: center;
+  display: flex;
+  width: 300px;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+.container {
+    width: 100%;
+    height: 60px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+/* // `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  
+}
+
+/* // `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  
+  
+}
+
+/* // `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .container {
+    width: 100%;
+    height: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* // `xl` applies to large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  .container {
+    width: 100%;
+    height: 60px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .search-input-container {
+  justify-content: center;
+  display: flex;
+  width: 300px;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  }
+}
+
+/* // `xxl` applies to x-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+  .container {
+    width: 100%;
+    height: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 </style>

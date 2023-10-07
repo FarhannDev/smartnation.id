@@ -99,7 +99,7 @@ export default {
   transition: transform 0.5s ease-in-out;
   max-width: 100%;
   margin: 0 auto;
-  height: 700px;
+  height: 300px;
 }
 
 .hero-item {
@@ -140,7 +140,7 @@ export default {
   color: var(--font-50, #f6f6f6);
   /* Font/Heading 3 Bold */
   font-family: Poppins;
-  font-size: 39px;
+  font-size: 19px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%; /* 46.8px */
@@ -177,5 +177,54 @@ export default {
 
 .dot.active {
   background-color: #D71149;
+}
+/* / Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+} 
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+}
+
+/* // `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  
+}
+
+/* // `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  
+}
+
+/* // `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  
+}
+
+/* // `xl` applies to large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  
+}
+
+/* // `xxl` applies to x-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+  
 }
 </style>

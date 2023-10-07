@@ -38,7 +38,7 @@ useSeoMeta({
       <section class="berita-section-container position-relative py-5">
         <div class="container">
           <div class="row justify-content-start g-3 py-5">
-            <div class="col-12 col-lg-8 col-md-12 col-sm-12 ">
+            <div class="col-12 col-lg-12 col-xl-8 col-md-12 col-sm-12 ">
               <!-- Article Content Start -->
               <div class="row justify-content-start">
                 <div class="col">
@@ -284,10 +284,10 @@ useSeoMeta({
 
               <!-- Article Comments End -->
             </div>
-            <div class="col-12 col-lg-4 col-sm-12">
-              <div class="d-flex flex-column justify-content-start g-0 px-md-3 mx-md-2 ">
+            <div class="col-12 col-lg-12 col-xl-4 col-sm-12 col-md-12">
+              <div class="d-flex flex-column justify-content-start g-0 px-md-12 mx-md-2">
                 <HeadingTitle class="text-capitalize fw-bold fs-5 " title="Berita Terpopuler" />
-                <div class="d-grid gap-4 py-3 ">
+                <div class="d-grid gap-4 py-3">
                   <PostsPostItem v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)"
                     :key="post.id" :postId="post.slug" :title="post.title" :featured-media="post.thumbnail"
                     :categories="post.categories" :dateTime="post.createdAt" />

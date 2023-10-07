@@ -19,7 +19,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 
 <template>
-  <div v-for="post in posts" :key="post.id" class="col-xxl-3 col-lg-4 col-md-6 ">
+  <div v-for="post in posts" :key="post.id" class="col-12 col-xxl-3 col-lg-6 col-md-6 col-xl-3 col-ms-12">
     <figure class="figure">
       <NuxtLink :to="`/${post.slug}`" aria-label="Baca Selengkapnya">
         <NuxtImg :class="'figure-img img-fluid rounded'" :src="post.thumbnail" :alt="post.title" loading="lazy"
@@ -46,7 +46,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 .figure .figure-img {
   width: 100%;
-  height: 200px;
+  height: 160px;
   border-radius: 8px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%,
       rgba(0, 0, 0, 0.65) 100%);
@@ -68,7 +68,6 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   position: absolute;
   top: 50%;
   left: 20px;
-
   overflow: hidden;
 }
 
@@ -84,6 +83,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   font-weight: 500;
   line-height: 150%;
   /* 21.328px */
+  white-space: nowrap;
 }
 
 .event-cover__desc {
@@ -98,4 +98,5 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   line-height: 150%;
   /* 14.218px */
 }
+
 </style>
