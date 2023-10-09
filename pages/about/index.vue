@@ -8,23 +8,24 @@ useSeoMeta({
   description: "Citiasia Center for Smart Nation (CCSN)",
 });
 
-
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 </script>
 
 <template>
   <NuxtLayout name="page-layout">
     <!-- hero start -->
     <template #hero>
-      <HeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
-        background="/images/background/bg-galeri.png" />
+      <HeroParallaxBackground
+        text="Citiasia Center for Smart Nation (CCSN)"
+        background="/images/background/bg-galeri.png"
+      />
     </template>
 
     <!-- rendered content main -->
     <main id="content-main">
       <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
       <section class="ccsn-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <div class="row justify-content-between g-3 py-5">
             <div class="col-lg-5 col-md-6">
               <h1 class="ccsn-title">
@@ -44,7 +45,7 @@ const colorMode = useColorMode()
       <!-- section tentang Citiasia Center for Smart Nation (CCSN)  end -->
       <!-- section Tentang Citiasia INC start -->
       <section class="citiasia-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <div class="row justify-content-between g-3">
             <div class="col-lg-7 col-md-6">
               <h1 class="ccsn-title mb-3">Tentang Citiasia INC.</h1>
@@ -56,7 +57,11 @@ const colorMode = useColorMode()
               </p>
             </div>
             <div class="col-lg-5 col-md-6">
-              <NuxtImg alt="citiasia" src="/images/tentang-citiasia.png" class="img-fluid citiasia-img" />
+              <NuxtImg
+                alt="citiasia"
+                src="/images/tentang-citiasia.png"
+                class="img-fluid citiasia-img"
+              />
             </div>
           </div>
         </div>
@@ -64,11 +69,15 @@ const colorMode = useColorMode()
       <!-- section Tentang Citiasia INC end -->
       <!-- section visi misi start-->
       <section class="visimisi-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <div class="row justify-content-start g-3">
             <div class="col-lg-6 col-md-6">
               <div class="d-flex justify-content-start flex-column">
-                <NuxtImg alt="visimisi" src="/images/visi-misi-citiasia.png" class="img-fluid visimisi-cover" />
+                <NuxtImg
+                  alt="visimisi"
+                  src="/images/visi-misi-citiasia.png"
+                  class="img-fluid visimisi-cover"
+                />
               </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -99,13 +108,21 @@ const colorMode = useColorMode()
       <!-- section visi misi  end -->
       <!-- section Tim Citiasia INC start -->
       <section class="teams-citiasia-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-down" data-aos-duration="1500">
           <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
-          <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-2 pt-5">
+          <div
+            class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-2 pt-5"
+          >
             <div v-for="team in teams" :key="team.id" class="col">
               <figure class="figure">
-                <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images"
-                  :alt="team.name" loading="lazy" :quality="75" format="webp" />
+                <NuxtImg
+                  :src="team.thumbnail"
+                  class="figure-img img-fluid rounded teams-citiasia__images"
+                  :alt="team.name"
+                  loading="lazy"
+                  :quality="75"
+                  format="webp"
+                />
                 <figcaption class="figure-caption">
                   <h3 class="teams-citiasia__name">{{ team.name }}</h3>
                   <p class="teams-citiasia__job">{{ team.jobs }}</p>
@@ -118,42 +135,57 @@ const colorMode = useColorMode()
       <!-- section Tim Citiasia INC end -->
       <!-- section partner start -->
       <section class="partner-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-down" data-aos-duration="1500">
           <h1 class="partner-citiasia__title">Partner</h1>
           <div class="row justify-content-start g-5 py-5">
             <div class="col">
-              <Swiper :modules="[SwiperAutoplay, SwiperNavigation]" :navigation="{
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              }" :slidesPerView="3" :spaceBetween="10" :grabCursor="true" :breakpoints="{
-  '640': {
-    slidesPerView: 2,
-    spaceBetween: 10,
-  },
-  '768': {
-    slidesPerView: 3,
-    spaceBetween: 10,
-  },
-  '1024': {
-    slidesPerView: 6,
-    spaceBetween: 10,
-  },
-}" :autoplay="{
-  delay: 2500,
-  disableOnInteraction: false,
-}" :creative-effect="{
-  prev: {
-    shadow: false,
-    translate: ['-20%', 0, -1],
-  },
-  next: {
-    translate: ['100%', 0, 0],
-  },
-}">
+              <Swiper
+                :modules="[SwiperAutoplay, SwiperNavigation]"
+                :navigation="{
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                }"
+                :slidesPerView="3"
+                :spaceBetween="10"
+                :grabCursor="true"
+                :breakpoints="{
+                  '640': {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                  },
+                  '768': {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                  },
+                  '1024': {
+                    slidesPerView: 6,
+                    spaceBetween: 10,
+                  },
+                }"
+                :autoplay="{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }"
+                :creative-effect="{
+                  prev: {
+                    shadow: false,
+                    translate: ['-20%', 0, -1],
+                  },
+                  next: {
+                    translate: ['100%', 0, 0],
+                  },
+                }"
+              >
                 <SwiperSlide v-for="client in partner" :key="client.id">
                   <figure class="figure">
-                    <NuxtImg :src="client.logo" class="figure-img img-fluid rounded partner__images" :alt="client.name"
-                      loading="lazy" :quality="75" format="webp" />
+                    <NuxtImg
+                      :src="client.logo"
+                      class="figure-img img-fluid rounded partner__images"
+                      :alt="client.name"
+                      loading="lazy"
+                      :quality="75"
+                      format="webp"
+                    />
                     <figcaption class="figure-caption text-center">
                       <h3 class="partner__name">{{ client.name }}</h3>
                     </figcaption>
@@ -172,14 +204,16 @@ const colorMode = useColorMode()
       <!-- section partner end -->
       <!-- section portofolio start -->
       <section class="portofolio-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-down" data-aos-duration="1500">
           <h1 class="portofolio-title">Portofolio</h1>
           <div class="d-flex flex-column justify-content-start g-2 py-3">
-            <iframe class="rounded"
-              src="https://www.google.com/maps/d/u/0/embed?mid=1LTTSR3Ei-3HpleWwcorxCnEgV89HcS8&ehbc=2E312F" width="auto"
-              height="480"></iframe>
+            <iframe
+              class="rounded"
+              src="https://www.google.com/maps/d/u/0/embed?mid=1LTTSR3Ei-3HpleWwcorxCnEgV89HcS8&ehbc=2E312F"
+              width="auto"
+              height="480"
+            ></iframe>
           </div>
-
         </div>
 
         <div class="portofolio">
@@ -204,7 +238,6 @@ const colorMode = useColorMode()
             <p class="huruf">Client</p>
           </div>
         </div>
-
       </section>
       <!-- section portofolio end -->
       <hr v-show="colorMode.preference === 'dark'" />

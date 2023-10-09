@@ -1,4 +1,5 @@
 <template>
-  <Navbar />
+  <!-- <Navbar :isSticky="false" /> -->
+  <NavbarFixed />
   <slot />
 </template>

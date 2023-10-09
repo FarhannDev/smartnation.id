@@ -1,5 +1,7 @@
 <template>
-  <Navbar />
+  <!-- <Navbar /> -->
+
+  <NavbarSticky />
   <slot name="hero" />
 
   <slot />

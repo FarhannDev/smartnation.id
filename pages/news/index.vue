@@ -1,26 +1,34 @@
 <script lang="ts" setup>
-import { posts, categories } from '~/utils/data/getInitialData';
+import { posts, categories } from "~/utils/data/getInitialData";
 // Set Meta SEO
 useSeoMeta({
   title: "Berita",
-  description: 'Kumpulan Berita dari beberapa Kategori',
-  ogTitle: 'Berita',
-  ogDescription: 'Kumpulan Berita dari beberapa Kategori',
-})
-
+  description: "Kumpulan Berita dari beberapa Kategori",
+  ogTitle: "Berita",
+  ogDescription: "Kumpulan Berita dari beberapa Kategori",
+});
 </script>
 
 <template>
   <NuxtLayout name="page-layout">
     <!-- hero start -->
     <template #hero>
-      <HeroParallaxBackground text="Daftar Berita" desc="Daftar berita dari semua kategori"
-        background="/images/background/bg-berita.png" />
+      <HeroParallaxBackground
+        v-for="(post, index) in posts.slice(0, 1)"
+        :key="index"
+        :text="'Daftar Berita'"
+        :desc="`Daftar berita dari semua kategori`"
+        :background="post.thumbnail"
+      />
     </template>
     <!-- rendered content main -->
     <main id="content">
       <!-- section berita start -->
-      <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
+      <section
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        class="berita-section-container position-relative py-5"
+      >
         <div class="container">
           <div class="row justify-content-start align-content-start g-5 py-5">
             <div class="col-xl-8">
@@ -28,47 +36,81 @@ useSeoMeta({
                 <h1 class="berita-section-title">Berita Terbaru</h1>
 
                 <div class="row justify-content-arround g-3 py-3">
-                  <div v-for="post in posts.slice(0, 1)" :key="post.id"
-                    class="col-lg-6 col-xxl-6 col-md-12 article-list-container">
+                  <div
+                    v-for="post in posts.slice(0, 1)"
+                    :key="post.id"
+                    class="col-lg-6 col-xxl-6 col-md-12 article-list-container"
+                  >
                     <div class="card border-0 rounded-0 mb-3">
-
-                      <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                        <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="post.thumbnail"
-                          :height="253" loading="lazy" :alt="post.title" />
+                      <NuxtLink
+                        :to="`/${post.slug}`"
+                        :aria-label="`Baca Selengkapnya ${post.title}`"
+                      >
+                        <NuxtImg
+                          :class="'card-img-top img-fluid rounded article-thumbnail'"
+                          :src="post.thumbnail"
+                          :height="253"
+                          loading="lazy"
+                          :alt="post.title"
+                        />
                       </NuxtLink>
                       <div class="card-body px-0 mx-0">
-
-                        <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                          :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                          {{ post.title.length >= 80
-                            ? `${post.title.substring(0, 80)}...`
-                            : post.title
+                        <NuxtLink
+                          :to="`/${post.slug}`"
+                          :aria-label="`Baca Selengkapnya ${post.title}`"
+                          :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'"
+                        >
+                          {{
+                            post.title.length >= 80
+                              ? `${post.title.substring(0, 80)}...`
+                              : post.title
                           }}
                         </NuxtLink>
 
-                        <div class="card-text text-start lh-base article-desc pt-2" v-html="post.excerpt"> </div>
+                        <div
+                          class="card-text text-start lh-base article-desc pt-2"
+                          v-html="post.excerpt"
+                        ></div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-xxl-6 col-md-7 ">
+                  <div class="col-lg-6 col-xxl-6 col-md-7">
                     <div class="d-flex flex-column justify-content-start g-2">
-                      <div v-for="post in posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)"
-                        :key="post.id">
+                      <div
+                        v-for="post in posts
+                          .sort((a, b) => a.title.localeCompare(b.title))
+                          .slice(0, 4)"
+                        :key="post.id"
+                      >
                         <div class="mb-3">
                           <div class="d-flex justify-content-between">
-                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                              <NuxtImg class="me-2" style="border-radius: 4px;" :src="post.thumbnail" :width="148"
-                                :height="94" loading="lazy" :alt="post.title" />
+                            <NuxtLink
+                              :to="`/${post.slug}`"
+                              :aria-label="`Baca Selengkapnya ${post.title}`"
+                            >
+                              <NuxtImg
+                                class="me-2"
+                                style="border-radius: 4px"
+                                :src="post.thumbnail"
+                                :width="148"
+                                :height="94"
+                                loading="lazy"
+                                :alt="post.title"
+                              />
                             </NuxtLink>
                             <div>
                               <div class="d-flex flex-column">
-                                <span class="article-info-tag ">Berita</span>
-                                <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+                                <span class="article-info-tag">Berita</span>
+                                <NuxtLink
+                                  :to="`/${post.slug}`"
+                                  :aria-label="`Baca Selengkapnya ${post.title}`"
                                   :class="'article-list-title link-offset-2 link-underline link-underline-opacity-0 text-start text-wrap   fw-normal '"
-                                  style="color: #5D5D5D;">
-                                  {{ post.title.length >= 80
-                                    ? `${post.title.substring(0, 80)}...`
-                                    : post.title
+                                  style="color: #5d5d5d"
+                                >
+                                  {{
+                                    post.title.length >= 80
+                                      ? `${post.title.substring(0, 80)}...`
+                                      : post.title
                                   }}
                                 </NuxtLink>
                               </div>
@@ -83,23 +125,41 @@ useSeoMeta({
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">Berita Terpopuler</h1>
                 <div class="row justify-content-arround g-3 py-3">
-                  <div v-for="post in posts.slice(0, 2)" :key="post.id" class="col-lg-6 col-xxl-6 col-md-6">
+                  <div
+                    v-for="post in posts.slice(0, 2)"
+                    :key="post.id"
+                    class="col-lg-6 col-xxl-6 col-md-6"
+                  >
                     <div class="card border-0 rounded-0 mb-3">
-                      <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                        <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="post.thumbnail"
-                          :height="253" loading="lazy" :alt="post.title" />
+                      <NuxtLink
+                        :to="`/${post.slug}`"
+                        :aria-label="`Baca Selengkapnya ${post.title}`"
+                      >
+                        <NuxtImg
+                          :class="'card-img-top img-fluid rounded article-thumbnail'"
+                          :src="post.thumbnail"
+                          :height="253"
+                          loading="lazy"
+                          :alt="post.title"
+                        />
                       </NuxtLink>
                       <div class="card-body px-0 mx-0">
                         <div class="d-flex justify-content-between g-2 mb-2">
-                          <span class="article-info-tag ">Berita</span>
-                          <span class="article-info-tag text-start text-secondary">{{
-                            useFormatter(post.createdAt) }}</span>
+                          <span class="article-info-tag">Berita</span>
+                          <span
+                            class="article-info-tag text-start text-secondary"
+                            >{{ useFormatter(post.createdAt) }}</span
+                          >
                         </div>
-                        <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                          :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                          {{ post.title.length >= 80
-                            ? `${post.title.substring(0, 80)}...`
-                            : post.title
+                        <NuxtLink
+                          :to="`/${post.slug}`"
+                          :aria-label="`Baca Selengkapnya ${post.title}`"
+                          :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'"
+                        >
+                          {{
+                            post.title.length >= 80
+                              ? `${post.title.substring(0, 80)}...`
+                              : post.title
                           }}
                         </NuxtLink>
                       </div>
@@ -107,14 +167,21 @@ useSeoMeta({
                   </div>
                 </div>
               </article>
-              <article v-for="category in categories" :key="category.id" class="article-section position-relative mb-5">
+              <article
+                v-for="category in categories"
+                :key="category.id"
+                class="article-section position-relative mb-5"
+              >
                 <div class="d-flex flex-wrap justify-content-between g-0">
                   <div>
                     <h1 class="berita-section-title">{{ category.name }}</h1>
                   </div>
                   <span>
-                    <NuxtLink :to="`/category/${category.slug}`" aria-label="Lihat Selengkapnya"
-                      class="link-offset-2 link-underline link-underline-opacity-0 link-secondary article-link-title">
+                    <NuxtLink
+                      :to="`/news/category/${category.slug}`"
+                      aria-label="Lihat Selengkapnya"
+                      class="link-offset-2 link-underline link-underline-opacity-0 link-secondary article-link-title"
+                    >
                       Selengkapnya
                     </NuxtLink>
                     <BootstrapIcon name="chevron-right" />
@@ -122,34 +189,62 @@ useSeoMeta({
                 </div>
                 <div class="d-flex flex-column py-3">
                   <ul class="list-group list-group-flush">
-                    <li v-for="post in posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 5)" :key="post.id"
-                      class="list-group-item mx-0 px-0 ">
+                    <li
+                      v-for="post in posts
+                        .sort((a, b) => b.title.localeCompare(a.title))
+                        .slice(0, 5)"
+                      :key="post.id"
+                      class="list-group-item mx-0 px-0"
+                    >
                       <div class="card border-0 rounded-0">
-                        <div class="row justify-content-start align-items-center g-2">
+                        <div
+                          class="row justify-content-start align-items-center g-2"
+                        >
                           <div class="col-xl-4 col-lg-4 col-md-4">
-                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                              <NuxtImg :class="'article-list__thumbnail '" :src="post.thumbnail" loading="lazy"
-                                :alt="post.title" />
+                            <NuxtLink
+                              :to="`/${post.slug}`"
+                              :aria-label="`Baca Selengkapnya ${post.title}`"
+                            >
+                              <NuxtImg
+                                :class="'article-list__thumbnail '"
+                                :src="post.thumbnail"
+                                loading="lazy"
+                                :alt="post.title"
+                              />
                             </NuxtLink>
                           </div>
                           <div class="col-xl-8 col-lg-8 col-md-8">
-                            <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-                              <div class="d-flex justify-content-between g-2 mb-3">
-                                <span class="article-info-tag ">{{ category.name }}</span>
-                                <span class="article-info-tag text-start text-secondary">{{
-                                  useFormatter(post.createdAt) }}</span>
+                            <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
+                              <div
+                                class="d-flex justify-content-between g-2 mb-3"
+                              >
+                                <span class="article-info-tag">{{
+                                  category.name
+                                }}</span>
+                                <span
+                                  class="article-info-tag text-start text-secondary"
+                                  >{{ useFormatter(post.createdAt) }}</span
+                                >
                               </div>
-                              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                                :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                                {{ post.title.length >= 50
-                                  ? `${post.title.substring(0, 50)}...`
-                                  : post.title
+                              <NuxtLink
+                                :to="`/${post.slug}`"
+                                :aria-label="`Baca Selengkapnya ${post.title}`"
+                                :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '"
+                              >
+                                {{
+                                  post.title.length >= 50
+                                    ? `${post.title.substring(0, 50)}...`
+                                    : post.title
                                 }}
                               </NuxtLink>
-                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 70
+                              <div
+                                class="article-desc pt-2"
+                                v-html="
+                                  post.excerpt.length >= 70
                                     ? `${post.excerpt.substring(0, 70)}...`
                                     : post.excerpt
-                                  "></div>
+                                "
+                              ></div>
                             </div>
                           </div>
                         </div>
@@ -159,13 +254,20 @@ useSeoMeta({
                 </div>
               </article>
             </div>
-            <div class="col-xl-4  col-md-6 ">
+            <div class="col-xl-4 col-md-6">
               <article>
-                <h1 class="berita-section-title text-decoration-underline">Terpopuler Lainnya</h1>
+                <h1 class="berita-section-title text-decoration-underline">
+                  Terpopuler Lainnya
+                </h1>
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">
-                    <ArticlesArticleListTitle :posts="posts.sort((a, b) => b.title.localeCompare(a.title)).slice
-                      (0, 10)" />
+                    <ArticlesArticleListTitle
+                      :posts="
+                        posts
+                          .sort((a, b) => b.title.localeCompare(a.title))
+                          .slice(0, 10)
+                      "
+                    />
                   </div>
                 </div>
               </article>
@@ -175,7 +277,7 @@ useSeoMeta({
       </section>
       <!-- section berita end -->
       <!-- Section  subcribe start -->
-      <section class="subscribe-section-container py-5 ">
+      <section class="subscribe-section-container py-5">
         <div class="container">
           <Subscribe />
         </div>
@@ -187,7 +289,7 @@ useSeoMeta({
 
 <style scoped>
 .berita-section-title {
-  color: var(--font-600, #5D5D5D);
+  color: var(--font-600, #5d5d5d);
   font-family: Poppins;
   font-size: 22px;
   font-style: normal;
@@ -201,12 +303,11 @@ useSeoMeta({
   top: -5px;
   left: 1.2px;
   width: 51px;
-  border: 1px solid #C70943;
+  border: 1px solid #c70943;
 }
 
-
 .article-title {
-  color: #5D5D5D;
+  color: #5d5d5d;
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -216,7 +317,7 @@ useSeoMeta({
 }
 
 .article-title:hover {
-  color: #D71149 !important;
+  color: #d71149 !important;
 }
 
 .article-desc {
@@ -256,9 +357,8 @@ useSeoMeta({
   opacity: 1;
 }
 
-
 .article-link-title {
-  color: var(--font-500, #6D6D6D);
+  color: var(--font-500, #6d6d6d);
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -268,7 +368,7 @@ useSeoMeta({
 }
 
 .article-info-tag {
-  color: var(--primary-600, #D71149);
+  color: var(--primary-600, #d71149);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -278,13 +378,12 @@ useSeoMeta({
 }
 
 .article-list-container {
-  border-right: 0
+  border-right: 0;
 }
-
 
 .article-list-title {
   margin-top: 5px;
-  color: var(--font-600, #5D5D5D);
+  color: var(--font-600, #5d5d5d);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -304,27 +403,23 @@ useSeoMeta({
   object-fit: cover;
 }
 
-
-
 @media (min-width: 992px) {
   .article-list-container {
-    border-right: 1px solid var(--font-100, #E7E7E7);
+    border-right: 1px solid var(--font-100, #e7e7e7);
   }
 
   .article-list__thumbnail {
     width: 256px;
     height: 151px;
   }
-
 }
 
-
 .subscribe-section-container {
-  background-color: #FFF0F2;
+  background-color: #fff0f2;
 }
 
 .article-list-title:hover {
-  color: #D71149 !important;
+  color: #d71149 !important;
 }
 
 .dark-mode .card {
@@ -332,7 +427,7 @@ useSeoMeta({
 }
 
 .dark-mode .berita-section-title {
-  color: #D71149;
+  color: #d71149;
 }
 
 .dark-mode .article-title {
@@ -344,7 +439,7 @@ useSeoMeta({
 }
 
 .dark-mode .article-desc {
-  color: rgba(255, 255, 255, 0.90);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .dark-mode .article-list-container {
@@ -352,24 +447,23 @@ useSeoMeta({
 }
 
 .dark-mode .article-info-tag {
-  color: rgba(255, 255, 255, 0.90) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .dark-mode .article-link-title {
-  color: rgba(255, 255, 255, 0.90) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .dark-mode .list-group {
-  background: #3D3D3D;
+  background: #3d3d3d;
 }
 
 .dark-mode .list-group-flush {
-  background: #3D3D3D;
+  background: #3d3d3d;
 }
 
-
 .dark-mode .list-group-item {
-  background: #3D3D3D;
+  background: #3d3d3d;
 }
 
 /* .dark-mode .list-group,
@@ -379,7 +473,6 @@ useSeoMeta({
 } */
 
 .dark-mode .subscribe-section-container {
-  background: #3D3D3D;
+  background: #3d3d3d;
 }
 </style>
-
