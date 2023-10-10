@@ -19,7 +19,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 
 <template>
-  <div v-for="post in posts" :key="post.id" class="col-xxl-3 col-lg-4 col-md-6 ">
+  <div v-for="post in posts" :key="post.id" class="d-grid gap-1 col-xxl-3 col-lg-6 col-md-6 col-xl-3 col-ms-12">
     <figure class="figure">
       <NuxtLink :to="`/${post.slug}`" aria-label="Baca Selengkapnya">
         <NuxtImg :class="'figure-img img-fluid rounded'" :src="post.thumbnail" :alt="post.title" loading="lazy"
@@ -46,7 +46,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 .figure .figure-img {
   width: 100%;
-  height: 200px;
+  min-height: 160px;
   border-radius: 8px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%,
       rgba(0, 0, 0, 0.65) 100%);
@@ -56,7 +56,6 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   filter: brightness(50%);
   overflow: hidden;
   transition: ease-in 500ms;
-
 }
 
 .figure .figure-img:hover {
@@ -67,9 +66,11 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 .figure .figure-caption {
   position: absolute;
   top: 50%;
-  left: 20px;
-
+  left: 15px;
+  right: 15px;
   overflow: hidden;
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
 }
 
 .event-cover__title {
@@ -84,6 +85,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   font-weight: 500;
   line-height: 150%;
   /* 21.328px */
+  white-space: nowrap;
 }
 
 .event-cover__desc {
@@ -92,10 +94,53 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   text-overflow: ellipsis;
   text-shadow: 2px 2px 8px #1c1616;
   font-family: Poppins;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   /* 14.218px */
 }
+
+@media (min-width: 768px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+}
+@media (max-width: 768px) {
+  .figure .figure-caption {
+    top: 60%;
+  }
+}
+@media (min-width: 960px) {
+  .figure .figure-caption {
+    top: 70% !important;
+  }
+}
+/* @media (max-width: 960px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+} */
+
+@media (min-width: 1200px) {
+  .figure .figure-caption {
+    top: 45% !important;
+  }
+}
+/* @media (max-width: 1200px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+} */
+
+@media (min-width: 1400px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+}
+/* @media (max-width: 1400px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+} */
 </style>
