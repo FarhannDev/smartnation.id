@@ -86,88 +86,55 @@ useSeoMeta({
 <template>
   <NuxtLayout name="page-layout">
     <template #hero>
-      <HeroParallaxBackground
-        v-for="(post, index) in posts.slice(0, 1)"
-        :key="index"
-        :text="'Daftar Berita'"
-        :desc="`Daftar berita dari kategori ${categoryPostName}`"
-        :background="post.thumbnail"
-      />
+      <HeroParallaxBackground v-for="(post, index) in posts.slice(0, 1)" :key="index" :text="'Daftar Berita'"
+        :desc="`Daftar berita dari kategori ${categoryPostName}`" :background="post.thumbnail" />
     </template>
 
     <main id="content">
       <!-- Section berita start -->
-      <section
-        data-aos="fade-up"
-        data-aos-duration="1500"
-        class="berita-section-container position-relative py-5"
-      >
+      <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
         <div class="container">
           <div class="row justify-content-start align-content-start g-5 py-5">
-            <div class="col-lg-8 col-md-10">
+            <div class="col-lg-8 col-md-auto">
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">{{ categoryPostName }}</h1>
 
                 <div class="d-flex flex-column py-3">
                   <ul class="list-group list-group-flush">
-                    <li
-                      v-for="post in posts
-                        .sort((a, b) => b.title.localeCompare(a.title))
-                        .slice(0, 12)"
-                      :key="post.id"
-                      class="list-group-item mx-0 px-0"
-                    >
+                    <li v-for="post in posts
+                      .sort((a, b) => b.title.localeCompare(a.title))
+                      .slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0">
                       <div class="card border-0 rounded-0">
-                        <div
-                          class="row justify-content-start align-items-center g-2"
-                        >
-                          <div class="col-xl-4 col-lg-4 col-md-4">
-                            <NuxtLink
-                              :to="`/${post.slug}`"
-                              :aria-label="`Baca Selengkapnya ${post.title}`"
-                            >
-                              <NuxtImg
-                                :class="'article-thumbnail'"
-                                :src="post.thumbnail"
-                                loading="lazy"
-                                :alt="post.title"
-                              />
+                        <div class="row justify-content-start align-items-center g-0 g-lg-4">
+                          <div class="col-lg-4 col-md-5">
+                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
+                              <NuxtImg :class="'article-thumbnail'" :src="post.thumbnail" loading="lazy"
+                                :alt="post.title" />
                             </NuxtLink>
                           </div>
 
-                          <div class="col-xl-8 col-lg-8 col-md-8">
+                          <div class="col-lg-8 col-md-7 col-sm-auto">
                             <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
-                              <div
-                                class="d-flex justify-content-between g-2 mb-3"
-                              >
+                              <div class="d-flex justify-content-between g-2 mb-3">
                                 <span class="article-info-tag">{{
                                   categoryPostName
                                 }}</span>
-                                <span
-                                  class="article-info-tag text-start text-secondary"
-                                  >{{ useFormatter(post.createdAt) }}</span
-                                >
+                                <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.createdAt)
+                                }}</span>
                               </div>
 
-                              <NuxtLink
-                                :to="`/${post.slug}`"
-                                :aria-label="`Baca Selengkapnya ${post.title}`"
-                                :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '"
-                              >
+                              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+                                :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
                                 {{
-                                  post.title.length >= 50
-                                    ? `${post.title.substring(0, 50)}...`
-                                    : post.title
+                                  post.title.length >= 60
+                                  ? `${post.title.substring(0, 60)}...`
+                                  : post.title
                                 }}
                               </NuxtLink>
-                              <div
-                                class="article-desc pt-2"
-                                v-html="
-                                  post.excerpt.length >= 150
+                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 150
                                     ? `${post.excerpt.substring(0, 150)}...`
                                     : post.excerpt
-                                "
-                              ></div>
+                                  "></div>
                             </div>
                           </div>
                         </div>
@@ -177,48 +144,25 @@ useSeoMeta({
                 </div>
 
                 <!-- Pagination start -->
-                <div
-                  v-show="posts.length >= 12"
-                  class="d-flex justify-content-center g-2 pt-3"
-                >
+                <div v-show="posts.length >= 12" class="d-flex justify-content-center g-2 pt-3">
                   <nav aria-label="Page navigation example">
                     <ul class="pagination">
                       <li class="page-item mx-2">
-                        <a
-                          class="page-link border-0 text-dark"
-                          href="#"
-                          aria-label="Previous"
-                        >
+                        <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
                           <span aria-hidden="true">&laquo;</span>
                         </a>
                       </li>
                       <li class="page-item mx-1">
-                        <a
-                          class="page-link text-center text-white border-0 rounded bg-danger"
-                          href="#"
-                          >1</a
-                        >
+                        <a class="page-link text-center text-white border-0 rounded bg-danger" href="#">1</a>
                       </li>
                       <li class="page-item mx-1">
-                        <a
-                          class="page-link text-center text-dark border-0 rounded bg-none"
-                          href="#"
-                          >2</a
-                        >
+                        <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">2</a>
                       </li>
                       <li class="page-item mx-1">
-                        <a
-                          class="page-link text-center text-dark border-0 rounded bg-none"
-                          href="#"
-                          >3</a
-                        >
+                        <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">3</a>
                       </li>
                       <li class="page-item mx-2">
-                        <a
-                          class="page-link border-0 text-dark"
-                          href="#"
-                          aria-label="Next"
-                        >
+                        <a class="page-link border-0 text-dark" href="#" aria-label="Next">
                           <span aria-hidden="true">&raquo;</span>
                         </a>
                       </li>
@@ -228,7 +172,7 @@ useSeoMeta({
                 <!-- Pagination end -->
               </article>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-auto">
               <article>
                 <h1 class="berita-section-title text-decoration-underline">
                   Terpopuler
@@ -236,15 +180,9 @@ useSeoMeta({
 
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">
-                    <ArticlesArticleRecomended
-                      v-for="(post, index) in posts
-                        .sort((a, b) => a.title.localeCompare(b.title))
-                        .slice(0, 10)"
-                      :key="post.id"
-                      :number="index"
-                      :postId="post.slug"
-                      :title="post.title"
-                    />
+                    <ArticlesArticleRecomended v-for="(post, index) in posts
+                      .sort((a, b) => a.title.localeCompare(b.title))
+                      .slice(0, 10)" :key="post.id" :number="index" :postId="post.slug" :title="post.title" />
                   </div>
                 </div>
               </article>

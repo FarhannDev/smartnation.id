@@ -1,17 +1,23 @@
 .hero-image-parallax {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 100vh !important;
   overflow: hidden;
   scroll-behavior: smooth;
 }
 
+
 .hero-image-bg__gradient {
   padding: 0;
-  height: 600px;
+  height: 100vh;
   flex-shrink: 0;
   position: relative;
   width: 100%;
+  height: 100vh !important;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -22,66 +28,133 @@
 
 .hero-heading-container {
   position: absolute;
+  width: 100%;
   top: 45%;
   z-index: 1000;
 }
 
 .hero-heading__title {
+  display: block;
   color: var(--font-50, #F6F6F6);
-
   font-family: Poppins;
-  font-size: 28px;
+  font-size: 61px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-  width: 80%;
+  text-align: start;
 }
 
-.hero-heading__desc {
-  color: var(--Background, #FFF);
 
-  /* Font/Title 1 */
+.hero-heading__desc {
+  display: none;
+  color: var(--Background, #FFF);
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  width: 80%;
-  /* 37.2px */
+  width: 100%;
 }
+
 
 .hero-social-media-container {
   position: absolute;
-  top: 40%;
-  right: 5%;
+  top: 45%;
+  right: 0px;
 }
 
 
 .hero-social-media-container .social-media__icons {
+  text-align: center;
   width: 32.567px;
   height: 30.588px;
   margin-bottom: 40px;
 }
 
-/* Responsive  */
-@media (min-width: 1200px) {
-  .hero-image-parallax {
-    min-height: 100vh;
-    background-attachment: fixed;
-  }
+.swiper-pagination-bullet {
+  width: 9.6px;
+  height: 9.6px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #000;
+  opacity: 1;
+  background: var(--grey-400, #BDBDBD);
 
-  .hero-image-bg__gradient {
-    min-height: 100vh;
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #C70943;
+}
+
+
+/*
+   Responsive
+*/
+
+
+
+/* applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  
+}
+
+/* applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .hero-heading-container {
+    width: 100%;
   }
 
   .hero-heading__title {
-    width: 1200px;
-    font-size: 61px;
+    display: block;
+    font-size: 33px !important;
+
   }
 
-  .hero-heading__desc {
-    width: 1200px;
-    font-size: 31px;
-  }
 
+  .hero-social-media-container {
+    display: block;
+    right: 20px !important;
+  }
 }
+
+/* applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+
+  .hero-social-media-container {
+    display: block;
+    /* right: 110px !important; */
+  }
+}
+
+
+
+/* applies to large devices (desktops, less than 1200px) */
+@media (max-width:  1200px) {
+  
+  .hero-social-media-container {
+    display: block;
+    right: 140px !important;
+  }
+  
+}
+
+/* applies to x-large devices (large desktops, less than 1400px) */
+
+@media (max-width:  1399.98px) {
+  
+  .hero-social-media-container {
+    display: block;
+    right: 120px;
+  }
+}
+
+
+
+
+
+
+
+
+

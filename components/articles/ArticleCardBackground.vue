@@ -19,7 +19,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 
 <template>
-  <div v-for="post in posts" :key="post.id" class="d-grid gap-1 col-xxl-3 col-lg-6 col-md-6 col-xl-3 col-ms-12">
+  <div v-for="post in posts" :key="post.id" class="col">
     <figure class="figure">
       <NuxtLink :to="`/${post.slug}`" aria-label="Baca Selengkapnya">
         <NuxtImg :class="'figure-img img-fluid rounded'" :src="post.thumbnail" :alt="post.title" loading="lazy"
@@ -106,16 +106,19 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
     top: 50% !important;
   }
 }
+
 @media (max-width: 768px) {
   .figure .figure-caption {
     top: 60%;
   }
 }
+
 @media (min-width: 960px) {
   .figure .figure-caption {
     top: 70% !important;
   }
 }
+
 /* @media (max-width: 960px) {
   .figure .figure-caption {
     top: 50% !important;
@@ -127,6 +130,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
     top: 45% !important;
   }
 }
+
 /* @media (max-width: 1200px) {
   .figure .figure-caption {
     top: 50% !important;
@@ -138,6 +142,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
     top: 50% !important;
   }
 }
+
 /* @media (max-width: 1400px) {
   .figure .figure-caption {
     top: 50% !important;

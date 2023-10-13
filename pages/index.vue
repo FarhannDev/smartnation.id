@@ -21,39 +21,25 @@ const colorMode = useColorMode();
   <NuxtLayout name="page-layout">
     <!-- hero start -->
     <template #hero>
-      <Swiper
-        :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
-        :slides-per-view="1"
-        :grabCursor="true"
+      <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :grabCursor="true"
         :pagination="{
           clickable: true,
-        }"
-        :effect="'creative'"
-        :autoplay="{
-          delay: 2500,
-          disableOnInteraction: true,
-        }"
-        :creative-effect="{
-          prev: {
-            shadow: false,
-            translate: ['-20%', 0, -1],
-          },
-          next: {
-            translate: ['100%', 0, 0],
-          },
-        }"
-      >
-        <SwiperSlide
-          v-for="post in posts
-            .sort((a, b) => b.title.localeCompare(a.title))
-            .slice(0, 5)"
-          :key="post.id"
-        >
-          <HeroParallaxBackgroundHeroSwipe
-            :text="post.title"
-            :background="post.thumbnail"
-            :postId="post.slug"
-          />
+        }" :effect="'creative'" :autoplay="{
+  delay: 2500,
+  disableOnInteraction: true,
+}" :creative-effect="{
+  prev: {
+    shadow: false,
+    translate: ['-20%', 0, -1],
+  },
+  next: {
+    translate: ['100%', 0, 0],
+  },
+}">
+        <SwiperSlide v-for="post in posts
+          .sort((a, b) => b.title.localeCompare(a.title))
+          .slice(0, 5)" :key="post.id">
+          <HeroParallaxBackgroundHeroSwipe :text="post.title" :background="post.thumbnail" :postId="post.slug" />
         </SwiperSlide>
       </Swiper>
     </template>
@@ -63,42 +49,32 @@ const colorMode = useColorMode();
       <!-- section berita terbaru start -->
       <section class="latest-article-section py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle
-            class="text-start text-capitalize fw-bold fs-3"
-            title="Postingan Terbaru"
-          />
+          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
 
-          <div class="row justify-content-arround g-3 py-3">
-            <div class="col-lg-6 col-xxl-4 col-md-12">
+          <div class="row justify-content-start g-3 py-3">
+            <div class="col-12 col-lg-4 col-md-12">
               <ArticlesArticleListSingleColumn :posts="posts.slice(0, 1)" />
             </div>
-            <div class="col-lg-6 col-xxl-4 col-md-6">
+            <div class="col-12 col-lg-4 col-md-7">
               <div class="d-flex flex-column article-list-container">
-                <ArticlesArticleListThumbnail
-                  :posts="
-                    posts
-                      .sort((a, b) =>
-                        a.createdAt
-                          .toString()
-                          .localeCompare(b.createdAt.toString())
-                      )
-                      .slice(0, 4)
-                  "
-                />
+                <ArticlesArticleListThumbnail :posts="posts
+                  .sort((a, b) =>
+                    a.createdAt
+                      .toString()
+                      .localeCompare(b.createdAt.toString())
+                  )
+                  .slice(0, 4)
+                  " />
               </div>
             </div>
-            <div class="col-xxl-4 col-md-6">
-              <HeadingTitle
-                class="text-start text-capitalize fst-medium fs-4"
-                title="Terpopuler"
-              />
-              <ArticlesArticleListTitle
-                :posts="
-                  posts
-                    .sort((a, b) => b.title.localeCompare(a.title))
-                    .slice(0, 5)
-                "
-              />
+            <div class="col-12 col-lg-4 col-md-5">
+              <div>
+                <HeadingTitle class="text-start text-capitalize fst-medium fs-4" title="Terpopuler" />
+                <ArticlesArticleListTitle :posts="posts
+                  .sort((a, b) => b.title.localeCompare(a.title))
+                  .slice(0, 5)
+                  " />
+              </div>
             </div>
           </div>
         </div>
@@ -107,60 +83,34 @@ const colorMode = useColorMode();
       <!-- section  berita terkini start -->
       <section class="latest-newsfeed-section position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle
-            class="text-start text-capitalize text-white fst-medium fs-3 latest-newsfeed__title"
-            title="Berita Terkini"
-          />
-          <div class="row justify-content-arround gx-3 py-3">
-            <div class="col-lg-6">
-              <ArticlesArticleListSingleColumn
-                :posts="posts.slice(0, 1)"
-                isBackground
-              />
+          <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3 latest-newsfeed__title"
+            title="Berita Terkini" />
+          <div class="row justify-content-arround g-3 py-3">
+            <div class="col-lg-6 col-md-auto">
+              <ArticlesArticleListSingleColumn :posts="posts.slice(0, 1)" isBackground />
             </div>
 
-            <div class="col-xxl-6 col-lg-6">
-              <div class="row justify-content-start gx-3">
-                <div
-                  v-for="post in posts.slice(0, 4)"
-                  :key="post.id"
-                  class="col-xxl-6 col-lg-6 col-md-6"
-                >
-                  <div
-                    class="card border-0 rounded-0 mb-3"
-                    style="background-color: #a60b40"
-                  >
-                    <NuxtLink
-                      :to="`/${post.slug}`"
-                      :aria-label="`Baca Selengkapnya ${post.title}`"
-                    >
-                      <NuxtImg
-                        :class="'card-img-top img-fluid rounded'"
-                        :src="post.thumbnail"
-                        :height="253"
-                        loading="lazy"
-                        :alt="post.title"
-                      />
+            <div class="col-lg-6 col-md-auto">
+              <div class="row justify-content-start g-3">
+                <div v-for="post in posts.slice(0, 4)" :key="post.id" class="col-lg-6 col-md-6">
+                  <div class="card border-0 rounded-0 mb-3" style="background-color: #a60b40">
+                    <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
+                      <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :height="253"
+                        loading="lazy" :alt="post.title" />
                     </NuxtLink>
                     <div class="card-body px-0 mx-0">
                       <div class="d-flex flex-wrap mb-2">
                         <span class="article-timestamp">
-                          <BootstrapIcon
-                            name="clock"
-                            class="article-timestamp-icon"
-                          />
+                          <BootstrapIcon name="clock" class="article-timestamp-icon" />
                           {{ useTimestamps(post.createdAt) }}
                         </span>
                       </div>
-                      <NuxtLink
-                        :to="`/${post.slug}`"
-                        :aria-label="`Baca Selengkapnya ${post.title}`"
-                        :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'"
-                      >
+                      <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+                        :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
                         {{
-                          post.title.length >= 60
-                            ? `${post.title.substring(0, 60)}...`
-                            : post.title
+                          post.title.length >= 50
+                          ? `${post.title.substring(0, 50)}...`
+                          : post.title
                         }}
                       </NuxtLink>
                     </div>
@@ -175,16 +125,11 @@ const colorMode = useColorMode();
       <!-- section acara & kegiatan start -->
       <section class="position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle
-            class="text-start text-capitalize fw-bold fs-3"
-            title="Acara "
-          />
-          <div class="row justify-content-start g-3 py-3">
-            <ArticlesArticleCardBackground
-              :posts="
-                posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)
-              "
-            />
+          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
+          <div class="row row-cols-auto row-cols-lg-4 row-cols-md-2 justify-content-start g-3 py-3">
+
+            <ArticlesArticleCardBackground :posts="posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" />
+
           </div>
         </div>
       </section>
@@ -192,93 +137,64 @@ const colorMode = useColorMode();
       <!-- section artikel list start -->
       <section class="position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle
-            class="text-start text-capitalize fw-bold fs-3"
-            title="Artikel"
-          />
-          <div class="row justify-content-start align-items-start g-3 py-3">
-            <div class="col-lg-8">
-              <ArticlesArticleListSingleVerticalColumn
-                :posts="posts.slice(0, 5)"
-              />
+          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
+          <div class="row justify-content-start align-items-start g-5 py-3">
+            <div class="col-lg-8 col-md-auto">
+              <ArticlesArticleListSingleVerticalColumn :posts="posts.slice(0, 5)" />
             </div>
 
-            <div class="col-lg-4 position-sticky top-0">
+            <div class="col-lg-4 col-md-auto">
               <div>
-                <HeadingTitle
-                  class="text-start text-capitalize fw-bold fs-5"
-                  title="Seputar Citiasia Inc"
-                />
+                <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
                 <div class="d-flex flex-column pt-4">
                   <div class="vstack g-3">
-                    <ArticlesArticleListTitle
-                      :posts="
-                        posts
-                          .sort((a, b) => b.title.localeCompare(a.title))
-                          .slice(0, 10)
-                      "
-                    />
+                    <ArticlesArticleListTitle :posts="posts
+                      .sort((a, b) => b.title.localeCompare(a.title))
+                      .slice(0, 10)
+                      " />
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row justify-content-arround g-2 py-5">
-            <div class="col-xxl-4 col-lg-6 col-md-6">
-              <HeadingTitle
-                style="color: #5d5d5d"
-                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title"
-                title="Daerah"
-              />
+            <div class="col-lg-4 col-md-6">
+              <HeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Daerah" />
 
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleListThumbnailNumber
-                  :posts="
-                    posts
-                      .sort((a, b) => a.title.localeCompare(b.title))
-                      .slice(0, 5)
-                  "
-                />
+                <ArticlesArticleListThumbnailNumber :posts="posts
+                  .sort((a, b) => a.title.localeCompare(b.title))
+                  .slice(0, 5)
+                  " />
               </div>
             </div>
-            <div class="col-xxl-4 col-lg-6 col-md-6">
-              <HeadingTitle
-                style="color: #5d5d5d"
-                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title"
-                title="Nasional"
-              />
+            <div class="col-lg-4 col-md-6">
+              <HeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Nasional" />
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleListThumbnailNumber
-                  :posts="
-                    posts
-                      .sort((a, b) => b.title.localeCompare(a.title))
-                      .slice(0, 5)
-                  "
-                />
+                <ArticlesArticleListThumbnailNumber :posts="posts
+                  .sort((a, b) => b.title.localeCompare(a.title))
+                  .slice(0, 5)
+                  " />
               </div>
             </div>
-            <div class="col-xxl-4 col-lg-6 col-md-6">
-              <HeadingTitle
-                style="color: #5d5d5d"
-                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title"
-                title="Internasional"
-              />
+            <div class="col-lg-4 col-md-6">
+              <HeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Internasional" />
 
               <div class="line-break mx-md-3"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleListThumbnailNumber
-                  :posts="
-                    posts
-                      .sort((a, b) =>
-                        b.createdAt
-                          .toString()
-                          .localeCompare(a.createdAt.toString())
-                      )
-                      .slice(0, 5)
-                  "
-                />
+                <ArticlesArticleListThumbnailNumber :posts="posts
+                  .sort((a, b) =>
+                    b.createdAt
+                      .toString()
+                      .localeCompare(a.createdAt.toString())
+                  )
+                  .slice(0, 5)
+                  " />
               </div>
             </div>
           </div>
@@ -432,4 +348,7 @@ const colorMode = useColorMode();
 .dark-mode .subscribe-section-container {
   background: #3d3d3d;
 }
+
+
+
 </style>

@@ -33,8 +33,8 @@ const colorMode = useColorMode();
       <!-- section berita detail start -->
       <section class="berita-section-container position-relative py-5">
         <div class="container">
-          <div class="row justify-content-start gx-5 py-5 mt-3">
-            <div class="col-12 col-lg-7 col-md-12 col-sm-12">
+          <div class="row justify-content-start g-3 py-5 mt-3">
+            <div class="col-lg-8 col-md-auto">
               <!-- Article Content Start -->
               <div class="row justify-content-start">
                 <div class="col">
@@ -60,19 +60,12 @@ const colorMode = useColorMode();
 
                     <div class="article-details__content__wrapper">
                       <div class="article-details__content__cover__wrapper">
-                        <NuxtImg
-                          class="img-fluid article-details__cover"
-                          :src="post.thumbnail"
-                          :height="433"
-                          :alt="post.title"
-                        />
+                        <NuxtImg class="img-fluid article-details__cover" :src="post.thumbnail" :height="433"
+                          :alt="post.title" />
                       </div>
                       <div class="article-details__content__tags py-3">
-                        <ArticlesArticleCategories
-                          v-for="(category, index) in post.categories"
-                          :key="index"
-                          :categoryId="category"
-                        />
+                        <ArticlesArticleCategories v-for="(category, index) in post.categories" :key="index"
+                          :categoryId="category" />
                       </div>
 
                       <div class="article-details__content">
@@ -143,44 +136,20 @@ const colorMode = useColorMode();
 
                       <div class="article-details__content__share pt-3">
                         <div class="d-flex flex-wrap justify-content-end g-2">
-                          <NuxtLink
-                            to="/"
-                            target="_blank"
-                            rel="noopener"
-                            title="Bagikan Ke Twitter"
+                          <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
                             aria-label="Bagikan Ke Twiter"
-                            class="link-offset-2 link-underline link-underline-opacity-0 me-2"
-                          >
-                            <BootstrapIcon
-                              name="twitter"
-                              class="article-details__content__share__medsos"
-                            />
+                            class="link-offset-2 link-underline link-underline-opacity-0 me-2">
+                            <BootstrapIcon name="twitter" class="article-details__content__share__medsos" />
                           </NuxtLink>
-                          <NuxtLink
-                            to="/"
-                            target="_blank"
-                            rel="noopener"
-                            title="Bagikan Ke Twitter"
+                          <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
                             aria-label="Bagikan Ke Twiter"
-                            class="link-offset-2 link-underline link-underline-opacity-0 me-2"
-                          >
-                            <BootstrapIcon
-                              name="facebook"
-                              class="article-details__content__share__medsos"
-                            />
+                            class="link-offset-2 link-underline link-underline-opacity-0 me-2">
+                            <BootstrapIcon name="facebook" class="article-details__content__share__medsos" />
                           </NuxtLink>
-                          <NuxtLink
-                            to="/"
-                            target="_blank"
-                            rel="noopener"
-                            title="Bagikan Ke Twitter"
+                          <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter"
                             aria-label="Bagikan Ke Twiter"
-                            class="link-offset-2 link-underline link-underline-opacity-0 me-2"
-                          >
-                            <BootstrapIcon
-                              name="instagram"
-                              class="article-details__content__share__medsos"
-                            />
+                            class="link-offset-2 link-underline link-underline-opacity-0 me-2">
+                            <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
                           </NuxtLink>
                         </div>
                       </div>
@@ -204,62 +173,34 @@ const colorMode = useColorMode();
                       <div class="d-flex flex-column justify-content-start g-2">
                         <form class="article-form__input-container">
                           <div class="mb-3">
-                            <label
-                              for="exampleFormControlTextarea1"
-                              class="form-label"
-                              hidden
-                              >Example textarea</label
-                            >
-                            <textarea
-                              class="form-control article-form__input__text"
-                              id="exampleFormControlTextarea1"
-                              rows="3"
-                            ></textarea>
+                            <label for="exampleFormControlTextarea1" class="form-label" hidden>Example textarea</label>
+                            <textarea class="form-control article-form__input__text" id="exampleFormControlTextarea1"
+                              rows="3"></textarea>
                           </div>
 
                           <div class="mb-3">
                             <div class="row">
                               <div class="col-sm-6 mb-3">
-                                <input
-                                  type="text"
-                                  class="form-control article-form__input"
-                                  placeholder="Nama Lengkap"
-                                  aria-label="Nama Lengkap"
-                                />
+                                <input type="text" class="form-control article-form__input" placeholder="Nama Lengkap"
+                                  aria-label="Nama Lengkap" />
                               </div>
                               <div class="col-sm-6 mb-3">
-                                <input
-                                  type="text"
-                                  class="form-control article-form__input"
-                                  placeholder="Alamat Email"
-                                  aria-label="Alamat Email"
-                                />
+                                <input type="text" class="form-control article-form__input" placeholder="Alamat Email"
+                                  aria-label="Alamat Email" />
                               </div>
                             </div>
                           </div>
 
                           <div class="mb-3 form-check">
-                            <input
-                              type="checkbox"
-                              class="form-check-input rounded-0"
-                              id="exampleCheck1"
-                              checked
-                            />
-                            <label
-                              class="form-check-label article-form__input_check__label"
-                              for="exampleCheck1"
-                              >Simpan nama, email, dan situs web saya pada
+                            <input type="checkbox" class="form-check-input rounded-0" id="exampleCheck1" checked />
+                            <label class="form-check-label article-form__input_check__label" for="exampleCheck1">Simpan
+                              nama, email, dan situs web saya pada
                               peramban ini untuk komentar saya
-                              berikutnya.</label
-                            >
+                              berikutnya.</label>
                           </div>
 
                           <div class="mb-3">
-                            <button
-                              disabled
-                              type="submit"
-                              class="article-form__button"
-                            >
+                            <button disabled type="submit" class="article-form__button">
                               Posting
                             </button>
                           </div>
@@ -272,22 +213,11 @@ const colorMode = useColorMode();
 
               <div class="row justify-content-start">
                 <div class="col">
-                  <div
-                    class="d-flex flex-column justify-content-start g-2 py-5"
-                  >
+                  <div class="d-flex flex-column justify-content-start g-2 py-5">
                     <div class="article-comments-card mb-3">
-                      <div
-                        class="d-flex justify-content-start align-content-start"
-                      >
-                        <NuxtImg
-                          src="/images/user1.png"
-                          class="rounded me-3"
-                          :width="70"
-                          :height="70"
-                        />
-                        <div
-                          class="d-flex flex-column justify-content-start g-2"
-                        >
+                      <div class="d-flex justify-content-start align-content-start">
+                        <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
+                        <div class="d-flex flex-column justify-content-start g-2">
                           <div class="article-comments__name">Atika Putri</div>
                           <div class="article-comments__created">
                             30 Menit yang lalu
@@ -310,18 +240,9 @@ const colorMode = useColorMode();
                       </div>
                     </div>
                     <div class="article-comments-card mb-3">
-                      <div
-                        class="d-flex justify-content-start align-content-start"
-                      >
-                        <NuxtImg
-                          src="/images/user1.png"
-                          class="rounded me-3"
-                          :width="70"
-                          :height="70"
-                        />
-                        <div
-                          class="d-flex flex-column justify-content-start g-2"
-                        >
+                      <div class="d-flex justify-content-start align-content-start">
+                        <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
+                        <div class="d-flex flex-column justify-content-start g-2">
                           <div class="article-comments__name">Atika Putri</div>
                           <div class="article-comments__created">
                             30 Menit yang lalu
@@ -344,18 +265,9 @@ const colorMode = useColorMode();
                       </div>
                     </div>
                     <div class="article-comments-card mb-3">
-                      <div
-                        class="d-flex justify-content-start align-content-start"
-                      >
-                        <NuxtImg
-                          src="/images/user1.png"
-                          class="rounded me-3"
-                          :width="70"
-                          :height="70"
-                        />
-                        <div
-                          class="d-flex flex-column justify-content-start g-2"
-                        >
+                      <div class="d-flex justify-content-start align-content-start">
+                        <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
+                        <div class="d-flex flex-column justify-content-start g-2">
                           <div class="article-comments__name">Atika Putri</div>
                           <div class="article-comments__created">
                             30 Menit yang lalu
@@ -383,26 +295,16 @@ const colorMode = useColorMode();
 
               <!-- Article Comments End -->
             </div>
-            <div class="col-12 col-lg-4 col-sm-12">
-              <div
-                class="d-flex flex-column justify-content-start g-0 px-md-3 mx-md-2"
-              >
-                <HeadingTitle
-                  class="text-capitalize fw-bold fs-5"
-                  title="Berita Terpopuler"
-                />
-                <div class="d-grid gap-3 py-3">
-                  <PostsPostItem
-                    v-for="post in posts
-                      .sort((a, b) => b.title.localeCompare(a.title))
-                      .slice(0, 5)"
-                    :key="post.id"
-                    :postId="post.slug"
-                    :title="post.title"
-                    :featured-media="post.thumbnail"
-                    :categories="post.categories"
-                    :dateTime="post.createdAt"
-                  />
+            <div class="col-lg-4 col-md-auto">
+              <div class="px-md-3 mx-md-2">
+                <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
+                <div class="row justify-content-start g-3 py-3">
+
+                  <PostsPostItem v-for="post in posts
+                    .sort((a, b) => b.title.localeCompare(a.title))
+                    .slice(0, 5)" :key="post.id" :postId="post.slug" :title="post.title"
+                    :featured-media="post.thumbnail" :categories="post.categories" :dateTime="post.createdAt" />
+
                 </div>
               </div>
             </div>
@@ -661,7 +563,8 @@ const colorMode = useColorMode();
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 30px */
+  line-height: 120%;
+  /* 30px */
 }
 
 @media (min-width: 1200px) {
@@ -704,6 +607,7 @@ const colorMode = useColorMode();
   border: 1px solid #454545;
   color: #fff;
 }
+
 .dark-mode .article-form__input::placeholder {
   color: #fff;
 }

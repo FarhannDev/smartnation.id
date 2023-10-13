@@ -43,7 +43,7 @@ const backgroundStyle = () => {
   </section>
 </template>
 
-<style >
+<style scoped>
 .hero-image-parallax {
   position: relative;
   width: 100%;
@@ -62,7 +62,7 @@ const backgroundStyle = () => {
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 100vh !important;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),

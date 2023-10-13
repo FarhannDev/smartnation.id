@@ -20,14 +20,14 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   <article class="d-grid gap-2  article-list-item">
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
       <div class="row justify-content-start align-items-start g-0">
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6">
           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
             <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :height="253" loading="lazy"
               :alt="post.title" />
           </NuxtLink>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6">
           <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
               :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">

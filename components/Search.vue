@@ -16,23 +16,20 @@ const onSearchHandler = () => {
 </script>
 
 <template>
-  <form @submit.prevent="onSearchHandler" class="d-flex" role="search">
-    <input
-      v-model="searchQuery"
-      class="form-control search-input-container me-2"
-      type="search"
-      placeholder="Cari disini..."
-      aria-label="Cari disini..."
-    />
-    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-  </form>
+  <div class="d-none d-md-block d-lg-block">
+    <form @submit.prevent="onSearchHandler" class="d-flex" role="search">
+      <input v-model="searchQuery" class="form-control search-input-container me-2" type="search" placeholder="Cari"
+        aria-label="Cari" />
+      <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+    </form>
+  </div>
 </template>
 
 <style lang="css" scoped>
 .search-input-container {
   justify-content: center;
   display: flex;
-  width: 386px;
+  width: 340px;
   align-items: center;
   gap: 4px;
   height: 32px;
@@ -86,5 +83,17 @@ input[type="search"] {
 .navbar-sticky.search-input-container,
 input::placeholder {
   color: var(--font-300, #b0b0b0);
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .search-input-container {
+    justify-content: center;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    gap: 4px;
+    height: 32px;
+  }
 }
 </style>
