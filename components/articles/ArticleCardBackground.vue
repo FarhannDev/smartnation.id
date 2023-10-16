@@ -19,7 +19,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 
 <template>
-  <div v-for="post in posts" :key="post.id" class="col-12 col-xxl-3 col-lg-6 col-md-6 col-xl-3 col-ms-12">
+  <div v-for="post in posts" :key="post.id" class="col-xl-auto col-xxl-3 col-md-6  col-lg-6">
     <figure class="figure">
       <NuxtLink :to="`/${post.slug}`" aria-label="Baca Selengkapnya">
         <NuxtImg :class="'figure-img img-fluid rounded'" :src="post.thumbnail" :alt="post.title" loading="lazy"
@@ -56,7 +56,6 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   filter: brightness(50%);
   overflow: hidden;
   transition: ease-in 500ms;
-
 }
 
 .figure .figure-img:hover {
@@ -67,7 +66,8 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 .figure .figure-caption {
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 15px;
+  right: 15px;
   overflow: hidden;
 }
 
@@ -92,11 +92,55 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   text-overflow: ellipsis;
   text-shadow: 2px 2px 8px #1c1616;
   font-family: Poppins;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   /* 14.218px */
 }
 
+/*
+   Responsive
+*/
+
+@media (max-width: 991.98px) {
+  .figure .figure-caption {
+    display: none;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .figure .figure-caption {
+    display: block;
+  }
+
+  .figure .figure-img {
+    width: 100%;
+    height: fit-content;
+  }
+
+
+  .event-cover__title {
+    font-size: 18px;
+  }
+
+  .event-cover__desc {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .figure .figure-img {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .event-cover__title {
+    font-size: 18px;
+  }
+
+  .event-cover__desc {
+    font-size: 16px;
+  }
+}
 </style>

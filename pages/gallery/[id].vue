@@ -17,19 +17,14 @@ const { id } = route.params
 
 
 
-// useSeoMeta({
-//     title: post.title,
-//     author: 'smartNation',
-//     description: post.excerpt,
-//     ogTitle: post.title,
-//     ogDescription: post.excerpt,
-//     ogImage: post.thumbnail,
-//     ogImageAlt: post.title,
-//     ogImageType: "image/png",
-//     ogImageWidth: 100,
-//     ogImageHeight: 443,
-//     ogImageUrl: 'https://s3-alpha-sig.figma.com'
-// })
+useSeoMeta({
+  title: "Detail Galeri Smart Nation",
+  description: "Halaman detail galeri smart nation"
+})
+
+definePageMeta({
+  layout: "content-layout"
+})
 
 
 </script>

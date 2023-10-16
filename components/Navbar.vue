@@ -1,48 +1,53 @@
 <script lang="ts" setup>
-import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types"
-import { RouteLocationNormalizedLoaded } from "vue-router"
-import { categories } from "~/utils/data/getInitialData"
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
+import { RouteLocationNormalizedLoaded } from "vue-router";
+import { categories } from "~/utils/data/getInitialData";
 
-const props = defineProps({ isSticky: { type: Boolean } })
-const route: RouteLocationNormalizedLoaded = useRoute()
-const colorMode: ColorModeInstance = useColorMode()
-const isDropdownVisible: globalThis.Ref<boolean> = ref(false)
-const isDropdownEvents: globalThis.Ref<boolean> = ref(false)
-const isDropdownTranslate: globalThis.Ref<boolean> = ref(false)
-const isLanguage: globalThis.Ref<string> = ref('ID')
+const props = defineProps({ isSticky: { type: Boolean, default: true } });
+const route: RouteLocationNormalizedLoaded = useRoute();
+const colorMode: ColorModeInstance = useColorMode();
+const isDropdownVisible: globalThis.Ref<boolean> = ref(false);
+const isDropdownEvents: globalThis.Ref<boolean> = ref(false);
+const isDropdownTranslate: globalThis.Ref<boolean> = ref(false);
+const isLanguage: globalThis.Ref<string> = ref("ID");
 
 const toggleColorMode = () => {
-  const newColorMode: "dark" | "light" = colorMode.preference === 'dark'
-    ? 'light'
-    : 'dark'
+  const newColorMode: "dark" | "light" =
+    colorMode.preference === "dark" ? "light" : "dark";
 
-  colorMode.preference = newColorMode
-}
+  colorMode.preference = newColorMode;
+};
 
-onMounted(() => { window.addEventListener('scroll', onNavbarScroll) })
+onMounted(() => {
+  window.addEventListener("scroll", onNavbarScroll);
+});
 
-onBeforeMount(() => { window.removeEventListener('scroll', onNavbarScroll) })
+onBeforeMount(() => {
+  window.removeEventListener("scroll", onNavbarScroll);
+});
 
 const onNavbarScroll = () => {
-  const scrollY = window.scrollY
-  const navbar = document.querySelector('.navbar')
+  const scrollY = window.scrollY;
+  const navbar = document.querySelector(".navbar");
+
   scrollY > 250
-    ? navbar?.classList.add('navbar-sticky')
-    : navbar?.classList.remove('navbar-sticky')
-}
+    ? navbar?.classList.add("navbar-sticky")
+    : navbar?.classList.remove("navbar-sticky");
+};
 
+const showDropdown: (isOpen: boolean) => boolean = (isOpen: boolean) =>
+  (isDropdownVisible.value = isOpen);
+const showDropdownEvents: (isOpen: boolean) => boolean = (isOpen: boolean) =>
+  (isDropdownEvents.value = isOpen);
+const showDropdownTranslate: (isOpen: boolean) => boolean = (isOpen: boolean) =>
+  (isDropdownTranslate.value = isOpen);
 
-const showDropdown: (isOpen: boolean) => boolean = (isOpen: boolean) => isDropdownVisible.value = isOpen
-const showDropdownEvents: (isOpen: boolean) => boolean = (isOpen: boolean) => isDropdownEvents.value = isOpen
-const showDropdownTranslate: (isOpen: boolean) => boolean = (isOpen: boolean) => isDropdownTranslate.value = isOpen
-
-
-const updateLanguage = (language: string) => isLanguage.value = language
-
+const updateLanguage: (language: string) => string = (language: string) =>
+  (isLanguage.value = language);
 </script>
 
 <template>
-  <nav :class="`navbar navbar-expand-xl fixed-top `">
+  <nav :class="`navbar navbar-expand-xl fixed-top`">
     <div class="container">
       <NuxtLink to="/" aria-label="Smart Nation Logo" class="navbar-brand">
         <NuxtImg src="/images/logo.png" alt="Smart Nation Logo"
@@ -64,12 +69,12 @@ const updateLanguage = (language: string) => isLanguage.value = language
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1 ${route.path === '/' ? 'active' : ''}`" aria-current="page" to='/'>Beranda
+            <NuxtLink :class="`nav-link mx-md-2 ${route.path === '/' ? 'active' : ''}`" aria-current="page" to="/">Beranda
             </NuxtLink>
           </li>
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)" class="nav-item dropdown">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/news' ? 'active' : ''}`" to="/news" role="button"
-              data-bs-toggle="dropdown1" aria-expanded="false">
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/news' ? 'active' : ''
+              }`" to="/news" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                 <path
@@ -79,14 +84,12 @@ const updateLanguage = (language: string) => isLanguage.value = language
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/news/category/${category.slug}`">{{ category.name
-                }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :to="`/news/category/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
-
             </ul>
           </li>
           <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)" class="nav-item dropdown">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''}`" to="/events" role="button"
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/events' ? 'active' : ''}`" to="/events" role="button"
               data-bs-toggle="dropdown1" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -103,34 +106,34 @@ const updateLanguage = (language: string) => isLanguage.value = language
           </li>
 
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/gallery' ? 'active' : ''}`" to="/gallery">Galeri
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/gallery' ? 'active' : ''
+              }`" to="/gallery">Galeri
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/about' ? 'active' : ''}`" to="/about">Tentang Kami
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/about' ? 'active' : ''}`" to="/about">Tentang Kami
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/contact' ? 'active' : ''}`" to="/contact">Hubungi Kami
+            <NuxtLink :class="`nav-link mx-md-2  ${route.path === '/contact' ? 'active' : ''}`" to="/contact">Hubungi Kami
             </NuxtLink>
           </li>
-
         </ul>
       </div>
       <!-- Navbar Collapse End -->
 
       <div class="d-none d-lg-block d-xl-block">
-        <div class="hstack mx-md-1">
-          <form class="d-flex mx-md-1" role="search">
-            <input class="form-control search-input-container me-2" type="search" placeholder="Cari..."
-              aria-label="Cari...">
-            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-          </form>
+        <div class="hstack gx-2">
+          <Search />
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control search-input-container me-2" type="search" placeholder="Cari" aria-label="Cari"> -->
+          <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+          <!-- </form> -->
           <div class="dropdown">
             <button @click="toggleColorMode" class="btn border-0 translate__button" type="button" :title="colorMode.value"
               data-bs-toggle="dropdown" aria-expanded="false">
               <svg v-if="colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                fill="currentColor" class="bi bi-brightness-high  " viewBox="0 0 16 16">
+                fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
                 <path
                   d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
               </svg>
@@ -146,7 +149,6 @@ const updateLanguage = (language: string) => isLanguage.value = language
                   d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75c.167-.333.25-.833.25-1.5H2s-2 0-2-2V4zm1.398-.855a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145z" />
               </svg>
             </button>
-
           </div>
           <div @mouseenter="showDropdownTranslate(true)" @mouseleave="showDropdownTranslate(false)" class="dropdown">
             <button class="btn border-0 translate__button px-0 mx-0" type="button" data-bs-toggle="dropdown"
@@ -162,11 +164,11 @@ const updateLanguage = (language: string) => isLanguage.value = language
             </button>
             <ul class="dropdown-menu" :class="{ show: isDropdownTranslate }">
               <li><button @click="updateLanguage('ID')" title="Ubah bahasa" type="button" class="dropdown-item mb-3">
-                  <NuxtImg src="/icons/indonesia.png" :width="23" :height="15" alt=" Indonesia" loading="lazy"
+                  <NuxtImg src="/icons/indonesia.png" :width="27" :height="18" alt=" Indonesia" loading="lazy"
                     format="webp" /> Indonesia
                 </button></li>
               <li><button @click="updateLanguage('EN')" title="Ubah bahasa" type="button" class="dropdown-item">
-                  <NuxtImg src="/icons/inggris.png" :width="23" :height="15" alt=" Inggris" loading="lazy"
+                  <NuxtImg src="/icons/inggris.png" :width="27" :height="18" alt=" Inggris" loading="lazy"
                     format="webp" /> Inggris
                 </button></li>
 
@@ -178,20 +180,19 @@ const updateLanguage = (language: string) => isLanguage.value = language
   </nav>
 </template>
 
-
-
-
 <style lang="css" scoped>
 .navbar {
   width: 100%;
   height: auto;
-  background: rgba(40, 39, 39, 0.10);
+  background: rgba(40, 39, 39, 0.1);
   backdrop-filter: blur(6px);
   transition: ease 500ms;
 }
+
 .container {
   /* padding: 30px; */
 }
+
 .navbar-brand .navbar-brand__logo {
   width: 83.667px;
   height: 26.528px;
@@ -200,12 +201,13 @@ const updateLanguage = (language: string) => isLanguage.value = language
   background-position: center;
 }
 
-
 .navbar.navbar-sticky {
   width: 100%;
   height: auto;
-  background: #FFF;
-  box-shadow: 0px 0.91667px 0.91667px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px 0.91667px rgba(103, 110, 118, 0.16), 0px 1.83333px 4.58333px 0px rgba(103, 110, 118, 0.08);
+  background: #fff;
+  box-shadow: 0px 0.91667px 0.91667px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 0px 0.91667px rgba(103, 110, 118, 0.16),
+    0px 1.83333px 4.58333px 0px rgba(103, 110, 118, 0.08);
 }
 
 .nav-link {
@@ -218,20 +220,19 @@ const updateLanguage = (language: string) => isLanguage.value = language
 }
 
 .nav-link:hover {
-  color: #CE2F2F !important;
+  color: #ce2f2f !important;
 }
 
 .nav-link.active {
-  color: #CE2F2F !important;
+  color: #ce2f2f !important;
 }
 
 .navbar-sticky .nav-link {
-  color: #5D5D5D;
+  color: #5d5d5d;
 }
 
-
 .translate__button {
-  color: #FFF;
+  color: #fff;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -240,13 +241,26 @@ const updateLanguage = (language: string) => isLanguage.value = language
   /* 14.4px */
 }
 
-.dropdown-item {
-  color: var(--font-600, #5D5D5D);
+.dropdown-menu {
+  /* margin-top: 15px; */
+  width: 100px;
+  height: auto;
+  overflow: auto;
+  border-radius: 4px;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #5d5d5d;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background: none;
+  color: #d71149 !important;
 }
 
 .dropdown-item.active {
@@ -256,7 +270,7 @@ const updateLanguage = (language: string) => isLanguage.value = language
 .search-input-container {
   justify-content: center;
   display: flex;
-  width: 340px;
+  width: 386px;
   align-items: center;
   gap: 4px;
   height: 32px;
@@ -314,16 +328,15 @@ input::placeholder {
 }
 
 .navbar-sticky .bi {
-  color: #5D5D5D;
+  color: #5d5d5d;
 }
 
-
 .navbar-sticky .nav-link.active {
-  color: #CE2F2F !important;
+  color: #ce2f2f !important;
 }
 
 .translate__name {
-  color: #FFF;
+  color: #fff;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -333,7 +346,7 @@ input::placeholder {
 }
 
 .navbar-sticky .translate__name {
-  color: #5D5D5D;
+  color: #5d5d5d;
 }
 
 /* Responsive */
@@ -350,10 +363,9 @@ input::placeholder {
   }
 
   .nav-link.active {
-    border-bottom: 1.833px solid #D71149;
+    border-bottom: 1.833px solid #d71149;
   }
 }
-
 
 /* Dark Mode */
 .dark-mode .navbar-sticky {
@@ -361,22 +373,31 @@ input::placeholder {
 }
 
 .dark-mode .navbar-sticky .nav-link {
-  color: #5D5D5D;
+  color: #e7e7e7;
 }
-
 
 .dark-mode .dropdown-menu {
   background: var(--font-950, #262626);
+  color: #e7e7e7;
 }
-/* / Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
 
-} 
+.dark-mode .bi {
+  color: #e7e7e7;
+}
+
+.dark-mode .translate__name {
+  color: #e7e7e7;
+}
+
+.dark-mode .dropdown-menu .dropdown-item {
+  color: #e7e7e7;
+}
+
+/* / Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-
-}
+@media (min-width: 768px) {}
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -396,19 +417,20 @@ input::placeholder {
     padding-left: 50px !important;
     padding-right: 50px !important;
   }
+
   .search-input-container {
-  justify-content: center;
-  display: flex;
-  width: 300px;
-  align-items: center;
-  gap: 4px;
-  height: 32px;
+    justify-content: center;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    gap: 4px;
+    height: 32px;
   }
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
-.container {
+  .container {
     width: 100%;
     height: 60px;
     padding-left: 50px;
@@ -417,15 +439,10 @@ input::placeholder {
 }
 
 /* // `sm` applies to x-small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-  
-}
+@media (max-width: 575.98px) {}
 
 /* // `md` applies to small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
-  
-  
-}
+@media (max-width: 767.98px) {}
 
 /* // `lg` applies to medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
@@ -445,13 +462,14 @@ input::placeholder {
     padding-left: 30px !important;
     padding-right: 30px !important;
   }
+
   .search-input-container {
-  justify-content: center;
-  display: flex;
-  width: 300px;
-  align-items: center;
-  gap: 4px;
-  height: 32px;
+    justify-content: center;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    gap: 4px;
+    height: 32px;
   }
 }
 

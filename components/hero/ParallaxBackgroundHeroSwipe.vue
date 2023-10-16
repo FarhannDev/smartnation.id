@@ -1,5 +1,6 @@
-
 <script lang="ts" setup>
+
+
 const props = defineProps({
   background: { type: String, required: true },
   text: { type: String, required: true },
@@ -9,13 +10,13 @@ const props = defineProps({
 
 const backgroundStyle = () => {
   return {
-    backgroundImage: `url(${props.background})`,
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    objectFit: "cover",
-    objectPosition: "center",
+    backgroundImage: `url(${props.background})`
+    // backgroundAttachment: 'fixed',
+    // backgroundPosition: 'center',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundSize: 'cover',
+    // objectFit: "cover",
+    // objectPosition: "center",
   };
 }
 </script>
@@ -29,31 +30,30 @@ const backgroundStyle = () => {
         <div class="hero-heading-container">
           <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${text}`"
             :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
-            {{ text.length >= 80
-              ? `${text.substring(0, 80)}...`
+            {{ text.length >= 120
+              ? `${text.substring(0, 120)}...`
               : text
             }}
           </NuxtLink>
         </div>
-        <HeroSocialMedia />
+        <LazyHeroSocialMedia />
       </div>
     </div>
 
   </section>
 </template>
 
-
-
-<style >
+<style lang="css" >
 .hero-image-parallax {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   overflow: hidden;
   scroll-behavior: smooth;
-  margin-left: 0;
-  -webkit-transform: scale(1);
-  transform: scale(1);
 }
 
 
@@ -63,7 +63,7 @@ const backgroundStyle = () => {
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -74,16 +74,18 @@ const backgroundStyle = () => {
 
 .hero-heading-container {
   position: absolute;
-  width: 400px;
-  top: 45%;
+  width: fit-content;
+  top: 300px;
+  left: 8px;
+  right: 0;
   z-index: 1000;
 }
 
 .hero-heading__title {
-  /* display: inline; */
+  display: block;
   color: var(--font-50, #F6F6F6);
   font-family: Poppins;
-  font-size: 33px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -92,9 +94,10 @@ const backgroundStyle = () => {
 
 
 .hero-heading__desc {
+  display: block;
   color: var(--Background, #FFF);
   font-family: Poppins;
-  font-size: 24px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -103,10 +106,10 @@ const backgroundStyle = () => {
 
 
 .hero-social-media-container {
+  display: block;
   position: absolute;
-  top: 60%;
-  right: 20px !important;
-  z-index: 1000;
+  top: 370px;
+  right: 20px;
 }
 
 
@@ -116,7 +119,6 @@ const backgroundStyle = () => {
   height: 30.588px;
   margin-bottom: 40px;
 }
-
 
 .swiper-pagination-bullet {
   width: 9.6px;
@@ -135,79 +137,131 @@ const backgroundStyle = () => {
   background: #C70943;
 }
 
-/* // X-Small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap */
 
-/* // Small devices (landscape phones, 576px and up) */
+/*
+   Responsive
+*/
+/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  .hero-social-media-container {
-    position: absolute;
-    top: 45% !important;
-  }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-
-  /* Atur gaya untuk layar berukuran tablet */
   .hero-heading-container {
-    width: 100%;
+    display: block;
+    width: 450px;
+    left: 120px;
+    top: 350px;
   }
 
   .hero-heading__title {
-    display: block;
-    font-size: 31px !important;
+    font-size: 28px;
   }
-
 
   .hero-social-media-container {
-    position: absolute;
-    top: 45% !important;
-  }
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
-
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .hero-image-parallax {
-    min-height: 100vh;
-  }
-
-  .hero-image-bg__gradient {
-    height: 100vh;
-  }
-
-  .hero-heading__title {
-    font-size: 50px !important;
     display: block;
+    right: 130px;
+    top: 350px;
   }
 
   .hero-heading__desc {
-    width: 1200px;
-    font-size: 31px;
+    font-size: 28px;
+  }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .hero-heading-container {
+    display: block !important;
+    width: 650px;
+    left: 50px;
+    top: 350px;
+  }
+
+  .hero-heading__title {
+    font-size: 45px;
   }
 
   .hero-social-media-container {
-    position: absolute;
-    top: 48%;
-    right: 125px !important;
-    z-index: 1000;
+    display: block;
+    right: 70px;
+    top: 350px;
   }
 
-  /* 
-  .hero-image-parallax:hover {
-    -webkit-transform: scale(1.1);
-    -webkit-transition: .3s ease-in-out;
-    transform: scale(1.1);
-    transition: .3s ease-in-out;
-  } */
+  .hero-heading__desc {
+    font-size: 33px;
+  }
 }
 
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hero-heading-container {
+    display: block;
+    width: 900px;
+    left: 40px;
+    top: 45%;
+  }
+
+  .hero-heading__title {
+    font-size: 45px;
+  }
+
+  .hero-social-media-container {
+    display: block;
+    right: 40px;
+    top: 48%;
+  }
+
+  .hero-heading__desc {
+    font-size: 33px;
+  }
+}
+
+
+/*  X-Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  .hero-heading-container {
+    display: block;
+    width: 1100px;
+    left: 80px;
+    top: 45%;
+  }
+
+  .hero-heading__title {
+    font-size: 61px !important;
+    display: block;
+    right: 100px;
+    top: 48%;
+  }
+
+  .hero-heading__desc {
+    font-size: 33px;
+  }
+}
+
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+  .hero-social-media-container {
+    display: block;
+    right: 110px;
+    top: 48%;
+  }
+
+  .hero-heading-container {
+    display: block;
+    width: 1200px;
+    left: 100px;
+    top: 45%;
+  }
+
+  .hero-heading__title {
+    font-size: 61px;
+  }
+
+  .hero-heading__desc {
+    font-size: 33px;
+  }
+}
 </style>
-
-
 

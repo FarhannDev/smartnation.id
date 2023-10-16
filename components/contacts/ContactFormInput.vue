@@ -75,15 +75,15 @@ const sendMessageToEmail = () => {
           aria-describedby="emailHelp" placeholder="Isikan Dengan Alamat Email Anda" autocomplete="email">
       </div>
       <div class="mb-3">
-        <label for="inputMessage" class="form-label contact-form__label__input">Pesan <span
-            class="text-danger">*</span></label>
+        <label for="inputMessage" class="form-label contact-form__label__input">Pesan <!-- <div class="text-end text-secondary fw-normal contact-limit__karakter">{{ limitKarakter - inputMessage.length }}
+          Karakter
+          Tersisa
+        </div> --> <span class="text-danger">*</span></label>
         <textarea v-model="inputMessage" placeholder="Tuliskan Isi Pesan"
           class="form-control contact-form__input__textarea " id="inputMessage" rows="7"
           :maxlength="limitKarakter"></textarea>
 
-        <div class="text-end text-secondary fw-normal">{{ limitKarakter - inputMessage.length }} Karakter
-          Tersisa
-        </div>
+
       </div>
       <button :disabled="!inputName || !inputEmail || !inputMessage" type="submit"
         class="contact-input__button ">Kirim</button>
@@ -159,5 +159,41 @@ const sendMessageToEmail = () => {
 .contact-input__button:disabled {
   border-radius: 8px;
   background: var(--font-300, #B0B0B0);
+}
+
+
+/*
+ Dark mode 
+*/
+
+.dark-mode .contact-form__input {
+  background-color: #262626;
+  color: #fff;
+}
+
+.dark-mode .contact-form__input::placeholder {
+  color: #fff;
+}
+
+.dark-mode .contact-form__label__input {
+  color: #fff;
+}
+
+.dark-mode .contact-form__input__textarea {
+  background-color: #262626;
+  color: #fff;
+}
+
+.dark-mode .contact-form__input__textarea::placeholder {
+  color: #fff;
+}
+
+.dark-mode .contact-limit__karakter {
+  color: #fff !important;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 8px;
 }
 </style>

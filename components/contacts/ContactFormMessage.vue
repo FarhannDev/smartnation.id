@@ -43,4 +43,12 @@ const props = defineProps({ title: { type: String }, description: { type: String
   line-height: 120%;
   /* 24px */
 }
+
+
+/* 
+  Dark Mode 
+*/
+.dark-mode .contact-desc {
+  color: #fff;
+}
 </style>

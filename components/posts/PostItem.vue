@@ -11,29 +11,35 @@ const props = defineProps({
 
 
 <template>
-  <div class="card post-card__item">
-    <NuxtImg :src="featuredMedia" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
-    <div class="card-body">
-      <div class="vstack gap-2">
+  <div class="col-lg-12 col-md-6">
+    <div class="card post-card__item">
+      <NuxtImg :src="featuredMedia" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
+      <div class="card-body ">
+        <div class="vstack gap-2">
 
-        <span class="d-inline post-card__item__datetime">
-          <BootstrapIcon name="clock" style="color: #888888;" />
-          <span style="color: #888888;" class="ms-1">
-            {{ useFormatter(dateTime, 'id-ID', 'long') }}
+          <span class="d-inline post-card__item__datetime">
+            <BootstrapIcon name="clock" style="color: #888888;" />
+            <span style="color: #888888;" class="ms-1">
+              {{ useFormatter(dateTime, 'id-ID', 'long') }}
+            </span>
           </span>
-        </span>
 
 
-        <NuxtLink :to="`/${postId}`"
-          class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
-          <div v-html="title" class="post-card__item__title"></div>
-        </NuxtLink>
-        <!-- <div class="hstack gap-2 mx-0 px-0">
-          <NuxtLink v-for="cat in category.slice(0, 3)" :key="cat.id" class="gray-button text-decoration-none" to="/">
-            {{ cat.name }}</NuxtLink>
-        </div> -->
+          <NuxtLink :to="`/${postId}`"
+            class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
+            <div v-html="title.length >= 60
+              ? `${title.substring(0, 60)}...`
+
+              : title" class="post-card__item__title"></div>
+          </NuxtLink>
+          <!-- <div class="hstack gap-2 mx-0 px-0">
+            <NuxtLink v-for="cat in category.slice(0, 3)" :key="cat.id" class="gray-button text-decoration-none" to="/">
+              {{ cat.name }}</NuxtLink>
+          </div> -->
+        </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -48,6 +54,7 @@ const props = defineProps({
   background-color: #fff;
   box-shadow: 0px 1.4846336841583252px 3.7115840911865234px 0px #676E7614;
   border-radius: 20px;
+  /* overflow: hidden; */
 }
 
 .post-card__item__title {

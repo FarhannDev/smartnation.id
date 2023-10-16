@@ -18,16 +18,16 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 <template>
   <ul class="list-group list-group-flush">
-    <li v-for="(post, index) in posts" :key="post.id" class="list-group-item mx-md-0 px-md-0 mx-xl-2 px-xl-2 mx-0 px-0 ">
+    <li v-for="(post, index) in posts" :key="post.id" class="list-group-item mx-0 px-0">
       <div class="vstack g-2">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center">
 
           <div class="d-flex justify-content-arround ">
             <span class="article-number me-3 align-middle">{{ index + 1 }}</span>
             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-              :class="'article-title link-offset-2   d-block link-underline-opacity-0 '">
-              {{ post.title.length >= 60
-                ? `${post.title.substring(0, 60)}...`
+              :class="'article-title link-offset-2   d-block link-underline-opacity-0 me-2'">
+              {{ post.title.length >= 80
+                ? `${post.title.substring(0, 80)}...`
                 : post.title
               }}
             </NuxtLink>

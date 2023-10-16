@@ -131,7 +131,7 @@ const posts: Posts[] = [
     content: `Pembangunan dan pengembangan smart city sedang menjadi hal yang banyak dilakukan oleh daerah-daerah di Indonesia. Apalagi, pemerintah Indonesia memiliki program Gerakan Menuju 100 smart city yang merupakan program bersama Kementerian Komunikasi dan Informatika, Kementerian Dalam Negeri, Kementerian PUPR, Bappenas dan Kantor Staf Kepresidenan.`,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/9022/96b6/23e15b37bd84a6cb1710400d98ccbdeb?Expires=1697414400&Signature=gsZZzKDSRGTwOTtz9CSVHmzcV7G32Zs91em21QSCcDTwsCvcZgLPoHBywN16PxtwT5EcMkxrx-LsQgv-6ZweFovOWSvrie2qGpUiwHhCHFFMCHLJDig4-nx~7GTTuWPxF940DTvo76qQ8s4RNQmt2uGYxCmqSxGAiVzGxqDjRCGbuUvR1L3M7MXq4sJzsKqy6NVhHH2li0BXdBEZ5Mel17bKkw28Lt-W5nJtx4hk9XtxV7j5n-MVCNNWxesLF8m5k8LLfJCaEbl233ByDyb2g81XGmxVHpPLKLCRZk9JHvLZXWvIv6SRUM6ZNTQWdrMkfb536n3tbUV~D2Bgg4igzw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -146,7 +146,7 @@ const posts: Posts[] = [
     content: `Pembangunan dan pengembangan smart city sedang menjadi hal yang banyak dilakukan oleh daerah-daerah di Indonesia. Apalagi, pemerintah Indonesia memiliki program Gerakan Menuju 100 smart city yang merupakan program bersama Kementerian Komunikasi dan Informatika, Kementerian Dalam Negeri, Kementerian PUPR, Bappenas dan Kantor Staf Kepresidenan.`,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/2c6f/28ea/ea28a57772a1cf28c946eda2598834ee?Expires=1697414400&Signature=QJefvJ1azgt9MjCb90DcDb4jDl-wyAtzNWb01Le2DT2jU2tsL9IPgMupRS3ifuERwP6LlwZVXbc0aZlKeuAqOE08d0IRdJI42TATuTPxJKNkXzJLnV82h7OaP0IusZ-SZRBm8qQh1T~vCHG5iMW5ZktQ1xiTmEsLpf12M7ViE6q7Bl9zoGxG64PQkvGUhsE3XSA8lriGuSCkeF1lP4mhejotzf786gSd4384sXHkvUA5vbZdGSR~WJ9kARgw6Xf1MPWLdL224rGtz1VATZ90v9nWqC9xzzOpbYwdHEvrQZz~R36ZkuGwTaQ3ZZyI3~hCcfO3Y~iJ5J3GsQIDolTOYg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -160,7 +160,7 @@ const posts: Posts[] = [
     content: `Pembangunan dan pengembangan smart city sedang menjadi hal yang banyak dilakukan oleh daerah-daerah di Indonesia. Apalagi, pemerintah Indonesia memiliki program Gerakan Menuju 100 smart city yang merupakan program bersama Kementerian Komunikasi dan Informatika, Kementerian Dalam Negeri, Kementerian PUPR, Bappenas dan Kantor Staf Kepresidenan.`,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/ce8e/1ce8/38528040470518e2c54b8f2fa395f296?Expires=1697414400&Signature=lljTxRTbgL4usVQqRl4KTUoVkf16J6Lf-QzdAPzg~eP0SiCoCATsn4Z2KufyDJSqw~xrtvJXAOHylixdzXd4RUHStROJ-QmK0yOo4Jd87mMWTvSfCq2MHiqk-e7-MAJojB-BruHx1byIoYoSHhpay7wKP8psLAANRj-Z3o1StEAImrphqFQ76AL5uN4d9mMhen3QCpkShq33kRbPpsGPrX~zax2EVAdzEcvfAV~euyw7g5R2M3bTkVEtJtwNXfuadnuDsBquE98wL67fJeKadhXVzdXGPD6SGN0cpJiCPZtEgHZK8JD0QqPn~RQoPWBMlWio9522aeGr1~RZoKfTtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -174,7 +174,7 @@ const posts: Posts[] = [
     content: `Pembangunan dan pengembangan smart city sedang menjadi hal yang banyak dilakukan oleh daerah-daerah di Indonesia. Apalagi, pemerintah Indonesia memiliki program Gerakan Menuju 100 smart city yang merupakan program bersama Kementerian Komunikasi dan Informatika, Kementerian Dalam Negeri, Kementerian PUPR, Bappenas dan Kantor Staf Kepresidenan.`,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/3600/54b8/99b8850a1c900f8e5ebaab061e211574?Expires=1697414400&Signature=ViJt9h7Kiw01cOIGZjkRBXxABKcpmdf9DjSQnxmCceTwgGEUWWyLISKWjvWIbsvHfHtsheJoLGWwoRCYgqgDrm5iTXX58QnFmkAkwR0Cwc2l0DPnXpHRK52RmBTaqLzh7VEJnT3cYSaahoVEOjVOJbBjY7QFG96dfkWROVXczPDAEffDAJxNBoSVf4cwUIA8w3jLAg5w740ztQsFuBsscVIACP6bigiINrMsL5SMasxNfkvpX1erOtbuyWGpKy0HsAiSBC7Do9ngq3mPuyDSvQECiB9VKQZLkBOSf0~zihVN~GcvpApCh45fgSUMM07rqzs8MZwXRh6hyRY4PmKHHg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -186,7 +186,7 @@ const posts: Posts[] = [
     content: `Pembangunan dan pengembangan smart city sedang menjadi hal yang banyak dilakukan oleh daerah-daerah di Indonesia. Apalagi, pemerintah Indonesia memiliki program Gerakan Menuju 100 smart city yang merupakan program bersama Kementerian Komunikasi dan Informatika, Kementerian Dalam Negeri, Kementerian PUPR, Bappenas dan Kantor Staf Kepresidenan.`,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/3ead/de21/715059ed3426f0878bef1c69f2334922?Expires=1697414400&Signature=NjlF26NkEQlh-hpUCCKSN3KEYFwcICWs-6Jno1ndTM5063-8RIq3itVWS9YGM3mvuY5DD3jEbMT1C1izOOGPVfY-CMh4gsv94XR6aT6YvuogrXhjB6FCvK93kvaHTYLlcN29~pmGglJG-cN1xmVElwLNvfc8NdQd-60DL9AX7SsXpE8yocN2J4AgWgk7e-6cgtJnJnFhbjwqeHPkhEd7kzl9Idvkn75MpOMXvpntNSX-ZMno1cMERjE7BoQHQ05LDzLlkV9y9oAWs6LIDShN7wmo5XkSruNuV0mYTMqeKIpnl5NYOZUJumh77dgAa6mag08vcv0fXfrQK5PlOZh8Hg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -200,7 +200,7 @@ const posts: Posts[] = [
     content: `Pemerintah Provinsi Jawa Barat resmi luncurkan Smart Jabar, sebuah ekosistem teknologi untuk Jabar yang terdiri dari E–Office, Dashboard Jabar dan Jabar Skytrek. Launching aplikasi ini diresmikan langsung oleh Sekretaris Daerah Provinsi Jawa Barat, Setiawan Wangsaatmaja, bertempat di Jabar Command Center, Gedung Sate, Kota Bandung, Rabu (5/4/2023).`,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/50e8/b7e3/d01ef7ce9776c225532c958b75f35f9f?Expires=1697414400&Signature=aNH1K3t8q5BrWYyGps3bgIml8bkvIIXaYpKn7zT95-c2d~pOp8MHD2~C1GfShzvx-KlTbJH0yE7NdabQNC-LL-wMPdpsDK2wxqzrCpP9n3JBiLvLTi2XVMplB1ExHLvgRFgbUErZfJB6yisUkST6NUOToDuU62W2VWXtWSOSJUVhTQZ1z0k9V1qPwuZZRaZjXY2zwNuixh~6BbcDxvBX1MAQbhmcODHkwlktgACLcP4TrRMTo735n0SLc2dawkbec8MI5BeiLZKq6-1dr9DpLQDq2zQ1o0~uupOfCmclzd2QGatcXI6c2u8kFofO69p2K1CazfWUWjmNw7ZG-r3-3w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -212,7 +212,7 @@ const posts: Posts[] = [
     content: `Smart branding merupakan salah satu pilar dari pendekatan smart city yang memiliki definisi strategi memasarkan sebuah kota atau wilayah sehingga mampu menarik ekosistem sekitar, baik itu warga, masyarakat umum, ataupun pelaku bisnis.    `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/8be4/029a/ffe32bf641c9dae627cfbe7dc1724c3a?Expires=1697414400&Signature=pwsTJHHCwnzDam-g7EUlz4fYret0CBAcmhVdnzGzWXatfHP2EYJUIdvYNstY09klMtOrmRzkJU4D4iylH8swrzsC07GOIomaLgbNk7xLkq~DksEoUP10QZbXR42T9cXMxFQu2tDLPSPnwHEDZybulruiGpxjT-NyKcucaPCQ7-0vkWXfVFN22Hi3qf7WS~FbmQSCtnUp-fRD7sIqV0EedPnJlTlPLcjcDrLWIpwSXdGpp6z3QjKLp7yo6w6mFuwqQ21AQ3gigVKeaSYRl5JrF4L1kQEgKSqj36JyPFxlfBqYbZjCeFE7REtnMMhvYxORnVDRvV-8KTrukMBuJtverw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -228,7 +228,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/8d76/d5b8/8949094df2533c9e64c0bc55ae352e0d?Expires=1697414400&Signature=laeplN72nxa3VgPUTi2vw2ofg8objHykKfFkS8wAdGoL6my2mxR-lTMF8VAJFBd~TD16JlOyMzT9yER4VGNj-OgDc6ky~JqrCGN9O6exzrLr5TwCPUlRtZwl72iPcDHdRfMCzylTQnSFWEPkHwy7RRJdEN7Jg~ghPNz4MnN8JUEBmzbG7l4LQW9ovw85rRNiseSHy5yHcosskoSzKxA9-0VyzQSHbZN2cmXQxvZTvso9ZRX2blJoEMY47rA0IWtnvvjBQZrLU-O-QrfhKH08VVOIbcjsBqwyKMJnR~wTTEZULdn0a20peAGnTYzOnmiYWFqQceBLXZ-Jsz~AF0-hVg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -244,7 +244,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/fed1/1fb5/3ae4e8a31339533688a483c54e564dfc?Expires=1697414400&Signature=Htcg5IvB7j0CoJM1GZ61D-FvkDvkaUFmtcAA5XvU9PXxsacrZp~pWoVPytGpcQ0AQOv6k8PY3cyyMHloKWdYfG~AlCvbRnTW~Gq-LvdqC44G~P3D3~LrXnxvM6C4RbhZ2PO5zttzR0NZiunzzl0qfvObX9yOGzw3BF3K3UffkhYvVw~wGho5OSMssgPS4m3A0KA~Tt0WPJ3asM~ZcKCt9HJquPsA3qyYeO17GxPslm9LsaDf3WQusKdUtMzcZ2jNAw5pZtTj1sztDaH78qkve1aeq3yM2n4G7mVpiDHTR1TTWtz-Puh-JytSt3FXR-tNiCoJ~IEWUk5rVzv~STf3sQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -260,7 +260,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/3947/c926/9ad23ea579c994f82e0367996313af54?Expires=1697414400&Signature=may9Nfng8q-zGZK~ouClaWS9PSXXaVq20yAi22O932wKkzjeKqZGka6oeeW8-Qfd4WRcx44FFKBv6ZmclBpJR-4dVEdvYm3IhrAl8WXZ1HqlIvJ9VKOJy53W7xgjj3PHXrO4XHqhuHXJ1UTtIGbCqfUBeWfHfIEoiht8W1HhTRIHZmCkpnXDeHti5WxTw6pG9ODpx3xIY0TIp3QmZ10FoUHpASZmda36CCdUUlFGI84dmb5CkzDvdEV31jcUfrW~DLNbLoK8accOcNXWPw~5lDVyIgIW-yvYxR9tw0OhsteSwhB5r7LP4hgvoyiFs2013jYOE4SMYoefXp-Cwm~4LQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -276,7 +276,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/0587/bbcc/ed2473469afed9b191fbac73e951db16?Expires=1697414400&Signature=oktLDlSEloH233cBVg8MDb6qyY6I2H0QMYaZJ1g1xLtmzKNjs22CvDU6Q13OvC5ipzfkF06Y0NBf~dBRwWsjQGjS73dP0CTZPh8nqWCC0yeA7FeDrLye9bxrU4iI8buga1B2ewJZBZfL87G7JTitcz2DpE84EV3wyL8prkXwyJYYW5WQwsBoScUkOYa3k5KUgVsRZiS7kuIcdlLvtcLD2eclI~xnXI-g4vMD58ziqQdTX7467JdM8wZFPJ2XcVnQorXn3zOP3~Foh4Pny6vKrOWD8SsHBRy-EUa57u57jyC9t7RpPN2Hcp37LmnQpKnJYLkRJn14xQ6wGigWGHiOsg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -292,7 +292,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/e0ec/d24d/c57a2b959ad326f85ab3e65f6d2186fb?Expires=1697414400&Signature=OL9E1tDgWZL7I28D~ES7uLXT3QVYiRafyhgCPpEAOxYQa3FOnwN~ZVdfjGSic4CBV7AA37ofoAZGWqJLflg572YGHFgEO9bOEwVjpsPhzBblJATAsqGIcJPNg561ZaRNerlkmWmkqfgyQp~7X9bj5JL701~oGLBy70-kDLDvFphzaQS8DwUlb-yEZ389acrGSJ~cl~dhmQhE-fUiKYZKQ9BzkMsxGkrytW6TTObWex2q8ixzUBzsFqGBz24JNbKiVXQC1wiiOH3-LQQuSB5rFjW9r8D0H0U1h3SjHRVTwwDofaKAjA9fLT8ndXovptf2U9L93N6lKulKfCzuERVPzQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -308,7 +308,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/fd23/6775/8d9da79dc1b8d3d310078b56c67fa4ca?Expires=1697414400&Signature=EJ71JE89EADnrswFXeS9eCzlxzrq8UBKgx87cR5SnyctjDk17nvthF8r5v~t7wH8VyEGCe4Ima7TKAd7AryhKcMQxFHuKQUBq5W9zJTi0c5s4~iZwKwOUfiGqICFtuGhihtXsbjVpFr3umnDde07L8QnjG5DC5SVPTdubXRYFf0J~pc9yUnRDaa9-cGnyhLfMv-i2sanlpqkgxgXMHJxp0-JYbLmHSuOCtKMkOf5g~CuNyu0FcbMuOmeWOMwMrto60ZjA0nUXCaFdTQ496GoYOdwvvpEKj0eudIaN4EOz9v5r-EOoLgbLZXPY1V0jkrCn6c~d3GzyLmhQ6JA-IEZJw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -324,7 +324,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/6411/a7af/53556a90d5d081f33c20584dc06b27fb?Expires=1697414400&Signature=LG~9ePLI~pFZ2f6dNjDHPusFThm792MgwpO5DNqW1~5gHGDSumEZf2npLNP6baB7r-Bm9oQdQ6PP18e9ZTfykk-YVkAbBwqdoLZZiudZQFm~B3ARb~J3xIUFULGsCdX82Y~1bCEnJNgnNfAUiVctoafNqytnROI-Y89PoPAUxrK7NR6EXu-hXuxaZ1qupT54efIPjdTcrsOjgdFd-~uLVTOlX~Jp9goA3CM6tvdsg3hWPICJtW2Wh6Zl1~rDn4x36uShHjWbqgqMYV8y6EXbKi-Qp7uuuc1CzlhccfpHdLMKzWi0UTj1do6JjkG-yeVwWbN8v9ZRIL2yu2~Uie9suQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -337,7 +337,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/ab68/2cb4/792d80b32a211eea51f6ee6c3b32abcc?Expires=1697414400&Signature=DFjsKu0VaR1h4LYJjXnP0v2Id56vz3EiJJdiDlMQxG1mRnWaMR9LJJ30qN5cbByrCsuqw1j9a8-rhDeQPzpsilaoBaz2z~mTIOZOtixDwQhrssq8XeZ3kWdjQjSTSxwUHkJGKQlT8EraQLQFrpYg11ipqn5qICKP5EMOB6z~qwPD5zt4WyS8x9WbaN-Ik8AaKpHxTwcyXqBrMBkolF2eoTKPUGQFw9I0UPJnMF4GxqsaiFUv~GYrxj-oMJRbUgG8-kJE7JejfaJs60z5eCyFX1jEthzeTc2kfZUGI56suxjjV0-f2LAax1DIkUebsTN8~iCy0TdIRJWN81IVkIeU6w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -353,7 +353,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/8d76/d5b8/8949094df2533c9e64c0bc55ae352e0d?Expires=1697414400&Signature=laeplN72nxa3VgPUTi2vw2ofg8objHykKfFkS8wAdGoL6my2mxR-lTMF8VAJFBd~TD16JlOyMzT9yER4VGNj-OgDc6ky~JqrCGN9O6exzrLr5TwCPUlRtZwl72iPcDHdRfMCzylTQnSFWEPkHwy7RRJdEN7Jg~ghPNz4MnN8JUEBmzbG7l4LQW9ovw85rRNiseSHy5yHcosskoSzKxA9-0VyzQSHbZN2cmXQxvZTvso9ZRX2blJoEMY47rA0IWtnvvjBQZrLU-O-QrfhKH08VVOIbcjsBqwyKMJnR~wTTEZULdn0a20peAGnTYzOnmiYWFqQceBLXZ-Jsz~AF0-hVg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -369,7 +369,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/134c/7aa8/7d090dfc5df1f3daa1a28dd5614c0ac4?Expires=1697414400&Signature=KvP~MH1kWtPGtYsWvJU1b-Tzeyp4JCvIs4tlRfyNo-wAhWar2tP04EfwTfycZCkjpspCGgx61-gFc0lVJXKDPRGh2yGlATFgI7erK~Z95-e7VKo7Td9mUQnIeEq9clPVt8CMsPemVYJYdSzzZSOJR1t~TB0y3I3DB9C2Yq84FdURcsUNaDYTc1cGVgotA1Uepld867KranxDpTSb3~zXIIEdNnfTfSs7jWyb97kBJglRAfm6KuBa21BRp4lbEYOGE4Looumva-ElWBjPHl2VUpCEBl0GK8CDHqbTzFuv1tngPHMLBcwcPYLoP2nwdM99kYUXuh1ipdbfvfvTMxU-Cw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -385,7 +385,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/4b81/2137/f7085aaee6571f28232926daf83067cb?Expires=1697414400&Signature=nVyEQjsRdFRFn8rfobpbxR2laRVewAMCXYk91he7~BXatEqV0bB6Qn98eMwAlDbhaV6G-eXfAin3v0yH71o8dAcRzm53B~strh9xtIdqe-H~cJkLZHzrgiwi~edyXTa~L3N~-ZhkT5LpqFpEsCVzvmsz~ogxaOXSCtdNL5ZY6fIPrvj7i5YmPJTR59a2bRQ4IzTsm2BS7uF3t07RgimSWXsfWE2BgoONesggUupnDobqTFbuvEIYq8CxY0I6GqiG9Se9vI4QPWuk3uO0mrUDJd0BFw-SNMkfyNM03wyeBxliDBlHyzn4pGoW--goB0pl44ybJU5LD4e6Qh2zIaDsYw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -400,7 +400,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/9b64/d8fa/3e6c9dc5f33518141119855ad0f78bee?Expires=1697414400&Signature=bNzUZ3ijMYgo~kIiSAAdFQekSVNmiRKuqICHEm63Ol4MsztQh67d0AYNsQaNNl4BeN8tQaZcHs3iyEGMv5Sv2ofjALGHAeQstSzZyiExjLbEndo3YAKM9L6PE-haE8xwWcrnIfICX1L1rlAb~UCUJRhHj0PrcNnxAY7BBLVyfs1T2Ah2EffpPxevKAx1l70JxjvSy~cQ5HocArVnfZK-pYdPXWB4j1Vz7lSBHlzynTZhZbHU2DKI6KuTM3QLH1LG4MigN-d8FgTzTYpgJllqXGlnY9vwAkfJanX6xiX2pF2DewfLBMKrr6RrwvYZBWc4aSAHrqB9iYyULXrwjR09Ww__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -416,7 +416,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/dad3/d3e5/621b9dfa540b86ae152c86e092df406e?Expires=1697414400&Signature=qtnyzOeE8iyrKA4PoCE202FJGCBlQcvUhQsSBh~-qwB-l8jLqdqfNuRvSxZIdK37syaCbCkCnsCUR63vL-qoD9atbGX5rw9R0~fvvdG4Na9~SjFqne5-rLCkwybR9nJgJjUC1eVXrf162UJI3ISbHu3CBodQL8ZXxDa6Af4ItXnoVzQGGNpEogi8py-rAhrtk3SYaW7JW9NlKoLs3l47GaW2gw8VbjRwuILX-gKO1evpC5jWtrKDlZQ3KTnF6c-A9V2G-ReBYSBzNpiqF4I4ekpU0YECkm7nDd5pVBL9Or8~ydTibyZDu6N7t3p5U8kV21M4w~mpjkLpomfW6vm-Rg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -432,7 +432,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/b937/d0fb/0ab968f5216bf6f5e0d7d531e5c5d3b1?Expires=1697414400&Signature=O8M~ol7X3iy6C83B~XWIbCcmdHUB9Bs7dipOClPkhjMIDJ8uuKCBxFrcgnl5Jw84kXS~nbXKLDkXobdwlBr4Zz9GHQIKCCdrDgJ1-bDgcFTfh~kNWcuONEdW2C-0y791YX6F-ldK4Ksm54oax4FVbX4b5LBM6QwrHLDiLqRz8IYZxzcY8KUmqLAdWWBTtC2-VTuB1b6g63PxBZ8Y~xKX3rN-kJOZUrxGpDs8a~uU73o-ru3JfLAjcKGdshx3IX5Y2Z8tC9DnGaATWx06cuebBIChe7UzPwYFVbYCH00o1pKK6O00~0Cvckcpev29tD5~yy~ZF0h1IcCZ9VbX~azMUA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -445,7 +445,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/f2ba/ef80/86204f1d200e00df8793050a21058494?Expires=1697414400&Signature=CJ8qYodW6T5Rd8RaAWFODWRi8se4PnoAt5Gxey90IzrcT43GKmjvRs5smPZ9PEjqls3uS6RUyHxkuIdJHLfISk~6KPGw3kr4Ehx8fP26aFHr~ZVLg2xis9HyFW8niqRWg43mTG3SfVSU87QvIBlJKm~jdAHtG4id3J8gZxd5hfwfcSnmNGk2FgjqDdgpzUDTl-AAWnFshHccXM3Ac1IrEQ~0IGvhJ5nO54RsZcXNyZT1wDIkW97yAI9fSmtnntLAucqZtVBy~Xi7Fo-ER-akFWUISto6-BSeSThEOBtWtR8AyS3p1n6eyUsXAVnwouZpmPp8DBXFeeRc2nR1upI9IA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },
@@ -460,7 +460,7 @@ const posts: Posts[] = [
     `,
     categories: categories.map((category) => category.id),
     thumbnail:
-      '/images/artikel/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas.png',
+      'https://s3-alpha-sig.figma.com/img/f3b0/261a/fc6d9405f79ab06fb381206b7fd6a9e8?Expires=1697414400&Signature=fPRoQWKosvd587vbJQpDnq-iRNnRuz5nPwWLbSLNGqz0IKmQr~-1r3byf7oydBEiBP1bUuYv7xcWYIV6WsM6cniUdR33ku10xxRYZ81899JOgk~XJ1tvTFGxwyQTx6m17ofziPxgWL3OgZ2~Jtluvkqnk~To1vWouhPl48YcSH1coWTRp0JVIeau7T26YE57Go~MHKN0fmZ428rImaOarpGZvj6kUNOejRNBxOCpUq1Q1jAG2AOB0y6XY139JL1xuunAqSExvQZv7EfJwEyD1j02o1WElRiuMOJTV7J73T-9PrQ273BKef-I289tRHSfvYjPtVVUI-J5a~xdyr~~8w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     createdAt: new Date().toISOString(),
     updatedAt: '',
   },

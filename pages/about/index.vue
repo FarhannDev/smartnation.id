@@ -7,13 +7,15 @@ useSeoMeta({
   ogTitle: "Tentang Kami",
   description: "Citiasia Center for Smart Nation (CCSN)",
 });
+
+const colorMode = useColorMode();
 </script>
 
 <template>
   <NuxtLayout name="page-layout">
     <!-- hero start -->
     <template #hero>
-      <HeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
+      <LazyHeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
         background="/images/background/bg-galeri.png" />
     </template>
 
@@ -21,7 +23,7 @@ useSeoMeta({
     <main id="content-main">
       <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
       <section class="ccsn-section-container py-5">
-        <div data-aos="fade-up" data-aos-duration="1500" class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <div class="row justify-content-between g-3 py-5">
             <div class="col-lg-5 col-md-6">
               <h1 class="ccsn-title">
@@ -41,9 +43,9 @@ useSeoMeta({
       <!-- section tentang Citiasia Center for Smart Nation (CCSN)  end -->
       <!-- section Tentang Citiasia INC start -->
       <section class="citiasia-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <div class="row justify-content-between g-3">
-            <div data-aos="fade-down-right" data-aos-duration="1500" class="col-lg-7 col-md-6">
+            <div class="col-lg-7 col-md-6">
               <h1 class="ccsn-title mb-3">Tentang Citiasia INC.</h1>
               <p class="ccsn-desc">
                 Citiasia, Inc. merupakan pionir konsultan dan implementasi smart
@@ -52,10 +54,8 @@ useSeoMeta({
                 berkelanjutan dan berkontribusi pada nilai-nilai sosial.
               </p>
             </div>
-            <div data-aos="fade-down-left" data-aos-duration="1500" class="col-lg-5 col-md-6">
-              <NuxtImg alt="citiasia"
-                src="https://s3-alpha-sig.figma.com/img/4c1d/563b/f4b9d3e6567d68c24060a212542e9ab9?Expires=1696204800&Signature=KajgzoYSPUVathejX75B8R8Y5o25SkrP6OCZqWYeeRTt5rYZ9AfYA0sBQrMjAVq07beXcg6qirCXJIZ7c6Vk~TS-B05SJrL69qIfBNlb~Culat2X00dLLBasTOhbqh7basitgjY9FyUsfUnDc2heOWpLpTi3Nq0lxF72zO~hYC74TedcvFlup9Mz~ElWtmPX1~AbUDlyquorTLK-vRDWiKmKLPmYwZIDYtboe1jHxy-67H-bYMkxPgrFgOFzmWOL~HPW7~zwQpgbrQvq6VpmmXeSQ6FHKUhXLMF-Dqk-ZLtpZHl6f7FWE2Fi67UGv4557kQdhp-Tc--OLZDkWw3rew__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-                class="img-fluid citiasia-img" />
+            <div class="col-lg-5 col-md-6">
+              <NuxtImg alt="citiasia" src="/images/tentang-citiasia.png" class="img-fluid citiasia-img" />
             </div>
           </div>
         </div>
@@ -63,17 +63,15 @@ useSeoMeta({
       <!-- section Tentang Citiasia INC end -->
       <!-- section visi misi start-->
       <section class="visimisi-section-container py-5">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <div class="row justify-content-start g-3">
-            <div data-aos="fade-down-right" data-aos-duration="1500" class="col-lg-6 col-md-6">
+            <div class="col-lg-6 col-md-6">
               <div class="d-flex justify-content-start flex-column">
-                <NuxtImg alt="visimisi"
-                  src="https://s3-alpha-sig.figma.com/img/0db0/6a80/094e4b1155464e45996d69d1d9f1e3f4?Expires=1696204800&Signature=datJGnJs3LlHu6lfQzIL6V-VUgpqUucw4g-joTtwRGFBWUwGNP5jhYg0lOiN~yRSp85Vt9lN3pNlBzikC~RbZZS0hKMACKVnxhV-kd8Ldx2ecC8NgpVQKt7ltkdQ98DZ4Ar0FjckqwMQ9~MexMS3Ip5U~sJqoN9ZRPypCrpTD0q-rUJu4HDLFYmLIIPOvedGj~xZaGkBLmQY1UgG-fG06D2zkGdDPvvTAftiPqYqxAy8ZiNBuwx6Jk8gNAEkV2e8xHEvYEIIwQ59Oo-lDeVVmx844a0Ozcp2p9oMGMnQmRwplfX-Gq4ywoafY8Ov882ylkCHsrs24NJ0nbVIciGyYQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-                  class="img-fluid visimisi-cover" />
+                <NuxtImg alt="visimisi" src="/images/visi-misi-citiasia.png" class="img-fluid visimisi-cover" />
               </div>
             </div>
-            <div data-aos="fade-down-left" data-aos-duration="1500" class="col-lg-6 col-md-6">
-              <div class="d-flex justify-content-start flex-column g-2">
+            <div class="col-lg-6 col-md-6">
+              <div class="d-flex justify-content-start flex-column g-3">
                 <div>
                   <h1 class="visimisi-title">Visi</h1>
                   <p class="visimisi-desc">
@@ -102,7 +100,7 @@ useSeoMeta({
       <section class="teams-citiasia-section-container py-5">
         <div class="container" data-aos="fade-down" data-aos-duration="1500">
           <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
-          <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-2 pt-5">
+          <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-3 pt-5">
             <div v-for="team in teams" :key="team.id" class="col">
               <figure class="figure">
                 <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images"
@@ -181,32 +179,33 @@ useSeoMeta({
               height="480"></iframe>
           </div>
         </div>
+
+        <div class="portofolio">
+          <div class="image-mitra">
+            <img class="ellipse" src="/images/Ellipse.png" alt="Mitra" />
+            <p class="angka">50+</p>
+            <p class="huruf">Mitra</p>
+          </div>
+          <div class="image-mitra">
+            <img class="ellipse" src="/images/Ellipse.png" alt="Swasta" />
+            <p class="angka">35+</p>
+            <p class="huruf">Swasta</p>
+          </div>
+          <div class="image-mitra">
+            <img class="ellipse" src="/images/Ellipse.png" alt="Pemerintah" />
+            <p class="angka">50+</p>
+            <p class="huruf">Pemerintah</p>
+          </div>
+          <div class="image-mitra">
+            <img class="ellipse" src="/images/Ellipse.png" alt="Client" />
+            <p class="angka">450+</p>
+            <p class="huruf">Client</p>
+          </div>
+        </div>
       </section>
       <!-- section portofolio end -->
+      <hr v-show="colorMode.preference === 'dark'" />
     </main>
-
-    <div class="portofolio">
-      <div class="image-mitra">
-        <img class="ellipse" src="/images/Ellipse.png" alt="Mitra" />
-        <p class="angka">50+</p>
-        <p class="huruf">Mitra</p>
-      </div>
-      <div class="image-mitra">
-        <img class="ellipse" src="/images/Ellipse.png" alt="Swasta" />
-        <p class="angka">35+</p>
-        <p class="huruf">Swasta</p>
-      </div>
-      <div class="image-mitra">
-        <img class="ellipse" src="/images/Ellipse.png" alt="Pemerintah" />
-        <p class="angka">50+</p>
-        <p class="huruf">Pemerintah</p>
-      </div>
-      <div class="image-mitra">
-        <img class="ellipse" src="/images/Ellipse.png" alt="Client" />
-        <p class="angka">450+</p>
-        <p class="huruf">Client</p>
-      </div>
-    </div>
   </NuxtLayout>
 </template>
 
