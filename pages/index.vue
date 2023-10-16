@@ -170,32 +170,34 @@ useSeoMeta({
               </div>
             </div>
             <div class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
-              <LazyHeadingTitle style="color: #5d5d5d" .slice(0, 5) " />
-                </div>
+              <LazyHeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title" title="Nasional" />
+              <div class="line-break"></div>
+              <div class="d-grid pt-3 gap-4">
+                <LazyArticlesArticleListThumbnailNumber :posts="posts
+                  .sort((a, b) => b.title.localeCompare(a.title))
+                  .slice(0, 5)
+                  " />
               </div>
-              <div class=" col-xxl-4 col-lg-4 col-md-12 col-xl-4">
-                <HeadingTitle style="color: #5D5D5D;"
-                  class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title"
-                  title="Internasional" />
-                =======
-                <div class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
-                  <LazyHeadingTitle style="color: #5d5d5d"
-                    class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title" title="Internasional" />
+            </div>
+            <div class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
+              <LazyHeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title" title="Internasional" />
 
-                  <div class="line-break"></div>
-                  <div class="d-grid pt-3 gap-4">
-                    <LazyArticlesArticleListThumbnailNumber :posts="posts
-                      .sort((a, b) =>
-                        b.createdAt
-                          .toString()
-                          .localeCompare(a.createdAt.toString())
-                      )
-                      .slice(0, 5)
-                      " />
-                  </div>
-                </div>
+              <div class="line-break"></div>
+              <div class="d-grid pt-3 gap-4">
+                <LazyArticlesArticleListThumbnailNumber :posts="posts
+                  .sort((a, b) =>
+                    b.createdAt
+                      .toString()
+                      .localeCompare(a.createdAt.toString())
+                  )
+                  .slice(0, 5)
+                  " />
+              </div>
             </div>
           </div>
+        </div>
       </section>
 
       <!-- section artikel list end -->
@@ -218,8 +220,6 @@ useSeoMeta({
   overflow-y: scroll;
 }
 
-.content {}
-
 .article-list-item::-webkit-scrollbar {
   width: 10px;
   background-color: #f5f5f5;
@@ -240,117 +240,115 @@ useSeoMeta({
   border-radius: 10px;
 }
 
-.acara {
-
-  /* 
+/* 
   Section Latest Feed Article
  */
-  .latest-newsfeed-section {
-    width: 100%;
-    height: auto;
-    background-color: #a60b40;
-  }
+.latest-newsfeed-section {
+  width: 100%;
+  height: auto;
+  background-color: #a60b40;
+}
 
-  .latest-newsfeed-section .card {
-    background-color: #a60b40;
-  }
+.latest-newsfeed-section .card {
+  background-color: #a60b40;
+}
 
-  .article-title {
-    color: #fff;
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    transition: ease 300ms;
-  }
+.article-title {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  transition: ease 300ms;
+}
 
-  .article-title:hover {
-    color: #d1d1d1;
-  }
+.article-title:hover {
+  color: #d1d1d1;
+}
 
-  .article-desc {
-    overflow: hidden;
-    color: #fff;
-    text-align: justify;
-    text-overflow: ellipsis;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    /* 18px */
-  }
+.article-desc {
+  overflow: hidden;
+  color: #fff;
+  text-align: justify;
+  text-overflow: ellipsis;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  /* 18px */
+}
 
-  .article-timestamp-icon {
-    font-size: 12px;
-  }
+.article-timestamp-icon {
+  font-size: 12px;
+}
 
-  .article-timestamp {
-    color: var(--font-400, #fff);
+.article-timestamp {
+  color: var(--font-400, #fff);
 
-    /* Font/Caption Reguler */
-    font-family: Poppins;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    /* 12px */
-  }
+  /* Font/Caption Reguler */
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 12px */
+}
 
-  .article-thumbnail {
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    object-fit: cover;
-    min-height: 253px;
-    border-radius: 8px;
-  }
+.article-thumbnail {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  min-height: 253px;
+  border-radius: 8px;
+}
 
-  .line-break {
-    width: 100%;
-    border-bottom: 1px solid var(--danger-600, #ce2f2f);
-  }
+.line-break {
+  width: 100%;
+  border-bottom: 1px solid var(--danger-600, #ce2f2f);
+}
 
+.article-list-container {
+  border-right: 0;
+}
+
+.subscribe-section-container {
+  background-color: #fff0f2;
+}
+
+.latest-newsfeed__title {
+  color: #d71149 !important;
+}
+
+@media (min-width: 992px) {
   .article-list-container {
-    border-right: 0;
+    border-right: 1px solid var(--font-100, #e7e7e7);
   }
+}
 
-  .subscribe-section-container {
-    background-color: #fff0f2;
-  }
-
-  .latest-newsfeed__title {
-    color: #d71149 !important;
-  }
-
-  @media (min-width: 992px) {
-    .article-list-container {
-      border-right: 1px solid var(--font-100, #e7e7e7);
-    }
-  }
-
-  /* 
+/* 
   color mode:dark-mode 
 */
-  .dark-mode .latest-newsfeed-section {
-    background-color: #262626;
-  }
+.dark-mode .latest-newsfeed-section {
+  background-color: #262626;
+}
 
-  .dark-mode .latest-newsfeed__title {
-    color: #d71149 !important;
-  }
+.dark-mode .latest-newsfeed__title {
+  color: #d71149 !important;
+}
 
-  .dark-mode .article-desc {
-    color: rgba(255, 255, 255, 0.8);
-  }
+.dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.8);
+}
 
-  .dark-mode .card {
-    background-color: #262626 !important;
-  }
+.dark-mode .card {
+  background-color: #262626 !important;
+}
 
-  .dark-mode .subscribe-section-container {
-    background: #3d3d3d;
-  }
+.dark-mode .subscribe-section-container {
+  background: #3d3d3d;
+}
 </style>
