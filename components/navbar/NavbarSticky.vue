@@ -241,6 +241,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
       <div class="d-none d-lg-none d-xl-block d-xxl-block">
         <div class="hstack gx-2">
           <Search />
+
           <!-- <form class="d-flex" role="search">
             <input class="form-control search-input-container me-2" type="search" placeholder="Cari" aria-label="Cari"> -->
           <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->

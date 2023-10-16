@@ -1,17 +1,15 @@
 <script lang="ts" setup>
-const route = useRouter();
+import { Router } from '#vue-router';
+
+const route: Router = useRouter();
 // initial values
 const searchQuery: globalThis.Ref<string> = ref("");
 
 // method
 const onSearchHandler = () => {
-  const query = searchQuery.value.toLowerCase();
+  const query: string = searchQuery.value.toLowerCase();
 
-  if (query.length) {
-    route.replace(`/search/${query}`);
-  }
-
-  return null;
+  query ? route.replace(`/search/${query}`) : null
 };
 </script>
 
@@ -19,9 +17,12 @@ const onSearchHandler = () => {
   <div class="d-none d-md-block d-lg-block">
     <form @submit.prevent="onSearchHandler" class="d-flex" role="search">
       <input v-model="searchQuery" class="form-control search-input-container me-2" type="search" placeholder="Cari"
-        aria-label="Cari" />
+        aria-label="Cari" autocomplete="name" />
       <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
     </form>
+
+
+    <SearchResults :search="searchQuery" />
   </div>
 </template>
 
@@ -90,7 +91,7 @@ input::placeholder {
   .search-input-container {
     justify-content: center;
     display: flex;
-    width: 300px;
+    /* width: 300px; */
     align-items: center;
     gap: 4px;
     height: 32px;
