@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-social-media-container d-none">
+  <div class="hero-social-media-container">
     <div class="d-flex flex-column text-center g-0">
 
       <!-- ig -->

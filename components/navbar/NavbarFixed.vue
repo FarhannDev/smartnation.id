@@ -231,7 +231,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
 .nav-link {
   color: #5d5d5d;
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -301,7 +301,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
 .translate__name {
   color: #5d5d5d;
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;

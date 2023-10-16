@@ -1,8 +1,5 @@
 <template>
-  <!-- <Navbar /> -->
-
-  <NavbarSticky />
+  <LazyNavbarSticky />
   <slot name="hero" />
-
   <slot />
 </template>

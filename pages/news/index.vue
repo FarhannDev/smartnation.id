@@ -22,12 +22,13 @@ useSeoMeta({
       <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
         <div class="container">
           <div class="row justify-content-start align-content-start g-5 py-5">
-            <div class="col-lg-8 col-md-auto">
+            <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">Berita Terbaru</h1>
 
                 <div class="row justify-content-arround g-4 py-3">
-                  <div v-for="post in posts.slice(0, 1)" :key="post.id" class="col-lg-6  col-md-6 article-list-container">
+                  <div v-for="post in posts.slice(0, 1)" :key="post.id"
+                    class="col-xl-6 col-xxl-6 col-lg-6  col-md-12 article-list-container">
                     <div class="card border-0 rounded-0 mb-3">
                       <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                         <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="post.thumbnail"
@@ -47,30 +48,27 @@ useSeoMeta({
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6">
+                  <div class="col-xl-6 col-xxl-6 col-lg-6 col-md-12">
                     <div class="d-flex flex-column justify-content-start g-2">
                       <div v-for="post in posts
-                            .sort((a, b) => a.title.localeCompare(b.title))
+                            .sort((a, b) => b.title.localeCompare(a.title))
                             .slice(0, 4)" :key="post.id">
                         <div class="mb-3">
-                          <div class="d-flex justify-content-between">
+                          <div class="d-flex justify-content-arround ">
                             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                               <NuxtImg class="me-2" style="border-radius: 4px" :src="post.thumbnail" :width="148"
                                 :height="94" loading="lazy" :alt="post.title" />
                             </NuxtLink>
-                            <div>
-                              <div class="d-flex flex-column">
-                                <span class="article-info-tag">Berita</span>
-                                <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                                  :class="'article-list-title link-offset-2 link-underline link-underline-opacity-0 text-start text-wrap   fw-normal '"
-                                  style="color: #5d5d5d">
-                                  {{
-                                    post.title.length >= 80
-                                    ? `${post.title.substring(0, 80)}...`
-                                    : post.title
-                                  }}
-                                </NuxtLink>
-                              </div>
+                            <div class="d-flex flex-column">
+                              <span class="article-info-tag">Berita</span>
+                              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+                                :class="'article-list-title link-offset-2 link-underline link-underline-opacity-0 text-start fw-normal '">
+                                {{
+                                  post.title.length >= 80
+                                  ? `${post.title.substring(0, 80)}...`
+                                  : post.title
+                                }}
+                              </NuxtLink>
                             </div>
                           </div>
                         </div>
@@ -142,14 +140,14 @@ useSeoMeta({
                       .sort((a, b) => b.title.localeCompare(a.title))
                       .slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0">
                       <div class="card border-0 rounded-0">
-                        <div class="row justify-content-start align-items-center g-0 g-lg-4">
-                          <div class="col-lg-4 col-md-5">
+                        <div class="row justify-content-start align-items-center g-3">
+                          <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-5">
                             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                               <NuxtImg :class="'article-list__thumbnail '" :src="post.thumbnail" loading="lazy"
                                 :alt="post.title" />
                             </NuxtLink>
                           </div>
-                          <div class="col-lg-8 col-md-7">
+                          <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-7">
                             <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
                               <div class="d-flex justify-content-between g-2 mb-3">
                                 <span class="article-info-tag">{{
@@ -161,13 +159,13 @@ useSeoMeta({
                               <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                                 :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
                                 {{
-                                  post.title.length >= 50
-                                  ? `${post.title.substring(0, 50)}...`
+                                  post.title.length >= 80
+                                  ? `${post.title.substring(0, 80)}...`
                                   : post.title
                                 }}
                               </NuxtLink>
-                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 70
-                                    ? `${post.excerpt.substring(0, 70)}...`
+                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 250
+                                    ? `${post.excerpt.substring(0, 250)}...`
                                     : post.excerpt
                                   "></div>
                             </div>
@@ -179,7 +177,7 @@ useSeoMeta({
                 </div>
               </article>
             </div>
-            <div class="col-lg-4 d-none d-lg-block d-xl-block d-xxl-block">
+            <div class="col-xl-4 col-xxl-4 col-lg-12 d-none d-lg-block d-xl-block d-xxl-block">
               <article>
                 <h1 class="berita-section-title text-decoration-underline">
                   Terpopuler Lainnya

@@ -20,7 +20,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 <template>
   <ul class="list-group list-group-flush">
 
-    <li v-for="post in posts" :key="post.id" class="list-group-item mx-md-2 px-md-2 mx-0 px-0 ">
+    <li v-for="post in posts" :key="post.id" class="list-group-item mx-lg-2 px-lg-2 mx-0 px-0 ">
       <div class="vstack g-2">
         <div class="d-flex justify-content-between">
           <div>

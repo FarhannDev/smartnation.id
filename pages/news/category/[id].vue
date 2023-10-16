@@ -95,25 +95,25 @@ useSeoMeta({
       <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
         <div class="container">
           <div class="row justify-content-start align-content-start g-5 py-5">
-            <div class="col-lg-8 col-md-auto">
+            <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
               <article class="article-section position-relative mb-3">
                 <h1 class="berita-section-title">{{ categoryPostName }}</h1>
 
-                <div class="d-flex flex-column py-3">
+                <div class="d-flex flex-column ">
                   <ul class="list-group list-group-flush">
                     <li v-for="post in posts
                       .sort((a, b) => b.title.localeCompare(a.title))
                       .slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0">
                       <div class="card border-0 rounded-0">
-                        <div class="row justify-content-start align-items-center g-0 g-lg-4">
-                          <div class="col-lg-4 col-md-5">
+                        <div class="row justify-content-start align-items-center g-3">
+                          <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
                             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                               <NuxtImg :class="'article-thumbnail'" :src="post.thumbnail" loading="lazy"
                                 :alt="post.title" />
                             </NuxtLink>
                           </div>
 
-                          <div class="col-lg-8 col-md-7 col-sm-auto">
+                          <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12">
                             <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
                               <div class="d-flex justify-content-between g-2 mb-3">
                                 <span class="article-info-tag">{{
@@ -126,13 +126,13 @@ useSeoMeta({
                               <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                                 :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
                                 {{
-                                  post.title.length >= 60
-                                  ? `${post.title.substring(0, 60)}...`
+                                  post.title.length >= 80
+                                  ? `${post.title.substring(0, 80)}...`
                                   : post.title
                                 }}
                               </NuxtLink>
-                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 150
-                                    ? `${post.excerpt.substring(0, 150)}...`
+                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 250
+                                    ? `${post.excerpt.substring(0, 250)}...`
                                     : post.excerpt
                                   "></div>
                             </div>
@@ -172,7 +172,7 @@ useSeoMeta({
                 <!-- Pagination end -->
               </article>
             </div>
-            <div class="col-lg-4 col-md-auto">
+            <div class="col-xl-4 col-xxl-4 col-lg-12 ">
               <article>
                 <h1 class="berita-section-title text-decoration-underline">
                   Terpopuler

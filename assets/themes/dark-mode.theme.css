@@ -1,0 +1,27 @@
+/* 
+  Set Navbar Dark Mode 
+*/
+.dark-mode .navbar-sticky {
+  background: var(--font-950, #262626);
+}
+
+.dark-mode .navbar-sticky .nav-link {
+  color: #e7e7e7;
+}
+
+.dark-mode .dropdown-menu {
+  background: var(--font-950, #262626);
+  color: #e7e7e7;
+}
+
+.dark-mode .bi {
+  color: #e7e7e7;
+}
+
+.dark-mode .translate__name {
+  color: #e7e7e7;
+}
+
+.dark-mode .dropdown-menu .dropdown-item {
+  color: #e7e7e7;
+}

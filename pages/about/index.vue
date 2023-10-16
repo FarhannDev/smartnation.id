@@ -15,7 +15,7 @@ const colorMode = useColorMode();
   <NuxtLayout name="page-layout">
     <!-- hero start -->
     <template #hero>
-      <HeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
+      <LazyHeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
         background="/images/background/bg-galeri.png" />
     </template>
 

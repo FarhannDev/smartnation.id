@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { posts } from "~/utils/data/getInitialData";
+
 // Set Meta SEO
 useSeoMeta({
   title: "Beranda",
@@ -14,7 +15,6 @@ useSeoMeta({
   ogUrl: "https://smartnation.vercel.app",
 });
 
-const colorMode = useColorMode();
 </script>
 
 <template>
@@ -39,7 +39,7 @@ const colorMode = useColorMode();
         <SwiperSlide v-for="post in posts
           .sort((a, b) => b.title.localeCompare(a.title))
           .slice(0, 5)" :key="post.id">
-          <HeroParallaxBackgroundHeroSwipe :text="post.title" :background="post.thumbnail" :postId="post.slug" />
+          <LazyHeroParallaxBackgroundHeroSwipe :text="post.title" :background="post.thumbnail" :postId="post.slug" />
         </SwiperSlide>
       </Swiper>
     </template>
@@ -49,15 +49,15 @@ const colorMode = useColorMode();
       <!-- section berita terbaru start -->
       <section class="latest-article-section py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
+          <LazyHeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
 
           <div class="row justify-content-start g-3 py-3">
-            <div class="col-12 col-lg-4 col-md-12">
-              <ArticlesArticleListSingleColumn :posts="posts.slice(0, 1)" />
+            <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12">
+              <LazyArticlesArticleListSingleColumn :posts="posts.slice(0, 1)" />
             </div>
-            <div class="col-12 col-lg-4 col-md-7">
+            <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12">
               <div class="d-flex flex-column article-list-container">
-                <ArticlesArticleListThumbnail :posts="posts
+                <LazyArticlesArticleListThumbnail :posts="posts
                   .sort((a, b) =>
                     a.createdAt
                       .toString()
@@ -67,10 +67,10 @@ const colorMode = useColorMode();
                   " />
               </div>
             </div>
-            <div class="col-12 col-lg-4 col-md-5">
+            <div class="col-lg-auto col-xl-4 col-xxl-4 col-md-12">
               <div>
-                <HeadingTitle class="text-start text-capitalize fst-medium fs-4" title="Terpopuler" />
-                <ArticlesArticleListTitle :posts="posts
+                <LazyHeadingTitle class="text-start text-capitalize fst-medium fs-4" title="Terpopuler" />
+                <LazyArticlesArticleListTitle :posts="posts
                   .sort((a, b) => b.title.localeCompare(a.title))
                   .slice(0, 5)
                   " />
@@ -83,16 +83,16 @@ const colorMode = useColorMode();
       <!-- section  berita terkini start -->
       <section class="latest-newsfeed-section position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle class="text-start text-capitalize text-white fst-medium fs-3 latest-newsfeed__title"
+          <LazyHeadingTitle class="text-start text-capitalize text-white fst-medium fs-3 latest-newsfeed__title"
             title="Berita Terkini" />
           <div class="row justify-content-arround g-3 py-3">
-            <div class="col-lg-6 col-md-auto">
+            <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
               <ArticlesArticleListSingleColumn :posts="posts.slice(0, 1)" isBackground />
             </div>
 
-            <div class="col-lg-6 col-md-auto">
+            <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
               <div class="row justify-content-start g-3">
-                <div v-for="post in posts.slice(0, 4)" :key="post.id" class="col-lg-6 col-md-6">
+                <div v-for="post in posts.slice(0, 4)" :key="post.id" class="col-xl-6 col-lg-6 col-md-6">
                   <div class="card border-0 rounded-0 mb-3" style="background-color: #a60b40">
                     <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
                       <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :height="253"
@@ -125,30 +125,29 @@ const colorMode = useColorMode();
       <!-- section acara & kegiatan start -->
       <section class="position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
-          <div class="row row-cols-auto row-cols-lg-4 row-cols-md-2 justify-content-start g-3 py-3">
-
-            <ArticlesArticleCardBackground :posts="posts.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 4)" />
-
+          <LazyHeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Acara " />
+          <div class="row justify-content-start align-content-start g-3 py-3">
+            <ArticlesArticleCardBackground :posts="posts.sort((a, b) => b.title.localeCompare(a.title)).slice(0, 4)" />
           </div>
+
         </div>
       </section>
       <!-- section acara & kegiatan end -->
       <!-- section artikel list start -->
       <section class="position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <HeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
+          <LazyHeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
           <div class="row justify-content-start align-items-start g-5 py-3">
-            <div class="col-lg-8 col-md-auto">
+            <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-12">
               <ArticlesArticleListSingleVerticalColumn :posts="posts.slice(0, 5)" />
             </div>
 
-            <div class="col-lg-4 col-md-auto">
+            <div class="col-xl-4 col-xxl-4 col-lg-12 col-md-12">
               <div>
-                <HeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
-                <div class="d-flex flex-column pt-4">
+                <LazyHeadingTitle class="text-start text-capitalize fw-bold fs-5" title="Seputar Citiasia Inc" />
+                <div class="d-flex flex-column">
                   <div class="vstack g-3">
-                    <ArticlesArticleListTitle :posts="posts
+                    <LazyArticlesArticleListTitle :posts="posts
                       .sort((a, b) => b.title.localeCompare(a.title))
                       .slice(0, 10)
                       " />
@@ -157,37 +156,37 @@ const colorMode = useColorMode();
               </div>
             </div>
           </div>
-          <div class="row justify-content-arround g-2 py-5">
-            <div class="col-lg-4 col-md-6">
-              <HeadingTitle style="color: #5d5d5d"
-                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Daerah" />
+          <div class="row justify-content-arround g-3 py-5">
+            <div class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
+              <LazyHeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title" title="Daerah" />
 
-              <div class="line-break mx-md-3"></div>
-              <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleListThumbnailNumber :posts="posts
+              <div class="line-break"></div>
+              <div class="d-grid pt-3 gap-3">
+                <LazyArticlesArticleListThumbnailNumber :posts="posts
                   .sort((a, b) => a.title.localeCompare(b.title))
                   .slice(0, 5)
                   " />
               </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <HeadingTitle style="color: #5d5d5d"
-                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Nasional" />
-              <div class="line-break mx-md-3"></div>
+            <div class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
+              <LazyHeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title" title="Nasional" />
+              <div class="line-break"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleListThumbnailNumber :posts="posts
+                <LazyArticlesArticleListThumbnailNumber :posts="posts
                   .sort((a, b) => b.title.localeCompare(a.title))
                   .slice(0, 5)
                   " />
               </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <HeadingTitle style="color: #5d5d5d"
-                class="text-start text-capitalize fw-normal fs-5 mx-md-3 latest-newsfeed__title" title="Internasional" />
+            <div class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
+              <LazyHeadingTitle style="color: #5d5d5d"
+                class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title" title="Internasional" />
 
-              <div class="line-break mx-md-3"></div>
+              <div class="line-break"></div>
               <div class="d-grid pt-3 gap-4">
-                <ArticlesArticleListThumbnailNumber :posts="posts
+                <LazyArticlesArticleListThumbnailNumber :posts="posts
                   .sort((a, b) =>
                     b.createdAt
                       .toString()
@@ -205,7 +204,7 @@ const colorMode = useColorMode();
       <!-- section subscribe start -->
       <section class="subscribe-section-container py-5">
         <div class="container">
-          <Subscribe />
+          <LazySubscribe />
         </div>
       </section>
       <!-- section subscribe end -->
@@ -308,7 +307,7 @@ const colorMode = useColorMode();
 }
 
 .line-break {
-  width: 92%;
+  width: 100%;
   border-bottom: 1px solid var(--danger-600, #ce2f2f);
 }
 
@@ -318,6 +317,10 @@ const colorMode = useColorMode();
 
 .subscribe-section-container {
   background-color: #fff0f2;
+}
+
+.latest-newsfeed__title {
+  color: #d71149 !important;
 }
 
 @media (min-width: 992px) {
@@ -348,7 +351,4 @@ const colorMode = useColorMode();
 .dark-mode .subscribe-section-container {
   background: #3d3d3d;
 }
-
-
-
 </style>

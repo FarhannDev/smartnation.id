@@ -19,7 +19,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 
 <template>
-  <div v-for="post in posts" :key="post.id" class="col">
+  <div v-for="post in posts" :key="post.id" class="col-xl-auto col-xxl-3 col-md-6  col-lg-6">
     <figure class="figure">
       <NuxtLink :to="`/${post.slug}`" aria-label="Baca Selengkapnya">
         <NuxtImg :class="'figure-img img-fluid rounded'" :src="post.thumbnail" :alt="post.title" loading="lazy"
@@ -46,7 +46,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 .figure .figure-img {
   width: 100%;
-  min-height: 160px;
+  height: 200px;
   border-radius: 8px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%,
       rgba(0, 0, 0, 0.65) 100%);
@@ -69,8 +69,6 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   left: 15px;
   right: 15px;
   overflow: hidden;
-  /* white-space: nowrap;
-  text-overflow: ellipsis; */
 }
 
 .event-cover__title {
@@ -101,51 +99,48 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   /* 14.218px */
 }
 
-@media (min-width: 768px) {
+/*
+   Responsive
+*/
+
+@media (max-width: 991.98px) {
   .figure .figure-caption {
-    top: 50% !important;
+    display: none;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1199.98px) {
   .figure .figure-caption {
-    top: 60%;
+    display: block;
+  }
+
+  .figure .figure-img {
+    width: 100%;
+    height: fit-content;
+  }
+
+
+  .event-cover__title {
+    font-size: 18px;
+  }
+
+  .event-cover__desc {
+    font-size: 16px;
   }
 }
 
-@media (min-width: 960px) {
-  .figure .figure-caption {
-    top: 70% !important;
+@media (max-width: 767.98px) {
+  .figure .figure-img {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .event-cover__title {
+    font-size: 18px;
+  }
+
+  .event-cover__desc {
+    font-size: 16px;
   }
 }
-
-/* @media (max-width: 960px) {
-  .figure .figure-caption {
-    top: 50% !important;
-  }
-} */
-
-@media (min-width: 1200px) {
-  .figure .figure-caption {
-    top: 45% !important;
-  }
-}
-
-/* @media (max-width: 1200px) {
-  .figure .figure-caption {
-    top: 50% !important;
-  }
-} */
-
-@media (min-width: 1400px) {
-  .figure .figure-caption {
-    top: 50% !important;
-  }
-}
-
-/* @media (max-width: 1400px) {
-  .figure .figure-caption {
-    top: 50% !important;
-  }
-} */
 </style>

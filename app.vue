@@ -1,11 +1,12 @@
 <template>
-  <SkipToContent />
+  <LazySkipToContent />
+
   <NuxtLayout>
     <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
 
-  <Footer />
+  <LazyFooter />
 </template>
 
 

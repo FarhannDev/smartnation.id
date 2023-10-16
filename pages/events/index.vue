@@ -20,7 +20,7 @@ const colorMode = useColorMode();
       <section class="berita-section-container position-relative py-5">
         <div class="container" data-aos="fade-up" data-aos-duration="1500">
           <div class="row justify-content-start align-content-start g-5 py-5">
-            <div class="col-lg-8 col-md-auto">
+            <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
               <article class="article-section position-relative mb-5" id="tentang" :hidden="isHidden">
                 <h1 class="berita-section-title">Tentang ISNA</h1>
                 <div class="row">
@@ -82,38 +82,38 @@ const colorMode = useColorMode();
                   </div>
                 </div>
 
-                <div class="d-flex flex-column py-5">
+                <div class="d-flex flex-column py-3">
                   <ul class="list-group list-group-flush">
                     <li v-for="post in posts
-                      .sort((a, b) => b.title.localeCompare(a.title))
-                      .slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0">
+                      .sort((a, b) => a.title.localeCompare(b.title))
+                      .slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0">
                       <div class="card border-0 rounded-0">
-                        <div class="row justify-content-start align-items-center g-0 g-lg-4">
-                          <div class="col-lg-4 col-md-5">
-                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                              <NuxtImg :class="'article-list__thumbnail '" :src="post.thumbnail" loading="lazy"
+                        <div class="row justify-content-start align-items-center g-3">
+                          <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
+                            <NuxtLink :to="`/events/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
+                              <NuxtImg :class="'article-thumbnail'" :src="post.thumbnail" loading="lazy"
                                 :alt="post.title" />
                             </NuxtLink>
                           </div>
-                          <div class="col-lg-8 col-md-7">
+
+                          <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12">
                             <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
                               <div class="d-flex justify-content-between g-2 mb-3">
-                                <span class="article-info-tag">Acara
-
-                                </span>
+                                <span class="article-info-tag">Acara</span>
                                 <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.createdAt)
                                 }}</span>
                               </div>
-                              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+
+                              <NuxtLink :to="`/events/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
                                 :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
                                 {{
-                                  post.title.length >= 50
-                                  ? `${post.title.substring(0, 50)}...`
+                                  post.title.length >= 80
+                                  ? `${post.title.substring(0, 80)}...`
                                   : post.title
                                 }}
                               </NuxtLink>
-                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 70
-                                    ? `${post.excerpt.substring(0, 70)}...`
+                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 250
+                                    ? `${post.excerpt.substring(0, 250)}...`
                                     : post.excerpt
                                   "></div>
                             </div>
@@ -123,6 +123,7 @@ const colorMode = useColorMode();
                     </li>
                   </ul>
                 </div>
+
                 <!-- Pagination start -->
                 <div class="d-flex justify-content-center g-2 pt-3">
                   <nav aria-label="Page navigation example">
@@ -152,7 +153,7 @@ const colorMode = useColorMode();
                 <!-- Pagination end -->
               </article>
             </div>
-            <div class="col-xl-4 col-md-6">
+            <div class="col-xl-4 col-xxl-4 col-lg-12">
               <article>
                 <h5 class="berita-section-title text-decoration-underline">
                   Terpopuler
@@ -222,30 +223,27 @@ export default {
 }
 
 .berita-section-title {
-  color: var(--font-600, #5d5d5d);
+  color: var(--primary-600, #d71149);
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 24px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 120%;
+  text-transform: capitalize;
+  /* 28.8px */
   /* 24px */
 }
 
-.line-break {
-  position: relative;
-  top: -5px;
-  left: 1.2px;
-  width: 51px;
-  border: 1px solid #c70943;
-}
-
 .article-title {
-  color: #5d5d5d;
+  overflow: hidden;
+  color: var(--font-600, #5d5d5d);
+  text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 120%;
+  /* 19.2px */
   transition: ease-in 300ms;
 }
 
@@ -255,14 +253,13 @@ export default {
 
 .article-desc {
   overflow: hidden;
-  color: #888;
-  text-align: justify;
+  color: var(--font-600, #5d5d5d);
   text-overflow: ellipsis;
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
+  font-weight: 400;
+  line-height: 120%;
   /* 18px */
 }
 
@@ -280,14 +277,6 @@ export default {
   font-weight: 400;
   line-height: 120%;
   /* 12px */
-}
-
-.article-thumbnail {
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 253px;
-  opacity: 1;
 }
 
 .article-link-title {
@@ -310,8 +299,31 @@ export default {
   /* 19.2px */
 }
 
+.article-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .article-thumbnail {
+    width: 256px;
+    height: 151px;
+  }
+}
+
 .article-list-container {
   border-right: 0;
+}
+
+@media (min-width: 992px) {
+  .article-list-container {
+    border-right: 1px solid var(--font-100, #e7e7e7);
+  }
 }
 
 .article-list-title {
@@ -326,41 +338,24 @@ export default {
   /* 16.8px */
 }
 
-.article-list__thumbnail {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  object-fit: cover;
-}
-
-@media (min-width: 992px) {
-  .article-list-container {
-    border-right: 1px solid var(--font-100, #e7e7e7);
-  }
-
-  .article-list__thumbnail {
-    width: 256px;
-    height: 151px;
-  }
-}
-
-.subscribe-section-container {
-  background-color: #fff0f2;
-}
-
 .article-list-title:hover {
   color: #d71149 !important;
 }
 
 .dark-mode .card {
+  background-color: #262626 !important;
+}
+
+.dark-mode .list-group {
   background-color: #262626;
 }
 
-.dark-mode .berita-section-title {
-  color: #d71149;
+.dark-mode .list-group-flush {
+  background-color: #262626;
+}
+
+.dark-mode .list-group-item {
+  background-color: #262626;
 }
 
 .dark-mode .article-title {
@@ -371,14 +366,6 @@ export default {
   color: #fafafa;
 }
 
-.dark-mode .article-desc {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.dark-mode .article-list-container {
-  border-right: 1px solid var(--font-100, #575757);
-}
-
 .dark-mode .article-info-tag {
   color: rgba(255, 255, 255, 0.9) !important;
 }
@@ -387,25 +374,7 @@ export default {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
-.dark-mode .list-group {
-  background: #3d3d3d;
-}
-
-.dark-mode .list-group-flush {
-  background: #3d3d3d;
-}
-
-.dark-mode .list-group-item {
-  background: #3d3d3d;
-}
-
-/* .dark-mode .list-group,
-.list-group-flush .list-group-item {
-  background: #3D3D3D;
-
-} */
-
-.dark-mode .subscribe-section-container {
-  background: #3d3d3d;
+.dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.9);
 }
 </style>

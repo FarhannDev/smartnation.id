@@ -5,7 +5,7 @@
   background-attachment: fixed;
   position: relative;
   width: 100%;
-  height: 100vh !important;
+  height: 100vh;
   overflow: hidden;
   scroll-behavior: smooth;
 }
@@ -17,7 +17,7 @@
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  height: 100vh !important;
+  height: 100vh;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -28,8 +28,10 @@
 
 .hero-heading-container {
   position: absolute;
-  width: 100%;
-  top: 45%;
+  width: fit-content;
+  top: 300px;
+  left: 8px;
+  right: 0;
   z-index: 1000;
 }
 
@@ -37,7 +39,7 @@
   display: block;
   color: var(--font-50, #F6F6F6);
   font-family: Poppins;
-  font-size: 61px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -46,10 +48,10 @@
 
 
 .hero-heading__desc {
-  display: none;
+  display: block;
   color: var(--Background, #FFF);
   font-family: Poppins;
-  font-size: 24px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -58,9 +60,10 @@
 
 
 .hero-social-media-container {
+  display: block;
   position: absolute;
-  top: 45%;
-  right: 0px;
+  top: 370px;
+  right: 20px;
 }
 
 
@@ -93,68 +96,131 @@
    Responsive
 */
 
+/* applies to medium devices (tablets, less than 992px) */
 
 
-/* applies to x-small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-  
-}
 
-/* applies to small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
+/* Small devices (landscape phones, 576px and up) */
+ @media (min-width: 576px) {
   .hero-heading-container {
-    width: 100%;
+    display: block;
+    width: 450px;
+    left: 120px;
+    top: 350px;
   }
 
   .hero-heading__title {
+    font-size: 28px;
+  }
+  .hero-social-media-container {
     display: block;
-    font-size: 33px !important;
-
+    right: 130px;
+    top: 350px;
   }
 
+  .hero-heading__desc {
+    font-size: 28px;   
+  }
+ }
+
+
+ /* Medium devices (tablets, 768px and up) */
+ @media (min-width: 768px) { 
+  .hero-heading-container {
+    display: block !important;
+    width: 650px;
+    left: 50px;
+    top: 350px;
+  }
+
+  .hero-heading__title {
+    font-size: 45px;
+  }
 
   .hero-social-media-container {
     display: block;
-    right: 20px !important;
+    right: 70px;
+    top: 350px;
   }
-}
 
-/* applies to medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) { 
+  .hero-heading__desc {
+    font-size: 33px;   
+  }
+ }
 
+
+ /* Large devices (desktops, 992px and up) */
+ @media (min-width: 992px) {
+  .hero-heading-container {
+    display: block;
+    width: 900px;
+    left: 40px;
+    top: 45%;
+  }
+
+  .hero-heading__title {
+    font-size: 45px;
+  }
+  .hero-social-media-container{
+    display: block;
+    right: 40px;
+    top: 48%;
+  }
+  .hero-heading__desc {
+    font-size: 33px;   
+  }
+ }
+
+
+ /*  X-Large devices (large desktops, 1200px and up) */
+
+ @media (min-width: 1200px) {
+  .hero-heading-container {
+    display: block;
+    width: 1100px;
+    left: 80px;
+    top: 45%;
+  }
+
+  .hero-heading__title {
+    font-size: 61px;
+  }
+
+  .hero-social-media-container{
+    display: block;
+    right: 100px;
+    top: 48%;
+  }
+  .hero-heading__desc {
+    font-size: 33px;   
+  }
+ }
+
+
+ /* XX-Large devices (larger desktops, 1400px and up) */
+ @media (min-width: 1400px) { 
+ 
   .hero-social-media-container {
     display: block;
-    /* right: 110px !important; */
+    right: 110px;
+    top: 48%;
   }
-}
-
-
-
-/* applies to large devices (desktops, less than 1200px) */
-@media (max-width:  1200px) {
-  
-  .hero-social-media-container {
+ 
+  .hero-heading-container {
     display: block;
-    right: 140px !important;
+    width: 1200px;
+    left: 100px;
+    top: 45%;
   }
-  
-}
 
-/* applies to x-large devices (large desktops, less than 1400px) */
+  .hero-heading__title {
+    font-size: 61px;
+  }
 
-@media (max-width:  1399.98px) {
-  
-  .hero-social-media-container {
-    display: block;
-    right: 120px;
+  .hero-heading__desc {
+    font-size: 33px;   
   }
 }
-
-
-
-
-
-
 
 
 
