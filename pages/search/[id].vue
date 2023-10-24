@@ -1,143 +1,154 @@
 <script lang="ts" setup>
-import { posts, categories } from "~/utils/data/getInitialData";
+import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
 const route = useRoute();
 
 const { id } = route.params;
+const query: globalThis.Ref<string> = ref(id.toString())
 
-const results = posts.filter(post => {
-  return post.title.toLowerCase().includes(id.toString().toLowerCase())
+
+
+const { data: results } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.filter(post => {
+      return post.title.rendered.toLowerCase().includes(query.value.toLowerCase()) ||
+        post.excerpt.rendered.toLowerCase().includes(query.value.toLowerCase())
+    })
+  }
+})
+
+const { data: posts } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)
+  }
 })
 
 
-const resultName: globalThis.Ref<string> = ref(`Hasil pencarian ${id.toString()}, Ditemukan dalam ${results.length} Berita`)
+const resultName: globalThis.Ref<string> = ref(`Hasil pencarian ${id.toString()}, Ditemukan dalam ${results.value?.length} Berita`)
 const resultNameEmpty: globalThis.Ref<string> = ref(`Hasil pencarian ${id.toString()} tidak ditemukan!`)
 
 
 useSeoMeta({
-  title: results.length ? resultName : `Hasil pencarian tidak ditemukan`,
+  title: results.value ? resultName : `Hasil pencarian tidak ditemukan`,
 })
 </script>
 
 <template>
-  <NuxtLayout name="page-layout">
-    <template #hero>
-      <HeroParallaxBackground v-for="(post, index) in posts.slice(0, 1)" :key="index" :text="'Daftar Berita'"
-        :desc="`Daftar berita dari hasil pencarian ${id.toString()}`" :background="post.thumbnail" />
-    </template>
+  <HeroParallaxBackground v-for="(post, index) in posts.sort((a, b) => b.date_gmt.localeCompare(a.date_gmt)).slice(0, 1)"
+    :key="index" :text="'Daftar Berita'" :desc="`Daftar Berita Dari Hasil pencarian ${id.toString()}`"
+    :background="post.featured_media" />
 
-    <main id="content">
-      <!-- Section berita start -->
-      <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
-        <div class="container">
-          <div class="row justify-content-start align-content-start g-5 py-5">
-            <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
-              <article v-if="results.length" class="article-section position-relative mb-3">
-                <h1 class="berita-section-title">{{ resultName }}</h1>
+  <main id="content">
+    <!-- Section berita start -->
+    <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
+      <div class="container">
+        <div class="row justify-content-start align-content-start g-5 py-5">
+          <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
+            <article v-if="results.length" class="article-section position-relative mb-3">
+              <h1 class="berita-section-title">{{ resultName }}</h1>
 
-                <div class="d-flex flex-column ">
-                  <ul class="list-group list-group-flush">
-                    <li v-for="post in results
-                      .sort((a, b) => b.title.localeCompare(a.title))
-                      .slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0">
-                      <div class="card border-0 rounded-0">
-                        <div class="row justify-content-start align-items-center g-3">
-                          <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
-                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-                              <NuxtImg :class="'article-thumbnail'" :src="post.thumbnail" loading="lazy"
-                                :alt="post.title" />
-                            </NuxtLink>
-                          </div>
+              <div class="d-flex flex-column ">
+                <ul class="list-group list-group-flush">
+                  <li v-for="post in results
+                    .sort((a, b) => b.title.rendered.localeCompare(a.title.rendered))
+                    .slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0">
+                    <div class="card border-0 rounded-0">
+                      <div class="row justify-content-start align-items-center g-3">
+                        <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
+                          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+                            <NuxtImg :class="'article-thumbnail'" :src="post.featured_media" loading="lazy"
+                              :alt="post.title.rendered" />
+                          </NuxtLink>
+                        </div>
 
-                          <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12">
-                            <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
-                              <div class="d-flex justify-content-between g-2 mb-3">
-                                <span class="article-info-tag">Berita</span>
-                                <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.createdAt)
-                                }}</span>
-                              </div>
-
-                              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                                :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                                {{
-                                  post.title.length >= 80
-                                  ? `${post.title.substring(0, 80)}...`
-                                  : post.title
-                                }}
-                              </NuxtLink>
-                              <div class="article-desc pt-2" v-html="post.excerpt.length >= 150
-                                    ? `${post.excerpt.substring(0, 150)}...`
-                                    : post.excerpt
-                                  "></div>
+                        <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12">
+                          <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
+                            <div class="d-flex justify-content-between g-2 mb-3">
+                              <span class="article-info-tag">Berita</span>
+                              <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.date_gmt)
+                              }}</span>
                             </div>
+
+                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+                              :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
+                              {{
+                                post.title.rendered.length >= 80
+                                ? `${post.title.rendered.substring(0, 80)}...`
+                                : post.title.rendered
+                              }}
+                            </NuxtLink>
+                            <div class="article-desc pt-2" v-html="post.excerpt.rendered.length >= 120
+                                  ? `${post.excerpt.rendered.substring(0, 120)}...`
+                                  : post.excerpt.rendered
+                                "></div>
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pagination start -->
+              <div class="d-flex justify-content-center g-2 pt-3 ">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item mx-2">
+                      <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item mx-1">
+                      <a class="page-link text-center text-white border-0 rounded bg-danger" href="#">1</a>
+                    </li>
+                    <li class="page-item mx-1">
+                      <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">2</a>
+                    </li>
+                    <li class="page-item mx-1">
+                      <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">3</a>
+                    </li>
+                    <li class="page-item mx-2">
+                      <a class="page-link border-0 text-dark" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
                     </li>
                   </ul>
-                </div>
+                </nav>
+              </div>
+              <!-- Pagination end -->
+            </article>
 
-                <!-- Pagination start -->
-                <div v-show="posts.length >= 12" class="d-flex justify-content-center g-2 pt-3 d-none">
-                  <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                      <li class="page-item mx-2">
-                        <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                      </li>
-                      <li class="page-item mx-1">
-                        <a class="page-link text-center text-white border-0 rounded bg-danger" href="#">1</a>
-                      </li>
-                      <li class="page-item mx-1">
-                        <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">2</a>
-                      </li>
-                      <li class="page-item mx-1">
-                        <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">3</a>
-                      </li>
-                      <li class="page-item mx-2">
-                        <a class="page-link border-0 text-dark" href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <!-- Pagination end -->
-              </article>
+            <!-- Show not found -->
+            <div v-else>
 
-              <!-- Show not found -->
-              <div v-else>
-
-                <div class="text-center mx-auto">
-                  <NuxtImg src="/images/ccsn_empty_page.png" class="img-fluid" loading="lazt" :width="342"
-                    :height="342" />
-                  <h1 class="berita-section-title">{{ resultNameEmpty }}</h1>
-                  <h1 class="berita-section-title">Untuk saat ini berita belum tersedia, Coba dengan kata kunci lain </h1>
-                </div>
+              <div class="text-center mx-auto">
+                <NuxtImg src="/images/ccsn_empty_page.png" class="img-fluid" loading="lazt" :width="342" :height="342" />
+                <h1 class="berita-section-title">{{ resultNameEmpty }}</h1>
+                <h1 class="berita-section-title">Untuk saat ini berita belum tersedia, Coba dengan kata kunci lain </h1>
               </div>
             </div>
-            <div class="col-xl-4 col-xxl-4 col-lg-12 ">
-              <article>
-                <h1 class="berita-section-title text-decoration-underline">
-                  Baca Berita Lainnya
-                </h1>
+          </div>
+          <div class="col-xl-4 col-xxl-4 col-lg-12 ">
+            <article>
+              <h1 class="berita-section-title text-decoration-underline">
+                Baca Berita Lainnya
+              </h1>
 
-                <div class="d-flex flex-column pt-4">
-                  <div class="vstack g-3">
-                    <ArticlesArticleRecomended v-for="(post, index) in posts
-                      .sort((a, b) => a.title.localeCompare(b.title))
-                      .slice(0, 10)" :key="post.id" :number="index" :postId="post.slug" :title="post.title" />
-                  </div>
+              <div class="d-flex flex-column ">
+                <div class="vstack g-3">
+                  <LazyArticlesArticleListTitle :posts="posts
+                    .sort((a, b) => b.title.rendered.localeCompare(a.title.rendered))
+                    .slice(0, 10)
+                    " />
                 </div>
-              </article>
-            </div>
+              </div>
+            </article>
           </div>
         </div>
-      </section>
-      <!-- Section berita end -->
-    </main>
-  </NuxtLayout>
+      </div>
+    </section>
+    <!-- Section berita end -->
+  </main>
 </template>
 
 <style scoped>

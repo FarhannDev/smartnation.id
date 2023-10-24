@@ -1,261 +1,141 @@
 <script lang="ts" setup>
-import { posts, categories } from "~/utils/data/getInitialData";
+import { posts } from "~/utils/data/getInitialData";
+import { CategoryPostsType } from "~/utils/data/getInitialCategoryPostData";
+import { PostsDataType } from "~/utils/data/getInitialPostsData";
+
 
 const route = useRoute();
-const { id } = route.params;
-const categoryPostName: globalThis.Ref<string> = ref("");
-// const categoryId: globalThis.Ref<number> = ref(83)
-// const pageParams: globalThis.Ref<number> = ref(1)
-// const per_page: globalThis.Ref<number> = ref(18)
-// const imageSourceUrl: globalThis.Ref = ref("");
+const categoryId = route.params.id
+const categoryPostsId: globalThis.Ref<number | undefined> = ref(139);
+const categoryTitle: globalThis.Ref<string | undefined> = ref('')
 
-onBeforeMount(() => {
-  function getCategoriesData() {
-    return categories.find((category) => {
-      x;
-      const categoryId: string = id.toString();
-
-      return category.slug === categoryId
-        ? (categoryPostName.value = category.name)
-        : null;
-    });
+const { data } = await useFetch('/api/categories', {
+  transform: (categories: CategoryPostsType) => {
+    return categories.find(category => {
+      if (category.slug === categoryId) {
+        categoryTitle.value = category.name
+        categoryPostsId.value = category.id
+      }
+    })
   }
+})
 
-  getCategoriesData();
-});
-
-/*
- * Uncomment code fetching data from APImobile
- *
- */
-
-// const config = useRuntimeConfig()
-
-// const apiBaseUrl = config.public.apiBase;
-
-// const { data: posts } = await useFetch(`/posts`, {
-//   baseURL: apiBaseUrl,
-//   transform: (posts: Posts[]) => {
-//     return Array.from(new Map(posts.map(post => [post.title.rendered, post])).values())
-//   }
-// })
-
-// const { data: categories } = await useFetch(`/categories`, {
-//   baseURL: apiBaseUrl,
-//   transform: (categories: Categories[]) => {
-//     return categories.find(category => {
-//       const initialCategory = id.toString()
-//       if (category.slug === initialCategory) {
-//         categoryId.value = category.id
-//         categoryPostName.value = category.name
-//       }
-//     })
-//   }
-// })
-
-// const { data: postsCategories } = await useFetch(`/posts?categories=${categoryId.value}&page?=${pageParams.value}&per_page=${per_page.value}`, {
-//   baseURL: apiBaseUrl,
-//   transform: (posts: Posts[]) => {
-//     return posts.map(post => ({
-//       id: post.id, slug: post.slug, title: post.title.rendered, excerpt: post.excerpt.rendered,
-//       featured_media: post.featured_media, categories: post.categories, tags: post.tags, date: post.date,
-//       modified: post.modified,
-//     }))
-//   }
-// })
-
-// const { data: postsMedia } = await useFetch(`/media`, {
-//   baseURL: apiBaseUrl,
-//   transform: (mediaImage: Media[]) => {
-//     return postsCategories?.value.forEach(post => {
-//       const mediaImageId: number = post.featured_media
-//       if (mediaImageId) {
-//         mediaImage.map((media) => {
-//           imageSourceUrl.value = media.source_url
-//         })
-//       }
-//     })
-//   }
-// })
+const { data: postsData } = await useFetch('/api/posts')
 
 useSeoMeta({
-  title: `Berita Kategori ${categoryPostName.value}`,
+  title: `Berita Kategori ${categoryTitle?.value}`,
   description: ``,
 });
+
+
 </script>
 
 <template>
-  <NuxtLayout name="page-layout">
-    <template #hero>
-      <HeroParallaxBackground
-        v-for="(post, index) in posts.slice(0, 1)"
-        :key="index"
-        :text="'Daftar Berita'"
-        :desc="`Daftar berita dari kategori ${categoryPostName}`"
-        :background="post.thumbnail"
-      />
-    </template>
+  <HeroParallaxBackground v-for="(post, index) in postsData.slice(0, 1)" :key="index"
+    :text="`Kumpulan Acara ${categoryTitle}`" :desc="`Kumpulan Acara ISNA dari beberapa Kategori`"
+    :background="post.featured_media" />
+  <main id="content">
+    <!-- Section berita start -->
+    <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
+      <div class="container">
+        <div class="row justify-content-start align-content-start g-5">
+          <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
+            <article class="article-section position-relative mb-3">
+              <h1 class="berita-section-title">{{ categoryTitle }}</h1>
 
-    <main id="content">
-      <!-- Section berita start -->
-      <section
-        data-aos="fade-up"
-        data-aos-duration="1500"
-        class="berita-section-container position-relative py-5"
-      >
-        <div class="container">
-          <div class="row justify-content-start align-content-start g-5 py-5">
-            <div class="col-lg-8 col-md-10">
-              <article class="article-section position-relative mb-3">
-                <h1 class="berita-section-title">{{ categoryPostName }}</h1>
+              <div class="d-flex flex-column ">
+                <ul class="list-group list-group-flush">
+                  <li v-for="post in postsData
+                    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+                    ?.slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0">
+                    <div class="card border-0 rounded-0">
+                      <div class="row justify-content-start align-items-center g-3">
+                        <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
+                          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+                            <NuxtImg :class="'article-thumbnail'" :src="post.featured_media" loading="lazy"
+                              :alt="post.title.rendered" />
+                          </NuxtLink>
+                        </div>
 
-                <div class="d-flex flex-column py-3">
-                  <ul class="list-group list-group-flush">
-                    <li
-                      v-for="post in posts
-                        .sort((a, b) => b.title.localeCompare(a.title))
-                        .slice(0, 12)"
-                      :key="post.id"
-                      class="list-group-item mx-0 px-0"
-                    >
-                      <div class="card border-0 rounded-0">
-                        <div
-                          class="row justify-content-start align-items-center g-2"
-                        >
-                          <div class="col-xl-4 col-lg-4 col-md-4">
-                            <NuxtLink
-                              :to="`/${post.slug}`"
-                              :aria-label="`Baca Selengkapnya ${post.title}`"
-                            >
-                              <NuxtImg
-                                :class="'article-thumbnail'"
-                                :src="post.thumbnail"
-                                loading="lazy"
-                                :alt="post.title"
-                              />
-                            </NuxtLink>
-                          </div>
-
-                          <div class="col-xl-8 col-lg-8 col-md-8">
-                            <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
-                              <div
-                                class="d-flex justify-content-between g-2 mb-3"
-                              >
-                                <span class="article-info-tag">{{
-                                  categoryPostName
-                                }}</span>
-                                <span
-                                  class="article-info-tag text-start text-secondary"
-                                  >{{ useFormatter(post.createdAt) }}</span
-                                >
-                              </div>
-
-                              <NuxtLink
-                                :to="`/${post.slug}`"
-                                :aria-label="`Baca Selengkapnya ${post.title}`"
-                                :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '"
-                              >
-                                {{
-                                  post.title.length >= 50
-                                    ? `${post.title.substring(0, 50)}...`
-                                    : post.title
-                                }}
-                              </NuxtLink>
-                              <div
-                                class="article-desc pt-2"
-                                v-html="
-                                  post.excerpt.length >= 150
-                                    ? `${post.excerpt.substring(0, 150)}...`
-                                    : post.excerpt
-                                "
-                              ></div>
+                        <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12">
+                          <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
+                            <div class="d-flex justify-content-between g-2 mb-3">
+                              <span class="article-info-tag">{{
+                                categoryTitle
+                              }}</span>
+                              <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.date_gmt)
+                              }}</span>
                             </div>
+
+                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+                              :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
+                              {{
+                                post.title.rendered.length >= 80
+                                ? `${post.title.rendered.substring(0, 80)}...`
+                                : post.title.rendered
+                              }}
+                            </NuxtLink>
+                            <div class="article-desc pt-2" v-html="post.excerpt.rendered.length >= 120
+                                  ? `${post.excerpt.rendered.substring(0, 120)}...`
+                                  : post.excerpt.rendered
+                                "></div>
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pagination start -->
+              <div v-show="posts.length >= 12" class="d-flex justify-content-center g-2 pt-5">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item mx-2">
+                      <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item mx-1">
+                      <a class="page-link text-center text-white border-0 rounded bg-danger" href="#">1</a>
+                    </li>
+                    <li class="page-item mx-1">
+                      <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">2</a>
+                    </li>
+                    <li class="page-item mx-1">
+                      <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">3</a>
+                    </li>
+                    <li class="page-item mx-2">
+                      <a class="page-link border-0 text-dark" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
                     </li>
                   </ul>
-                </div>
+                </nav>
+              </div>
+              <!-- Pagination end -->
+            </article>
+          </div>
+          <div class="col-xl-4 col-xxl-4 col-lg-12 ">
+            <article>
+              <h1 class="berita-section-title text-decoration-underline">
+                Berita Terpopuler Lainnya
+              </h1>
 
-                <!-- Pagination start -->
-                <div
-                  v-show="posts.length >= 12"
-                  class="d-flex justify-content-center g-2 pt-3"
-                >
-                  <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                      <li class="page-item mx-2">
-                        <a
-                          class="page-link border-0 text-dark"
-                          href="#"
-                          aria-label="Previous"
-                        >
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                      </li>
-                      <li class="page-item mx-1">
-                        <a
-                          class="page-link text-center text-white border-0 rounded bg-danger"
-                          href="#"
-                          >1</a
-                        >
-                      </li>
-                      <li class="page-item mx-1">
-                        <a
-                          class="page-link text-center text-dark border-0 rounded bg-none"
-                          href="#"
-                          >2</a
-                        >
-                      </li>
-                      <li class="page-item mx-1">
-                        <a
-                          class="page-link text-center text-dark border-0 rounded bg-none"
-                          href="#"
-                          >3</a
-                        >
-                      </li>
-                      <li class="page-item mx-2">
-                        <a
-                          class="page-link border-0 text-dark"
-                          href="#"
-                          aria-label="Next"
-                        >
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
+              <div class="d-flex flex-column">
+                <div class="vstack g-3">
+                  <ArticlesArticleRecomended v-for="(post, index) in posts
+                    .sort((a, b) => a.title.localeCompare(b.title))
+                    .slice(0, 10)" :key="post.id" :number="index" :postId="post.slug" :title="post.title" />
                 </div>
-                <!-- Pagination end -->
-              </article>
-            </div>
-            <div class="col-lg-4">
-              <article>
-                <h1 class="berita-section-title text-decoration-underline">
-                  Terpopuler
-                </h1>
-
-                <div class="d-flex flex-column pt-4">
-                  <div class="vstack g-3">
-                    <ArticlesArticleRecomended
-                      v-for="(post, index) in posts
-                        .sort((a, b) => a.title.localeCompare(b.title))
-                        .slice(0, 10)"
-                      :key="post.id"
-                      :number="index"
-                      :postId="post.slug"
-                      :title="post.title"
-                    />
-                  </div>
-                </div>
-              </article>
-            </div>
+              </div>
+            </article>
           </div>
         </div>
-      </section>
-      <!-- Section berita end -->
-    </main>
-  </NuxtLayout>
+      </div>
+    </section>
+    <!-- Section berita end -->
+  </main>
 </template>
 
 <style scoped>

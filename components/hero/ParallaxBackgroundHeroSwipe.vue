@@ -1,22 +1,32 @@
 <script lang="ts" setup>
+import { PropType } from 'nuxt/dist/app/compat/capi';
+import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
 
-const props = defineProps({
-  background: { type: String, required: true },
-  text: { type: String, required: true },
-  desc: { type: String },
-  postId: { type: String }
-})
+defineProps({ posts: { type: Object as PropType<PostsDataType>, required: true } })
 
-const backgroundStyle = () => {
+
+interface Background {
+  backgroundImage: string;
+  backgroundAttachment: string;
+  backgroundPosition: string;
+  backgroundRepeat: string;
+  backgroundSize: string;
+  objectFit: string;
+  objectPosition: string;
+}
+
+type IbackgroundType = Background
+
+const backgroundStyle = (background: string | undefined): IbackgroundType => {
   return {
-    backgroundImage: `url(${props.background})`
-    // backgroundAttachment: 'fixed',
-    // backgroundPosition: 'center',
-    // backgroundRepeat: 'no-repeat',
-    // backgroundSize: 'cover',
-    // objectFit: "cover",
-    // objectPosition: "center",
+    backgroundImage: `url(${background})`,
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    objectFit: "cover",
+    objectPosition: "center",
   };
 }
 </script>
@@ -24,22 +34,44 @@ const backgroundStyle = () => {
 
 <template>
   <section class="hero-section">
-    <div class="hero-image-parallax" :style="backgroundStyle()">
-      <div class="hero-image-bg__gradient"></div>
-      <div class="container">
-        <div class="hero-heading-container">
-          <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${text}`"
-            :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
-            {{ text.length >= 120
-              ? `${text.substring(0, 120)}...`
-              : text
-            }}
-          </NuxtLink>
-        </div>
-        <LazyHeroSocialMedia />
-      </div>
-    </div>
+    <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :grabCursor="true"
+      :pagination="{
+        clickable: true,
+      }" :effect="'creative'" :autoplay="{
+  delay: 2500,
+  disableOnInteraction: true,
+}" :creative-effect="{
+  prev: {
+    shadow: false,
+    translate: ['-20%', 0, -1],
+  },
+  next: {
+    translate: ['100%', 0, 0],
+  },
+}">
+      <SwiperSlide v-for="post in posts
+            .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+            .slice(0, 5)" :key="post.id">
 
+
+
+        <div class="hero-image-parallax" :style="backgroundStyle(post.featured_media)">
+          <div class="hero-image-bg__gradient"></div>
+          <div class="container">
+            <div class="hero-heading-container">
+              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+                :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
+                {{ post.title.rendered.length >= 120
+                  ? `${post.title.rendered.substring(0, 120)}...`
+                  : post.title.rendered
+                }}
+              </NuxtLink>
+            </div>
+            <HeroSocialMedia />
+          </div>
+        </div>
+      </SwiperSlide>
+    </Swiper>
   </section>
 </template>
 
@@ -58,10 +90,10 @@ const backgroundStyle = () => {
 
 
 .hero-image-bg__gradient {
+  position: absolute;
   padding: 0;
   height: 100vh;
   flex-shrink: 0;
-  position: relative;
   width: 100%;
   height: 100vh;
   background: linear-gradient(0deg,

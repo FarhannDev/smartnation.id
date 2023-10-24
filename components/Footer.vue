@@ -10,15 +10,9 @@
                     <p id="address" class="text-white mb-3 col-9">Daerah Khusus Ibukota Jakarta 13310</p>
                     <!-- <div id="dummy_map"></div> -->
                     <div id="map">
-                        <l-map id="map2" :useGlobalLeaflet="false" ref="map" v-model:zoom="zoom" :center="center">
-                            <l-tile-layer :url="url" layer-type="base" name="OpenStreetMap"></l-tile-layer>
-                            <l-marker :lat-lng="markerLatLng" :visible="true">
-
-                                <l-popup><a id="marker"
-                                        href="https://www.google.com/maps/place/Citiasia+Co-Creation+Lab/@-6.2194251,106.8625244,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f3382c07455d:0x8dcc8b271afc13d7!8m2!3d-6.2194304!4d106.8650993!16s%2Fg%2F11tslq0lyh?entry=ttu">Citiasia
-                                        Co-Creation Lab</a></l-popup>
-                            </l-marker>
-                        </l-map>
+                        <iframe id="map" center
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.335373225675!2d106.86252437378327!3d-6.21943039376856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3382c07455d%3A0x8dcc8b271afc13d7!2sCitiasia%20Co-Creation%20Lab!5e0!3m2!1sid!2sid!4v1697729172835!5m2!1sid!2sid"
+                            width="600" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
@@ -112,32 +106,6 @@
         </div>
     </footer>
 </template>
-
-<script lang="ts">
-import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
-import type L from "leaflet";
-
-export default {
-    components: {
-        LMap,
-        LTileLayer,
-        LMarker,
-        LPopup
-    },
-    data() {
-        return {
-            zoom: 15,
-            url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            attribution:
-                '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-            // zoom: 3,
-            center: [-6.219409062382584, 106.8650349228692],
-            markerLatLng: [-6.219409062382584, 106.8650349228692] as L.LatLngExpression
-        };
-    },
-};
-</script>
 
 
 <style scoped>

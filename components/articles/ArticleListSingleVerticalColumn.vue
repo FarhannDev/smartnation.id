@@ -3,17 +3,23 @@
 import { PropType } from "vue"
 interface Posts {
   id: number | string;
-  title: string;
   slug: string;
-  excerpt: string;
-  content: string;
+  date_gmt: string;
+  modified_gmt: string;
+  status: string;
   categories: Array<number>;
-  thumbnail: string;
-  createdAt: string;
-  updatedAt: string;
+  tags: Array<number>;
+  author: number;
+  featured_media: string;
+  comment_status: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  content: { rendered: string };
 }
 
-const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
+type PostsDataType = Posts[];
+
+const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 </script>
 
 <template>
@@ -21,30 +27,30 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
       <div class="row justify-content-start align-items-start g-0">
         <div class="col-lg-6 col-md-6">
-          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`">
-            <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.thumbnail" :height="253" loading="lazy"
-              :alt="post.title" />
+          <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+            <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.featured_media" :height="253" loading="lazy"
+              :alt="post.title.rendered" />
           </NuxtLink>
         </div>
 
         <div class="col-lg-6 col-md-6">
           <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+            <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
               :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-              {{ post.title.length >= 80
-                ? `${post.title.substring(0, 80)}...`
-                : post.title
+              {{ post.title.rendered.length >= 80
+                ? `${post.title.rendered.substring(0, 80)}...`
+                : post.title.rendered
               }}
             </NuxtLink>
 
             <div class="d-flex flex-wrap mb-2 pt-1">
               <span class="article-timestamp">
-                <BootstrapIcon name="clock" /> {{ useTimestamps(post.createdAt) }}
+                <BootstrapIcon name="clock" /> {{ useTimestamps(post.date_gmt) }}
               </span>
             </div>
 
-            <div class="article-desc mb-3" v-html="post.excerpt.length >= 250
-              ? `${post.excerpt.substring(0, 250)}...`
+            <div class="article-desc mb-3" v-html="post.excerpt.rendered.length >= 250
+              ? `${post.excerpt.rendered.substring(0, 250)}...`
               : post.excerpt
               "></div>
 

@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { RouteLocationNormalizedLoaded } from "vue-router";
-import { categories } from "~/utils/data/getInitialData";
+// import { categories } from "~/utils/data/getInitialData";
+import { CategoryPostsType } from "~/utils/data/getInitialCategoryPostData";
+
 
 const props = defineProps({ isSticky: { type: Boolean, default: true } });
 const route: RouteLocationNormalizedLoaded = useRoute();
@@ -44,13 +46,38 @@ const showDropdownTranslate: (isOpen: boolean) => boolean = (isOpen: boolean) =>
 
 const updateLanguage: (language: string) => string = (language: string) =>
   (isLanguage.value = language);
+
+
+const { data: categories } = await useLazyFetch('/api/categories', {
+  transform: (categories: CategoryPostsType) => {
+    return categories.filter(category => category.parent === 0).map(cat => ({
+      id: cat.id,
+      name: cat.name,
+      slug: cat.slug
+    }));
+  }
+})
+
+
+const { data: categoriesEvents } = await useLazyFetch('/api/categories', {
+  transform: (events: CategoryPostsType) => {
+    return events.filter(event => event.id == 89 ||
+      event.id === 90 ||
+      event.id === 129).map(cat => ({
+        id: cat.id,
+        name: cat.name,
+        slug: cat.slug
+      }));
+  }
+})
+
 </script>
 
 <template>
   <nav :class="`navbar navbar-expand-xl fixed-top`">
     <div class="container">
       <NuxtLink to="/" aria-label="Smart Nation Logo" class="navbar-brand">
-        <NuxtImg src="/images/logo.png" alt="Smart Nation Logo"
+        <NuxtImg src="/images/logo.png" alt="Smart Nation Logo" loading="lazy"
           class="d-inline-block align-text-top navbar-brand__logo" />
       </NuxtLink>
 
@@ -81,8 +108,8 @@ const updateLanguage: (language: string) => string = (language: string) =>
           <!-- Show Dropdown display in laptop or desktop -->
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)"
             class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/news' ? 'active' : ''
-              }`" to="/news" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+              }`" to="/articles" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
                 <path
@@ -92,7 +119,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/news/category/${category.slug}`">{{ category.name }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :to="`/articles/category/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
             </ul>
           </li>
@@ -108,16 +135,19 @@ const updateLanguage: (language: string) => string = (language: string) =>
               </svg>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownEvents }">
-              <li><a class="dropdown-item" href="#">ISNA</a></li>
+              <li v-for="category in categoriesEvents" :key="category.id">
+                <NuxtLink class="dropdown-item" :to="`/events/category/${category.slug}`">{{ category.name }}</NuxtLink>
+              </li>
+              <!-- <li><a class="dropdown-item" href="#">ISNA</a></li>
               <li><a class="dropdown-item" href="#">ISCIF</a></li>
-              <li><a class="dropdown-item" href="#">Training</a></li>
+              <li><a class="dropdown-item" href="#">Training</a></li> -->
             </ul>
           </li>
 
           <!-- Showing dropdown display in mobile or tablet -->
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/news' ? 'active' : ''
-              }`" to="/news" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+              }`" to="/articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                 <path
@@ -127,7 +157,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/news/category/${category.slug}`">{{ category.name }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :to="`/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
             </ul>
           </li>
@@ -150,23 +180,23 @@ const updateLanguage: (language: string) => string = (language: string) =>
           </li>
 
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/gallery' ? 'active' : ''
-              }`" to="/gallery">Galeri
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/gallery-smartnation' ? 'active' : ''
+              }`" to="/gallery-smartnation">Galeri
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/about' ? 'active' : ''
-              }`" to="/about">Tentang Kami
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/about-us' ? 'active' : ''
+              }`" to="/about-us">Tentang Kami
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/contact' ? 'active' : ''
-              }`" to="/contact">Hubungi Kami
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/contact-us' ? 'active' : ''
+              }`" to="/contact-us">Hubungi Kami
             </NuxtLink>
           </li>
 
 
-          <li class="nav-item dropdown  d-xl-none d-xxl-none">
+          <!-- <li class="nav-item dropdown  d-xl-none d-xxl-none">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
               }`" to="/events" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Tema perangkat
@@ -231,7 +261,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
                 </button>
               </li>
             </ul>
-          </li>
+          </li> -->
 
 
         </ul>
@@ -379,7 +409,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
 }
 
 .dropdown-menu {
-  /* margin-top: 15px; */
+  margin-top: 13px;
   /* width: 100px; */
   height: auto;
   overflow: auto;
