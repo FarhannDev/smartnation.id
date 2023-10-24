@@ -1,20 +1,25 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue';
-
 interface Posts {
   id: number | string;
-  title: string;
   slug: string;
-  excerpt: string;
-  content: string;
+  date_gmt: string;
+  modified_gmt: string;
+  status: string;
   categories: Array<number>;
-  thumbnail: string;
-  createdAt: string;
-  updatedAt: string;
+  tags: Array<number>;
+  author: number;
+  featured_media: string;
+  comment_status: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  content: { rendered: string };
 }
 
-const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
+type PostsDataType = Posts[];
+
+const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 </script>
 
@@ -24,11 +29,11 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
       <div v-for="(post, index) in posts" :key="post.id">
         <div class="d-flex justify-content-arround mb-4 ">
           <span class="article-number me-3">{{ index + 1 }}</span>
-          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
+          <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
             :class="'article-title text-start text-wrap fw-normal fs-6 lh-base link-offset-2 d-block link-underline-opacity-0 '">
-            {{ post.title.length >= 80
-              ? `${post.title.substring(0, 80)}...`
-              : post.title
+            {{ post.title.rendered.length >= 80
+              ? `${post.title.rendered.substring(0, 80)}...`
+              : post.title.rendered
             }}
           </NuxtLink>
         </div>

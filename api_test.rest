@@ -1,0 +1,8 @@
+###
+GET https://smartnation.id/wp-json/wp/v2/categories/148
+
+###
+GET http://localhost:3000/api/categories
+
+###
+GET http://localhost:3000/api/posts

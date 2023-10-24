@@ -1,6 +1,6 @@
 <template>
   <div class="hero-social-media-container">
-    <div class="d-flex flex-column text-center g-0">
+    <div class="d-flex flex-column text-center align-items-center g-3">
 
       <!-- ig -->
       <NuxtLink id="ig" to="https://www.instagram.com/smartnation.id/" target="_blank" aria-label="Selengkapnya"
@@ -93,8 +93,6 @@
     </div>
   </div>
 </template>
-
-
 
 <script lang="ts" setup>
 

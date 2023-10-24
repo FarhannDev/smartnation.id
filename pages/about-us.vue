@@ -1,6 +1,4 @@
 <script setup>
-import { teams, partner } from "~/utils/data/getInitialData.ts";
-
 // Set Meta SEO
 useSeoMeta({
   title: "Tentang Kami",
@@ -9,122 +7,126 @@ useSeoMeta({
 });
 
 const colorMode = useColorMode();
+
+const { data: teams } = await useLazyFetch('/api/teams')
+
+const { data: clients } = await useLazyFetch('/api/client')
+
 </script>
 
 <template>
-  <NuxtLayout name="page-layout">
-    <!-- hero start -->
-    <template #hero>
-      <LazyHeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
-        background="/images/background/bg-galeri.png" />
-    </template>
+  <!-- hero start -->
+  <LazyHeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
+    background="/images/background/bg-galeri.png" />
 
-    <!-- rendered content main -->
-    <main id="content-main">
-      <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
-      <section class="ccsn-section-container py-5">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <div class="row justify-content-between g-3 py-5">
-            <div class="col-lg-5 col-md-6">
-              <h1 class="ccsn-title">
-                Tentang Citiasia Center for Smart Nation (CCSN)
-              </h1>
-            </div>
-            <div class="col-lg-7 col-md-6">
-              <p class="ccsn-desc">
-                Citiasia Center for Smart Nation (CCSN) merupakan salah satu
-                sayap strategis dari Citiasia Inc. dalam menyebarkan semangat
-                membangun bangsa menuju Indonesia Smart Nation
-              </p>
-            </div>
+  <!-- rendered content main -->
+  <main id="content-main">
+    <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
+    <section class="ccsn-section-container py-5">
+      <div class="container" data-aos="fade-up" data-aos-duration="1500">
+
+        {{ data }}
+        <div class="row justify-content-between g-3 py-5">
+          <div class="col-lg-5 col-md-6">
+            <h1 class="ccsn-title">
+              Tentang Citiasia Center for Smart Nation (CCSN)
+            </h1>
+          </div>
+          <div class="col-lg-7 col-md-6">
+            <p class="ccsn-desc">
+              Citiasia Center for Smart Nation (CCSN) merupakan salah satu
+              sayap strategis dari Citiasia Inc. dalam menyebarkan semangat
+              membangun bangsa menuju Indonesia Smart Nation
+            </p>
           </div>
         </div>
-      </section>
-      <!-- section tentang Citiasia Center for Smart Nation (CCSN)  end -->
-      <!-- section Tentang Citiasia INC start -->
-      <section class="citiasia-section-container py-5">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <div class="row justify-content-between g-3">
-            <div class="col-lg-7 col-md-6">
-              <h1 class="ccsn-title mb-3">Tentang Citiasia INC.</h1>
-              <p class="ccsn-desc">
-                Citiasia, Inc. merupakan pionir konsultan dan implementasi smart
-                city di Indonesia yang berdiri sejak 2015. Citiasia, inc telah
-                melayani institusi publik dan bisnis untuk akselerasi kinerja
-                berkelanjutan dan berkontribusi pada nilai-nilai sosial.
-              </p>
-            </div>
-            <div class="col-lg-5 col-md-6">
-              <NuxtImg alt="citiasia" src="/images/tentang-citiasia.png" class="img-fluid citiasia-img" />
-            </div>
+      </div>
+    </section>
+    <!-- section tentang Citiasia Center for Smart Nation (CCSN)  end -->
+    <!-- section Tentang Citiasia INC start -->
+    <section class="citiasia-section-container py-5">
+      <div class="container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="row justify-content-between g-3">
+          <div class="col-lg-7 col-md-6">
+            <h1 class="ccsn-title mb-3">Tentang Citiasia INC.</h1>
+            <p class="ccsn-desc">
+              Citiasia, Inc. merupakan pionir konsultan dan implementasi smart
+              city di Indonesia yang berdiri sejak 2015. Citiasia, inc telah
+              melayani institusi publik dan bisnis untuk akselerasi kinerja
+              berkelanjutan dan berkontribusi pada nilai-nilai sosial.
+            </p>
+          </div>
+          <div class="col-lg-5 col-md-6">
+            <NuxtImg alt="citiasia" src="/images/tentang-citiasia.png" class="img-fluid citiasia-img" />
           </div>
         </div>
-      </section>
-      <!-- section Tentang Citiasia INC end -->
-      <!-- section visi misi start-->
-      <section class="visimisi-section-container py-5">
-        <div class="container" data-aos="fade-up" data-aos-duration="1500">
-          <div class="row justify-content-start g-3">
-            <div class="col-lg-6 col-md-6">
-              <div class="d-flex justify-content-start flex-column">
-                <NuxtImg alt="visimisi" src="/images/visi-misi-citiasia.png" class="img-fluid visimisi-cover" />
+      </div>
+    </section>
+    <!-- section Tentang Citiasia INC end -->
+    <!-- section visi misi start-->
+    <section class="visimisi-section-container py-5">
+      <div class="container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="row justify-content-start g-3">
+          <div class="col-lg-6 col-md-6">
+            <div class="d-flex justify-content-start flex-column">
+              <NuxtImg alt="visimisi" src="/images/visi-misi-citiasia.png" class="img-fluid visimisi-cover" />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="d-flex justify-content-start flex-column g-3">
+              <div>
+                <h1 class="visimisi-title">Visi</h1>
+                <p class="visimisi-desc">
+                  Menjadi market leader untuk layanan smart city dan smart
+                  enterprise di Indonesia pada tahun 2025.
+                </p>
+              </div>
+              <div>
+                <h1 class="visimisi-title">Misi</h1>
+                <p class="visimisi-desc">
+                  Citiasia, Inc. membantu institusi publik dan sektor bisnis
+                  dengan memberikan solusi dan layanan aplikatif melalui
+                  konsultasi, layanan digital, dan inovasi untuk meningkatkan
+                  performa bisnis yang berkelanjutan, mengembangkan smart
+                  city, dan memberikan dampak positif sosial untuk Indonesia
+                  yang lebih baik.
+                </p>
               </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-              <div class="d-flex justify-content-start flex-column g-3">
-                <div>
-                  <h1 class="visimisi-title">Visi</h1>
-                  <p class="visimisi-desc">
-                    Menjadi market leader untuk layanan smart city dan smart
-                    enterprise di Indonesia pada tahun 2025.
-                  </p>
-                </div>
-                <div>
-                  <h1 class="visimisi-title">Misi</h1>
-                  <p class="visimisi-desc">
-                    Citiasia, Inc. membantu institusi publik dan sektor bisnis
-                    dengan memberikan solusi dan layanan aplikatif melalui
-                    konsultasi, layanan digital, dan inovasi untuk meningkatkan
-                    performa bisnis yang berkelanjutan, mengembangkan smart
-                    city, dan memberikan dampak positif sosial untuk Indonesia
-                    yang lebih baik.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </section>
-      <!-- section visi misi  end -->
-      <!-- section Tim Citiasia INC start -->
-      <section class="teams-citiasia-section-container py-5">
-        <div class="container" data-aos="fade-down" data-aos-duration="1500">
-          <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
-          <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-3 pt-5">
-            <div v-for="team in teams" :key="team.id" class="col">
-              <figure class="figure">
-                <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images"
-                  :alt="team.name" loading="lazy" :quality="75" format="webp" />
-                <figcaption class="figure-caption">
-                  <h3 class="teams-citiasia__name">{{ team.name }}</h3>
-                  <p class="teams-citiasia__job">{{ team.jobs }}</p>
-                </figcaption>
-              </figure>
-            </div>
+      </div>
+    </section>
+    <!-- section visi misi  end -->
+    <!-- section Tim Citiasia INC start -->
+    <section class="teams-citiasia-section-container py-5">
+      <div class="container" data-aos="fade-down" data-aos-duration="1500">
+        <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
+        <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-3 pt-5">
+          <div v-for="team in teams" :key="team.id" class="col">
+            <figure class="figure">
+              <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images" :alt="team.name"
+                loading="lazy" :quality="75" format="webp" />
+              <figcaption class="figure-caption">
+                <h3 class="teams-citiasia__name">{{ team.name }}</h3>
+                <p class="teams-citiasia__job">{{ team.jobs }}</p>
+              </figcaption>
+            </figure>
           </div>
         </div>
-      </section>
-      <!-- section Tim Citiasia INC end -->
-      <!-- section partner start -->
-      <section class="partner-section-container py-5">
-        <div class="container" data-aos="fade-down" data-aos-duration="1500">
-          <h1 class="partner-citiasia__title">Partner</h1>
-          <div class="row justify-content-start g-5 py-5">
-            <div class="col">
-              <Swiper :modules="[SwiperAutoplay, SwiperNavigation]" :navigation="{
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              }" :slidesPerView="3" :spaceBetween="10" :grabCursor="true" :breakpoints="{
+      </div>
+    </section>
+    <!-- section Tim Citiasia INC end -->
+    <!-- section partner start -->
+    <section class="partner-section-container py-5">
+      <div class="container" data-aos="fade-down" data-aos-duration="1500">
+        <h1 class="partner-citiasia__title">Partner</h1>
+        <div class="row justify-content-start g-5 py-5">
+          <div class="col">
+            <Swiper :modules="[SwiperAutoplay, SwiperNavigation]" :navigation="{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }" :slidesPerView="3" :spaceBetween="10" :grabCursor="true" :breakpoints="{
   '640': {
     slidesPerView: 2,
     spaceBetween: 10,
@@ -149,64 +151,63 @@ const colorMode = useColorMode();
     translate: ['100%', 0, 0],
   },
 }">
-                <SwiperSlide v-for="client in partner" :key="client.id">
-                  <figure class="figure">
-                    <NuxtImg :src="client.logo" class="figure-img img-fluid rounded partner__images" :alt="client.name"
-                      loading="lazy" :quality="75" format="webp" />
-                    <figcaption class="figure-caption text-center">
-                      <h3 class="partner__name">{{ client.name }}</h3>
-                    </figcaption>
-                  </figure>
-                </SwiperSlide>
-                <!-- Custom Navigation -->
-                <div class="custom-navigation">
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"></div>
-                </div>
-              </Swiper>
-            </div>
+              <SwiperSlide v-for="client in clients" :key="client.id">
+                <figure class="figure">
+                  <NuxtImg :src="client.logo" class="figure-img img-fluid rounded partner__images" :alt="client.name"
+                    loading="lazy" :quality="75" format="webp" />
+                  <figcaption class="figure-caption text-center">
+                    <h3 class="partner__name">{{ client.name }}</h3>
+                  </figcaption>
+                </figure>
+              </SwiperSlide>
+              <!-- Custom Navigation -->
+              <div class="custom-navigation">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </Swiper>
           </div>
         </div>
-      </section>
-      <!-- section partner end -->
-      <!-- section portofolio start -->
-      <section class="portofolio-section-container py-5">
-        <div class="container" data-aos="fade-down" data-aos-duration="1500">
-          <h1 class="portofolio-title">Portofolio</h1>
-          <div class="d-flex flex-column justify-content-start g-2 py-3">
-            <iframe class="rounded"
-              src="https://www.google.com/maps/d/u/0/embed?mid=1LTTSR3Ei-3HpleWwcorxCnEgV89HcS8&ehbc=2E312F" width="auto"
-              height="480"></iframe>
-          </div>
+      </div>
+    </section>
+    <!-- section partner end -->
+    <!-- section portofolio start -->
+    <section class="portofolio-section-container py-5">
+      <div class="container" data-aos="fade-down" data-aos-duration="1500">
+        <h1 class="portofolio-title">Portofolio</h1>
+        <div class="d-flex flex-column justify-content-start g-2 py-3">
+          <iframe class="rounded"
+            src="https://www.google.com/maps/d/u/0/embed?mid=1LTTSR3Ei-3HpleWwcorxCnEgV89HcS8&ehbc=2E312F" width="auto"
+            height="480"></iframe>
         </div>
+      </div>
 
-        <div class="portofolio">
-          <div class="image-mitra">
-            <img class="ellipse" src="/images/Ellipse.png" alt="Mitra" />
-            <p class="angka">50+</p>
-            <p class="huruf">Mitra</p>
-          </div>
-          <div class="image-mitra">
-            <img class="ellipse" src="/images/Ellipse.png" alt="Swasta" />
-            <p class="angka">35+</p>
-            <p class="huruf">Swasta</p>
-          </div>
-          <div class="image-mitra">
-            <img class="ellipse" src="/images/Ellipse.png" alt="Pemerintah" />
-            <p class="angka">50+</p>
-            <p class="huruf">Pemerintah</p>
-          </div>
-          <div class="image-mitra">
-            <img class="ellipse" src="/images/Ellipse.png" alt="Client" />
-            <p class="angka">450+</p>
-            <p class="huruf">Client</p>
-          </div>
+      <div class="portofolio">
+        <div class="image-mitra">
+          <img class="ellipse" src="/images/Ellipse.png" alt="Mitra" />
+          <p class="angka">50+</p>
+          <p class="huruf">Mitra</p>
         </div>
-      </section>
-      <!-- section portofolio end -->
-      <hr v-show="colorMode.preference === 'dark'" />
-    </main>
-  </NuxtLayout>
+        <div class="image-mitra">
+          <img class="ellipse" src="/images/Ellipse.png" alt="Swasta" />
+          <p class="angka">35+</p>
+          <p class="huruf">Swasta</p>
+        </div>
+        <div class="image-mitra">
+          <img class="ellipse" src="/images/Ellipse.png" alt="Pemerintah" />
+          <p class="angka">50+</p>
+          <p class="huruf">Pemerintah</p>
+        </div>
+        <div class="image-mitra">
+          <img class="ellipse" src="/images/Ellipse.png" alt="Client" />
+          <p class="angka">450+</p>
+          <p class="huruf">Client</p>
+        </div>
+      </div>
+    </section>
+    <!-- section portofolio end -->
+    <hr v-show="colorMode.preference === 'dark'" />
+  </main>
 </template>
 
 <style scoped>

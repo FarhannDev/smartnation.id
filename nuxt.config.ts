@@ -3,20 +3,17 @@
 export default defineNuxtConfig({
   typescript: { strict: true },
   devtools: { enabled: true },
-  $production: {
-    routeRules: {
-      "/**": { isr: true },
-    },
+  ssr: true,
+  experimental: {
+    inlineSSRStyles: true, // or a function to determine inlining
+    clientFallback: true,
   },
-
   runtimeConfig: {
     // Private keys are only available on the server
-    apiSecret: "123",
+    apiSecret: process.env.NUXT_API_SECRET,
     // Public keys that are exposed to the client
     public: {
-      apiBase:
-        process.env.NUXT_PUBLIC_API_BASE ||
-        "https://smartnation.id/wp-json/wp/v2",
+      apiBase: process.env.NUXT_PUBLIC_API_BASE,
     },
   },
 
@@ -28,6 +25,7 @@ export default defineNuxtConfig({
     "nuxt-bootstrap-icons",
     "nuxt-swiper",
     "@nuxtjs/color-mode",
+    "@nuxt/content",
   ],
 
   app: {
@@ -35,6 +33,12 @@ export default defineNuxtConfig({
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       titleTemplate: "%s - SmartNation",
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
+        },
+      ],
     },
   },
   plugins: [
@@ -60,17 +64,22 @@ export default defineNuxtConfig({
     families: { Poppins: [300, 400, 500, 600, 700] },
   },
 
-  image: { inject: true },
+  image: {
+    inject: true,
+    quality: 80,
+    format: ["webp", "png"],
+    domains: ["https://smartnation.id"],
+  },
 
   // Nuxt.js Color Mode configuration
   colorMode: {
     preference: "light", // default value of $colorMode.preference
     fallback: "light", // fallback value if not system preference found
     hid: "nuxt-color-mode-script",
-    globalName: "__NUXT_COLOR_MODE__",
+    globalName: "__NUXT_CCSN_COLOR_MODE__",
     componentName: "ColorScheme",
     classPrefix: "",
     classSuffix: "-mode",
-    storageKey: "nuxt-color-mode",
+    storageKey: "nuxt-ccsn-color-mode",
   },
 });

@@ -3,35 +3,41 @@ import { PropType } from 'vue';
 
 interface Posts {
   id: number | string;
-  title: string;
   slug: string;
-  excerpt: string;
-  content: string;
+  date_gmt: string;
+  modified_gmt: string;
+  status: string;
   categories: Array<number>;
-  thumbnail: string;
-  createdAt: string;
-  updatedAt: string;
+  tags: Array<number>;
+  author: number;
+  featured_media: string;
+  comment_status: string;
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  content: { rendered: string };
 }
 
-const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
+type PostsDataType = Posts[];
+
+const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 </script>
 
 
 <template>
-  <div v-for="post in posts" :key="post.id" class="col-xl-auto col-xxl-3 col-md-6  col-lg-6">
+  <div v-for="post in posts" :key="post.id" class="d-grid gap-1 col-xxl-3 col-lg-6 col-md-6 col-xl-3 col-ms-12">
     <figure class="figure">
-      <NuxtLink :to="`/${post.slug}`" aria-label="Baca Selengkapnya">
-        <NuxtImg :class="'figure-img img-fluid rounded'" :src="post.thumbnail" :alt="post.title" loading="lazy"
-          format="webp" />
+      <NuxtLink :to="`/events/${post.slug}`" aria-label="Baca Selengkapnya">
+        <NuxtImg :class="'figure-img img-fluid rounded'" :src="post.featured_media" :alt="post.title.rendered"
+          loading="lazy" format="webp" />
         <figcaption class="figure-caption">
-          <h5 class="event-cover__title">{{ post.title.length >= 25
-            ? `${post.title.substring(0, 25)}...`
-            : post.title
+          <h5 class="event-cover__title">{{ post.title.rendered.length >= 25
+            ? `${post.title.rendered.substring(0, 25)}...`
+            : post.title.rendered
           }}</h5>
-          <p class="event-cover__desc">{{ post.excerpt.length >= 50
-            ? `${post.excerpt.substring(0, 50)}...`
-            : post.excerpt }} </p>
+          <p class="event-cover__desc">{{ post.excerpt.rendered.length >= 50
+            ? `${post.excerpt.rendered.substring(0, 50)}...`
+            : post.excerpt.rendered }} </p>
         </figcaption>
       </NuxtLink>
     </figure>
@@ -46,7 +52,7 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
 
 .figure .figure-img {
   width: 100%;
-  height: 160px;
+  min-height: 160px;
   border-radius: 8px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%,
       rgba(0, 0, 0, 0.65) 100%);
@@ -69,6 +75,8 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   left: 15px;
   right: 15px;
   overflow: hidden;
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
 }
 
 .event-cover__title {
@@ -99,48 +107,50 @@ const props = defineProps({ posts: { type: Object as PropType<Posts[]> } })
   /* 14.218px */
 }
 
-/*
-   Responsive
-*/
-
-@media (max-width: 991.98px) {
+@media (min-width: 768px) {
   .figure .figure-caption {
-    display: none;
+    top: 50% !important;
   }
 }
 
-@media (max-width: 1199.98px) {
+@media (max-width: 768px) {
   .figure .figure-caption {
-    display: block;
-  }
-
-  .figure .figure-img {
-    width: 100%;
-    height: fit-content;
-  }
-
-
-  .event-cover__title {
-    font-size: 18px;
-  }
-
-  .event-cover__desc {
-    font-size: 16px;
+    top: 60%;
   }
 }
 
-@media (max-width: 767.98px) {
-  .figure .figure-img {
-    width: 100%;
-    height: fit-content;
-  }
-
-  .event-cover__title {
-    font-size: 18px;
-  }
-
-  .event-cover__desc {
-    font-size: 16px;
+@media (min-width: 960px) {
+  .figure .figure-caption {
+    top: 70% !important;
   }
 }
-</style>
+
+/* @media (max-width: 960px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+} */
+
+@media (min-width: 1200px) {
+  .figure .figure-caption {
+    top: 45% !important;
+  }
+}
+
+/* @media (max-width: 1200px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+} */
+
+@media (min-width: 1400px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+}
+
+/* @media (max-width: 1400px) {
+  .figure .figure-caption {
+    top: 50% !important;
+  }
+} */</style>

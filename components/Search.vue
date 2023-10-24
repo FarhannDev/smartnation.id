@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { Router } from '#vue-router';
+import { PostsDataType } from '~/utils/data/getInitialPostsData';
+import axios from 'axios';
 
 const route: Router = useRouter();
 // initial values
@@ -8,9 +10,19 @@ const searchQuery: globalThis.Ref<string> = ref("");
 // method
 const onSearchHandler = () => {
   const query: string = searchQuery.value.toLowerCase();
-
   query ? route.replace(`/search/${query}`) : null
+
+  searchQuery.value = ''
 };
+
+const results: globalThis.Ref<PostsDataType> = ref([])
+
+onBeforeMount(() => {
+  return axios.get('/api/posts')
+    .then(response => results.value.push(...response.data))
+    .catch(error => console.log(error))
+});
+
 </script>
 
 <template>
@@ -18,11 +30,12 @@ const onSearchHandler = () => {
     <form @submit.prevent="onSearchHandler" class="d-flex" role="search">
       <input v-model="searchQuery" class="form-control search-input-container me-2" type="search" placeholder="Cari"
         aria-label="Cari" autocomplete="name" />
-      <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
     </form>
 
 
-    <SearchResults :search="searchQuery" />
+    <SearchResults :search="searchQuery" :results="results.filter(post => post.title.rendered.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.content.rendered.toLowerCase().includes(searchQuery.toLowerCase())
+    ).sort((a, b) => b.modified_gmt.toString().localeCompare(a.modified_gmt.toString())).slice(0, 5)" />
   </div>
 </template>
 

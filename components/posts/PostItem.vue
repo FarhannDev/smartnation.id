@@ -1,45 +1,44 @@
 <script lang="ts" setup>
-const props = defineProps({
-  title: { required: true, type: String },
-  dateTime: { type: String },
-  featuredMedia: { type: String },
-  categories: { type: Array<Number> },
-  postId: { type: Number }
-})
+
+import { PostsDataType } from '~/utils/data/getInitialPostsData';
+
+defineProps({ posts: { type: Object as PropType<PostsDataType> } })
+
 </script>
 
-
-
 <template>
-  <div class="col-lg-12 col-md-6">
-    <div class="card post-card__item">
-      <NuxtImg :src="featuredMedia" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;" :alt="'berita'" />
-      <div class="card-body ">
-        <div class="vstack gap-2">
+  <div class="row justify-content-start g-3 py-3">
+    <div v-for="post in posts" :key="post.id" class="col-lg-12 col-md-6">
+      <div class="card post-card__item">
+        <NuxtImg :src="post.featured_media" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;"
+          :alt="'berita'" />
+        <div class="card-body ">
+          <div class="vstack gap-2">
 
-          <span class="d-inline post-card__item__datetime">
-            <BootstrapIcon name="clock" style="color: #888888;" />
-            <span style="color: #888888;" class="ms-1">
-              {{ useFormatter(dateTime, 'id-ID', 'long') }}
+            <span class="d-inline post-card__item__datetime">
+              <BootstrapIcon name="clock" style="color: #888888;" />
+              <span style="color: #888888;" class="ms-1">
+                {{ useFormatter(post.date_gmt, 'id-ID', 'long') }}
+              </span>
             </span>
-          </span>
 
 
-          <NuxtLink :to="`/${postId}`"
-            class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
-            <div v-html="title.length >= 60
-              ? `${title.substring(0, 60)}...`
-
-              : title" class="post-card__item__title"></div>
-          </NuxtLink>
-          <!-- <div class="hstack gap-2 mx-0 px-0">
-            <NuxtLink v-for="cat in category.slice(0, 3)" :key="cat.id" class="gray-button text-decoration-none" to="/">
-              {{ cat.name }}</NuxtLink>
-          </div> -->
+            <NuxtLink :to="`/articles/${post.slug}`"
+              class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
+              <div v-html="post.title.rendered.length >= 60
+                ? `${post.title.rendered.substring(0, 60)}...`
+                : post.title.rendered" class="post-card__item__title"></div>
+            </NuxtLink>
+            <div class="hstack gap-2 mx-0 px-0">
+              <NuxtLink v-for="cat in post.categories.slice(0, 3)" :key="cat.id" class="gray-button text-decoration-none"
+                to="/">
+                {{ cat }}</NuxtLink>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </template>
 
