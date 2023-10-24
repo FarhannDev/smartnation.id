@@ -1,3 +1,4 @@
+
 <script lang="ts" setup>
 import { PropType } from 'nuxt/dist/app/compat/capi';
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
@@ -75,17 +76,18 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
   </section>
 </template>
 
-<style lang="css" >
+
+
+<style >
 .hero-image-parallax {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 700px;
   overflow: hidden;
   scroll-behavior: smooth;
+  /* margin-left: 0; */
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 
@@ -95,7 +97,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
   height: 100vh;
   flex-shrink: 0;
   width: 100%;
-  height: 100vh;
+  height: 700px;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -106,197 +108,136 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
 
 .hero-heading-container {
   position: absolute;
-  width: fit-content;
-  top: 300px;
-  left: 8px;
-  right: 0;
+  width: 400px;
+  top: 40%;
   z-index: 1000;
 }
 
 .hero-heading__title {
-  display: block;
+  /* display: inline; */
   color: var(--font-50, #F6F6F6);
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 33px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
   text-align: start;
+  margin-right: 20px !important;
+  margin-top: 3%;
+  padding-top: 3%;
 }
 
-
-.hero-heading__desc {
-  display: block;
-  color: var(--Background, #FFF);
-  font-family: Poppins;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  width: 100%;
-}
-
-
-.hero-social-media-container {
-  display: block;
-  position: absolute;
-  top: 370px;
-  right: 20px;
-}
-
-
-.hero-social-media-container .social-media__icons {
-  text-align: center;
-  width: 32.567px;
-  height: 30.588px;
-  margin-bottom: 40px;
-}
-
-.swiper-pagination-bullet {
-  width: 9.6px;
-  height: 9.6px;
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
-  color: #000;
-  opacity: 1;
-  background: var(--grey-400, #BDBDBD);
-
-}
-
-.swiper-pagination-bullet-active {
-  color: #fff;
-  background: #C70943;
-}
-
-
-/*
-   Responsive
-*/
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  .hero-heading-container {
-    display: block;
-    width: 450px;
-    left: 120px;
-    top: 350px;
-  }
+@media (max-width: 992px) {
 
   .hero-heading__title {
-    font-size: 28px;
-  }
-
-  .hero-social-media-container {
-    display: block;
-    right: 130px;
-    top: 350px;
-  }
-
-  .hero-heading__desc {
-    font-size: 28px;
-  }
-}
-
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .hero-heading-container {
-    display: block !important;
+    font-size: 40px !important;
     width: 650px;
-    left: 50px;
-    top: 350px;
-  }
-
-  .hero-heading__title {
-    font-size: 45px;
-  }
-
-  .hero-social-media-container {
     display: block;
-    right: 70px;
-    top: 350px;
   }
 
   .hero-heading__desc {
-    font-size: 33px;
+    width: 900px;
+    font-size: 25px;
+  }
+
+  .hero-heading-container {
+    position: absolute;
+    width: 700px;
+    top: 35%;
+    bottom: 30%;
+    z-index: 1000;
   }
 }
 
-
-/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .hero-heading-container {
-    display: block;
-    width: 900px;
-    left: 40px;
-    top: 45%;
+    width: 100%;
   }
 
   .hero-heading__title {
-    font-size: 45px;
+    display: block;
+    font-size: 40px !important;
+    width: 650px !important;
   }
 
   .hero-social-media-container {
-    display: block;
-    right: 40px;
-    top: 48%;
-  }
-
-  .hero-heading__desc {
-    font-size: 33px;
+    position: absolute;
+    top: 35% !important;
+    right: 45px !important;
+    margin-right: 40px;
   }
 }
 
+@media (max-width: 768px) {
+  .hero-heading-container {
+    width: 100%;
+  }
 
-/*  X-Large devices (large desktops, 1200px and up) */
+  .hero-heading__title {
+    display: block;
+    font-size: 40px !important;
+    width: 650px !important;
+    margin-left: 10px !important;
+  }
 
+  .hero-social-media-container {
+    position: absolute;
+    top: 35% !important;
+    right: 15px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-heading-container {
+    width: 100%;
+  }
+
+  .hero-heading__title {
+    display: block;
+    font-size: 30px !important;
+    width: 250px !important;
+    margin-left: 10px !important;
+    top: 20% !important;
+  }
+
+  .hero-social-media-container {
+    position: absolute;
+    top: 35% !important;
+    right: 15px !important;
+  }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .hero-heading-container {
-    display: block;
-    width: 1100px;
-    left: 80px;
-    top: 45%;
+  .hero-image-parallax {
+    min-height: 100vh;
+  }
+
+  .hero-image-bg__gradient {
+    height: 100vh;
   }
 
   .hero-heading__title {
-    font-size: 61px;
-  }
-
-  .hero-social-media-container {
+    font-size: 50px !important;
     display: block;
-    right: 100px;
-    top: 48%;
+    width: 1000px !important;
   }
 
   .hero-heading__desc {
-    font-size: 33px;
+    width: 1000px !important;
+    font-size: 31px;
   }
-}
-
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
 
   .hero-social-media-container {
-    display: block;
-    right: 110px;
+    position: absolute;
     top: 48%;
+    right: 125px !important;
+    z-index: 1000;
+    margin-right: 40px;
   }
 
-  .hero-heading-container {
-    display: block;
-    width: 1200px;
-    left: 100px;
-    top: 45%;
-  }
-
-  .hero-heading__title {
-    font-size: 61px;
-  }
-
-  .hero-heading__desc {
-    font-size: 33px;
-  }
 }
 </style>
+
+
 

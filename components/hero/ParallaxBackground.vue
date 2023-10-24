@@ -1,5 +1,7 @@
 
 <script lang="ts" setup>
+// Use a static import for server-side compatibility
+import '~/assets/css/parallax-background.css'
 
 const props = defineProps({
   background: { type: String, required: true },
@@ -26,31 +28,31 @@ const backgroundStyle = () => {
 
 <template>
   <section class="hero-section">
-    <div class="hero-image-parallax" :style="backgroundStyle()">
+    <div class="hero-image-parallax" :style = "backgroundStyle()">
       <div class="hero-image-bg__gradient"></div>
       <div class="container">
         <div class="hero-heading-container">
           <h1 class="hero-heading__title">{{ text }}</h1>
           <p class="hero-heading__desc">{{ desc }}</p>
         </div>
-        <LazyHeroSocialMedia />
+
+        <HeroSocialMedia />
       </div>
     </div>
 
   </section>
 </template>
 
-<style lang="css" >
+<style >
 .hero-image-parallax {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 700px;
   overflow: hidden;
   scroll-behavior: smooth;
+  margin-left: 0;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 
@@ -60,7 +62,7 @@ const backgroundStyle = () => {
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 700px;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -71,30 +73,30 @@ const backgroundStyle = () => {
 
 .hero-heading-container {
   position: absolute;
-  width: fit-content;
-  top: 300px;
-  left: 8px;
-  right: 0;
+  width: 400px;
+  top: 45%;
   z-index: 1000;
 }
 
 .hero-heading__title {
-  display: block;
+  /* display: inline; */
   color: var(--font-50, #F6F6F6);
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 33px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
   text-align: start;
+  margin-right: 20px;
+  margin-top: 3%;
+  padding-top: 3%;
 }
 
 
 .hero-heading__desc {
-  display: block;
   color: var(--Background, #FFF);
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -103,10 +105,10 @@ const backgroundStyle = () => {
 
 
 .hero-social-media-container {
-  display: block;
   position: absolute;
-  top: 370px;
-  right: 20px;
+  top: 45%;
+  right: 13px;
+  z-index: 1000;
 }
 
 
@@ -116,6 +118,7 @@ const backgroundStyle = () => {
   height: 30.588px;
   margin-bottom: 40px;
 }
+
 
 .swiper-pagination-bullet {
   width: 9.6px;
@@ -134,136 +137,138 @@ const backgroundStyle = () => {
   background: #C70943;
 }
 
+/* // X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap */
 
-/*
-   Responsive
-*/
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  .hero-heading-container {
-    display: block;
-    width: 450px;
-    left: 120px;
-    top: 350px;
-  }
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 540px) {
 
-  .hero-heading__title {
-    font-size: 28px;
-  }
+.hero-heading__title {
+  font-size: 35px !important;
+  display: block;
+  width: 30px;
+  /* margin-bottom: 50%; */
+}
 
-  .hero-social-media-container {
-    display: block;
-    right: 130px;
-    top: 350px;
-  }
-
-  .hero-heading__desc {
-    font-size: 28px;
+.hero-heading__desc {
+  width: 50px;
+  font-size: 20px;
+  /* margin-bottom: 50%; */
+  margin-top: 1%;
+  padding-top: 1%;
+}
+.hero-social-media-container {
+    position: absolute;
+    top: 35% !important;
+    right: 30px !important;
   }
 }
 
-
-/* Medium devices (tablets, 768px and up) */
+/* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+
+  /* Atur gaya untuk layar berukuran tablet */
   .hero-heading-container {
-    display: block !important;
-    width: 650px;
-    left: 50px;
-    top: 350px;
+    width: 100%;
   }
 
   .hero-heading__title {
-    font-size: 45px;
+    display: block;
+    font-size: 30px !important;
+    width: 620px;
+    margin-top: 1%;
+    padding-top: 1%;
   }
+
 
   .hero-social-media-container {
-    display: block;
-    right: 70px;
-    top: 350px;
-  }
-
-  .hero-heading__desc {
-    font-size: 33px;
+    position: absolute;
+    top: 35% !important;
+    right: 30px !important;
   }
 }
 
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+/* // Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
   .hero-heading-container {
-    display: block;
-    width: 900px;
-    left: 40px;
-    top: 45%;
+    width: 100%;
   }
 
   .hero-heading__title {
-    font-size: 45px;
+    display: block;
+    font-size: 30px !important;
+    width: 640px;
+    /* margin-top: 4%;
+    padding-top: 4%; */
+    /* margin-bottom: 5% !important; */
+    /* top: 50% !important; */
   }
 
   .hero-social-media-container {
-    display: block;
-    right: 40px;
-    top: 48%;
-  }
-
-  .hero-heading__desc {
-    font-size: 33px;
+    position: absolute;
+    top: 35% !important;
+    right: 45px !important;
   }
 }
 
-
-/*  X-Large devices (large desktops, 1200px and up) */
-
+/* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .hero-heading-container {
-    display: block;
-    width: 1100px;
-    left: 80px;
-    top: 45%;
+  .hero-image-parallax {
+    min-height: 100vh;
+  }
+
+  .hero-image-bg__gradient {
+    height: 100vh;
   }
 
   .hero-heading__title {
-    font-size: 61px;
-  }
-
-  .hero-social-media-container {
+    font-size: 50px !important;
     display: block;
-    right: 100px;
-    top: 48%;
+    width: 1000px;
+    /* margin-top: 1%;
+    padding-top: 1%; */
+    /* margin-bottom: 5%;
+    padding-bottom: 5%; */
+    /* top: 5%; */
   }
 
   .hero-heading__desc {
-    font-size: 33px;
-  }
-}
-
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-
-  .hero-social-media-container {
-    display: block;
-    right: 110px;
-    top: 48%;
-  }
-
-  .hero-heading-container {
-    display: block;
     width: 1200px;
-    left: 100px;
-    top: 45%;
+    font-size: 31px;
   }
 
-  .hero-heading__title {
-    font-size: 61px;
+  .hero-social-media-container {
+    position: absolute;
+    top: 48%;
+    right: 100px;
+    z-index: 1000;
   }
 
-  .hero-heading__desc {
-    font-size: 33px;
-  }
+  /* .hero-image-parallax:hover {
+    -webkit-transform: scale(1.1);
+    -webkit-transition: .3s ease-in-out;
+    transform: scale(1.1);
+    transition: .3s ease-in-out;
+  } */
 }
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+/* @media (min-width: 1400px) {
+
+.hero-heading__title {
+  font-size: 50px !important;
+  display: block;
+  width: 600px;
+}
+
+.hero-heading__desc {
+  width: 800px;
+  font-size: 31px;
+}
+} */
 </style>
+
+
 
 
 
