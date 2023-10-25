@@ -97,7 +97,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
   height: 100vh;
   flex-shrink: 0;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -210,7 +210,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .hero-image-parallax {
-    min-height: 100vh;
+    height: 100vh;
   }
 
   .hero-image-bg__gradient {

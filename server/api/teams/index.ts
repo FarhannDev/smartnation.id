@@ -52,9 +52,11 @@ const teams: Teams[] = [
 ];
 
 export default defineEventHandler((event) => {
-  if (event.method === "GET") {
-    return teams.sort((a, b) => a.name.localeCompare(b.name));
-  }
+  const data = {
+    toJSON() {
+      return teams.sort((a, b) => a.name.localeCompare(b.name));
+    },
+  };
 
-  return setResponseStatus(event, 405);
+  return data;
 });

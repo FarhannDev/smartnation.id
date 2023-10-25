@@ -22,10 +22,9 @@ const { data: clients } = await useLazyFetch('/api/client')
   <!-- rendered content main -->
   <main id="content-main">
     <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
-    <section class="ccsn-section-container py-5">
+    <section class="ccsn-section-container">
       <div class="container" data-aos="fade-up" data-aos-duration="1500">
 
-        {{ data }}
         <div class="row justify-content-between g-3 py-5">
           <div class="col-lg-5 col-md-6">
             <h1 class="ccsn-title">

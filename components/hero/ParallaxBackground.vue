@@ -28,7 +28,7 @@ const backgroundStyle = () => {
 
 <template>
   <section class="hero-section">
-    <div class="hero-image-parallax" :style = "backgroundStyle()">
+    <div class="hero-image-parallax" :style="backgroundStyle()">
       <div class="hero-image-bg__gradient"></div>
       <div class="container">
         <div class="hero-heading-container">
@@ -62,7 +62,7 @@ const backgroundStyle = () => {
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -143,21 +143,22 @@ const backgroundStyle = () => {
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 540px) {
 
-.hero-heading__title {
-  font-size: 35px !important;
-  display: block;
-  width: 30px;
-  /* margin-bottom: 50%; */
-}
+  .hero-heading__title {
+    font-size: 35px !important;
+    display: block;
+    width: 30px;
+    /* margin-bottom: 50%; */
+  }
 
-.hero-heading__desc {
-  width: 50px;
-  font-size: 20px;
-  /* margin-bottom: 50%; */
-  margin-top: 1%;
-  padding-top: 1%;
-}
-.hero-social-media-container {
+  .hero-heading__desc {
+    width: 50px;
+    font-size: 20px;
+    /* margin-bottom: 50%; */
+    margin-top: 1%;
+    padding-top: 1%;
+  }
+
+  .hero-social-media-container {
     position: absolute;
     top: 35% !important;
     right: 30px !important;
@@ -214,7 +215,7 @@ const backgroundStyle = () => {
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .hero-image-parallax {
-    min-height: 100vh;
+    height: 100vh;
   }
 
   .hero-image-bg__gradient {
@@ -244,28 +245,7 @@ const backgroundStyle = () => {
     z-index: 1000;
   }
 
-  /* .hero-image-parallax:hover {
-    -webkit-transform: scale(1.1);
-    -webkit-transition: .3s ease-in-out;
-    transform: scale(1.1);
-    transition: .3s ease-in-out;
-  } */
 }
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-/* @media (min-width: 1400px) {
-
-.hero-heading__title {
-  font-size: 50px !important;
-  display: block;
-  width: 600px;
-}
-
-.hero-heading__desc {
-  width: 800px;
-  font-size: 31px;
-}
-} */
 </style>
 
 
