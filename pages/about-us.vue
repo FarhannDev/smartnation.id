@@ -8,9 +8,9 @@ useSeoMeta({
 
 const colorMode = useColorMode();
 
-const { data: teams } = await useLazyFetch('/api/teams')
+const { data: teams } = await useFetch('/api/teams')
 
-const { data: clients } = await useLazyFetch('/api/client')
+const { data: clients } = await useFetch('/api/client')
 
 </script>
 
@@ -95,6 +95,9 @@ const { data: clients } = await useLazyFetch('/api/client')
           </div>
         </div>
       </div>
+
+      <div class=rectangle-top></div>
+      <div class="rectangle-bottom"></div>
     </section>
     <!-- section visi misi  end -->
     <!-- section Tim Citiasia INC start -->
@@ -268,6 +271,7 @@ const { data: clients } = await useLazyFetch('/api/client')
   background: var(--primary-800, #a60b40);
   height: auto;
   overflow-x: hidden;
+  position: relative;
 }
 
 .visimisi-section-container .container {
@@ -844,5 +848,29 @@ const { data: clients } = await useLazyFetch('/api/client')
   .swiper-wrapper {
     width: 10% !important;
   }
+}
+
+
+.rectangle-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 120px;
+  /* border-radius: 14px; */
+  border-radius: 0 14px 14px 0;
+  background: var(--primary-400, #FF6A89);
+
+}
+
+.rectangle-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 120px;
+  /* border-radius: 14px; */
+  border-radius: 14px 0px 0px 14px;
+  background: var(--primary-400, #FF6A89);
+
 }
 </style>

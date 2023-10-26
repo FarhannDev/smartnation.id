@@ -82,7 +82,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
 .hero-image-parallax {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   overflow: hidden;
   scroll-behavior: smooth;
   /* margin-left: 0; */
@@ -126,6 +126,8 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
   margin-top: 3%;
   padding-top: 3%;
 }
+
+
 
 @media (max-width: 992px) {
 
