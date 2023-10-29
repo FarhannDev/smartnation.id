@@ -1,10 +1,7 @@
 
 <script lang="ts" setup>
-import { PropType } from 'nuxt/dist/app/compat/capi';
+
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
-
-
-defineProps({ posts: { type: Object as PropType<PostsDataType>, required: true } })
 
 
 interface Background {
@@ -30,11 +27,20 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
     objectPosition: "center",
   };
 }
+
+
+const { data: posts, pending, error } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 6)
+  }
+})
+
 </script>
 
 
 <template>
   <section class="hero-section">
+
     <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :grabCursor="true"
       :pagination="{
         clickable: true,
@@ -50,7 +56,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
     translate: ['100%', 0, 0],
   },
 }">
-      <SwiperSlide v-for="post in posts
+      <SwiperSlide v-if="posts" v-for="post in posts
             .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
             .slice(0, 5)" :key="post.id">
 
@@ -78,11 +84,11 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
 
 
 
-<style >
+<style lang="css" scoped>
 .hero-image-parallax {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   overflow: hidden;
   scroll-behavior: smooth;
   /* margin-left: 0; */
@@ -97,7 +103,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
   height: 100vh;
   flex-shrink: 0;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   background: linear-gradient(0deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%),
@@ -126,6 +132,8 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
   margin-top: 3%;
   padding-top: 3%;
 }
+
+
 
 @media (max-width: 992px) {
 
@@ -210,7 +218,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .hero-image-parallax {
-    min-height: 100vh;
+    height: 100vh;
   }
 
   .hero-image-bg__gradient {

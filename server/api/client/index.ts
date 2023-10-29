@@ -140,9 +140,11 @@ const clients: Client[] = [
 ];
 
 export default defineEventHandler((event) => {
-  if (event.method === "GET") {
-    return clients.sort((a, b) => b.name.localeCompare(a.name));
-  }
+  const data = {
+    toJSON() {
+      return clients.sort((a, b) => b.name.localeCompare(a.name));
+    },
+  };
 
-  return setResponseStatus(event, 405);
+  return data;
 });

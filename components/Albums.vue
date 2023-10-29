@@ -4,12 +4,15 @@ import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
 defineProps({ categoryId: { type: Number, required: true } })
 
-const { data: albums } = await useAsyncData<PostsDataType>('albums', () => $fetch('/api/posts'))
+// const { data: albums } = await useAsyncData<PostsDataType>('albums', () => $fetch('/api/posts'))
+
+const { data: albums } = await useFetch('/api/posts')
 
 </script>
 
 <template>
   <div class="album-cover-container row justify-content-start g-3 py-3">
+
     <div v-for="(album, index) in albums?.slice(0, 3)" :key="index" class="col-lg-4">
       <NuxtImg :src="album.featured_media" :alt="album.title.rendered" :class="'album-cover__images'" />
 

@@ -33,7 +33,7 @@ useSeoMeta({
 <template>
   <HeroParallaxBackground v-for="(post, index) in postsData.slice(0, 1)" :key="index"
     :text="`Kumpulan Acara ${categoryTitle}`" :desc="`Kumpulan Acara ISNA dari beberapa Kategori`"
-    :background="post.featured_media" />
+    :background="'/images/background/bg-isna.png'" />
   <main id="content">
     <!-- Section berita start -->
     <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">

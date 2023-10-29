@@ -8,7 +8,8 @@ const route = useRoute();
 const postId = String(route.params.id)
 
 
-const { data: post } = await useAsyncData('post', () => $fetch('/api/posts'), {
+
+const { data: post } = await useFetch('/api/posts', {
   transform: (posts) => {
     return posts.find(post => post.slug === postId)
   }
@@ -34,13 +35,17 @@ const { data: postsData } = await useFetch('/api/posts')
 //   ogImageUrl: "https://smartnation.id/",
 // });
 
+useSeoMeta({
+  title: 'Halaman detail'
+})
+
 </script>
 
 <template>
   <!-- rendered content main -->
   <main id="content">
     <!-- section berita detail start -->
-    <section class="berita-section-container position-relative py-5">
+    <section class="berita-section-container position-relative py-5 mt-5">
       <div class="container">
         <div class="row justify-content-start g-3 pt-3">
 

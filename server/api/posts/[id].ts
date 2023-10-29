@@ -1,14 +1,17 @@
 import { posts } from "~/utils/data/getInitialPostsData";
 
 export default defineEventHandler(async (event) => {
-  const id = event.context.params.id as string;
+  const id = getRouterParam(event, "id");
 
-  // if (!Number.isInteger(id)) {
-  //   throw createError({
-  //     statusCode: 400,
-  //     statusMessage: "ID should be an integer",
-  //   });
-  // }
+  const postsData = posts.find((post) => post.slug === id);
 
-  return posts.find((post) => post.id === id);
+  if (!postsData) {
+    setResponseStatus(event, 404);
+  }
+
+  return {
+    id: postsData?.id,
+    title: postsData?.title,
+    slug: postsData?.slug,
+  };
 });

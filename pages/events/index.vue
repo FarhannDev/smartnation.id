@@ -157,10 +157,7 @@ const { data: postsData } = await useFetch('/api/posts', {
               <LazyHeadingTitle class="text-decoration-underline" title="  ISNA Terpopuler Lainnya" />
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <LazyArticlesArticleListTitle :posts="postsData
-
-                    .slice(0, 10)
-                    " />
+                  <ArticlesArticleListTitle :end="10" />
                 </div>
               </div>
             </article>

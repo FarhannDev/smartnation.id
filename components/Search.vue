@@ -1,8 +1,5 @@
 <script lang="ts" setup>
 import { Router } from '#vue-router';
-import { PostsDataType } from '~/utils/data/getInitialPostsData';
-import axios from 'axios';
-
 const route: Router = useRouter();
 // initial values
 const searchQuery: globalThis.Ref<string> = ref("");
@@ -15,13 +12,7 @@ const onSearchHandler = () => {
   searchQuery.value = ''
 };
 
-const results: globalThis.Ref<PostsDataType> = ref([])
 
-onBeforeMount(() => {
-  return axios.get('/api/posts')
-    .then(response => results.value.push(...response.data))
-    .catch(error => console.log(error))
-});
 
 </script>
 
@@ -33,9 +24,7 @@ onBeforeMount(() => {
     </form>
 
 
-    <SearchResults :search="searchQuery" :results="results.filter(post => post.title.rendered.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.content.rendered.toLowerCase().includes(searchQuery.toLowerCase())
-    ).sort((a, b) => b.modified_gmt.toString().localeCompare(a.modified_gmt.toString())).slice(0, 5)" />
+    <SearchResults :search="searchQuery" />
   </div>
 </template>
 

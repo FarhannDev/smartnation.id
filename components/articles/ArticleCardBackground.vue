@@ -1,25 +1,21 @@
 <script lang="ts" setup>
-import { PropType } from 'vue';
+import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
-interface Posts {
-  id: number | string;
-  slug: string;
-  date_gmt: string;
-  modified_gmt: string;
-  status: string;
-  categories: Array<number>;
-  tags: Array<number>;
-  author: number;
-  featured_media: string;
-  comment_status: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content: { rendered: string };
-}
+const props = defineProps({
+  limits: { type: Boolean },
+  limitsStart: { type: Number },
+  limitsEnd: { type: Number },
+  categoryId: { type: Number }
+})
 
-type PostsDataType = Posts[];
+const { data: posts } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.filter(post => post.categories.find(category => category === props.categoryId))
+      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      .slice(props.limitsStart, props.limitsEnd)
 
-const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
+  }
+})
 
 </script>
 

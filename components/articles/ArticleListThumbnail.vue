@@ -1,25 +1,16 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue"
-interface Posts {
-  id: number | string;
-  slug: string;
-  date_gmt: string;
-  modified_gmt: string;
-  status: string;
-  categories: Array<number>;
-  tags: Array<number>;
-  author: number;
-  featured_media: string;
-  comment_status: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content: { rendered: string };
-}
+import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
-type PostsDataType = Posts[];
+// const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
-const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
+const { data: posts, pending, error } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      .slice(1, 5)
+  }
+})
 
 </script>
 
@@ -33,7 +24,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
             <span class="article-info-timestamps ">
               <BootstrapIcon name="clock" /> {{ useTimestamps(post.date_gmt) }}
             </span>
-            <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
               :class="'article-title link-offset-2   text-wrap d-block link-underline-opacity-0 '">
               {{ post.title.rendered.length > 80 ? `${post.title.rendered.substring(0, 80)}...`
                 : post.title.rendered
@@ -44,7 +35,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
               :categoryId="category" />
           </div>
 
-          <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
             <NuxtImg class="article-thumbnail" :src="post.featured_media" :width="86" :height="86" loading="lazy"
               :alt="post.title.rendered" />
           </NuxtLink>

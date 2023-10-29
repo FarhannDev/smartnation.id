@@ -1,25 +1,18 @@
 <script lang="ts" setup>
 
-import { PropType } from "vue"
-interface Posts {
-  id: number | string;
-  slug: string;
-  date_gmt: string;
-  modified_gmt: string;
-  status: string;
-  categories: Array<number>;
-  tags: Array<number>;
-  author: number;
-  featured_media: string;
-  comment_status: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content: { rendered: string };
-}
+import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
-type PostsDataType = Posts[];
+const props = defineProps({ categoryId: { type: Number } })
 
-const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
+const { data: posts } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.filter(post => post.categories.find(category => category === props.categoryId))
+      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      .slice(0, 5)
+  }
+})
+
+
 </script>
 
 <template>
@@ -27,7 +20,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
       <div class="row justify-content-start align-items-start g-0">
         <div class="col-lg-6 col-md-6">
-          <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
             <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.featured_media" :height="253" loading="lazy"
               :alt="post.title.rendered" />
           </NuxtLink>
@@ -35,7 +28,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
 
         <div class="col-lg-6 col-md-6">
           <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-            <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
               :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
               {{ post.title.rendered.length >= 80
                 ? `${post.title.rendered.substring(0, 80)}...`

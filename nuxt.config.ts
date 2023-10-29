@@ -5,15 +5,45 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   experimental: {
-    inlineSSRStyles: true, // or a function to determine inlining
+    inlineSSRStyles: false, // or a function to determine inlining
     clientFallback: true,
+    crossOriginPrefetch: true,
+    viewTransition: true,
+    writeEarlyHints: true,
+    payloadExtraction: true,
+    emitRouteChunkError: "automatic", // or 'manual' or false.
+    inlineRouteRules: true,
+    renderJsonPayloads: true,
   },
-  runtimeConfig: {
-    // Private keys are only available on the server
-    apiSecret: process.env.NUXT_API_SECRET,
-    // Public keys that are exposed to the client
-    public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE,
+  webpack: {
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        layouts: true,
+        pages: true,
+        commons: true,
+        cacheGroups: {
+          styles: {
+            name: "styles",
+            test: /\.(css|vue)$/,
+            chunks: "all",
+            enforce: true,
+          },
+        },
+      },
+    },
+  },
+  hooks: {
+    "build:manifest": (manifest) => {
+      // find the app entry, css list
+      const css = manifest["node_modules/nuxt/dist/app/entry.js"]?.css;
+      if (css) {
+        // start from the end of the array and go to the beginning
+        for (let i = css.length - 1; i >= 0; i--) {
+          // if it starts with 'entry', remove it from the list
+          if (css[i].startsWith("entry")) css.splice(i, 1);
+        }
+      }
     },
   },
 
@@ -25,7 +55,6 @@ export default defineNuxtConfig({
     "nuxt-bootstrap-icons",
     "nuxt-swiper",
     "@nuxtjs/color-mode",
-    "@nuxt/content",
   ],
 
   app: {
@@ -82,4 +111,24 @@ export default defineNuxtConfig({
     classSuffix: "-mode",
     storageKey: "nuxt-ccsn-color-mode",
   },
+
+  // pwa: {
+  //   manifest: {
+  //     name: "Smart Nation",
+  //     short_name: "Smartnation",
+  //     description:
+  //       "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
+  //     display: "standalone",
+  //     start_url: "/",
+  //     background_color: "#fff",
+  //     theme_color: "#fff",
+  //     icons: [
+  //       {
+  //         src: "/icon.png",
+  //         sizes: "192x192",
+  //         type: "image/png",
+  //       },
+  //     ],
+  //   },
+  // },
 });

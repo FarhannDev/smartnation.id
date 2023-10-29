@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 
-import { CategoryPostsType } from "~/utils/data/getInitialCategoryPostData";
-import { PostsDataType } from "~/utils/data/getInitialPostsData";
+import { CategoryPostsType } from '~/utils/data/getInitialCategoryPostData';
 
-// definePageMeta({ layout: "page-layout" })
+
+
 // Set Meta SEO
 useSeoMeta({
   title: "Beranda",
   description:
     "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
-  author: "SmartNation",
+  author: "Smart Nation",
   ogTitle: "Beranda",
   ogDescription:
     "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
@@ -19,168 +19,109 @@ useSeoMeta({
 });
 
 
-const { data: postsData } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-  }
-})
 
-const { data: categoriesPosts } = await useFetch('/api/categories', {
-  transform: (categories: CategoryPostsType) => {
-    return categories.filter(category => category.id === Number(85) || category.id === Number(86) || category.id === Number(84))
-      .map(category => ({ id: category.id, name: category.name, slug: category.slug }))
-  }
-})
+const { data: categories } = await useFetch<CategoryPostsType>('/api/categories')
+
 
 </script>
 
 <template>
-  <!-- Hero Section -->
-  <LazyHeroParallaxBackgroundHeroSwipe :posts="postsData" />
+  <!-- Hero Section Start -->
+  <HeroParallaxBackgroundHeroSwipe />
+  <!-- Hero Section End -->
 
-  <main id="content">
-    <!-- section berita terbaru start -->
-    <section class="latest-article-section py-5">
+  <!-- Latest Article Section Start-->
+  <section class="latest-article-section py-5">
 
-      <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <LazyHeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Postingan Terbaru" />
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <HeadingTitle title="Postingan Terbaru" />
 
-        <div class="row justify-content-start g-3 py-3">
-          <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12">
-            <LazyArticlesArticleListSingleColumn :posts="postsData.slice(0, 1)" />
-          </div>
-          <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12">
-            <div class="d-flex flex-column article-list-container">
-              <LazyArticlesArticleListThumbnail :posts="postsData
-                .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-                .slice(1, 5)
-                " />
-            </div>
-          </div>
-          <div class="col-lg-auto col-xl-4 col-xxl-4 col-md-12">
-            <LazyHeadingTitle class="text-start text-capitalize text-decoration-underline fst-medium fs-4"
-              title="Terpopuler" />
-            <div>
-              <LazyArticlesArticleListTitle :posts="postsData
-                .sort((a, b) => b.title.rendered.localeCompare(a.title.rendered))
-                .slice(0, 6)
-                " />
-            </div>
+      <div class="row justify-content-start g-3 pt-3">
+        <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12">
+          <ArticlesArticleListSingleColumn />
+        </div>
+        <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12">
+          <div class="d-flex flex-column article-list-container">
+            <ArticlesArticleListThumbnail />
           </div>
         </div>
+        <div class=" col-lg-auto col-xl-4 col-xxl-4 col-md-12">
+          <HeadingTitle class="text-decoration-underline" title="Terpopuler" />
+          <ArticlesArticleListTitle :end="6" />
+        </div>
       </div>
-    </section>
-    <!-- end section berita terbaru -->
+    </div>
+  </section>
+  <!-- Latest Article Section End-->
+  <!-- News Feed Section Start -->
+  <section class="latest-newsfeed-section position-relative py-5">
+    <div class="container" data-aos="fade-up" data-aos-duration="1500">
+      <LazyHeadingTitle class="latest-newsfeed__title" title="Berita Terkini" />
+      <div class="row justify-content-arround g-3 py-3">
+        <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
+          <ArticlesArticleListSingleColumn :isBackground="true" />
+        </div>
 
-    <!-- section  berita terkini start -->
-    <section class="latest-newsfeed-section position-relative py-5">
-      <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <LazyHeadingTitle class="text-start text-capitalize text-white fst-medium fs-3 latest-newsfeed__title"
-          title="Berita Terkini" />
-        <div class="row justify-content-arround g-3 py-3">
-          <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
-            <LazyArticlesArticleListSingleColumn
-              :posts="postsData.sort((a, b) => b.title.rendered.localeCompare(a.title.rendered)).slice(0, 1)"
-              isBackground />
-          </div>
+        <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
+          <NewsFeedCardItem :limits="true" :limitsStart="1" :limitsEnd="5" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- News Feed Section End -->
+  <!-- Events Section Start -->
+  <section class="position-relative py-5">
+    <div class="container" data-aos="fade-up" data-aos-duration="1500">
+      <HeadingTitle title="Acara " />
+      <div class="row justify-content-start align-content-start g-3 py-3">
+        <ArticlesArticleCardBackground :categoryId="88" :limits="true" :limitsStart="0" :limitsEnd="4" />
+      </div>
 
-          <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
-            <div class="row justify-content-start g-3">
-              <div v-for="post in postsData.sort((a, b) => b.title.rendered.localeCompare(a.title.rendered)).slice(1, 5)"
-                :key="post.id" class="col-xl-6 col-lg-6 col-md-6">
-                <div class="card border-0 rounded-0 mb-3" style="background-color: #a60b40">
-                  <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
-                    <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.featured_media" :height="253"
-                      loading="lazy" :alt="post.title.rendered" />
-                  </NuxtLink>
-                  <div class="card-body px-0 mx-0">
-                    <div class="d-flex flex-wrap mb-2">
-                      <span class="article-timestamp">
-                        <BootstrapIcon name="clock" class="article-timestamp-icon" />
-                        {{ useTimestamps(post.date_gmt) }}
-                      </span>
-                    </div>
-                    <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
-                      :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                      {{
-                        post.title.rendered.length >= 80
-                        ? `${post.title.rendered.substring(0, 80)}...`
-                        : post.title.rendered
-                      }}
-                    </NuxtLink>
-                  </div>
-                </div>
+    </div>
+  </section>
+  <!-- Events Section End -->
+  <!-- Article Section Start -->
+  <section class="position-relative py-5">
+    <div class="container" data-aos="fade-up" data-aos-duration="1500">
+      <HeadingTitle title="Artikel" />
+      <div class="row justify-content-start align-items-start g-5 py-3">
+        <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-12">
+          <ArticlesArticleListSingleVerticalColumn :categoryId="148" />
+        </div>
+
+        <div class="col-xl-4 col-xxl-4 col-lg-12 col-md-12">
+          <div>
+            <HeadingTitle class=" text-decoration-underline" title="Seputar Citiasia Inc" />
+            <div class="d-flex flex-column">
+              <div class="vstack g-3">
+                <ArticlesArticleListTitle :end="10" />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- section acara & kegiatan start -->
-    <section class="position-relative py-5">
-      <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <LazyHeadingTitle title="Acara " />
-        <div class="row justify-content-start align-content-start g-3 py-3">
-          <ArticlesArticleCardBackground
-            :posts="postsData.filter(post => post.categories.find(category => category === Number(88))).slice(0, 4)" />
-        </div>
-
-      </div>
-    </section>
-    <!-- section acara & kegiatan end -->
-
-    <!-- section artikel list start -->
-    <section class="position-relative py-5">
-      <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <LazyHeadingTitle class="text-start text-capitalize fw-bold fs-3" title="Artikel" />
-        <div class="row justify-content-start align-items-start g-5 py-3">
-          <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-12">
-            <ArticlesArticleListSingleVerticalColumn
-              :posts="postsData.filter(post => post.categories.find(postItem => postItem === 148)).slice(0, 5)" />
-          </div>
-
-          <div class="col-xl-4 col-xxl-4 col-lg-12 col-md-12">
-            <div>
-              <LazyHeadingTitle class="text-start text-capitalize text-decoration-underline fw-bold fs-5"
-                title="Seputar Citiasia Inc" />
-              <div class="d-flex flex-column">
-                <div class="vstack g-3">
-                  <LazyArticlesArticleListTitle :posts="postsData.filter(post => post.categories.indexOf(83))
-                    .sort((a, b) => b.title.rendered.localeCompare(a.title.rendered))
-                    .slice(0, 10)
-                    " />
-                </div>
-              </div>
-            </div>
+      <div v-if="categories" class="row justify-content-arround g-3 py-5">
+        <div
+          v-for="category in categories.filter(category => category.id === 84 || category.id === 85 || category.id === 86).slice(0, 3)"
+          :key="category.id" class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
+          <HeadingTitle style="color: #5d5d5d" class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title"
+            :title="category.name" />
+          <div class="line-break"></div>
+          <div class="d-grid pt-3 gap-3">
+            <ArticlesArticleListThumbnailNumber :categoryId="category.id" />
           </div>
         </div>
-        <div class="row justify-content-arround g-3 py-5">
-
-          <div v-for="category in categoriesPosts" class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
-
-            <LazyHeadingTitle style="color: #5d5d5d"
-              class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title" :title="category.name" />
-            <div class="line-break"></div>
-            <div class="d-grid pt-3 gap-3">
-              <LazyArticlesArticleListThumbnailNumber :posts="postsData.filter(post => post.categories.map(category => category === Number(category.id))).slice(0, 5)
-                " />
-            </div>
-          </div>
-
-
-        </div>
       </div>
-    </section>
-
-    <!-- section artikel list end -->
-    <!-- section subscribe start -->
-    <section class="subscribe-section-container py-5">
-      <div class="container">
-        <LazySubscribe />
-      </div>
-    </section>
-    <!-- section subscribe end -->
-  </main>
+    </div>
+  </section>
+  <!-- Article Section End -->
+  <!-- Subcribe Section Start -->
+  <section class="subscribe-section-container py-5">
+    <div class="container">
+      <Subscribe />
+    </div>
+  </section>
+  <!-- Subcribe Section End -->
 </template>
 
 <style scoped>
