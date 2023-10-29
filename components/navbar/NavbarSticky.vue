@@ -50,7 +50,7 @@ const updateLanguage: (language: string) => string = (language: string) =>
 
 const { data: categories } = await useFetch('/api/categories', {
   transform: (categories: CategoryPostsType) => {
-    return categories.filter(category => category.parent === 0).map(cat => ({
+    return categories.filter(category => category.parent === 0 || category.parent === 82).map(cat => ({
       id: cat.id,
       name: cat.name,
       slug: cat.slug
@@ -119,7 +119,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/articles/category/${category.slug}`">{{ category.name }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
             </ul>
           </li>

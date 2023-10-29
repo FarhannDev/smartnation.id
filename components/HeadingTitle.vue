@@ -8,7 +8,7 @@
 h1 {
   color: #D71149;
   font-family: Poppins;
-  font-size: 20px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;

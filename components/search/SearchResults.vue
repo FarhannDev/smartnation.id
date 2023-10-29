@@ -1,20 +1,10 @@
 <script lang="ts" setup>
-import { PropType } from "nuxt/dist/app/compat/capi";
 import { PostsDataType } from "~/utils/data/getInitialPostsData"
 
-const props = defineProps({ search: { type: String, required: true }, results: { type: Object as PropType<PostsDataType>, required: true } })
-
-// const { data: results } = await useFetch('/api/posts', {
-//   transform: (posts: PostsDataType) => {
-//     return posts.filter(post => {
-//       return post.title.rendered.toLowerCase().includes(props.search.toLowerCase()) ||
-//         post.excerpt.rendered.toLowerCase().includes(props.search.toLowerCase())
-//     }).sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-//       .slice(0, 5)
-//   }
-// })
+const props = defineProps({ search: { type: String, required: true } })
 
 
+const { data: results, pending, error } = await useFetch<PostsDataType>('/api/posts');
 
 
 </script>
@@ -24,8 +14,10 @@ const props = defineProps({ search: { type: String, required: true }, results: {
   <div v-show="search" class="search-result-container">
     <div class="d-flex flex-column">
 
-      <div v-if="results?.length" class="pt-3">
-        <div v-for="(result, index) in results" :key="index" class="d-flex justify-content-between g-0 mb-3">
+      <div v-if="results" class="pt-3">
+        <div v-for="(result, index) in results.filter(post => post.title.rendered.toLowerCase().includes(props.search.toLowerCase())
+            ).sort((a, b) => b.modified_gmt.toString().localeCompare(a.modified_gmt.toString())).slice(0, 5)"
+          :key="index" class="d-flex justify-content-between g-0 mb-3">
           <NuxtLink :to="`/articles/${result.slug}`" aria-label="Selengkapnya" class="search-result__title">
             {{ result.title.rendered.length >= 60
               ? `${result.title.rendered.substring(0, 60)}...`
@@ -41,9 +33,7 @@ const props = defineProps({ search: { type: String, required: true }, results: {
           </div>
         </div>
       </div>
-
-      <div v-else class="search-result__notfound">Pencarian tidak ditemukan</div>
-
+      <!-- <div v-else class="search-result__notfound">Pencarian tidak ditemukan</div> -->
     </div>
   </div>
 </template>

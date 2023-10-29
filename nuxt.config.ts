@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   experimental: {
-    inlineSSRStyles: true, // or a function to determine inlining
+    inlineSSRStyles: false, // or a function to determine inlining
     clientFallback: true,
     crossOriginPrefetch: true,
     viewTransition: true,
@@ -111,4 +111,24 @@ export default defineNuxtConfig({
     classSuffix: "-mode",
     storageKey: "nuxt-ccsn-color-mode",
   },
+
+  // pwa: {
+  //   manifest: {
+  //     name: "Smart Nation",
+  //     short_name: "Smartnation",
+  //     description:
+  //       "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
+  //     display: "standalone",
+  //     start_url: "/",
+  //     background_color: "#fff",
+  //     theme_color: "#fff",
+  //     icons: [
+  //       {
+  //         src: "/icon.png",
+  //         sizes: "192x192",
+  //         type: "image/png",
+  //       },
+  //     ],
+  //   },
+  // },
 });

@@ -1,40 +1,27 @@
 
 <script lang="ts" setup>
-import { PropType } from "vue"
-
-
-interface Posts {
-  id: number | string;
-  slug: string;
-  date_gmt: string;
-  modified_gmt: string;
-  status: string;
-  categories: Array<number>;
-  tags: Array<number>;
-  author: number;
-  featured_media: string;
-  comment_status: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content: { rendered: string };
-}
-
-type PostsDataType = Posts[];
+import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
 
 const props = defineProps({
-  posts: { type: Object as PropType<PostsDataType> },
+  // posts: { type: Object as PropType<PostsDataType> },
   isBackground: { type: Boolean },
   isDescription: { type: Boolean, default: true }
 })
 
+const { data: posts, pending, error } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      .slice(0, 1)
+  }
+})
 </script>
 
 <template>
   <article class="d-grid gap-2  article-list-item">
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
 
-      <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+      <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
         <NuxtImg :class="'card-img-top img-fluid article-thumbnail'" :src="post.featured_media" :height="253"
           loading="lazy" :alt="post.title.rendered" format="webp" />
       </NuxtLink>
@@ -46,7 +33,7 @@ const props = defineProps({
               useTimestamps(post.date_gmt) }}
           </span>
         </div>
-        <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+        <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
           :class="`card-title text-start  text-wrap lh-base link-offset-2 link-underline link-underline-opacity-0 ${isBackground ? 'article-title__background' : 'article-title'} `">
           {{ post.title.rendered.length >= 80
             ? `${post.title.rendered.substring(0, 80)}...`
@@ -56,8 +43,8 @@ const props = defineProps({
 
         <div v-show="isDescription"
           :class="`card-text text-start lh-base ${isBackground ? 'article-desc__background' : 'article-desc'}   pt-2`"
-          v-html="post.excerpt.rendered.length >= 250
-            ? `${post.excerpt.rendered.substring(0, 250)}...`
+          v-html="post.excerpt.rendered.length >= 150
+            ? `${post.excerpt.rendered.substring(0, 150)}...`
             : post.excerpt.rendered
             "> </div>
 

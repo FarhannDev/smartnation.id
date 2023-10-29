@@ -1,6 +1,9 @@
 <template>
     <NavbarSticky />
-    <slot />
+    <!-- Content Main -->
+    <main>
+        <slot />
+    </main>
     <ScroolTopButton />
     <Footer />
 </template>

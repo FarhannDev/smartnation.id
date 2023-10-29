@@ -1,35 +1,26 @@
 
 <script lang="ts" setup>
-import { PropType } from 'vue';
-interface Posts {
-  id: number | string;
-  slug: string;
-  date_gmt: string;
-  modified_gmt: string;
-  status: string;
-  categories: Array<number>;
-  tags: Array<number>;
-  author: number;
-  featured_media: string;
-  comment_status: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content: { rendered: string };
-}
+import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
-type PostsDataType = Posts[];
+const props = defineProps({ start: { type: Number, default: 0 }, end: { type: Number, default: 5 } })
 
-const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
+
+const { data: posts, pending, error } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      .slice(props.start, props.end)
+  }
+})
 
 </script>
 
 <template>
-  <div class="d-flex flex-column pt-4">
+  <div class="d-flex flex-column">
     <div class="vstack g-3">
       <div v-for="(post, index) in posts" :key="post.id">
         <div class="d-flex justify-content-arround mb-4 ">
           <span class="article-number me-3">{{ index + 1 }}</span>
-          <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
             :class="'article-title text-start text-wrap fw-normal fs-6 lh-base link-offset-2 d-block link-underline-opacity-0 '">
             {{ post.title.rendered.length >= 80
               ? `${post.title.rendered.substring(0, 80)}...`

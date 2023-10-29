@@ -44,7 +44,7 @@ useSeoMeta({
       <div class="container">
         <div class="row justify-content-start align-content-start g-5 py-5">
           <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
-            <article v-if="results.length" class="article-section position-relative mb-3">
+            <article v-if="results" class="article-section position-relative mb-3">
               <h1 class="berita-section-title">{{ resultName }}</h1>
 
               <div class="d-flex flex-column ">
@@ -136,10 +136,7 @@ useSeoMeta({
 
               <div class="d-flex flex-column ">
                 <div class="vstack g-3">
-                  <LazyArticlesArticleListTitle :posts="posts
-                    .sort((a, b) => b.title.rendered.localeCompare(a.title.rendered))
-                    .slice(0, 10)
-                    " />
+                  <ArticlesArticleListTitle :end="10" />
                 </div>
               </div>
             </article>

@@ -8,28 +8,14 @@ const route = useRoute();
 const postId = String(route.params.id)
 
 
-const { data: post } = await useAsyncData('posts', () => $fetch('/api/posts'), {
+const { data: post } = await useFetch('/api/posts', {
   transform: (posts) => {
     return posts.find(post => post.slug === postId)
   }
 })
 
-// const { data: posts } = await useAsyncData('posts', () => $fetch('/api/posts'))
 
-
-// useSeoMeta({
-//   title: post.title.rendered,
-//   author: "Smart Nation",
-//   description: post.excerpt.rendered,
-//   ogTitle: post.title.rendered,
-//   ogDescription: post.excerpt.rendered,
-//   ogImage: post.featured_media,
-//   ogImageAlt: post.title.rendered,
-//   ogImageType: "image/png",
-//   ogImageWidth: 100,
-//   ogImageHeight: 443,
-//   ogImageUrl: "https://smartnation.id/",
-// });
+const { data: postsData } = await useFetch('/api/posts')
 
 </script>
 
@@ -37,7 +23,7 @@ const { data: post } = await useAsyncData('posts', () => $fetch('/api/posts'), {
   <!-- rendered content main -->
   <main id="content">
     <!-- section berita detail start -->
-    <section class="berita-section-container position-relative">
+    <section class="berita-section-container position-relative py-5 mt-5">
       <div class="container">
         <div class="row justify-content-start g-3 pt-3">
 
@@ -241,9 +227,7 @@ const { data: post } = await useAsyncData('posts', () => $fetch('/api/posts'), {
           <div class="col-lg-4 col-md-auto">
             <div class="px-md-3 mx-md-2">
               <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
-              <div class="row justify-content-start g-3 py-3">
-                <!--  -->
-              </div>
+              <PostsPostItem :posts="postsData.slice(0, 5)" />
             </div>
           </div>
         </div>

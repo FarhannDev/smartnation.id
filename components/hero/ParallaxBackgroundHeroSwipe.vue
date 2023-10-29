@@ -1,10 +1,7 @@
 
 <script lang="ts" setup>
-import { PropType } from 'nuxt/dist/app/compat/capi';
+
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
-
-
-defineProps({ posts: { type: Object as PropType<PostsDataType>, required: true } })
 
 
 interface Background {
@@ -30,11 +27,20 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
     objectPosition: "center",
   };
 }
+
+
+const { data: posts, pending, error } = await useFetch('/api/posts', {
+  transform: (posts: PostsDataType) => {
+    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 6)
+  }
+})
+
 </script>
 
 
 <template>
   <section class="hero-section">
+
     <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :grabCursor="true"
       :pagination="{
         clickable: true,
@@ -50,7 +56,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
     translate: ['100%', 0, 0],
   },
 }">
-      <SwiperSlide v-for="post in posts
+      <SwiperSlide v-if="posts" v-for="post in posts
             .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
             .slice(0, 5)" :key="post.id">
 
@@ -78,7 +84,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
 
 
 
-<style >
+<style lang="css" scoped>
 .hero-image-parallax {
   position: relative;
   width: 100%;

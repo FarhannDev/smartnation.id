@@ -1,17 +1,15 @@
 <script lang="ts" setup>
 import { CategoryPostsType } from '~/utils/data/getInitialCategoryPostData';
+import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
 // Set Meta SEO
 useSeoMeta({
   title: "Berita",
-  description: "Kumpulan Berita dari beberapa Kategori",
+  description: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
   ogTitle: "Daftar berita dari semua kategori",
-  ogDescription: "Kumpulan Berita dari beberapa Kategori",
+  ogDescription: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
 });
 
-
-
-const { data: postsData } = await useFetch('/api/posts')
 
 const { data: categoriesPostsData } = await useFetch('/api/categories', {
   transform: (categories: CategoryPostsType) => {
@@ -28,8 +26,8 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
 
 <template>
   <!-- hero start -->
-  <HeroParallaxBackground v-for="(post, index) in postsData.slice(0, 1)" :key="index" :text="'Daftar Berita'"
-    :desc="`Daftar berita dari semua kategori`" :background="post.featured_media" />
+  <HeroParallaxBackground :text="'Daftar Berita'" :desc="`Daftar berita dari semua kategori`"
+    :background="'https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV'" />
   <!-- rendered content main -->
   <main id="content">
     <!-- section berita start -->
@@ -41,104 +39,34 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
               <h1 class="berita-section-title">Berita Terbaru</h1>
 
               <div class="row justify-content-arround g-4 py-3">
-                <div v-for="post in postsData.slice(0, 1)" :key="post.id"
-                  class="col-xl-6 col-xxl-6 col-lg-6  col-md-12 article-list-container">
-                  <div class="card border-0 rounded-0 mb-3">
-                    <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
-                      <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="post.featured_media"
-                        :height="253" loading="lazy" :alt="post.title.rendered" />
-                    </NuxtLink>
-                    <div class="card-body px-0 mx-0">
-                      <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
-                        :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                        {{
-                          post.title.rendered.length >= 80
-                          ? `${post.title.rendered.substring(0, 80)}...`
-                          : post.title.rendered
-                        }}
-                      </NuxtLink>
+                <div class="col-xl-6 col-xxl-6 col-lg-6  col-md-12 article-list-container">
+                  <NewsCardItemSingleColumn />
 
-                      <div class="card-text text-start lh-base article-desc pt-2"
-                        v-html="post.excerpt.rendered.substring(0, 120)"></div>
-                    </div>
-                  </div>
                 </div>
                 <div class="col-xl-6 col-xxl-6 col-lg-6 col-md-12">
-                  <div class="d-flex flex-column justify-content-start g-2">
-                    <div v-for="post in postsData
-                          .sort((a, b) => b.date_gmt.localeCompare(a.date_gmt))
-                          .slice(1, 5)" :key="post.id">
-                      <div class="mb-3">
-                        <div class="d-flex justify-content-arround ">
-                          <NuxtLink :to="`/articles/${post.slug}`"
-                            :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
-                            <NuxtImg class="me-2" style="border-radius: 4px" :src="post.featured_media" :width="148"
-                              :height="94" loading="lazy" :alt="post.title.rendered" />
-                          </NuxtLink>
-                          <div class="d-flex flex-column">
-                            <span class="article-info-tag">Berita</span>
-                            <NuxtLink :to="`/articles/${post.slug}`"
-                              :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
-                              :class="'article-list-title link-offset-2 link-underline link-underline-opacity-0 text-start fw-normal '">
-                              {{
-                                post.title.rendered.length >= 80
-                                ? `${post.title.rendered.substring(0, 80)}...`
-                                : post.title.rendered
-                              }}
-                            </NuxtLink>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <NewsCardItemListThumbnailMini />
                 </div>
               </div>
             </article>
             <article class="article-section position-relative mb-3">
               <h1 class="berita-section-title">Berita Terpopuler</h1>
               <div class="row justify-content-arround g-3 py-3">
-                <div v-for="post in postsData.slice(0, 2)" :key="post.id" class="col-lg-6 col-md-6">
-                  <div class="card border-0 rounded-0 mb-3">
-                    <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
-                      <NuxtImg :class="'card-img-top img-fluid rounded article-thumbnail'" :src="post.featured_media"
-                        :height="253" loading="lazy" :alt="post.title.rendered" />
-                    </NuxtLink>
-                    <div class="card-body px-0 mx-0">
-                      <div class="d-flex justify-content-between g-2 mb-2">
-                        <span class="article-info-tag">Berita</span>
-                        <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.date_gmt)
-                        }}</span>
-                      </div>
-                      <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
-                        :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
-                        {{
-                          post.title.rendered.length >= 80
-                          ? `${post.title.rendered.substring(0, 80)}...`
-                          : post.title.rendered
-                        }}
-                      </NuxtLink>
-                    </div>
-                  </div>
-                </div>
+                <NewsCardItemFeatured />
+
               </div>
             </article>
-
-
             <article class="d-block d-md-block d-lg-none d-xl-none">
               <h1 class="berita-section-title text-decoration-underline">
                 Terpopuler Lainnya
               </h1>
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle :posts="postsData
-                    .sort((a, b) => b.title.rendered.localeCompare(a.title.rendered))
-                    .slice(0, 10)
-                    " />
+                  <ArticlesArticleListTitle :end="10" />
                 </div>
               </div>
             </article>
-            <article v-for="category in categoriesPostsData" :key="category.id"
-              class="article-section position-relative mb-3 py-5" data-aos="fade-up" data-aos-duration="1000">
+            <article v-if="categoriesPostsData" v-for="category in categoriesPostsData" :key="category.id"
+              class="article-section position-relative mb-3 py-5">
               <div class="d-flex flex-wrap justify-content-between g-0">
                 <div>
                   <h1 class="berita-section-title">{{ category.name }}</h1>
@@ -152,46 +80,8 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
                 </span>
               </div>
               <div class="d-flex flex-column">
-                <ul class="list-group list-group-flush">
-                  <li v-for="post in postsData.filter(post => post.categories.find(cat => cat === Number(category.id)))
-                    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-                    .slice(0, 5)" :key="post.id" class="list-group-item mx-0 px-0">
-                    <div class="card border-0 rounded-0">
-                      <div class="row justify-content-start align-items-center g-3">
-                        <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-5">
-                          <NuxtLink :to="`/articles/${post.slug}`"
-                            :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
-                            <NuxtImg :class="'article-list__thumbnail '" :src="post.featured_media" loading="lazy"
-                              :alt="post.title.rendered" />
-                          </NuxtLink>
-                        </div>
-                        <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-7">
-                          <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
-                            <div class="d-flex justify-content-between g-2 mb-3">
-                              <span class="article-info-tag">{{
-                                category.name
-                              }}</span>
-                              <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.date_gmt)
-                              }}</span>
-                            </div>
-                            <NuxtLink :to="`/articles/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title}`"
-                              :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
-                              {{
-                                post.title.rendered.length >= 80
-                                ? `${post.title.rendered.substring(0, 80)}...`
-                                : post.title.rendered
-                              }}
-                            </NuxtLink>
-                            <div class="article-desc pt-2" v-html="post.excerpt.rendered.length >= 250
-                                  ? `${post.excerpt.rendered.substring(0, 250)}...`
-                                  : post.excerpt.rendered
-                                "></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                <NewsCardItemListThumbnail :categoryId="category.id" :categoryName="category.name" />
+
               </div>
             </article>
           </div>
@@ -202,10 +92,7 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
               </h1>
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle :posts="postsData
-                    .sort((a, b) => b.title.rendered.localeCompare(a.title.rendered))
-                    .slice(0, 10)
-                    " />
+                  <ArticlesArticleListTitle :end="10" />
                 </div>
               </div>
             </article>
