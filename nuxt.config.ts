@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   experimental: {
-    inlineSSRStyles: false, // or a function to determine inlining
+    inlineSSRStyles: true, // or a function to determine inlining
     clientFallback: true,
     crossOriginPrefetch: true,
     viewTransition: true,
@@ -33,19 +33,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  hooks: {
-    "build:manifest": (manifest) => {
-      // find the app entry, css list
-      const css = manifest["node_modules/nuxt/dist/app/entry.js"]?.css;
-      if (css) {
-        // start from the end of the array and go to the beginning
-        for (let i = css.length - 1; i >= 0; i--) {
-          // if it starts with 'entry', remove it from the list
-          if (css[i].startsWith("entry")) css.splice(i, 1);
-        }
-      }
-    },
-  },
 
   // Nuxt.js modules
   modules: [
@@ -61,7 +48,7 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      titleTemplate: "%s - SmartNation",
+      titleTemplate: "%s - Smart Nation",
       link: [
         {
           rel: "stylesheet",

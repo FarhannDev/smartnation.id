@@ -1,79 +1,66 @@
-<script setup>
 
-definePageMeta({ layout: "content-layout" })
+<script lang="ts" setup>
 
-
-const route = useRoute();
-
-const postId = String(route.params.id)
-
-
-const { data: post } = await useFetch('/api/posts', {
-  transform: (posts) => {
-    return posts.find(post => post.slug === postId)
-  }
-})
-
-if (!post.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Page Not Found'
-  })
-}
-
-const { data: postsData } = await useFetch('/api/posts')
-
-
-useSeoMeta({
-  title: post.value.title.rendered,
-  description: post.value.excerpt.rendered,
-  author: 'Smart Nation',
-  articleAuthor: 'Smart Nation',
-  articlePublishedTime: useFormatter(post.value.date_gmt),
-  articleModifiedTime: useFormatter(post.value.date_gmt),
-  articleSection: 'Smart City',
-  articleTag: post.value.categories,
-  ogType: 'article',
-  ogTitle: post.value.title.rendered,
-  ogDescription: post.value.excerpt.rendered,
-  ogImage: post.value.featured_media,
-  ogSiteName: 'SmartNation.id',
-  ogUrl: 'https://smartnation.vercel.app/',
-  ogLocale: "ID",
-  ogImageUrl: `https://smartnation.vercel.app/${post.value.featured_media}`,
-})
+defineProps(['post'])
 
 </script>
 
 <template>
-  <!-- rendered content main -->
-  <main id="content">
-    <!-- section berita detail start -->
-    <section class="berita-section-container position-relative py-5 mt-5">
-      <div class="container">
-        <div class="row justify-content-start g-3 pt-3">
+  <div class="row justify-content-start">
+    <div class="col">
+      <div class="article-details-container d-grid gap-3">
+        <div class="article-details__title__wrapper">
+          <h1 class="article-details__title">{{ post.title.rendered }}</h1>
+        </div>
 
-          <div class="col-lg-8 col-md-auto">
-            <!-- Article Content Start -->
-            <PostsPostContentDetails :post="post" />
-            <!-- Article Content End -->
-            <!-- Article Comments Start -->
-            <PostsPostComments />
-            <PostsPostUserComments />
-
-            <!-- Article Comments End -->
+        <div class="article-details__info__wrapper">
+          <div class="d-flex flex-wrap justify-content-start g-2">
+            <div class="article-details__info__created me-3">
+              <BootstrapIcon name="clock" />
+              {{ useFormatter(post.date_gmt) }}
+            </div>
+            <div class="article-details__info__comments me-3">
+              <BootstrapIcon name="chat" />
+            </div>
+            <span class="article-details__info__views me-3">
+              <BootstrapIcon name="eye" />
+            </span>
           </div>
-          <div class="col-lg-4 col-md-auto">
-            <div class="px-md-3 mx-md-2">
-              <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
-              <PostsPostItem :posts="postsData.slice(0, 5)" />
+        </div>
+
+        <div class="article-details__content__wrapper">
+          <div class="article-details__content__cover__wrapper">
+            <NuxtImg class="img-fluid article-details__cover" :src="post.featured_media" :height="433"
+              :alt="post.title.rendered" />
+          </div>
+          <div class="article-details__content__tags py-3">
+            <div class="d-flex flex-wrap g-2 mx-0 px-0">
+              <PostsPostCategoriesButton v-for="(cat, index) in post.categories" :key="index" :category-id="cat" />
+            </div>
+          </div>
+
+          <div class="article-details__content" v-html="post.content.rendered"></div>
+
+          <div class="article-details__content__share pt-3">
+            <div class="d-flex flex-wrap justify-content-end g-2">
+              <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter" aria-label="Bagikan Ke Twiter"
+                class="link-offset-2 link-underline link-underline-opacity-0 me-2">
+                <BootstrapIcon name="twitter" class="article-details__content__share__medsos" />
+              </NuxtLink>
+              <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter" aria-label="Bagikan Ke Twiter"
+                class="link-offset-2 link-underline link-underline-opacity-0 me-2">
+                <BootstrapIcon name="facebook" class="article-details__content__share__medsos" />
+              </NuxtLink>
+              <NuxtLink to="/" target="_blank" rel="noopener" title="Bagikan Ke Twitter" aria-label="Bagikan Ke Twiter"
+                class="link-offset-2 link-underline link-underline-opacity-0 me-2">
+                <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
+              </NuxtLink>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- section berita detail end -->
-  </main>
+    </div>
+  </div>
 </template>
 
 <style scoped>

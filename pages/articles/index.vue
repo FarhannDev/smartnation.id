@@ -72,7 +72,7 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
                   <h1 class="berita-section-title">{{ category.name }}</h1>
                 </div>
                 <span>
-                  <NuxtLink :to="`/news/category/${category.slug}`" aria-label="Lihat Selengkapnya"
+                  <NuxtLink :to="`/category/${category.slug}`" aria-label="Lihat Selengkapnya"
                     class="link-offset-2 link-underline link-underline-opacity-0 link-secondary article-link-title">
                     Selengkapnya
                   </NuxtLink>

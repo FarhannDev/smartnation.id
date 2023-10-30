@@ -2,7 +2,10 @@
 
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
+
 defineProps({ posts: { type: Object as PropType<PostsDataType> } })
+
+
 
 </script>
 
@@ -23,16 +26,16 @@ defineProps({ posts: { type: Object as PropType<PostsDataType> } })
             </span>
 
 
-            <NuxtLink :to="`/articles/${post.slug}`"
+            <NuxtLink :to="`/${post.slug}`"
               class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
               <div v-html="post.title.rendered.length >= 60
                 ? `${post.title.rendered.substring(0, 60)}...`
                 : post.title.rendered" class="post-card__item__title"></div>
             </NuxtLink>
             <div class="hstack gap-2 mx-0 px-0">
-              <NuxtLink v-for="cat in post.categories.slice(0, 3)" :key="cat.id" class="gray-button text-decoration-none"
-                to="/">
-                {{ cat }}</NuxtLink>
+              <PostsPostCategoriesButton v-for="(cat, index) in post.categories.slice(0, 3)" :key="index"
+                :category-id="cat" />
+
             </div>
           </div>
         </div>
@@ -108,7 +111,7 @@ defineProps({ posts: { type: Object as PropType<PostsDataType> } })
   padding: 4px 10px;
   font-size: 14px;
   cursor: pointer;
-  margin: 5px;
+  margin: 3px;
   transition: background-color 03s;
   font-family: poppins;
 }

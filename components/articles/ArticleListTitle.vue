@@ -2,22 +2,18 @@
 <script lang="ts" setup>
 import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
-const props = defineProps({ start: { type: Number, default: 0 }, end: { type: Number, default: 5 } })
+defineProps({ start: { type: Number, default: 0 }, end: { type: Number, default: 5 } })
 
 
-const { data: posts, pending, error } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-      .slice(props.start, props.end)
-  }
-})
+const { data: posts, pending, error } = await useFetch<PostsDataType>('/api/posts')
 
 </script>
 
 <template>
   <div class="d-flex flex-column">
-    <div class="vstack g-3">
-      <div v-for="(post, index) in posts" :key="post.id">
+    <div v-if="posts" class="vstack g-3">
+      <div v-for="(post, index) in posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+            .slice(start, end)" :key="post.id">
         <div class="d-flex justify-content-arround mb-4 ">
           <span class="article-number me-3">{{ index + 1 }}</span>
           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
