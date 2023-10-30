@@ -1,79 +1,85 @@
-<script setup>
-
-definePageMeta({ layout: "content-layout" })
-
-
-const route = useRoute();
-
-const postId = String(route.params.id)
-
-
-const { data: post } = await useFetch('/api/posts', {
-  transform: (posts) => {
-    return posts.find(post => post.slug === postId)
-  }
-})
-
-if (!post.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Page Not Found'
-  })
-}
-
-const { data: postsData } = await useFetch('/api/posts')
-
-
-useSeoMeta({
-  title: post.value.title.rendered,
-  description: post.value.excerpt.rendered,
-  author: 'Smart Nation',
-  articleAuthor: 'Smart Nation',
-  articlePublishedTime: useFormatter(post.value.date_gmt),
-  articleModifiedTime: useFormatter(post.value.date_gmt),
-  articleSection: 'Smart City',
-  articleTag: post.value.categories,
-  ogType: 'article',
-  ogTitle: post.value.title.rendered,
-  ogDescription: post.value.excerpt.rendered,
-  ogImage: post.value.featured_media,
-  ogSiteName: 'SmartNation.id',
-  ogUrl: 'https://smartnation.vercel.app/',
-  ogLocale: "ID",
-  ogImageUrl: `https://smartnation.vercel.app/${post.value.featured_media}`,
-})
-
-</script>
-
 <template>
-  <!-- rendered content main -->
-  <main id="content">
-    <!-- section berita detail start -->
-    <section class="berita-section-container position-relative py-5 mt-5">
-      <div class="container">
-        <div class="row justify-content-start g-3 pt-3">
-
-          <div class="col-lg-8 col-md-auto">
-            <!-- Article Content Start -->
-            <PostsPostContentDetails :post="post" />
-            <!-- Article Content End -->
-            <!-- Article Comments Start -->
-            <PostsPostComments />
-            <PostsPostUserComments />
-
-            <!-- Article Comments End -->
+  <div class="row justify-content-start">
+    <div class="col">
+      <div class="d-flex flex-column justify-content-start g-2 py-5">
+        <div class="article-comments-card mb-3">
+          <div class="d-flex justify-content-start align-content-start">
+            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
+            <div class="d-flex flex-column justify-content-start g-2">
+              <div class="article-comments__name">Atika Putri</div>
+              <div class="article-comments__created">
+                30 Menit yang lalu
+              </div>
+              <div class="article-comments__content">
+                Wahh Sangat Menarik
+              </div>
+              <div class="article-comments__action">
+                <div class="hstack gap-3">
+                  <span class="d-inline">
+                    <BootstrapIcon name="hand-thumbs-up" /> 0
+                  </span>
+                  <span class="d-inline">
+                    <BootstrapIcon name="hand-thumbs-down" /> 0
+                  </span>
+                  <span class="d-inline"> Balas </span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-auto">
-            <div class="px-md-3 mx-md-2">
-              <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
-              <PostsPostItem :posts="postsData.slice(0, 5)" />
+        </div>
+        <div class="article-comments-card mb-3">
+          <div class="d-flex justify-content-start align-content-start">
+            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
+            <div class="d-flex flex-column justify-content-start g-2">
+              <div class="article-comments__name">Atika Putri</div>
+              <div class="article-comments__created">
+                30 Menit yang lalu
+              </div>
+              <div class="article-comments__content">
+                Wahh Sangat Menarik
+              </div>
+              <div class="article-comments__action">
+                <div class="hstack gap-3">
+                  <span class="d-inline">
+                    <BootstrapIcon name="hand-thumbs-up" /> 0
+                  </span>
+                  <span class="d-inline">
+                    <BootstrapIcon name="hand-thumbs-down" /> 0
+                  </span>
+                  <span class="d-inline"> Balas </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article-comments-card mb-3">
+          <div class="d-flex justify-content-start align-content-start">
+            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
+            <div class="d-flex flex-column justify-content-start g-2">
+              <div class="article-comments__name">Atika Putri</div>
+              <div class="article-comments__created">
+                30 Menit yang lalu
+              </div>
+              <div class="article-comments__content">
+                Wahh Sangat Menarik
+              </div>
+              <div class="article-comments__action">
+                <div class="hstack gap-3">
+                  <span class="d-inline">
+                    <BootstrapIcon name="hand-thumbs-up" /> 0
+                  </span>
+                  <span class="d-inline">
+                    <BootstrapIcon name="hand-thumbs-down" /> 0
+                  </span>
+                  <span class="d-inline"> Balas </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- section berita detail end -->
-  </main>
+    </div>
+  </div>
 </template>
 
 <style scoped>

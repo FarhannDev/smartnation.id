@@ -29,9 +29,9 @@ const showDropdownTranslate: (isOpen: boolean) => boolean = (isOpen: boolean) =>
 const updateLanguage: (language: string) => string = (language: string) =>
   (isLanguage.value = language);
 
-const { data: categories } = await useLazyFetch('/api/categories', {
+const { data: categories } = await useFetch('/api/categories', {
   transform: (categories: CategoryPostsType) => {
-    return categories.filter(category => category.parent === 0).map(cat => ({
+    return categories.filter(category => category.parent === 0 || category.parent === 82).map(cat => ({
       id: cat.id,
       name: cat.name,
       slug: cat.slug
@@ -40,13 +40,15 @@ const { data: categories } = await useLazyFetch('/api/categories', {
 })
 
 
-const { data: categoriesEvents } = await useLazyFetch('/api/categories', {
+const { data: categoriesEvents } = await useFetch('/api/categories', {
   transform: (events: CategoryPostsType) => {
-    return events.filter(event => event.id == 89 || event.id === 90 || event.id === 129).map(cat => ({
-      id: cat.id,
-      name: cat.name,
-      slug: cat.slug
-    }));
+    return events.filter(event => event.id == 89 ||
+      event.id === 90 ||
+      event.id === 129).map(cat => ({
+        id: cat.id,
+        name: cat.name,
+        slug: cat.slug
+      }));
   }
 })
 
@@ -87,15 +89,15 @@ const { data: categoriesEvents } = await useLazyFetch('/api/categories', {
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
                 <path
                   d="M5.74714 6.19354L8.3338 8.7802L10.9205 6.19354C11.1805 5.93354 11.6005 5.93354 11.8605 6.19354C12.1205 6.45354 12.1205 6.87354 11.8605 7.13354L8.80047 10.1935C8.54047 10.4535 8.12047 10.4535 7.86047 10.1935L4.80047 7.13354C4.54047 6.87354 4.54047 6.45354 4.80047 6.19354C5.06047 5.9402 5.48714 5.93354 5.74714 6.19354Z"
-                  fill="#5D5D5D" />
+                  fill="currentColor" />
               </svg>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/articles/category/${category.slug}`">{{ category.name }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
             </ul>
           </li>
@@ -104,10 +106,10 @@ const { data: categoriesEvents } = await useLazyFetch('/api/categories', {
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
               }`" to="/events" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Acara
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
                 <path
                   d="M5.74714 6.19354L8.3338 8.7802L10.9205 6.19354C11.1805 5.93354 11.6005 5.93354 11.8605 6.19354C12.1205 6.45354 12.1205 6.87354 11.8605 7.13354L8.80047 10.1935C8.54047 10.4535 8.12047 10.4535 7.86047 10.1935L4.80047 7.13354C4.54047 6.87354 4.54047 6.45354 4.80047 6.19354C5.06047 5.9402 5.48714 5.93354 5.74714 6.19354Z"
-                  fill="#5D5D5D" />
+                  fill="currentColor" />
               </svg>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownEvents }">
@@ -257,7 +259,7 @@ const { data: categoriesEvents } = await useLazyFetch('/api/categories', {
 .nav-link {
   color: #5d5d5d;
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -304,6 +306,7 @@ const { data: categoriesEvents } = await useLazyFetch('/api/categories', {
   height: auto;
   overflow: auto;
   border-radius: 4px;
+  margin-top: 13px;
 }
 
 .dropdown-menu .dropdown-item {

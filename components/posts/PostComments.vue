@@ -1,79 +1,58 @@
-<script setup>
+<script lang="ts" setup></script>
 
-definePageMeta({ layout: "content-layout" })
-
-
-const route = useRoute();
-
-const postId = String(route.params.id)
-
-
-const { data: post } = await useFetch('/api/posts', {
-  transform: (posts) => {
-    return posts.find(post => post.slug === postId)
-  }
-})
-
-if (!post.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Page Not Found'
-  })
-}
-
-const { data: postsData } = await useFetch('/api/posts')
-
-
-useSeoMeta({
-  title: post.value.title.rendered,
-  description: post.value.excerpt.rendered,
-  author: 'Smart Nation',
-  articleAuthor: 'Smart Nation',
-  articlePublishedTime: useFormatter(post.value.date_gmt),
-  articleModifiedTime: useFormatter(post.value.date_gmt),
-  articleSection: 'Smart City',
-  articleTag: post.value.categories,
-  ogType: 'article',
-  ogTitle: post.value.title.rendered,
-  ogDescription: post.value.excerpt.rendered,
-  ogImage: post.value.featured_media,
-  ogSiteName: 'SmartNation.id',
-  ogUrl: 'https://smartnation.vercel.app/',
-  ogLocale: "ID",
-  ogImageUrl: `https://smartnation.vercel.app/${post.value.featured_media}`,
-})
-
-</script>
 
 <template>
-  <!-- rendered content main -->
-  <main id="content">
-    <!-- section berita detail start -->
-    <section class="berita-section-container position-relative py-5 mt-5">
-      <div class="container">
-        <div class="row justify-content-start g-3 pt-3">
+  <div class="row justify-content-start">
+    <div class="col">
+      <div class="article-comments__card">
+        <div class="article-comments__body">
+          <h3 class="article-comments-title">Komentar</h3>
+          <p class="article-comments__text">
+            Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang
+            Wajib Ditandai
+            <span class="article-comments__text__label">*</span>
+          </p>
 
-          <div class="col-lg-8 col-md-auto">
-            <!-- Article Content Start -->
-            <PostsPostContentDetails :post="post" />
-            <!-- Article Content End -->
-            <!-- Article Comments Start -->
-            <PostsPostComments />
-            <PostsPostUserComments />
+          <div class="d-flex flex-column justify-content-start g-2">
+            <form class="article-form__input-container">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label" hidden>Example textarea</label>
+                <textarea class="form-control article-form__input__text" id="exampleFormControlTextarea1"
+                  rows="3"></textarea>
+              </div>
 
-            <!-- Article Comments End -->
-          </div>
-          <div class="col-lg-4 col-md-auto">
-            <div class="px-md-3 mx-md-2">
-              <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
-              <PostsPostItem :posts="postsData.slice(0, 5)" />
-            </div>
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <input type="text" class="form-control article-form__input" placeholder="Nama Lengkap"
+                      aria-label="Nama Lengkap" />
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <input type="text" class="form-control article-form__input" placeholder="Alamat Email"
+                      aria-label="Alamat Email" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input rounded-0" id="exampleCheck1" checked />
+                <label class="form-check-label article-form__input_check__label" for="exampleCheck1">Simpan
+                  nama, email, dan situs web saya pada
+                  peramban ini untuk komentar saya
+                  berikutnya.</label>
+              </div>
+
+              <div class="mb-3">
+                <button disabled type="submit" class="article-form__button">
+                  Posting
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </section>
-    <!-- section berita detail end -->
-  </main>
+    </div>
+  </div>
 </template>
 
 <style scoped>
