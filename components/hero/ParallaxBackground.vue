@@ -43,24 +43,24 @@ const backgroundStyle = () => {
   </section>
 </template>
 
-<style >
+
+<style lang="css" scoped>
 .hero-image-parallax {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   overflow: hidden;
   scroll-behavior: smooth;
-  margin-left: 0;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
 
 
 .hero-image-bg__gradient {
+  position: absolute;
   padding: 0;
   height: 100vh;
   flex-shrink: 0;
-  position: relative;
   width: 100%;
   height: 100vh;
   background: linear-gradient(0deg,
@@ -71,15 +71,25 @@ const backgroundStyle = () => {
       rgba(217, 217, 217, 0) 95.59%);
 }
 
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .hero-heading-container {
   position: absolute;
-  width: 400px;
-  top: 45%;
+  width: 100%;
+  top: 40%;
+  left: 0;
   z-index: 1000;
 }
 
+
+
 .hero-heading__title {
-  /* display: inline; */
+  display: block;
   color: var(--font-50, #F6F6F6);
   font-family: Poppins;
   font-size: 33px;
@@ -87,11 +97,11 @@ const backgroundStyle = () => {
   font-weight: 700;
   line-height: 120%;
   text-align: start;
-  margin-right: 20px;
-  margin-top: 3%;
-  padding-top: 3%;
-}
+  width: fit-content;
+  margin-left: 12px;
+  margin-right: 12px;
 
+}
 
 .hero-heading__desc {
   color: var(--Background, #FFF);
@@ -101,153 +111,60 @@ const backgroundStyle = () => {
   font-weight: 400;
   line-height: 120%;
   width: 100%;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 
 .hero-social-media-container {
+  display: none;
   position: absolute;
   top: 45%;
-  right: 13px;
+  right: 10px;
   z-index: 1000;
 }
 
-
-.hero-social-media-container .social-media__icons {
-  text-align: center;
-  width: 32.567px;
-  height: 30.588px;
-  margin-bottom: 40px;
-}
-
-
-.swiper-pagination-bullet {
-  width: 9.6px;
-  height: 9.6px;
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
-  color: #000;
-  opacity: 1;
-  background: var(--grey-400, #BDBDBD);
-
-}
-
-.swiper-pagination-bullet-active {
-  color: #fff;
-  background: #C70943;
-}
-
-/* // X-Small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap */
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 540px) {
-
-  .hero-heading__title {
-    font-size: 35px !important;
-    display: block;
-    width: 30px;
-    /* margin-bottom: 50%; */
-  }
-
-  .hero-heading__desc {
-    width: 50px;
-    font-size: 20px;
-    /* margin-bottom: 50%; */
-    margin-top: 1%;
-    padding-top: 1%;
-  }
-
-  .hero-social-media-container {
-    position: absolute;
-    top: 35% !important;
-    right: 30px !important;
-  }
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-
-  /* Atur gaya untuk layar berukuran tablet */
-  .hero-heading-container {
-    width: 100%;
-  }
-
-  .hero-heading__title {
-    display: block;
-    font-size: 30px !important;
-    width: 620px;
-    margin-top: 1%;
-    padding-top: 1%;
-  }
-
-
-  .hero-social-media-container {
-    position: absolute;
-    top: 35% !important;
-    right: 30px !important;
-  }
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (max-width: 992px) {
-  .hero-heading-container {
-    width: 100%;
-  }
-
-  .hero-heading__title {
-    display: block;
-    font-size: 30px !important;
-    width: 640px;
-    /* margin-top: 4%;
-    padding-top: 4%; */
-    /* margin-bottom: 5% !important; */
-    /* top: 50% !important; */
-  }
-
-  .hero-social-media-container {
-    position: absolute;
-    top: 35% !important;
-    right: 45px !important;
-  }
-}
-
-/* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .hero-image-parallax {
-    height: 100vh;
-  }
-
-  .hero-image-bg__gradient {
-    height: 100vh;
+  .hero-social-media-container {
+    display: block;
+    right: 20px;
   }
 
   .hero-heading__title {
-    font-size: 50px !important;
     display: block;
+    font-size: 64px;
     width: 1000px;
-    /* margin-top: 1%;
-    padding-top: 1%; */
-    /* margin-bottom: 5%;
-    padding-bottom: 5%; */
-    /* top: 5%; */
+    margin-left: 0px;
   }
 
   .hero-heading__desc {
+
+    font-size: 33px;
+
     width: 1200px;
-    font-size: 31px;
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-heading__title {
+    display: block;
+    font-size: 64px;
+    width: 1200px;
+    margin-left: 0px;
+
   }
 
-  .hero-social-media-container {
-    position: absolute;
-    top: 48%;
-    right: 100px;
-    z-index: 1000;
+  .hero-heading__desc {
+
+    font-size: 33px;
+
+    width: 1200px;
+    margin-left: 0px;
   }
 
 }
 </style>
-
 
 
 

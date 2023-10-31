@@ -53,7 +53,7 @@ useSeoMeta({
       <div class="container">
         <div class="row justify-content-start g-3 pt-3">
 
-          <div class="col-lg-8 col-md-auto">
+          <div class="col-lg-12 col-xl-8 col-md-auto">
             <!-- Article Content Start -->
             <PostsPostContentDetails :post="post" />
             <!-- Article Content End -->
@@ -63,7 +63,7 @@ useSeoMeta({
 
             <!-- Article Comments End -->
           </div>
-          <div class="col-lg-4 col-md-auto">
+          <div class="col-lg-auto col-xl-4 col-md-auto">
             <div class="px-md-3 mx-md-2">
               <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
               <PostsPostItem :posts="postsData.slice(0, 5)" />

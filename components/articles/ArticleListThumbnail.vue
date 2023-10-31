@@ -98,5 +98,9 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 .dark-mode .article-title {
   color: #fafafa;
 }
+
+.dark-mode .article-info-timestamps {
+  color: #fafafa;
+}
 </style>
 

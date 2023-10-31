@@ -12,7 +12,7 @@ const categories = data.value?.find(category => category.id === props.categoryId
 <template>
   <div>
     <NuxtLink class="gray-button text-decoration-none" :to="`/category/${categories?.slug}`">
-      {{ categories?.name }}</NuxtLink>
+      {{ `${categories?.name.substring(0, 15)}` }}</NuxtLink>
 
   </div>
 </template>
