@@ -137,5 +137,9 @@ const { data: posts } = await useFetch('/api/posts', {
 .dark-mode .article-desc {
   color: rgba(255, 255, 255, 0.80);
 }
+
+.dark-mode .article-timestamp {
+  color: #fafafa;
+}
 </style>
 

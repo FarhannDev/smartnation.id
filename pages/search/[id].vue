@@ -34,17 +34,16 @@ useSeoMeta({
 </script>
 
 <template>
-  <HeroParallaxBackground v-for="(post, index) in posts.sort((a, b) => b.date_gmt.localeCompare(a.date_gmt)).slice(0, 1)"
-    :key="index" :text="'Daftar Berita'" :desc="`Daftar Berita Dari Hasil pencarian ${id.toString()}`"
-    :background="post.featured_media" />
+  <HeroParallaxBackground :text="'Daftar Berita'" :desc="`Daftar Berita Dari Hasil pencarian ${id.toString()}`"
+    :background="'https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV'" />
+  <!-- Section berita start -->
+  <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
+    <div class="container">
+      <div class="row justify-content-start align-content-start g-5 py-5">
+        <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
 
-  <main id="content">
-    <!-- Section berita start -->
-    <section data-aos="fade-up" data-aos-duration="1500" class="berita-section-container position-relative py-5">
-      <div class="container">
-        <div class="row justify-content-start align-content-start g-5 py-5">
-          <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
-            <article v-if="results" class="article-section position-relative mb-3">
+          <div v-if="results?.length">
+            <article class="article-section position-relative mb-3">
               <h1 class="berita-section-title">{{ resultName }}</h1>
 
               <div class="d-flex flex-column ">
@@ -89,8 +88,9 @@ useSeoMeta({
                 </ul>
               </div>
 
+
               <!-- Pagination start -->
-              <div class="d-flex justify-content-center g-2 pt-3 ">
+              <div v-show="results?.length" class="d-flex justify-content-center g-2 pt-3 ">
                 <nav aria-label="Page navigation example">
                   <ul class="pagination">
                     <li class="page-item mx-2">
@@ -116,36 +116,43 @@ useSeoMeta({
                 </nav>
               </div>
               <!-- Pagination end -->
+
+
             </article>
 
-            <!-- Show not found -->
-            <div v-else>
 
-              <div class="text-center mx-auto">
-                <NuxtImg src="/images/ccsn_empty_page.png" class="img-fluid" loading="lazt" :width="342" :height="342" />
-                <h1 class="berita-section-title">{{ resultNameEmpty }}</h1>
-                <h1 class="berita-section-title">Untuk saat ini berita belum tersedia, Coba dengan kata kunci lain </h1>
-              </div>
+          </div>
+
+
+          <!-- Show not found -->
+          <div v-else>
+
+            <div class="text-center mx-auto">
+              <NuxtImg src="/images/ccsn_empty_page.png" class="img-fluid" loading="lazt" :width="342" :height="342" />
+              <h1 class="berita-section-title">{{ resultNameEmpty }}</h1>
+              <h1 class="berita-section-title">Untuk saat ini berita belum tersedia, Coba dengan kata kunci lain </h1>
             </div>
           </div>
-          <div class="col-xl-4 col-xxl-4 col-lg-12 ">
-            <article>
-              <h1 class="berita-section-title text-decoration-underline">
-                Baca Berita Lainnya
-              </h1>
 
-              <div class="d-flex flex-column ">
-                <div class="vstack g-3">
-                  <ArticlesArticleListTitle :end="10" />
-                </div>
+
+        </div>
+        <div class="col-xl-4 col-xxl-4 col-lg-12 ">
+          <article>
+            <h1 class="berita-section-title text-decoration-underline">
+              Baca Berita Lainnya
+            </h1>
+
+            <div class="d-flex flex-column ">
+              <div class="vstack g-3">
+                <ArticlesArticleListTitle :end="10" />
               </div>
-            </article>
-          </div>
+            </div>
+          </article>
         </div>
       </div>
-    </section>
-    <!-- Section berita end -->
-  </main>
+    </div>
+  </section>
+  <!-- Section berita end -->
 </template>
 
 <style scoped>

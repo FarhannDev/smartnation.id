@@ -20,10 +20,10 @@ defineProps(['post'])
               {{ useFormatter(post.date_gmt) }}
             </div>
             <div class="article-details__info__comments me-3">
-              <BootstrapIcon name="chat" />
+              <BootstrapIcon name="chat" /> 0
             </div>
             <span class="article-details__info__views me-3">
-              <BootstrapIcon name="eye" />
+              <BootstrapIcon name="eye" /> 0
             </span>
           </div>
         </div>

@@ -11,7 +11,7 @@ defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 <template>
   <div class="row justify-content-start g-3 py-3">
-    <div v-for="post in posts" :key="post.id" class="col-lg-12 col-md-6">
+    <div v-for="post in posts" :key="post.id" class="col-xl-12 col-lg-4 col-md-6">
       <div class="card post-card__item">
         <NuxtImg :src="post.featured_media" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;"
           :alt="'berita'" />

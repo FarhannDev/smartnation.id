@@ -203,9 +203,12 @@
   /* 19.2px */
 }
 
-.article-comments__card,
+
+
+
+
 .article-comments__text {
-  color: var(--font-400, #888);
+  color: var(--font-400, #888) !important;
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -380,6 +383,10 @@
 }
 
 .dark-mode .article-details__info__comments {
+  color: #fff;
+}
+
+.dark-mode .article-comments__text {
   color: #fff;
 }
 </style>
