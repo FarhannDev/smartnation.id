@@ -172,7 +172,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/articles/category/${category.slug}`">{{ category.name }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
             </ul>
           </li>

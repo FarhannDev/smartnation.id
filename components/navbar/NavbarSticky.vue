@@ -196,7 +196,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
                 <NuxtLink class="dropdown-item" :to="`/articles`">Indeks</NuxtLink>
               </li>
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/${category.slug}`">{{ category.name }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
             </ul>
           </li>

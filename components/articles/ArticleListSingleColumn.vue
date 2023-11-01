@@ -43,8 +43,8 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
         <div v-show="isDescription"
           :class="`card-text text-start lh-base ${isBackground ? 'article-desc__background' : 'article-desc'}   pt-2`"
-          v-html="post.excerpt.rendered.length >= 150
-            ? `${post.excerpt.rendered.substring(0, 150)}...`
+          v-html="post.excerpt.rendered.length >= 250
+            ? `${post.excerpt.rendered.substring(0, 250)}...`
             : post.excerpt.rendered
             "> </div>
 
