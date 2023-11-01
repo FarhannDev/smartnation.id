@@ -376,7 +376,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
 }
 
 .dropdown-menu {
-  margin-top: 13px;
+  /* margin-top: 13px; */
   /* width: fit-content; */
   height: auto;
   overflow: auto;

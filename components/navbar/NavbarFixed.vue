@@ -363,7 +363,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
   }
 
   .dropdown-menu {
-    margin-top: 12px;
+    /* margin-top: 12px; */
   }
 }
 
