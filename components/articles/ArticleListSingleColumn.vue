@@ -43,8 +43,8 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
         <div v-show="isDescription"
           :class="`card-text text-start lh-base ${isBackground ? 'article-desc__background' : 'article-desc'}   pt-2`"
-          v-html="post.excerpt.rendered.length >= 150
-            ? `${post.excerpt.rendered.substring(0, 150)}...`
+          v-html="post.excerpt.rendered.length >= 250
+            ? `${post.excerpt.rendered.substring(0, 250)}...`
             : post.excerpt.rendered
             "> </div>
 
@@ -175,5 +175,119 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 .dark-mode .article-desc {
   color: rgba(255, 255, 255, 0.90);
 }
+
+/* / Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+} 
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .card  .article-thumbnail{
+    min-height: 253px;
+    width: 100%;
+    max-width: 1000px !important;
+    object-position: center;
+  }
+
+  /* .article-thumbnail {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  min-height: 253px;
+  border-radius: 8px;
+  /* margin-left: 30px; */
+  /* animation: animate__zoomIn; */
+  /* animation-duration: 1ms; */ 
+
+/* } */
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .card  .article-thumbnail{
+    min-height: 253px;
+    width: 100%;
+    max-width: 1000px !important;
+    object-position: center;
+  }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .card  .article-thumbnail{
+    min-height: 253px;
+    width: 100%;
+    max-width: 1000px !important;
+    object-position: center;
+  }
+
+}
+
+/* // `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .card  .article-thumbnail{
+    max-height: 100%;
+    width: 100%;
+    max-width: 1000px !important;
+    position: relative !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+}
+
+/* // `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .card  .article-thumbnail{
+    max-height: 100%;
+    width: 100%;
+    max-width: 1000px !important;
+    position: relative !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+}
+
+/* // `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .card  .article-thumbnail{
+    max-height: 100%;
+    width: 100%;
+    max-width: 1000px !important;
+    position: relative !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+}
+
+/* // `xl` applies to large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  .card  .article-thumbnail{
+    max-height: 100%;
+    width: 100%;
+    max-width: 1000px !important;
+    position: relative !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+}
+
+/* // `xxl` applies to x-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+  .card  .article-thumbnail{
+    max-height: 100%;
+    display: flex;
+    text-align: center;
+    max-width: 1000px !important;
+  }
+}
+
 </style>
 

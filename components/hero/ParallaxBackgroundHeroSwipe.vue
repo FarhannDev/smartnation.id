@@ -57,15 +57,15 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
   },
 }">
       <SwiperSlide v-if="posts" v-for="post in posts
-            .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-            .slice(0, 5)" :key="post.id">
+        .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+        .slice(0, 5)" :key="post.id">
 
 
 
         <div class="hero-image-parallax" :style="backgroundStyle(post.featured_media)">
-          <div class="hero-image-bg__gradient"></div>
-          <div class="container">
-            <div class="hero-heading-container">
+          <div class="hero-image-bg__gradient "></div>
+          <div class="container ">
+            <div class="hero-heading-container ">
               <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
                 :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
                 {{ post.title.rendered.length >= 120
@@ -74,7 +74,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
                 }}
               </NuxtLink>
             </div>
-            <HeroSocialMedia />
+            <HeroSocialMedia v-if="!pending" />
           </div>
         </div>
       </SwiperSlide>

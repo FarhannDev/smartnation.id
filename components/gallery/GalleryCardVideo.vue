@@ -54,6 +54,9 @@ const props = defineProps({ title: { type: String }, created: { type: String }, 
   line-height: 150%;
   text-decoration: none;
   margin-bottom: 8px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .album-cover__title:hover {

@@ -12,19 +12,18 @@ body {
 }
 
 main {
- width: 100%;
- height: auto;
- overflow: hidden;
- /* margin-top: 5rem; */
+  width: 100%;
+  height: auto;
+  /* overflow: hidden; */
+  /* margin-top: 5rem; */
 }
-
 
 /*
   Set Global Theme Light Mode
 */
 .light-mode body {
   background-color: #fff;
-  color: #5D5D5D;
+  color: #5d5d5d;
 }
 
 /*
@@ -34,7 +33,6 @@ main {
   background-color: #262626;
   color: #ebf4f1;
 }
-
 
 /*
   Skip To Content
@@ -62,10 +60,9 @@ main {
 	background-color: #F5F5F5;
 }
 
-body::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #a7a7a7;
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #a7a7a7;
   height: 50px;
 }
 

@@ -149,5 +149,4 @@ const { data: posts } = await useFetch('/api/posts', {
   .figure .figure-caption {
     top: 50% !important;
   }
-} */
-</style>
+} */</style>
