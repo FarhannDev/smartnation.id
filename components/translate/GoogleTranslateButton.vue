@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="css" scoped>
 .goog-te-gadget-icon {
   background: url("public/icons/language.png") center center no-repeat !important;
   /* Ganti '/path/to/your-new-image.png' dengan URL gambar baru */
@@ -55,9 +55,11 @@ export default {
   margin-right: 4px !important;
   margin-left: 0 !important;
 }
+
 /* CSS untuk mengganti teks "Pilih Bahasa" menjadi "ID/EN" */
 .google_translate_element select.goog-te-combo {
-  font-size: 0; /* Mengatur ukuran font ke 0 untuk menyembunyikan teks asli */
+  font-size: 0;
+  /* Mengatur ukuran font ke 0 untuk menyembunyikan teks asli */
 }
 
 .google_translate_element select.goog-te-combo option[value="id"]::before {
