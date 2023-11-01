@@ -201,7 +201,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               </svg>
             </button>
           </div>
-          <NuxtTranslate />
+          <TranslateGoogleTranslateButton />
         </div>
       </div>
     </div>

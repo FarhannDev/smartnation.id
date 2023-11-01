@@ -47,16 +47,18 @@ export default {
 </script>
 
 <style>
-
 .goog-te-gadget-icon {
-  background: url('public/icons/language1.png') center center no-repeat !important;
+  background: url("public/icons/language.png") center center no-repeat !important;
   /* Ganti '/path/to/your-new-image.png' dengan URL gambar baru */
+  width: 22px !important;
+  height: 22px !important;
+  margin-right: 4px !important;
+  margin-left: 0 !important;
 }
 /* CSS untuk mengganti teks "Pilih Bahasa" menjadi "ID/EN" */
 .google_translate_element select.goog-te-combo {
   font-size: 0; /* Mengatur ukuran font ke 0 untuk menyembunyikan teks asli */
 }
-
 
 .google_translate_element select.goog-te-combo option[value="id"]::before {
   content: "ID/";
@@ -81,11 +83,27 @@ export default {
 }
 
 .goog-te-gadget-simple {
+  padding: 0 !important;
+  border: 0 !important;
   background: transparent !important;
 }
 
+.VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+  display: none;
+}
+
 .VIpgJd-ZVi9od-xl07Ob-lTBxed {
-  visibility: hidden;
-  content: "Teks Baru:";
+  margin: 0 !important;
+  margin-left: 3px !important;
+}
+
+.VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
+  color: #e7e7e7;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-left: 3px;
+  content: "ID";
 }
 </style>
