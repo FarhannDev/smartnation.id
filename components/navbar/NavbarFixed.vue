@@ -234,7 +234,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               </svg>
             </button>
           </div>
-          <TranslateGoogleTranslateButton />
+          <TranslateGoogleTranslateButtonFixed />
         </div>
       </div>
     </div>

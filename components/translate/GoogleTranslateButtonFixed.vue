@@ -58,7 +58,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* CSS untuk mode terang */
 .light-mode .goog-te-gadget-icon {
   background: url("public/icons/language1.png") center center no-repeat !important;
