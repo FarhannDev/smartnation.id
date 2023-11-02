@@ -85,7 +85,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
       <div class="d-xl-none d-xxl-none">
         <div class="d-flex justify-content-end">
 
-          <button @click="toggleColorMode" class="btn border-0 translate__button mx-0 px-0 me-2" type="button"
+          <button @click="toggleColorMode" class="btn border-0 translate__button mx-2 px-0" type="button"
             :title="colorMode.value" data-bs-toggle="dropdown" aria-expanded="false">
             <svg v-if="colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
               fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
@@ -105,16 +105,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
             </svg>
           </button>
 
-
-          <button class="btn border-0 mx-0 px-0  me-2 search__button" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-search"
-              viewBox="0 0 18 18">
-              <path
-                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
-          </button>
-
-          <button class="navbar-toggler border-0 d-xl-none d-xxl-none button-hamburger px-0 mx-0" type="button"
+          <button class="navbar-toggler border-0 d-xl-none d-xxl-none button-hamburger" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
             aria-expanded="false" aria-label="Toggle navigation">
             <!-- <span class="navbar-toggler-icon"></span> -->
@@ -235,6 +226,10 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/contact-us' ? 'active' : ''
               }`" to="/contact-us">Hubungi Kami
             </NuxtLink>
+          </li>
+
+          <li class="nav-item">
+            <SearchResponsive />
           </li>
         </ul>
       </div>
