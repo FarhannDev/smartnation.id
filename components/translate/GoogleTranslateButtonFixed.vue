@@ -181,6 +181,9 @@ export default {
     margin-left: 3px !important;
     top: -40px;
   }
+  .VIpgJd-ZVi9od-ORHb-OEVmcd {
+    top: -40px;
+  }
 
   .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
     color: #e7e7e7 !important;
@@ -192,5 +195,25 @@ export default {
     content: "ID";
     top: -40px;
   }
+}
+.translated-ltr{
+  margin-top: -40px;
+}
+
+.translated-ltr{
+  margin-top: -40px;
+}
+
+.goog-te-banner-frame{
+  display: none;
+  margin-top: -20px;
+}
+
+.goog-logo-link{
+  display: none !important;
+}
+
+.goog-te-gadget{
+  color: transparent !important;
 }
 </style>

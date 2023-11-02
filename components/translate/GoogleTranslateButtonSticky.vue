@@ -93,6 +93,10 @@ export default {
   background: transparent !important;
 }
 
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    top: -40px;
+  }
+  
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
   top: -40px;
