@@ -43,17 +43,21 @@ defineProps(['post'])
 
           <div class="article-details__content__share pt-3">
             <div class="d-flex flex-wrap justify-content-end g-2">
-              <NuxtLink to="https://www.tiktok.com/@smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
+              <NuxtLink to="https://www.instagram.com/smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
                 class="link-offset-2 link-underline link-underline-opacity-0 me-2">
-                <BootstrapIcon name="tiktok" class="article-details__content__share__medsos" />
+                <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
               </NuxtLink>
               <NuxtLink to="https://www.facebook.com/smartnation.id" target="_blank" rel="noopener" title="" aria-label=""
                 class="link-offset-2 link-underline link-underline-opacity-0 me-2">
                 <BootstrapIcon name="facebook" class="article-details__content__share__medsos" />
               </NuxtLink>
-              <NuxtLink to="https://www.instagram.com/smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
+              <NuxtLink to="https://wa.me/6285882002191" target="_blank" rel="noopener" title="" aria-label=""
                 class="link-offset-2 link-underline link-underline-opacity-0 me-2">
-                <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
+                <BootstrapIcon name="whatsapp" class="article-details__content__share__medsos" />
+              </NuxtLink>
+              <NuxtLink to="https://www.tiktok.com/@smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
+                class="link-offset-2 link-underline link-underline-opacity-0 me-2">
+                <BootstrapIcon name="tiktok" class="article-details__content__share__medsos" />
               </NuxtLink>
             </div>
           </div>
