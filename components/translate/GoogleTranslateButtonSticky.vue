@@ -79,7 +79,7 @@ export default {
 <style>
 /* CSS untuk mode terang */
 .light-mode .goog-te-gadget-icon {
-  background: url("public/icons/language1.png") center center no-repeat !important;
+  background: url("/icons/language1.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
@@ -110,9 +110,10 @@ export default {
   margin-left: 3px;
   content: "ID";
 }
+
 /* CSS untuk mode gelap */
 .dark-mode .goog-te-gadget-icon {
-  background: url("public/icons/language.png") center center no-repeat !important;
+  background: url("/icons/language.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
@@ -143,8 +144,9 @@ export default {
   margin-left: 3px;
   content: "ID";
 }
+
 .goog-te-gadget-icon {
-  background: url("public/icons/language.png") center center no-repeat !important;
+  background: url("/icons/language.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
