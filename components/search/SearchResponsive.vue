@@ -17,14 +17,11 @@ const onSearchHandler = () => {
 </script>
 
 <template>
-  <div>
+  <div class="d-xl-none d-xxl-none py-3">
     <form @submit.prevent="onSearchHandler" class="d-flex" role="search">
       <input v-model="searchQuery" class="form-control search-input-container me-2" type="search" placeholder="Cari"
         aria-label="Cari" autocomplete="name" />
     </form>
-
-
-    <SearchResults :search="searchQuery" />
   </div>
 </template>
 
@@ -32,7 +29,7 @@ const onSearchHandler = () => {
 .search-input-container {
   justify-content: center;
   display: flex;
-  width: 340px;
+  width: 100%;
   align-items: center;
   gap: 4px;
   height: 32px;
