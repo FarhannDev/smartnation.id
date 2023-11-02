@@ -91,11 +91,11 @@ export default {
 .light-mode .google_translate_element {
   background: transparent !important;
   position: static;
-  top: 0;
+  top: -40px !important;
   right: 0;
   left: 0;
   transform: scale(0.9);
-  z-index: 1000;
+  /* z-index: 1000; */
 }
 
 .light-mode .goog-te-gadget-simple {
@@ -106,13 +106,13 @@ export default {
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
-  top: -40px;
+  top: -40px !important;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
   margin: 0 !important;
   margin-left: 3px !important;
-  top: -40px;
+  top: -40px !important;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -123,7 +123,7 @@ export default {
   line-height: 120%;
   margin-left: 3px;
   content: "ID";
-  top: -40px;
+  top: -40px !important;
 }
 
 /* CSS untuk mode gelap */
@@ -158,11 +158,11 @@ export default {
   .google_translate_element {
     background: transparent !important;
     position: static;
-    top: 0;
+    /* top: 0; */
     right: 0;
     left: 0;
     transform: scale(0.9);
-    z-index: 1000;
+    /* z-index: 1000; */
   }
 
   .goog-te-gadget-simple {
@@ -173,18 +173,30 @@ export default {
 
   .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
     display: none;
-    top: -40px;
+    top: -40px !important;
   }
 
   .VIpgJd-ZVi9od-xl07Ob-lTBxed {
     margin: 0 !important;
     margin-left: 3px !important;
-    top: -40px;
+    top: -40px !important;
   }
-  .VIpgJd-ZVi9od-ORHb-OEVmcd {
-    top: -40px;
+  .VIpgJd-ZVi9od-ORHb-OEVmcd{
+    top: -40px !important;
   }
 
+  .VIpgJd-ZVi9od-ORHb {
+    top: -40px !important;
+  }
+
+  .goog-te-banner-frame.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
   .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
     color: #e7e7e7 !important;
     font-size: 14px;
@@ -193,20 +205,20 @@ export default {
     line-height: 120%;
     margin-left: 3px;
     content: "ID";
-    top: -40px;
+    top: -40px !important;
   }
 }
 .translated-ltr{
-  margin-top: -40px;
+  margin-top: -40px !important;
 }
 
 .translated-ltr{
-  margin-top: -40px;
+  margin-top: -40px !important;
 }
 
 .goog-te-banner-frame{
   display: none;
-  margin-top: -20px;
+  margin-top: -40px !important;
 }
 
 .goog-logo-link{
