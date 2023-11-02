@@ -5,7 +5,7 @@ definePageMeta({
     mode: 'out-in'
   },
   pageTransition: { name: 'fade', mode: 'out-in' }
-
+  
 })
 
 import { posts } from "~/utils/data/getInitialData";
@@ -35,20 +35,31 @@ definePageMeta({
     <div class="container">
       <div class="row d-flex g-3 py-5">
         <div class="col-lg-7 col-md-12 col-sm-12 me-5">
-
+          
           <!-- Article Content Start -->
           <section class="article-details-container">
             <div class="d-grid gap-3">
               <div class="article-details__title__wrapper">
                 <h1 class="article-details__title">Album ISNA 2016</h1>
               </div>
-
+              
               <div class="article-details__content__wrapper">
                 <div class="article-details__content__cover__wrapper">
-                  <img class="img-fluid rounded-4"
-                    src="https://smartnation.id/wp-content/uploads/2021/10/Arief_Yahya-1.jpg" alt="content-foto">
+                  <div class="carousel slide">
+                    <img class="img-fluid rounded-4"
+                    src="https://smartnation.id/wp-content/uploads/2021/10/Arief_Yahya-1.jpg" alt="content-foto"
+                    >
+                    <a class="carousel-control-prev" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>>
+                  </div>
                 </div>
-
+                
                 <div class="container article_content p-0 mt-3">
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate ab voluptas non ducimus similique
@@ -60,39 +71,39 @@ definePageMeta({
                     exercitationem dolor fugiat perferendis temporibus quam dicta praesentium eveniet!
                   </p>
                 </div>
-
+                
               </div>
             </div>
           </section>
-
+          
         </div>
         <div class="col-lg-4 col-sm-12">
           <div class="d-flex flex-column g-0 px-md-3 mx-md-2 ">
             <h3 style="color: #CE2F2F;
-                      font-family: Poppins;
-                      font-size: 16px;
-                      font-style: normal;
-                      font-weight: 600;
-                      line-height: 120%;">Album Lainnya</h3>
+            font-family: Poppins;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120%;">Album Lainnya</h3>
             <div class="d-grid gap-2 py-3">
               <div class="vstack gap-3 tablet-hstack">
                 <div class="scroll-container">
                   <div class="otherAlbum container rounded-4"
-                    style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/Rudiantara-1.jpg');">
-                    <p>Lorem, ipsum dolor.</p>
-                  </div>
-                  <div class="otherAlbum container rounded-4"
-                    style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/presscon1-1.jpg');">
-                    <p>Lorem, ipsum dolor.</p>
-                  </div>
+                  style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/Rudiantara-1.jpg');">
+                  <p>Lorem, ipsum dolor.</p>
                 </div>
+                <div class="otherAlbum container rounded-4"
+                style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/presscon1-1.jpg');">
+                <p>Lorem, ipsum dolor.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+</section>
 </template>
 
 <style scoped>
@@ -418,7 +429,7 @@ definePageMeta({
     display: flex;
     flex-direction: row;
   }
-
+  
   .article-details__title {
     color: var(--danger-600, #CE2F2F);
     font-family: Poppins;
@@ -428,7 +439,7 @@ definePageMeta({
     line-height: 120%;
     /* 28.8px */
   }
-
+  
   .article_content {
     color: #454545;
     text-align: justify;
@@ -439,7 +450,7 @@ definePageMeta({
     line-height: 120%;
     /* 19.2px */
   }
-
+  
   /*  */
   .tablet-hstack {
     display: flex;
@@ -447,13 +458,13 @@ definePageMeta({
     justify-content: space-between;
     gap: 0;
   }
-
+  
   .scroll-container {
     width: 100%;
     overflow-x: auto;
     white-space: nowrap;
   }
-
+  
   .otherAlbum {
     width: 50%;
     margin: 0px 1em 0 0;
@@ -461,17 +472,17 @@ definePageMeta({
     display: inline-block;
     scroll-behavior: smooth;
   }
-
+  
   .otherAlbum p {
     position: absolute;
     bottom: 0%;
   }
-
+  
   /* Hide scrollbars in WebKit-based browsers */
   .scroll-container::-webkit-scrollbar {
     width: 0;
   }
-
+  
   /* Hide scroll track in WebKit-based browsers */
   .scroll-container::-webkit-scrollbar-track {
     display: none;
@@ -488,7 +499,7 @@ definePageMeta({
     line-height: 120%;
     /* 28.8px */
   }
-
+  
   .article_content {
     color: #454545;
     text-align: justify;
@@ -499,18 +510,18 @@ definePageMeta({
     line-height: 120%;
     /* 19.2px */
   }
-
+  
   .otherAlbum p {
     position: absolute;
     bottom: 0%;
     font-size: 14px;
   }
-
+  
   /* Hide scrollbars in WebKit-based browsers */
   .scroll-container::-webkit-scrollbar {
     width: 0;
   }
-
+  
   /* Hide scroll track in WebKit-based browsers */
   .scroll-container::-webkit-scrollbar-track {
     display: none;

@@ -59,13 +59,42 @@ export default {
 
 <style>
 /* CSS untuk mode terang */
+
 .light-mode .goog-te-gadget-icon {
-  background: url("public/icons/language1.png") center center no-repeat !important;
+  background: url("/icons/language1.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
   margin-right: 4px !important;
   margin-left: 0 !important;
+}
+
+/* CSS untuk mengganti teks "Pilih Bahasa" menjadi "ID/EN" */
+.light-mode .google_translate_element select.goog-te-combo {
+  font-size: 0;
+  /* Mengatur ukuran font ke 0 untuk menyembunyikan teks asli */
+}
+
+.light-mode .google_translate_element select.goog-te-combo option[value="id"]::before {
+  content: "ID/";
+}
+
+.light-mode .google_translate_element select.goog-te-combo option[value="en"]::before {
+  content: "EN/";
+}
+
+.light-mode .div {
+  width: 19%;
+}
+
+.light-mode .google_translate_element {
+  background: transparent !important;
+  position: static;
+  top: -40px !important;
+  right: 0;
+  left: 0;
+  transform: scale(0.9);
+  /* z-index: 1000; */
 }
 
 .light-mode .goog-te-gadget-simple {
@@ -76,10 +105,12 @@ export default {
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
+  top: -40px !important;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
   margin: 0 !important;
+  margin-left: 3px !important;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -90,38 +121,89 @@ export default {
   line-height: 120%;
   margin-left: 3px;
   content: "ID";
+  top: -40px !important;
 }
+
 /* CSS untuk mode gelap */
-.dark-mode .goog-te-gadget-icon {
-  background: url("public/icons/language.png") center center no-repeat !important;
-  width: 22px !important;
-  height: 22px !important;
-  background-size: 25px 25px !important;
-  margin-right: 4px !important;
-  margin-left: 0 !important;
+@media (prefers-color-scheme: dark) {
+  .goog-te-gadget-icon {
+    background: url("/icons/language.png") center center no-repeat !important;
+    width: 22px !important;
+    height: 22px !important;
+    background-size: 25px 25px !important;
+    margin-right: 4px !important;
+    margin-left: 0 !important;
+  }
+  /* CSS untuk mengganti teks "Pilih Bahasa" menjadi "ID/EN" */
+  .google_translate_element select.goog-te-combo {
+    font-size: 0; /* Mengatur ukuran font ke 0 untuk menyembunyikan teks asli */
+  }
+
+  .google_translate_element select.goog-te-combo option[value="id"]::before {
+    content: "ID/";
+  }
+
+  .google_translate_element select.goog-te-combo option[value="en"]::before {
+    content: "EN/";
+  }
+
+  .div {
+    width: 19%;
+  }
+
+  .google_translate_element {
+    background: transparent !important;
+    position: static;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: scale(0.9);
+    z-index: 1000;
+  }
+
+  .goog-te-gadget-simple {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+    display: none;
+  }
+
+  .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+    margin: 0 !important;
+    margin-left: 3px !important;
+  }
+
+  .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
+    color: #e7e7e7 !important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    margin-left: 3px;
+    content: "ID";
+  }
+}
+.translated-ltr{
+  margin-top: -40px !important;
 }
 
-.dark-mode .goog-te-gadget-simple {
-  padding: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
+.translated-ltr{
+  margin-top: -40px !important;
 }
 
-.dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+.goog-te-banner-frame{
   display: none;
+  margin-top: -40px !important;
 }
 
-.dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
-  margin: 0 !important;
+.goog-logo-link{
+  display: none !important;
 }
 
-.dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
-  color: #e7e7e7 !important;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  margin-left: 3px;
-  content: "ID";
+.goog-te-gadget{
+  color: transparent !important;
 }
 </style>

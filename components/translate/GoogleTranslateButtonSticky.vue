@@ -79,7 +79,7 @@ export default {
 <style>
 /* CSS untuk mode terang */
 .light-mode .goog-te-gadget-icon {
-  background: url("public/icons/language1.png") center center no-repeat !important;
+  background: url("/icons/language1.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
@@ -93,12 +93,30 @@ export default {
   background: transparent !important;
 }
 
+.VIpgJd-ZVi9od-ORHb-OEVmcd{
+    top: -40px !important;
+  }
+
+  .VIpgJd-ZVi9od-ORHb {
+    top: -40px !important;
+  }
+  
+  .goog-te-banner-frame.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+}
+.goog-te-banner-frame {
+  display: none !important;
+}
+
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
+  top: -40px !important;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
   margin: 0 !important;
+  top: -40px !important;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -109,10 +127,12 @@ export default {
   line-height: 120%;
   margin-left: 3px;
   content: "ID";
+  top: -40px !important;
 }
+
 /* CSS untuk mode gelap */
 .dark-mode .goog-te-gadget-icon {
-  background: url("public/icons/language.png") center center no-repeat !important;
+  background: url("/icons/language.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
@@ -128,10 +148,12 @@ export default {
 
 .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
+  top: -40px !important;
 }
 
 .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
   margin: 0 !important;
+  top: -40px !important;
 }
 
 .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -142,13 +164,36 @@ export default {
   line-height: 120%;
   margin-left: 3px;
   content: "ID";
+  top: -40px !important;
 }
+
 .goog-te-gadget-icon {
-  background: url("public/icons/language.png") center center no-repeat !important;
+  background: url("/icons/language.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
   margin-right: 4px !important;
   margin-left: 0 !important;
+}
+.translated-ltr{
+  margin-top: -40px !important;
+}
+
+.translated-ltr{
+  margin-top: -40px !important;
+}
+
+.goog-te-banner-frame{
+  display: none;
+  visibility: hidden;
+  margin-top: -40px !important;
+}
+
+.goog-logo-link{
+  display: none !important;
+}
+
+.goog-te-gadget{
+  color: transparent !important;
 }
 </style>

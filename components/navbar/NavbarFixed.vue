@@ -66,7 +66,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
       <div class="d-xl-none d-xxl-none">
         <div class="d-flex justify-content-end">
 
-          <button @click="toggleColorMode" class="btn border-0 translate__button mx-0 px-0 me-2" type="button"
+          <button @click="toggleColorMode" class="btn border-0 translate__button mx-2 px-0" type="button"
             :title="colorMode.value" data-bs-toggle="dropdown" aria-expanded="false">
             <svg v-if="colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
               fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
@@ -85,17 +85,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
                 d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75c.167-.333.25-.833.25-1.5H2s-2 0-2-2V4zm1.398-.855a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145z" />
             </svg>
           </button>
-
-
-          <button class="btn border-0 mx-0 px-0  me-2 search__button" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-search"
-              viewBox="0 0 18 18">
-              <path
-                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
-          </button>
-
-          <button class="navbar-toggler border-0 d-xl-none d-xxl-none button-hamburger px-0 mx-0" type="button"
+          <button class="navbar-toggler border-0 d-xl-none d-xxl-none button-hamburger " type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
             aria-expanded="false" aria-label="Toggle navigation">
             <!-- <span class="navbar-toggler-icon"></span> -->
@@ -210,7 +200,10 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               }`" to="/contact-us">Hubungi Kami
             </NuxtLink>
           </li>
-          <!-- <TranslateGoogleTranslateButtonMobile /> -->
+
+          <li class="nav-item">
+            <SearchResponsive />
+          </li>
         </ul>
       </div>
       <!-- Navbar Collapse End -->
@@ -287,7 +280,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
   -moz-transition: background-color 300ms ease-out !important;
   -o-transition: background-color 300ms ease-out !important;
   transition: background-color 300ms ease-out !important;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 .navbar .navbar-toggler {
