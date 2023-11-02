@@ -34,6 +34,20 @@ export default defineNuxtConfig({
     },
   },
 
+  hooks: {
+    "build:manifest": (manifest) => {
+      // find the app entry, css list
+      const css = manifest["node_modules/nuxt/dist/app/entry.js"]?.css;
+      if (css) {
+        // start from the end of the array and go to the beginning
+        for (let i = css.length - 1; i >= 0; i--) {
+          // if it starts with 'entry', remove it from the list
+          if (css[i].startsWith("entry")) css.splice(i, 1);
+        }
+      }
+    },
+  },
+
   // Nuxt.js modules
   modules: [
     "@nuxtjs/google-fonts",
@@ -47,8 +61,18 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      charset: "utf-8",
-      viewport: "width=device-width, initial-scale=1",
+      meta: [
+        { name: "charset", content: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#fff" },
+        {
+          name: "description",
+          content:
+            "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
+        },
+        { name: "keywords", content: "Sarana Berita Smart City Terkini" },
+        { name: "author", content: "Smart Nation" },
+      ],
       // titleTemplate: "%s - Smart Nation",
       titleTemplate: (titleChunk) => {
         return titleChunk ? `${titleChunk} - Site Title` : "Site Title";
@@ -149,15 +173,30 @@ export default defineNuxtConfig({
       globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
       runtimeCaching: [
         {
-          handler: "NetworkOnly",
-          urlPattern: /\/api\/.*\/*.json/,
-          method: "POST",
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          handler: "CacheFirst",
           options: {
-            backgroundSync: {
-              name: "smartnationQueueName",
-              options: {
-                maxRetentionTime: 24 * 60,
-              },
+            cacheName: "google-fonts-cache",
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "gstatic-fonts-cache",
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
             },
           },
         },
