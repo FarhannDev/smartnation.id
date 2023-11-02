@@ -210,6 +210,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               }`" to="/contact-us">Hubungi Kami
             </NuxtLink>
           </li>
+          <!-- <TranslateGoogleTranslateButtonMobile /> -->
         </ul>
       </div>
       <!-- Navbar Collapse End -->
