@@ -60,6 +60,7 @@ export default {
 
 <style scoped>
 /* CSS untuk mode terang */
+
 .light-mode .goog-te-gadget-icon {
   background: url("/icons/language1.png") center center no-repeat !important;
   width: 22px !important;
@@ -105,11 +106,13 @@ export default {
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
+  top: -40px;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
   margin: 0 !important;
   margin-left: 3px !important;
+  top: -40px;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -120,6 +123,7 @@ export default {
   line-height: 120%;
   margin-left: 3px;
   content: "ID";
+  top: -40px;
 }
 
 /* CSS untuk mode gelap */
@@ -169,11 +173,13 @@ export default {
 
   .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
     display: none;
+    top: -40px;
   }
 
   .VIpgJd-ZVi9od-xl07Ob-lTBxed {
     margin: 0 !important;
     margin-left: 3px !important;
+    top: -40px;
   }
 
   .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -184,6 +190,7 @@ export default {
     line-height: 120%;
     margin-left: 3px;
     content: "ID";
+    top: -40px;
   }
 }
 </style>
