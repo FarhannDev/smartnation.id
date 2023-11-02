@@ -76,7 +76,6 @@ const { data: categories } = await useFetch<CategoryPostsType>('/api/categories'
       <div class="row justify-content-start align-content-start g-3 py-3">
         <ArticlesArticleCardBackground :categoryId="88" :limits="true" :limitsStart="0" :limitsEnd="4" />
       </div>
-      goo
     </div>
   </section>
   <!-- Events Section End -->
