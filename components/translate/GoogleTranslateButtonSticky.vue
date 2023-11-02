@@ -79,7 +79,7 @@ export default {
 <style>
 /* CSS untuk mode terang */
 .light-mode .goog-te-gadget-icon {
-  background: url("public/icons/language1.png") center center no-repeat !important;
+  background: url("/icons/language1.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
@@ -95,10 +95,12 @@ export default {
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
+  top: -40px;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
   margin: 0 !important;
+  top: -40px;
 }
 
 .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -109,10 +111,12 @@ export default {
   line-height: 120%;
   margin-left: 3px;
   content: "ID";
+  top: -40px;
 }
+
 /* CSS untuk mode gelap */
 .dark-mode .goog-te-gadget-icon {
-  background: url("public/icons/language.png") center center no-repeat !important;
+  background: url("/icons/language.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
@@ -128,10 +132,12 @@ export default {
 
 .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
   display: none;
+  top: -40px;
 }
 
 .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
   margin: 0 !important;
+  top: -40px;
 }
 
 .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
@@ -142,13 +148,35 @@ export default {
   line-height: 120%;
   margin-left: 3px;
   content: "ID";
+  top: -40px;
 }
+
 .goog-te-gadget-icon {
-  background: url("public/icons/language.png") center center no-repeat !important;
+  background: url("/icons/language.png") center center no-repeat !important;
   width: 22px !important;
   height: 22px !important;
   background-size: 25px 25px !important;
   margin-right: 4px !important;
   margin-left: 0 !important;
+}
+.translated-ltr{
+  margin-top: -40px;
+}
+
+.translated-ltr{
+  margin-top: -40px;
+}
+
+.goog-te-banner-frame{
+  display: none;
+  margin-top: -20px;
+}
+
+.goog-logo-link{
+  display: none !important;
+}
+
+.goog-te-gadget{
+  color: transparent !important;
 }
 </style>
