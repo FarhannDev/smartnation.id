@@ -43,17 +43,17 @@ definePageMeta({
                 <h1 class="article-details__title">Album ISNA 2016</h1>
               </div>
               
-              <div class="article-details__content__wrapper">
-                <div class="article-details__content__cover__wrapper">
-                  <div class="carousel slide">
+              <div class="article-details__content__wrapper" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;">
+                <div class="article-details__content__cover__wrapper" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;">
+                  <div class="carousel slide" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;">
                     <img class="img-fluid rounded-4"
                     src="https://smartnation.id/wp-content/uploads/2021/10/Arief_Yahya-1.jpg" alt="content-foto"
                     >
-                    <a class="carousel-control-prev" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" role="button" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" role="button" data-slide="next">
+                    <a class="carousel-control-next" role="button" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
                     </a>>
@@ -525,6 +525,54 @@ definePageMeta({
   /* Hide scroll track in WebKit-based browsers */
   .scroll-container::-webkit-scrollbar-track {
     display: none;
+  }
+  .carousel-control-prev-icon{
+    padding-right: 0cm !important;
+    padding-left:0cm !important;
+    margin-right:0cm !important;
+    margin-left:0cm !important;
+    border-right: 0cm !important;
+    border-left: 0cm !important;
+  }
+  .carousel-control-next-icon{
+    padding-right: 0cm !important;
+    padding-left:0cm !important;
+    margin-right:0cm !important;
+    margin-left:0cm !important;
+    border-right: 0cm !important;
+    border-left: 0cm !important;
+  }
+  .carousel-control-prev{
+    padding-right: 0cm !important;
+    padding-left:0cm !important;
+    margin-right:0cm !important;
+    margin-left:0cm !important;
+    border-right: 0cm !important;
+    border-left: 0cm !important;
+  }
+  .carousel-control-next{
+    padding-right: 0cm !important;
+    padding-left:0cm !important;
+    margin-right:0cm !important;
+    margin-left:0cm !important;
+    border-right: 0cm !important;
+    border-left: 0cm !important;
+  }
+  .carousel{
+    padding-right: 0cm !important;
+    padding-left:0cm !important;
+    margin-right:0cm !important;
+    margin-left:0cm !important;
+    border-right: 0cm !important;
+    border-left: 0cm !important;
+  }
+  .slide{
+    padding-right: 0cm !important;
+    padding-left:0cm !important;
+    margin-right:0cm !important;
+    margin-left:0cm !important;
+    border-right: 0cm !important;
+    border-left: 0cm !important;
   }
 }
 </style>
