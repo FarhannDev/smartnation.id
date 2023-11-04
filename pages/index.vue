@@ -3,7 +3,6 @@
 import { CategoryPostsType } from '~/utils/data/getInitialCategoryPostData';
 
 
-
 // Set Meta SEO
 useSeoMeta({
   title: "Beranda",

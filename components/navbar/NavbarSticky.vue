@@ -84,7 +84,6 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
       <!-- toggler navigasi -->
       <div class="d-xl-none d-xxl-none">
         <div class="d-flex justify-content-end">
-
           <button @click="toggleColorMode" class="btn border-0 translate__button mx-2 px-0" type="button"
             :title="colorMode.value" data-bs-toggle="dropdown" aria-expanded="false">
             <svg v-if="colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
