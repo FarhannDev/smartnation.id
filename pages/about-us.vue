@@ -248,7 +248,7 @@ const { data: clients } = await useFetch('/api/client')
 .citiasia-section-container {
   width: 100%;
   height: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   background: var(--Background, #fff);
 }
 
@@ -269,7 +269,8 @@ const { data: clients } = await useFetch('/api/client')
 
 .visimisi-section-container {
   background: var(--primary-800, #a60b40);
-  height: auto;
+  /* height: auto; */
+  height: 1000px;
   overflow-x: hidden;
   position: relative;
 }
@@ -872,5 +873,22 @@ const { data: clients } = await useFetch('/api/client')
   border-radius: 14px 0px 0px 14px;
   background: var(--primary-400, #FF6A89);
 
+}
+
+
+
+.dark-mode .rectangle-bottom {
+  display: none;
+}
+
+.dark-mode .rectangle-top {
+  display: none;
+}
+
+/* responsive */
+@media (min-width: 1200px) {
+  .visimisi-section-container {
+    height: 800px;
+  }
 }
 </style>
