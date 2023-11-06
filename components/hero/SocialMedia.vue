@@ -118,8 +118,7 @@ const hideActiveWa = () => { pasifWa.value = false, activeWa.value = true }
 const hideActiveTt = () => { pasifTt.value = false, activeTt.value = true }
 
 
-onBeforeUpdate(() => {
-  console.log('Update component...')
+onUpdated(() => {
   hidePasiveFb()
   hidePasiveIg()
   hidePasiveTt()

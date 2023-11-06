@@ -2,7 +2,7 @@
 <script lang="ts" setup>
 
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
-
+import { PropType } from "vue"
 
 interface Background {
   backgroundImage: string;
@@ -28,12 +28,7 @@ const backgroundStyle = (background: string | undefined): IbackgroundType => {
   };
 }
 
-
-const { data: posts, pending, error } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 6)
-  }
-})
+defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 </script>
 
@@ -57,8 +52,8 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
   },
 }">
       <SwiperSlide v-if="posts" v-for="post in posts
-        .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-        .slice(0, 5)" :key="post.id">
+            .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+            .slice(0, 5)" :key="post.id">
 
 
 
@@ -74,7 +69,8 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
                 }}
               </NuxtLink>
             </div>
-            <HeroSocialMedia v-if="!pending" />
+            <HeroSocialMedia />
+
           </div>
         </div>
       </SwiperSlide>
@@ -121,7 +117,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 .hero-heading-container {
   position: absolute;
   width: 100%;
-  top: 40%;
+  top: 50%;
   left: 0;
   z-index: 1000;
 }
@@ -159,9 +155,13 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 .hero-social-media-container {
   display: none;
   position: absolute;
-  top: 45%;
+  top: 40%;
   right: 10px;
   z-index: 1000;
+}
+
+.social-media__icons svg:hover {
+  background-color: #D71149;
 }
 
 @media (min-width: 1200px) {
@@ -172,7 +172,9 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
   .hero-heading__title {
     display: block;
-    font-size: 64px;
+    /* font-size: 64px; */
+    font-size: 42px;
+
     width: 1000px;
     margin-left: 0px;
   }
@@ -189,7 +191,8 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 @media (min-width: 1400px) {
   .hero-heading__title {
     display: block;
-    font-size: 64px;
+    /* font-size: 64px; */
+    font-size: 42px;
     width: 1200px;
     margin-left: 0px;
 

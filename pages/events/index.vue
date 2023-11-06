@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PostsDataType } from "~/utils/data/getInitialPostsData";
+import { posts } from "~/utils/data/getInitialPostsData";
 
 
 // Set Meta SEO
@@ -9,12 +9,8 @@ useSeoMeta({
   description: "Kumpulan Acara ISNA dari beberapa Kategori",
 });
 
-const { data: postsData } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.filter(post => post.categories.find(category => category === Number(90) || category === Number(91) || category === Number(92)))
-      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-  }
-})
+const postsData = posts.filter(post => post.categories.find(category => category === Number(90) || category === Number(91) || category === Number(92)))
+  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
 
 </script>
 
@@ -87,16 +83,16 @@ const { data: postsData } = await useFetch('/api/posts', {
                 <li v-for="post in postsData" :key="post.id" class="list-group-item mx-0 px-0">
                   <div class="card border-0 rounded-0">
                     <div class="row justify-content-start align-items-center g-3">
-                      <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
+                      <div class="col-xl-5 col-xxl-4 col-lg-4  col-md-12 ">
                         <NuxtLink :to="`/events/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
                           <NuxtImg :class="'article-thumbnail'" :src="post.featured_media" loading="lazy"
                             :alt="post.title.rendered" />
                         </NuxtLink>
                       </div>
 
-                      <div class="col-xl-8 col-xxl-8 col-lg-8 col-md-12">
+                      <div class="col-xl-7 col-xxl-8 col-lg-8 col-md-12">
                         <div class="card-body px-0 mx-0 px-md-2 mx-md-2">
-                          <div class="d-flex justify-content-between g-2 mb-3">
+                          <div class="d-flex justify-content-between g-3 mb-3">
                             <span class="article-info-tag">ISNA</span>
                             <span class="article-info-tag text-start text-secondary">{{ useFormatter(post.date_gmt)
                             }}</span>
@@ -154,10 +150,10 @@ const { data: postsData } = await useFetch('/api/posts', {
           <div class="col-xl-4 col-xxl-4 col-lg-12 ">
             <article>
 
-              <LazyHeadingTitle class="text-decoration-underline" title="  ISNA Terpopuler Lainnya" />
+              <LazyHeadingTitle class="text-decoration-underline" title="Terpopuler" />
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle :end="10" />
+                  <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
                 </div>
               </div>
             </article>

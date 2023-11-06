@@ -3,29 +3,22 @@
 import { PropType } from "vue"
 import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
-// const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
-
-const { data: posts, pending, error } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-      .slice(1, 5)
-  }
-})
+defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 </script>
 
 <template>
   <ul class="list-group list-group-flush">
 
-    <li v-for="post in posts" :key="post.id" class="list-group-item mx-lg-2 px-lg-2 mx-0 px-0 ">
-      <div class="vstack g-2">
+    <li v-for="post in posts" :key="post.id" class="list-group-item mx-lg-2 px-lg-2 mx-0 px-0">
+      <div class="vstack gap-3">
         <div class="d-flex justify-content-between">
-          <div>
+          <div class="mx-0 mx-lg-2">
             <span class="article-info-timestamps ">
               <BootstrapIcon name="clock" /> {{ useTimestamps(post.date_gmt) }}
             </span>
             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
-              :class="'article-title link-offset-2   text-wrap d-block link-underline-opacity-0 '">
+              :class="'article-title link-offset-2  text-wrap d-block link-underline-opacity-0 mb-2 '">
               {{ post.title.rendered.length > 80 ? `${post.title.rendered.substring(0, 80)}...`
                 : post.title.rendered
               }}

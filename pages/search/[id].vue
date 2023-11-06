@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PostsDataType } from "~/utils/data/getInitialPostsData";
+import { posts } from "~/utils/data/getInitialPostsData";
 
 const route = useRoute();
 
@@ -7,29 +7,26 @@ const { id } = route.params;
 const query: globalThis.Ref<string> = ref(id.toString())
 
 
-
-const { data: results } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.filter(post => {
-      return post.title.rendered.toLowerCase().includes(query.value.toLowerCase()) ||
-        post.excerpt.rendered.toLowerCase().includes(query.value.toLowerCase())
-    })
-  }
-})
-
-const { data: posts } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)
-  }
+const results = posts.filter(post => {
+  return post.title.rendered.toLowerCase().includes(query.value.toLowerCase()) ||
+    post.excerpt.rendered.toLowerCase().includes(query.value.toLowerCase())
 })
 
 
-const resultName: globalThis.Ref<string> = ref(`Hasil pencarian ${id.toString()}, Ditemukan dalam ${results.value?.length} Berita`)
+if (!results) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found'
+  })
+}
+
+
+const resultName: globalThis.Ref<string> = ref(`Hasil pencarian ${id.toString()}, Ditemukan dalam ${results?.length} Berita`)
 const resultNameEmpty: globalThis.Ref<string> = ref(`Hasil pencarian ${id.toString()} tidak ditemukan!`)
 
 
 useSeoMeta({
-  title: results.value ? resultName : `Hasil pencarian tidak ditemukan`,
+  title: results.length ? resultName : `Hasil pencarian tidak ditemukan`,
 })
 </script>
 
@@ -144,7 +141,7 @@ useSeoMeta({
 
             <div class="d-flex flex-column ">
               <div class="vstack g-3">
-                <ArticlesArticleListTitle :end="10" />
+                <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
               </div>
             </div>
           </article>

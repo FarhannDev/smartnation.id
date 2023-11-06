@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { CategoryPostsType } from "~/utils/data/getInitialCategoryPostData";
+import { categories } from "~/utils/data/getInitialCategoryPostData";
+import { posts } from "~/utils/data/getInitialPostsData"
 
 
 const route = useRoute();
@@ -7,16 +8,17 @@ const categoryId = route.params.id
 const categoryPostsId: globalThis.Ref<number | undefined> = ref(139);
 const categoryTitle: globalThis.Ref<string | undefined> = ref('')
 
-const { data } = await useFetch('/api/categories', {
-  transform: (categories: CategoryPostsType) => {
-    return categories.find(category => {
-      if (category.slug === categoryId) {
-        categoryTitle.value = category.name
-        categoryPostsId.value = category.id
-      }
-    })
-  }
-})
+const category = categories.find(category => category.slug === categoryId)
+
+if (!category) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found'
+  })
+}
+
+categoryTitle.value = category.name
+categoryPostsId.value = category.id
 
 
 useSeoMeta({
@@ -75,12 +77,12 @@ useSeoMeta({
           <div class="col-xl-4 col-xxl-4 col-lg-12 ">
             <article>
               <h1 class="berita-section-title text-decoration-underline">
-                Berita Terpopuler Lainnya
+                Terpopuler
               </h1>
 
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle :end="10" />
+                  <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
                 </div>
               </div>
             </article>
