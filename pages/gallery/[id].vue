@@ -90,11 +90,11 @@ definePageMeta({
                 <div class="scroll-container">
                   <div class="otherAlbum container rounded-4"
                   style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/Rudiantara-1.jpg');">
-                  <p>Lorem, ipsum dolor.</p>
+                  <p>Judul Album</p>
                 </div>
                 <div class="otherAlbum container rounded-4"
                 style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/presscon1-1.jpg');">
-                <p>Lorem, ipsum dolor.</p>
+                <p>Judul Album</p>
               </div>
             </div>
           </div>
@@ -421,7 +421,7 @@ definePageMeta({
   padding: 20px;
   margin: 0;
   color: white;
-  font-size: 1.4vw;
+  font-size: 18px;
 }
 
 @media (max-width: 992px) {
