@@ -1,21 +1,17 @@
 <script lang="ts" setup>
+import { PropType } from "vue"
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
-const props = defineProps({
-  limits: { type: Boolean },
-  limitsStart: { type: Number },
-  limitsEnd: { type: Number },
-  categoryId: { type: Number }
-})
+const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
-const { data: posts } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return props.limits ? posts.sort((a, b) => a.date_gmt.toString().localeCompare(b.date_gmt.toString())).slice(props.limitsStart, props.limitsEnd)
-      : props.categoryId ?
-        posts.filter(post => post.categories.find(categories => categories === props.categoryId)).sort((a, b) => a.date_gmt.toString().localeCompare(b.date_gmt.toString())).slice(props.limitsStart, props.limitsEnd)
-        : posts.sort((a, b) => a.date_gmt.toString().localeCompare(b.date_gmt.toString()))
-  }
-})
+// const { data: posts } = await useFetch('/api/posts', {
+//   transform: (posts: PostsDataType) => {
+//     return props.limits ? posts.sort((a, b) => a.date_gmt.toString().localeCompare(b.date_gmt.toString())).slice(props.limitsStart, props.limitsEnd)
+//       : props.categoryId ?
+//         posts.filter(post => post.categories.find(categories => categories === props.categoryId)).sort((a, b) => a.date_gmt.toString().localeCompare(b.date_gmt.toString())).slice(props.limitsStart, props.limitsEnd)
+//         : posts.sort((a, b) => a.date_gmt.toString().localeCompare(b.date_gmt.toString()))
+//   }
+// })
 
 </script>
 

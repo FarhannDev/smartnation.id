@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { CategoryPostsType } from '~/utils/data/getInitialCategoryPostData';
-import { PostsDataType } from '~/utils/data/getInitialPostsData';
+import { categories } from '~/utils/data/getInitialCategoryPostData';
+import { posts } from '~/utils/data/getInitialPostsData';
 
 // Set Meta SEO
 useSeoMeta({
@@ -9,17 +9,6 @@ useSeoMeta({
   ogTitle: "Daftar berita dari semua kategori",
   ogDescription: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
 });
-
-
-const { data: categoriesPostsData } = await useFetch('/api/categories', {
-  transform: (categories: CategoryPostsType) => {
-    return categories.filter(category => category.parent === 0).map(cat => ({
-      id: cat.id,
-      name: cat.name,
-      slug: cat.slug
-    }));
-  }
-})
 
 
 </script>
@@ -37,21 +26,25 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
           <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
             <article class="article-section position-relative mb-3">
               <h1 class="berita-section-title">Berita Terbaru</h1>
+              <div class="line-break"></div>
 
               <div class="row justify-content-arround g-4 py-3">
                 <div class="col-xl-6 col-xxl-6 col-lg-6  col-md-12 article-list-container">
-                  <NewsCardItemSingleColumn />
+                  <NewsCardItemSingleColumn
+                    :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 1)" />
 
                 </div>
                 <div class="col-xl-6 col-xxl-6 col-lg-6 col-md-12">
-                  <NewsCardItemListThumbnailMini />
+                  <NewsCardItemListThumbnailMini
+                    :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(1, 5)" />
                 </div>
               </div>
             </article>
             <article class="article-section position-relative mb-3">
               <h1 class="berita-section-title">Berita Terpopuler</h1>
               <div class="row justify-content-arround g-3 py-3">
-                <NewsCardItemFeatured />
+                <NewsCardItemFeatured
+                  :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 2)" />
 
               </div>
             </article>
@@ -61,11 +54,11 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
               </h1>
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle :end="10" />
+                  <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
                 </div>
               </div>
             </article>
-            <article v-if="categoriesPostsData" v-for="category in categoriesPostsData" :key="category.id"
+            <article v-if="categories" v-for="category in categories" :key="category.id"
               class="article-section position-relative mb-3 py-5">
               <div class="d-flex flex-wrap justify-content-between g-0">
                 <div>
@@ -92,7 +85,7 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
               </h1>
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle :end="10" />
+                  <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
                 </div>
               </div>
             </article>
@@ -121,6 +114,7 @@ const { data: categoriesPostsData } = await useFetch('/api/categories', {
   font-weight: 600;
   line-height: 120%;
   /* 24px */
+  text-align: start;
 }
 
 .line-break {

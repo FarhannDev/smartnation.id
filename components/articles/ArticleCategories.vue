@@ -1,14 +1,10 @@
 <script lang="ts" setup>
 
-import { CategoryPostsType } from '~/utils/data/getInitialCategoryPostData';
-
-// const props = defineProps(['categoryId'])
+import { categories } from '~/utils/data/getInitialCategoryPostData';
 
 const props = defineProps({ categoryId: { type: Number } })
 
-const { data: categories } = await useFetch('/api/categories',)
-
-const categoryPostName: globalThis.Ref<CategoryPostsType> = categories.value.find(category => category.id === Number(props.categoryId))
+const category = categories.find(category => category.id === props.categoryId)
 
 
 </script>
@@ -16,8 +12,27 @@ const categoryPostName: globalThis.Ref<CategoryPostsType> = categories.value.fin
 <template>
   <div class="d-inline">
 
-    <NuxtLink :to="`/articles/category/${categoryPostName?.slug}`" aria-label="Lihat Selengkapnya"
-      class="badge text-bg-danger text-white rounded text-decoration-none fw-normal border-0 me-2 mt-3">{{
-        categoryPostName?.name }}</NuxtLink>
+    <NuxtLink :to="`/category/${category?.slug}`" aria-label="Lihat Selengkapnya" class=" article-button__category me-2">
+      {{
+        category?.name }}</NuxtLink>
   </div>
 </template>
+
+
+<style lang="css" scoped >
+.article-button__category {
+  position: relative;
+  bottom: 0;
+  border-radius: 4px;
+  background: #D71149;
+  color: #FFF;
+  padding: 4px 8px;
+  /* Font/Caption Reguler */
+  font-family: Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-decoration: none;
+}
+</style>

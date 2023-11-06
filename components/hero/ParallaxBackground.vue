@@ -139,7 +139,7 @@ const backgroundStyle = () => {
 
   .hero-heading__desc {
 
-    font-size: 33px;
+    font-size: 31px;
 
     width: 1200px;
     margin-left: 0px;
@@ -157,7 +157,7 @@ const backgroundStyle = () => {
 
   .hero-heading__desc {
 
-    font-size: 33px;
+    font-size: 31px;
 
     width: 1200px;
     margin-left: 0px;

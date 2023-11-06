@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { PostsDataType } from '~/utils/data/getInitialPostsData';
+import { posts } from '~/utils/data/getInitialPostsData';
 
 
 defineProps({ categoryId: { type: Number }, categoryName: { type: String } })
 
-const { data: posts } = await useFetch<PostsDataType>('/api/posts')
 </script>
 
 <template>

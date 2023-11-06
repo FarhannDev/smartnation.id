@@ -12,6 +12,7 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
+  text-align: start;
 }
 </style>
 

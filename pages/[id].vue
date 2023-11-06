@@ -2,45 +2,40 @@
 
 definePageMeta({ layout: "content-layout" })
 
+import { posts } from "~/utils/data/getInitialPostsData"
+
 
 const route = useRoute();
 
 const postId = String(route.params.id)
 
+const post = posts.find(post => post.slug === postId)
 
-const { data: post } = await useFetch('/api/posts', {
-  transform: (posts) => {
-    return posts.find(post => post.slug === postId)
-  }
-})
-
-if (!post.value) {
+if (!post) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Page Not Found'
   })
 }
 
-const { data: postsData } = await useFetch('/api/posts')
-
 
 useSeoMeta({
-  title: post.value.title.rendered,
-  description: post.value.excerpt.rendered,
+  title: post.title.rendered,
+  description: post.excerpt.rendered,
   author: 'Smart Nation',
   articleAuthor: 'Smart Nation',
-  articlePublishedTime: useFormatter(post.value.date_gmt),
-  articleModifiedTime: useFormatter(post.value.date_gmt),
+  articlePublishedTime: useFormatter(post.date_gmt),
+  articleModifiedTime: useFormatter(post.date_gmt),
   articleSection: 'Smart City',
-  articleTag: post.value.categories,
+  articleTag: post.categories,
   ogType: 'article',
-  ogTitle: post.value.title.rendered,
-  ogDescription: post.value.excerpt.rendered,
-  ogImage: post.value.featured_media,
+  ogTitle: post.title.rendered,
+  ogDescription: post.excerpt.rendered,
+  ogImage: post.featured_media,
   ogSiteName: 'SmartNation.id',
   ogUrl: 'https://smartnation.vercel.app/',
   ogLocale: "ID",
-  ogImageUrl: `https://smartnation.vercel.app/${post.value.featured_media}`,
+  ogImageUrl: `https://smartnation.vercel.app/${post.featured_media}`,
 })
 
 </script>
@@ -66,7 +61,8 @@ useSeoMeta({
           <div class="col-lg-auto col-xl-4 col-md-auto">
             <div class="px-md-3 mx-md-2">
               <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
-              <PostsPostItem :posts="postsData.slice(0, 5)" />
+              <PostsPostItem
+                :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 5)" />
             </div>
           </div>
         </div>

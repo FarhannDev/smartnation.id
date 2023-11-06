@@ -1,12 +1,9 @@
 <script lang="ts" setup>
+import { PropType } from "vue"
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
-const { data: posts } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-      .slice(0, 1)
-  }
-})
+
+defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 
 </script>
@@ -28,7 +25,10 @@ const { data: posts } = await useFetch('/api/posts', {
           }}
         </NuxtLink>
 
-        <div class="card-text text-start lh-base article-desc pt-2" v-html="post.excerpt.rendered.substring(0, 120)">
+        <div class="card-text text-start lh-base article-desc pt-2"  v-html="post.excerpt.rendered.length >= 250
+            ? `${post.excerpt.rendered.substring(0, 250)}...`
+            : post.excerpt.rendered
+            ">
         </div>
       </div>
     </div>

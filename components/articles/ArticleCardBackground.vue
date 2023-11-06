@@ -1,21 +1,9 @@
 <script lang="ts" setup>
+import { PropType } from "vue"
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
-const props = defineProps({
-  limits: { type: Boolean },
-  limitsStart: { type: Number },
-  limitsEnd: { type: Number },
-  categoryId: { type: Number }
-})
+const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
-const { data: posts } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.filter(post => post.categories.find(category => category === props.categoryId))
-      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-      .slice(props.limitsStart, props.limitsEnd)
-
-  }
-})
 
 </script>
 
@@ -149,4 +137,5 @@ const { data: posts } = await useFetch('/api/posts', {
   .figure .figure-caption {
     top: 50% !important;
   }
-} */</style>
+} */
+</style>
