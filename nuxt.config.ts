@@ -34,6 +34,32 @@ export default defineNuxtConfig({
     },
   },
 
+  // Nuxt.js modules
+  modules: [
+    "@nuxt/image",
+    "@nuxtjs/robots",
+    "nuxt-bootstrap-icons",
+    "nuxt-swiper",
+    "@nuxtjs/color-mode",
+    // "@vite-pwa/nuxt",
+  ],
+
+  plugins: [
+    { src: "~/plugins/useBootstrap.client.ts", mode: "client", ssr: false },
+    {
+      src: "~/plugins/useAnimateOnScroll.client.ts",
+      mode: "client",
+      ssr: false,
+    },
+  ],
+
+  css: [
+    "~/assets/css/index.css",
+    "~/assets/css/custom-scrollbar.css",
+    "~/node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "~/node_modules/aos/dist/aos.css",
+  ],
+
   hooks: {
     "build:manifest": (manifest) => {
       // find the app entry, css list
@@ -47,17 +73,6 @@ export default defineNuxtConfig({
       }
     },
   },
-
-  // Nuxt.js modules
-  modules: [
-    "@nuxtjs/google-fonts",
-    "@nuxt/image",
-    "@nuxtjs/robots",
-    "nuxt-bootstrap-icons",
-    "nuxt-swiper",
-    "@nuxtjs/color-mode",
-    "@vite-pwa/nuxt",
-  ],
 
   app: {
     head: {
@@ -79,43 +94,44 @@ export default defineNuxtConfig({
       },
       link: [
         {
-          rel: "stylesheet",
-          href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
-        },
-        {
           rel: "icon",
           type: "image/x-icon",
           href: "/logo-smartnation-id-03.png",
         },
+
+        // CDN https://fonts.google.com
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "anonymous",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap",
+        },
+
+        {
+          rel: "stylesheet",
+          href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css",
+        },
+      ],
+
+      script: [
+        {
+          src: "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js",
+          integrity:
+            "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r",
+          crossorigin: "anonymous",
+          async: "true",
+        },
       ],
     },
-  },
-  plugins: [
-    { src: "~/plugins/useBootstrap.client.ts", mode: "client", ssr: false },
-    {
-      src: "~/plugins/useAnimateOnScroll.client.ts",
-      mode: "client",
-      ssr: false,
-    },
-  ],
-  css: [
-    "~/assets/css/index.css",
-    "~/node_modules/bootstrap/dist/css/bootstrap.min.css",
-    "~/node_modules/aos/dist/aos.css",
-  ],
-
-  googleFonts: {
-    display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
-    prefetch: true,
-    preconnect: true,
-    preload: true,
-    useStylesheet: true,
-    families: { Poppins: [300, 400, 500, 600, 700] },
   },
 
   image: {
     inject: true,
-    quality: 80,
+    quality: 75,
     format: ["webp", "png"],
     domains: ["https://smartnation.id"],
   },
