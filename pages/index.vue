@@ -55,7 +55,7 @@ const { data: categories } = await useFetch<CategoryPostsType>('/api/categories'
   <!-- News Feed Section Start -->
   <section class="latest-newsfeed-section position-relative py-5">
     <div class="container" data-aos="fade-up" data-aos-duration="1500">
-      <LazyHeadingTitle class="latest-newsfeed__title" title="Berita Terkini" />
+      <LazyHeadingTitle style="color: #FFFFFF !important" class="latest-newsfeed__title" title="Berita Terkini" />
       <div class="row justify-content-arround g-3 py-3">
         <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
           <ArticlesArticleListSingleColumn :isBackground="true" />
@@ -204,7 +204,9 @@ const { data: categories } = await useFetch<CategoryPostsType>('/api/categories'
   line-height: 120%;
   /* 12px */
 }
-
+.text-decoration-underline {
+  margin-bottom: 25px !important;
+}
 .article-thumbnail {
   width: 100%;
   background-size: cover;

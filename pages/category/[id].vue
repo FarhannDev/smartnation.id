@@ -112,7 +112,9 @@ useSeoMeta({
   width: 51px;
   border: 1px solid #c70943;
 }
-
+.text-decoration-underline {
+  margin-bottom: 25px !important;
+}
 .berita-section-title {
   color: var(--font-600, #d71149);
   font-family: Poppins;

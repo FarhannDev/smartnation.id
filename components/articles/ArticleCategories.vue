@@ -21,3 +21,8 @@ const categoryPostName: globalThis.Ref<CategoryPostsType> = categories.value.fin
         categoryPostName?.name }}</NuxtLink>
   </div>
 </template>
+<style scoped>
+  .badge {
+    font-family: Poppins !important;
+  }
+</style>

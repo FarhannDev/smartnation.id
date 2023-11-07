@@ -13,6 +13,11 @@ h1 {
   font-weight: 700;
   line-height: 120%;
 }
+
+.latest-newsfeed__title[data-v-02281a80] {
+  color: var(--font-600, #5D5D5D) !important;
+  font-weight: 600 !important;
+}
 </style>
 
 <script lang="ts" setup>
