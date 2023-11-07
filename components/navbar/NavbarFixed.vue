@@ -61,6 +61,7 @@ const toggleMenu = (() => {
 })
 
 
+const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => route.params.id)
 </script>
 
 <template>
@@ -122,7 +123,7 @@ const toggleMenu = (() => {
           <!-- Show Dropdown display in laptop or desktop -->
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)"
             class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' || route.path === `/${routePathMenu}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
@@ -159,7 +160,7 @@ const toggleMenu = (() => {
 
           <!-- Showing dropdown display in mobile or tablet -->
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' || route.path === `/${routePathMenu}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -173,8 +174,9 @@ const toggleMenu = (() => {
                 <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/articles`">Indeks</NuxtLink>
               </li>
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink @click="toggleMenu()" class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name
-                }}</NuxtLink>
+                <NuxtLink @click="toggleMenu()" class="dropdown-item" :active-class="`active-menu`"
+                  :to="`/category/${category.slug}`">{{ category.name
+                  }}</NuxtLink>
               </li>
             </ul>
           </li>
