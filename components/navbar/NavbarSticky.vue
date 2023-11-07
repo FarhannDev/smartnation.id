@@ -166,7 +166,7 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
           <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)"
             class="nav-item dropdown d-none d-lg-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path === `/events/category/${routePathMenu}` ? 'active' : ''
-              }`" to="/events" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
+              }`" to="#" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
                 <path
@@ -211,7 +211,7 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
 
           <li class="nav-item dropdown d-lg-none d-md-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path == `/events/category/${routePathMenu}` ? 'active' : ''
-              }`" to="/events" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              }`" to="/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                 <path
