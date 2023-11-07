@@ -9,12 +9,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%; 
   /* overflow: auto; */
+  overflow-x:hidden ;
 }
 
 main {
   width: 100%;
   height: auto;
-  /* overflow: hidden; */
+  overflow: hidden;
   /* margin-top: 5rem; */
 }
 

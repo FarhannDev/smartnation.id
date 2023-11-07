@@ -14,7 +14,7 @@ const post = posts.find(post => post.slug === postId)
 if (!post) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page Not Found'
+    statusMessage: 'Halaman Tidak Ditemukan!'
   })
 }
 

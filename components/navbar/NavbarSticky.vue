@@ -267,7 +267,7 @@ const toggleMenu = (() => {
               </svg>
             </button>
           </div>
-          <TranslateGoogleTranslateButtonSticky />
+          <!-- <TranslateGoogleTranslateButtonSticky /> -->
         </div>
       </div>
     </div>
