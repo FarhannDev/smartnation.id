@@ -34,9 +34,7 @@ const postsData = posts.filter(post => post.categories.find(category => category
                 <div class="col-lg-8">
                   <div class="d-flex flex-column">
                     <h3 class='isna-heading__title'>Apa itu ISNA?</h3>
-                    <p> vitae nisl consequat laoreet. Etiam est sapien, mollis vitae felis a, pharetra pharetra orci.
-                      Integer ut finibus massa, eleifend scelerisque velit. Curabitur iaculis viverra nisl vel eleifend.
-                      Phasellus auctor pellentesque velit non tempus.
+                    <p> Indonesia Smart Nation Award (ISNA) merupakan acara dwi tahunan yang digelar oleh Citiasia, Inc. sejak 2015. ISNA bertujuan untuk memberikan penghargaan yang diberikan kepada Kota/Kabupaten yang inovasinya memberikan dampak secara luas kepada masyarakat. Melalui ISNA, Citiasia, Inc. berkomitmen untuk mendorong pertumbuhan dan pengembangan konsep kota cerdas dalam pengelolaan perkotaan demi kepentingan seluruh masyarakat Indonesia dan mewujudkan Indonesia Maju menjadi Smart Nation.
                     </p>
                   </div>
                 </div>
@@ -181,7 +179,12 @@ const postsData = posts.filter(post => post.categories.find(category => category
   font-family: Poppins;
   font-style: normal;
 }
-
+.text-decoration-underline {
+  margin-bottom: 25px !important;
+}
+p {
+  text-align: justify;
+}
 .dropdown-item {
   margin-top: 25px;
   font-family: Poppins;
@@ -375,6 +378,10 @@ const postsData = posts.filter(post => post.categories.find(category => category
 }
 
 .dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .isna-heading__title {
   color: rgba(255, 255, 255, 0.9);
 }
 </style>

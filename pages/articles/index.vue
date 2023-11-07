@@ -116,7 +116,9 @@ useSeoMeta({
   /* 24px */
   text-align: start;
 }
-
+.text-decoration-underline {
+  margin-bottom: 25px !important;
+}
 .line-break {
   position: relative;
   top: -5px;

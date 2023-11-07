@@ -24,11 +24,11 @@ const category = categories.find(category => category.id === props.categoryId)
   position: relative;
   bottom: 0;
   border-radius: 4px;
-  background: #D71149;
+  background: var(--600, #D71149) !important;
   color: #FFF;
   padding: 4px 8px;
   /* Font/Caption Reguler */
-  font-family: Poppins;
+  font-family: Poppins !important;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;

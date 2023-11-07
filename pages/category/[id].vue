@@ -106,7 +106,9 @@ useSeoMeta({
   /* 28.8px */
   /* 24px */
 }
-
+.text-decoration-underline {
+  margin-bottom: 25px !important;
+}
 .line-break {
   position: relative;
   top: -5px;

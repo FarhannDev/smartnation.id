@@ -14,6 +14,10 @@ h1 {
   line-height: 120%;
   text-align: start;
 }
+.latest-newsfeed__title[data-v-02281a80] {
+  color: var(--font-600, #5D5D5D) !important;
+  font-weight: 600 !important;
+}
 </style>
 
 <script lang="ts" setup>

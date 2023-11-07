@@ -56,7 +56,7 @@ useSeoMeta({
   <!-- News Feed Section Start -->
   <section class="latest-newsfeed-section position-relative py-5">
     <div class="container" data-aos="fade-up" data-aos-duration="1500">
-      <LazyHeadingTitle class="latest-newsfeed__title" title="Berita Terkini" />
+      <LazyHeadingTitle style="color: #FFFFFF !important" class="latest-newsfeed__title" title="Berita Terkini" />
       <div class="row justify-content-arround g-3 py-3">
         <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
           <ArticlesArticleListSingleColumn :isBackground="true"
@@ -152,7 +152,9 @@ useSeoMeta({
   /* border: 2px solid #555555; */
   border-radius: 10px;
 }
-
+.text-decoration-underline {
+  margin-bottom: 25px !important;
+}
 .article-list-item::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #f5f5f5;
