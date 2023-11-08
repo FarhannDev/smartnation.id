@@ -118,7 +118,7 @@ const toggleMenu = (() => {
           <!-- Show Dropdown display in laptop or desktop -->
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)"
             class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' || route.path === `/${route.params.id}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
@@ -135,7 +135,7 @@ const toggleMenu = (() => {
           </li>
           <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)"
             class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path === `/events/${route.params.id}` ? 'active' : ''
               }`" to="/events" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
@@ -153,7 +153,7 @@ const toggleMenu = (() => {
 
           <!-- Showing dropdown display in mobile or tablet -->
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' || route.path === `/${route.params.id}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -174,7 +174,7 @@ const toggleMenu = (() => {
           </li>
 
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path === `/events/${route.params.id}` ? 'active' : ''
               }`" to="/events" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">

@@ -146,7 +146,7 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)"
             class="nav-item dropdown d-none d-lg-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles'
-              || route.path == `/category/${routePathMenu}` ? 'active' : ''
+              || route.path == `/category/${routePathMenu}` || route.path === `/${route.params.id}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
