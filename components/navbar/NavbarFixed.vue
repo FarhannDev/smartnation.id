@@ -131,7 +131,6 @@ const toggleMenu = (() => {
               />
             </svg>
           </button>
-          <TranslateGoogleTranslateButtonFixed />
           <button
             class="navbar-toggler border-0 d-xl-none d-xxl-none button-hamburger"
             type="button"
@@ -388,9 +387,7 @@ const toggleMenu = (() => {
           </div>
         </div>
       </div>
-      <div class="d-block">
         <TranslateGoogleTranslateButtonFixed />
-      </div>
     </div>
   </nav>
 </template>
