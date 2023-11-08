@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div :class="colorSchemeClass">
     <div id="google_translate_element"></div>
   </div>
@@ -58,81 +58,99 @@ export default {
 </script>
 
 <style>
-@media (min-width: 1200px) {
-  .goog-te-gadget-icon { 
-    display: none;
-  }
-  .VIpgJd-ZVi9od-xl07Ob-lTBxed::before{
-    display: none;
-  }
-  .VIpgJd-ZVi9od-xl07Ob-lTBxed{
-    display: none;
-  }
+/* CSS untuk mode terang */
+
+.light-mode .goog-te-gadget-icon {
+  background: url("/icons/language1.png") center center no-repeat !important;
+  width: 22px !important;
+  height: 22px !important;
+  background-size: 25px 25px !important;
+  margin-right: 4px !important;
+  margin-left: 0 !important;
 }
-@media (max-width: 1200px) {
-  /* CSS untuk mode terang */
-  .light-mode .goog-te-gadget-icon {
-    width: 22px !important;
-    height: 22px !important;
-    background-size: 25px 25px !important;
-    margin-right: 4px !important;
-    margin-left: 0 !important;
-  }
 
-  .light-mode .goog-te-gadget-simple {
-    padding: 0 !important;
-    border: 0 !important;
-    background: transparent !important;
-  }
-
-  .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
-    display: none;
-  }
-
-  .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
-    margin: 0 !important;
-  }
-
-  .light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
-    color: #5d5d5d !important;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    margin-left: 3px;
-    content: "Translate";
-  }
-  /* CSS untuk mode gelap */
-  .dark-mode .goog-te-gadget-icon {
-    width: 22px !important;
-    height: 22px !important;
-    background-size: 25px 25px !important;
-    margin-right: 4px !important;
-    margin-left: 0 !important;
-  }
-
-  .dark-mode .goog-te-gadget-simple {
-    padding: 0 !important;
-    border: 0 !important;
-    background: transparent !important;
-  }
-
-  .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
-    display: none;
-  }
-
-  .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
-    margin: 0 !important;
-  }
-
-  .dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
-    color: #e7e7e7 !important;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    margin-left: 3px;
-    content: "Translate";
-  }
+.light-mode .goog-te-gadget-simple {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
 }
-</style> -->
+
+.light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+  display: none;
+  top: -40px !important;
+}
+
+.light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  margin: 0 !important;
+}
+
+.light-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
+  color: #5d5d5d !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-left: 3px;
+  content: "ID";
+  top: -40px !important;
+}
+
+/* CSS untuk mode gelap */
+
+.dark-mode .goog-te-gadget-icon {
+  background: url("/icons/language.png") center center no-repeat !important;
+  width: 22px !important;
+  height: 22px !important;
+  background-size: 25px 25px !important;
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+}
+
+
+.dark-mode .goog-te-gadget-simple {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+  display: none;
+  top: -40px !important;
+}
+
+.dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  margin: 0 !important;
+}
+
+.dark-mode .VIpgJd-ZVi9od-xl07Ob-lTBxed::before {
+  color: #fff !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-left: 3px;
+  content: "ID";
+  top: -40px !important;
+}
+
+.translated-ltr {
+  margin-top: -40px !important;
+}
+
+.translated-ltr {
+  margin-top: -40px !important;
+}
+
+.goog-te-banner-frame {
+  display: none;
+  margin-top: -40px !important;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}
+</style>
