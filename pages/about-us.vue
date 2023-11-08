@@ -208,7 +208,7 @@ const { data: clients } = await useFetch('/api/client')
       </div>
     </section>
     <!-- section portofolio end -->
-    <hr v-show="colorMode.preference === 'dark'" />
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 

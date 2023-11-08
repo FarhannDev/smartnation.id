@@ -1,6 +1,7 @@
-<script setup>
+<script setup lang="ts">
 
 definePageMeta({ layout: "content-layout" })
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { posts } from "~/utils/data/getInitialPostsData"
 
 const route = useRoute();
@@ -20,11 +21,11 @@ useSeoMeta({
   title: post.title.rendered,
   description: post.excerpt.rendered,
   author: 'Smart Nation',
-  articleAuthor: 'Smart Nation',
-  articlePublishedTime: useFormatter(post.date_gmt),
-  articleModifiedTime: useFormatter(post.date_gmt),
-  articleSection: 'Smart City',
-  articleTag: post.categories,
+  // articleAuthor: 'Smart Nation',
+  // articlePublishedTime: useFormatter(post.date_gmt),
+  // articleModifiedTime: useFormatter(post.date_gmt),
+  // articleSection: 'Smart City',
+  // articleTag: post.categories,
   ogType: 'article',
   ogTitle: post.title.rendered,
   ogDescription: post.excerpt.rendered,
@@ -39,6 +40,8 @@ useSeoMeta({
 const postsCategories = posts.filter(post => post.categories.find(category => category === 90))
   .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
   ?.slice(0, 5)
+
+const colorMode: ColorModeInstance = useColorMode()
 
 </script>
 
@@ -70,6 +73,9 @@ const postsCategories = posts.filter(post => post.categories.find(category => ca
       </div>
     </section>
     <!-- section berita detail end -->
+
+
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 

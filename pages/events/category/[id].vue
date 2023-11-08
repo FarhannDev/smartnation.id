@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { categories } from "~/utils/data/getInitialCategoryPostData";
 import { posts } from "~/utils/data/getInitialPostsData";
 
@@ -56,6 +57,7 @@ const isnaYearsData = ref([
 
 const isnaValues: globalThis.Ref<string | undefined> = ref('')
 
+const colorMode: ColorModeInstance = useColorMode()
 useSeoMeta({
   title: `Berita Kategori ${categoryTitle?.value}`,
   description: `Kumpulan Acara ISNA dari beberapa Kategori`,
@@ -198,6 +200,8 @@ useSeoMeta({
       </div>
     </section>
     <!-- Section berita end -->
+
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 

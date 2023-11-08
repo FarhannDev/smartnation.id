@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { categories } from "~/utils/data/getInitialCategoryPostData";
 import { posts } from "~/utils/data/getInitialPostsData"
 
@@ -26,6 +27,8 @@ useSeoMeta({
   description: ``,
 });
 
+
+const colorMode: ColorModeInstance = useColorMode()
 
 </script>
 
@@ -91,6 +94,8 @@ useSeoMeta({
       </div>
     </section>
     <!-- Section berita end -->
+
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 
@@ -106,9 +111,11 @@ useSeoMeta({
   /* 28.8px */
   /* 24px */
 }
+
 .text-decoration-underline {
   margin-bottom: 25px !important;
 }
+
 .line-break {
   position: relative;
   top: -5px;
