@@ -1,14 +1,12 @@
-html,
-body {
+html {
   width: 100%;
-  /* min-height: auto; */
+  min-height: 100vh;
   font-synthesis: none;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%; 
-  /* overflow: auto; */
   overflow-x:hidden ;
 }
 
@@ -16,7 +14,6 @@ main {
   width: 100%;
   height: auto;
   overflow: hidden;
-  /* margin-top: 5rem; */
 }
 
 /*

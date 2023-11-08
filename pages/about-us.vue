@@ -37,6 +37,7 @@ const showTooltip = (name: string, message: string, images: string) => {
   });
 }
 
+
 </script>
 
 <template>
@@ -49,7 +50,6 @@ const showTooltip = (name: string, message: string, images: string) => {
     <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
     <section class="ccsn-section-container">
       <div class="container" data-aos="fade-up" data-aos-duration="1500">
-
         <div class="row justify-content-between g-3 py-5">
           <div class="col-lg-5 col-md-6">
             <h1 class="ccsn-title">
@@ -58,9 +58,9 @@ const showTooltip = (name: string, message: string, images: string) => {
           </div>
           <div class="col-lg-7 col-md-6">
             <p class="ccsn-desc">
-              Citiasia Center for Smart Nation (CCSN) merupakan salah satu
-              sayap strategis dari Citiasia Inc. dalam menyebarkan semangat
-              membangun bangsa menuju Indonesia Smart Nation
+              Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap
+              strategis dari Citiasia Inc. dalam menyebarkan semangat membangun
+              bangsa menuju Indonesia Smart Nation
             </p>
           </div>
         </div>
@@ -111,9 +111,9 @@ const showTooltip = (name: string, message: string, images: string) => {
                   Citiasia, Inc. membantu institusi publik dan sektor bisnis
                   dengan memberikan solusi dan layanan aplikatif melalui
                   konsultasi, layanan digital, dan inovasi untuk meningkatkan
-                  performa bisnis yang berkelanjutan, mengembangkan smart
-                  city, dan memberikan dampak positif sosial untuk Indonesia
-                  yang lebih baik.
+                  performa bisnis yang berkelanjutan, mengembangkan smart city,
+                  dan memberikan dampak positif sosial untuk Indonesia yang
+                  lebih baik.
                 </p>
               </div>
             </div>
@@ -121,7 +121,7 @@ const showTooltip = (name: string, message: string, images: string) => {
         </div>
       </div>
 
-      <div class=rectangle-top></div>
+      <div class="rectangle-top"></div>
       <div class="rectangle-bottom"></div>
     </section>
     <!-- section visi misi  end -->
@@ -129,7 +129,6 @@ const showTooltip = (name: string, message: string, images: string) => {
     <section class="teams-citiasia-section-container py-5">
       <div class="container" data-aos="fade-down" data-aos-duration="1500">
         <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
-
 
         <!-- Tampilkan tooltips ketika user menghover -->
         <div class="d-none d-lg-none d-xl-block d-xxl-block">
@@ -146,7 +145,6 @@ const showTooltip = (name: string, message: string, images: string) => {
             </div>
           </div>
         </div>
-
 
         <!-- sembunyikan tootips pada tampilan mobile -->
         <div class="d-xl-none d-xxl-none">
@@ -255,7 +253,7 @@ const showTooltip = (name: string, message: string, images: string) => {
       </div>
     </section>
     <!-- section portofolio end -->
-    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
+    <hr v-show="colorMode.preference === 'dark'" />
   </main>
 </template>
 
@@ -457,9 +455,10 @@ const showTooltip = (name: string, message: string, images: string) => {
 }
 
 .swiper-button-prev {
+  position: fixed;
   width: 5% !important;
-  height: 28.14% !important;
-  padding: 8px;
+  height: 16.14% !important;
+  padding: 32px;
   align-items: center;
   gap: 10px;
   border-radius: 36px !important;
@@ -473,9 +472,10 @@ const showTooltip = (name: string, message: string, images: string) => {
 }
 
 .swiper-button-next {
+  position: fixed;
   width: 5% !important;
-  height: 28.14% !important;
-  padding: 8px;
+  height: 16.14% !important;
+  padding: 32px;
   align-items: center;
   gap: 10px;
   border-radius: 36px !important;
@@ -493,7 +493,87 @@ const showTooltip = (name: string, message: string, images: string) => {
   font-size: 100% !important;
 }
 
+@media (max-width: 1026px) {
+  .swiper-button-prev {
+    position: fixed;
+    width: 5% !important;
+    height: 5.14% !important;
+    padding: 25px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 36px !important;
+    color: #454545;
+    border: 1px solid var(--font-200, #d1d1d1);
+    background: var(--Background, #fff);
+    /* Medium */
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
+      0px 0px 0px 1px rgba(103, 110, 118, 0.16),
+      0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+  }
+
+  .swiper-button-next {
+    position: fixed;
+    width: 5% !important;
+    height: 5.14% !important;
+    padding: 25px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 36px !important;
+    color: #454545;
+    border: 1px solid var(--font-200, #d1d1d1);
+    background: var(--Background, #fff);
+    /* Medium */
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
+      0px 0px 0px 1px rgba(103, 110, 118, 0.16),
+      0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 100% !important;
+  }
+}
+
 @media (min-width: 1200px) {
+  .swiper-button-prev {
+    position: fixed;
+    width: 5% !important;
+    height: 16.14% !important;
+    padding: 33px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 36px !important;
+    color: #454545;
+    border: 1px solid var(--font-200, #d1d1d1);
+    background: var(--Background, #fff);
+    /* Medium */
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
+      0px 0px 0px 1px rgba(103, 110, 118, 0.16),
+      0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+  }
+
+  .swiper-button-next {
+    position: fixed;
+    width: 5% !important;
+    height: 16.14% !important;
+    padding: 33px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 36px !important;
+    color: #454545;
+    border: 1px solid var(--font-200, #d1d1d1);
+    background: var(--Background, #fff);
+    /* Medium */
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
+      0px 0px 0px 1px rgba(103, 110, 118, 0.16),
+      0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 100% !important;
+  }
+
   .ccsn-section-container .container {
     padding-top: 3em;
   }
@@ -898,7 +978,6 @@ const showTooltip = (name: string, message: string, images: string) => {
   }
 }
 
-
 .rectangle-bottom {
   position: absolute;
   bottom: 0;
@@ -906,8 +985,7 @@ const showTooltip = (name: string, message: string, images: string) => {
   height: 120px;
   /* border-radius: 14px; */
   border-radius: 0 14px 14px 0;
-  background: var(--primary-400, #FF6A89);
-
+  background: var(--primary-400, #ff6a89);
 }
 
 .rectangle-top {
@@ -918,11 +996,8 @@ const showTooltip = (name: string, message: string, images: string) => {
   height: 120px;
   /* border-radius: 14px; */
   border-radius: 14px 0px 0px 14px;
-  background: var(--primary-400, #FF6A89);
-
+  background: var(--primary-400, #ff6a89);
 }
-
-
 
 .dark-mode .rectangle-bottom {
   display: none;

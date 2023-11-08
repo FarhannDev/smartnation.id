@@ -114,6 +114,8 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
             </svg>
           </button>
 
+          <TranslateGoogleTranslateButtonSticky class="mx-2 px-0 py-2" />
+
           <button class="navbar-toggler border-0 d-xl-none d-xxl-none button-hamburger" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -275,7 +277,7 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
               </svg>
             </button>
           </div>
-          <!-- <TranslateGoogleTranslateButtonSticky /> -->
+          <TranslateGoogleTranslateButtonSticky />
         </div>
       </div>
     </div>

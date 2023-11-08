@@ -93,18 +93,19 @@ export default {
   background: transparent !important;
 }
 
-.VIpgJd-ZVi9od-ORHb-OEVmcd{
-    top: -40px !important;
-  }
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  top: -40px !important;
+}
 
-  .VIpgJd-ZVi9od-ORHb {
-    top: -40px !important;
-  }
-  
-  .goog-te-banner-frame.skiptranslate {
+.VIpgJd-ZVi9od-ORHb {
+  top: -40px !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
   display: none !important;
   visibility: hidden !important;
 }
+
 .goog-te-banner-frame {
   display: none !important;
 }
@@ -175,25 +176,26 @@ export default {
   margin-right: 4px !important;
   margin-left: 0 !important;
 }
-.translated-ltr{
+
+.translated-ltr {
   margin-top: -40px !important;
 }
 
-.translated-ltr{
+.translated-ltr {
   margin-top: -40px !important;
 }
 
-.goog-te-banner-frame{
+.goog-te-banner-frame {
   display: none;
   visibility: hidden;
   margin-top: -40px !important;
 }
 
-.goog-logo-link{
+.goog-logo-link {
   display: none !important;
 }
 
-.goog-te-gadget{
+.goog-te-gadget {
   color: transparent !important;
 }
 </style>
