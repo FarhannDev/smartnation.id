@@ -2,9 +2,9 @@
 import Swal from 'sweetalert2';
 // Set Meta SEO
 useSeoMeta({
-  title: "Tentang Kami",
-  ogTitle: "Tentang Kami",
-  description: "Citiasia Center for Smart Nation (CCSN)",
+  title: "Citiasia Center for Smart Nation (CCSN)",
+  ogTitle: "Citiasia Center for Smart Nation (CCSN)",
+  description: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
 });
 
 const colorMode = useColorMode();

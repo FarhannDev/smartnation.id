@@ -1,18 +1,17 @@
 <script lang="ts" setup>
-import { CategoryPostsType } from '~/utils/data/getInitialCategoryPostData';
+import { categories } from '~/utils/data/getInitialCategoryPostData';
 
 const props = defineProps({ categoryId: { type: Number } })
 
-const { data } = await useFetch<CategoryPostsType>('/api/categories')
-const categories = data.value?.find(category => category.id === props.categoryId);
+const categoriesData = categories.find(category => category.id === props.categoryId)
 
 </script>
 
 
 <template>
-  <div>
-    <NuxtLink class="gray-button text-decoration-none" :to="`/category/${categories?.slug}`">
-      {{ `${categories?.name.substring(0, 15)}` }}</NuxtLink>
+  <div class="d-flex flex-row overflow-auto">
+    <NuxtLink class="gray-button text-decoration-none" :to="`/category/${categoriesData?.slug}`">
+      {{ `${categoriesData?.name}` }}</NuxtLink>
 
   </div>
 </template>

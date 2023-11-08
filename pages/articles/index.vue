@@ -4,9 +4,9 @@ import { posts } from '~/utils/data/getInitialPostsData';
 
 // Set Meta SEO
 useSeoMeta({
-  title: "Berita",
+  title: "Daftar Berita",
   description: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
-  ogTitle: "Daftar berita dari semua kategori",
+  ogTitle: "Daftar Berita",
   ogDescription: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
 });
 
@@ -58,7 +58,7 @@ useSeoMeta({
                 </div>
               </div>
             </article>
-            <article v-if="categories" v-for="category in categories" :key="category.id"
+            <article v-for="category in categories" :key="category.id"
               class="article-section position-relative mb-3 py-5">
               <div class="d-flex flex-wrap justify-content-between g-0">
                 <div>

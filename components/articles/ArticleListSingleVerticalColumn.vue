@@ -13,8 +13,8 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
       <div class="row justify-content-start align-items-start g-0">
         <div class="col-xl-6 col-lg-6 col-md-6">
           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
-            <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.featured_media" :height="253" loading="lazy"
-              :alt="post.title.rendered" />
+            <NuxtImg :class="'card-img-top img-fluid rounded mb-3'" :src="post.featured_media" :height="253"
+              loading="lazy" :alt="post.title.rendered" />
           </NuxtLink>
         </div>
 

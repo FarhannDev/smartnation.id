@@ -80,7 +80,7 @@ const colorMode: ColorModeInstance = useColorMode()
     <div class="container" data-aos="fade-up" data-aos-duration="1500">
       <HeadingTitle title="Acara " />
       <div class="row justify-content-start align-content-start g-3 py-3">
-        <ArticlesArticleCardBackground :posts="posts.filter(post => post.categories.find(category => category === Number(88)))
+        <ArticlesArticleCardBackground :posts="posts.filter(post => post.categories.find(category => category === Number(88) || category === Number(90)))
           .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
           .slice(0, 4)" />
       </div>
@@ -115,8 +115,7 @@ const colorMode: ColorModeInstance = useColorMode()
         <div
           v-for="category in categories.filter(category => category.id === 84 || category.id === 85 || category.id === 86).slice(0, 3)"
           :key="category.id" class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
-          <HeadingTitle style="color: #5d5d5d" class="text-start text-capitalize fw-normal fs-5 latest-newsfeed__title"
-            :title="category.name" />
+          <HeadingTitle class="latest-newsfeed__title" :title="category.name" />
           <div class="line-break"></div>
           <div class="d-grid pt-3 gap-3">
             <ArticlesArticleListThumbnailNumber :categoryId="category.id" />
@@ -250,7 +249,7 @@ const colorMode: ColorModeInstance = useColorMode()
 }
 
 .latest-newsfeed__title {
-  color: #d71149 !important;
+  color: #5d5d5d;
 }
 
 @media (min-width: 992px) {
