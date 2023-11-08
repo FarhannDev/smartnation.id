@@ -29,9 +29,19 @@ categoryDescription.value = category.description
 categoryParentId.value = category.parent
 
 let eventsData =
-  posts.filter(post => post.categories.find(category => category === categoryPostsId.value))
-    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-    ?.slice(0, 12)
+  categoryPostsId.value === Number(90)
+    ? posts.filter(post => post.categories.find(category => category === categoryPostsId.value ||
+      category === Number(91) ||
+      category === Number(92) ||
+      category === Number(93) ||
+      category === Number(94) ||
+      category === Number(155)))
+      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      .slice(0, 18)
+    :
+    posts.filter(post => post.categories.find(category => category === categoryPostsId.value))
+      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      ?.slice(0, 18)
 
 const isnaCategoriesData = categories.filter(category => category.parent === Number(90))
 
@@ -63,6 +73,15 @@ const handleClickButton = (values: any) => {
   return null
 }
 
+
+const popularEventsData = posts.filter(post => post.categories.find(category => category === categoryPostsId.value ||
+  category === Number(91) ||
+  category === Number(92) ||
+  category === Number(93) ||
+  category === Number(94) ||
+  category === Number(155)))
+  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+  .slice(0, 10)
 
 useSeoMeta({
   title: `Berita Kategori ${categoryTitle.value}`,
@@ -156,7 +175,7 @@ useSeoMeta({
                 </ul>
               </div>
               <!-- Pagination start -->
-              <div v-show="posts.length >= 12" class="d-flex justify-content-center g-2 pt-5">
+              <div v-if="eventsData.length" class="d-flex justify-content-center g-2 pt-5">
                 <nav aria-label="Page navigation example">
                   <ul class="pagination">
                     <li class="page-item mx-2">
@@ -194,8 +213,7 @@ useSeoMeta({
 
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle
-                    :posts="posts.filter(post => post.categories.find(category => category === Number(90))).sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)" />
+                  <ArticlesArticleListTitle :posts="popularEventsData" />
                 </div>
               </div>
             </article>

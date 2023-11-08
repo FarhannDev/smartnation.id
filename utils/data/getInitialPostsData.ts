@@ -1,5 +1,5 @@
-import useCreateSlug from "~/composables/useCreateSlug";
-import useGenerateUniqueId from "~/composables/useGenerateUniqueId";
+import useCreateSlug from '~/composables/useCreateSlug';
+import useGenerateUniqueId from '~/composables/useGenerateUniqueId';
 
 export interface Posts {
   id: number | string;
@@ -23,20 +23,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas"
+      'Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas'
     ),
-    date_gmt: new Date("21 December 2022").toISOString(),
-    modified_gmt: new Date("21 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('21 December 2022').toISOString(),
+    modified_gmt: new Date('21 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/21_Des-01-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/21_Des-01-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas",
+        'Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas',
     },
     excerpt: {
       rendered: `<span style="font-weight: 400;">Pembangunan dan pengembangan </span><i><span style="font-weight: 400;">smart city </span></i><span style="font-weight: 400;">sedang menjadi hal yang banyak dilakukan oleh daerah-daerah di Indonesia. Apalagi, pemerintah Indonesia memiliki program Gerakan Menuju 100 </span><i><span style="font-weight: 400;">smart city </span></i><span style="font-weight: 400;">yang merupakan program bersama Kementerian Komunikasi dan Informatika, Kementerian Dalam Negeri, Kementerian PUPR, Bappenas dan Kantor Staf Kepresidenan.&nbsp;</span>`,
@@ -48,20 +48,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia"
+      'Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia'
     ),
-    date_gmt: new Date("20 December 2022").toISOString(),
-    modified_gmt: new Date("20 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('20 December 2022').toISOString(),
+    modified_gmt: new Date('20 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 101, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/WEB-20-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/WEB-20-1536x896.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia",
+        'Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia',
     },
     excerpt: {
       rendered:
@@ -76,19 +76,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022"
+      'Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022'
     ),
-    date_gmt: new Date("16 December 2022").toISOString(),
-    modified_gmt: new Date("16 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('16 December 2022').toISOString(),
+    modified_gmt: new Date('16 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/artikel16-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/artikel16-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022",
+      rendered: 'Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022',
     },
     excerpt: {
       rendered: `<span style="font-weight: 400;">Teknologi Video Assistant Referee (VAR) dalam Pertandingan Sepak Bola Piala Dunia 2022 Teknologi telah berkembang dengan sangat pesat, bahkan sudah merambah di bidang olahraga yaitu sepak bola.</span>\n\n<span style="font-weight: 400;">Piala Dunia 2022 yang diselenggarakan oleh negara Qatar telah menggunakan teknologi </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) dalam menentukan posisi </span><i>`,
@@ -102,20 +102,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan"
+      'Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan'
     ),
-    date_gmt: new Date("16 December 2022").toISOString(),
-    modified_gmt: new Date("16 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('16 December 2022').toISOString(),
+    modified_gmt: new Date('16 December 2022').toISOString(),
+    status: 'publish',
     categories: [82, 83, 145, 101, 86, 139, 137, 117],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/Artikel-16-Desember-1-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/Artikel-16-Desember-1-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan",
+        'Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan',
     },
     excerpt: {
       rendered:
@@ -129,18 +129,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Uang Digital RI Akan Rilis Tahun Depan"),
-    date_gmt: new Date("13 December 2022").toISOString(),
-    modified_gmt: new Date("13 December 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Uang Digital RI Akan Rilis Tahun Depan'),
+    date_gmt: new Date('13 December 2022').toISOString(),
+    modified_gmt: new Date('13 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 139, 154],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/14_Des-01-01-1-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/14_Des-01-01-1-1536x896.png',
+    comment_status: 'open',
     title: {
-      rendered: "Uang Digital RI Akan Rilis Tahun Depan",
+      rendered: 'Uang Digital RI Akan Rilis Tahun Depan',
     },
     excerpt: {
       rendered:
@@ -155,19 +155,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Tingkatkan SDM Daerah Melalui Seminar Smart City 2022"
+      'Tingkatkan SDM Daerah Melalui Seminar Smart City 2022'
     ),
-    date_gmt: new Date("13 December 2022").toISOString(),
-    modified_gmt: new Date("13 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('13 December 2022').toISOString(),
+    modified_gmt: new Date('13 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 145, 86, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/Artikel13-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/Artikel13-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Tingkatkan SDM Daerah Melalui Seminar Smart City 2022",
+      rendered: 'Tingkatkan SDM Daerah Melalui Seminar Smart City 2022',
     },
     excerpt: {
       rendered:
@@ -181,20 +181,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan"
+      'KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan'
     ),
-    date_gmt: new Date("10 December 2022").toISOString(),
-    modified_gmt: new Date("10 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('10 December 2022').toISOString(),
+    modified_gmt: new Date('10 December 2022').toISOString(),
+    status: 'publish',
     categories: [82, 83, 145, 101, 86, 139, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/09_Desember-01-01-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/09_Desember-01-01-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan",
+        'KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan',
     },
     excerpt: {
       rendered:
@@ -208,19 +208,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan"
+      'Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan'
     ),
-    date_gmt: new Date("8 December 2022").toISOString(),
-    modified_gmt: new Date("8 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('8 December 2022').toISOString(),
+    modified_gmt: new Date('8 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/8-des-web-1024x597.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/8-des-web-1024x597.png',
+    comment_status: 'open',
     title: {
-      rendered: "Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan",
+      rendered: 'Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan',
     },
     excerpt: {
       rendered:
@@ -234,20 +234,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City"
+      'Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City'
     ),
-    date_gmt: new Date("8 December 2022").toISOString(),
-    modified_gmt: new Date("8 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('8 December 2022').toISOString(),
+    modified_gmt: new Date('8 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/08_des-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/08_des-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City",
+        'Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City',
     },
     excerpt: {
       rendered:
@@ -261,20 +261,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City"
+      'Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City'
     ),
-    date_gmt: new Date("7 December 2022").toISOString(),
-    modified_gmt: new Date("7 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('7 December 2022').toISOString(),
+    modified_gmt: new Date('7 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 139, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1Afl0CYymvD4OIK9symWpcLHLZBzcU4AR",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1Afl0CYymvD4OIK9symWpcLHLZBzcU4AR',
+    comment_status: 'open',
     title: {
       rendered:
-        "Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City",
+        'Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City',
     },
     excerpt: {
       rendered:
@@ -289,23 +289,23 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan"
+      'Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan'
     ),
-    date_gmt: new Date("8 December 2022").toISOString(),
-    modified_gmt: new Date("8 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('8 December 2022').toISOString(),
+    modified_gmt: new Date('8 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 101, 139, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1ysbrz2aT7qo92No_yBlw7ic2h85Ytc6d",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1ysbrz2aT7qo92No_yBlw7ic2h85Ytc6d',
+    comment_status: 'open',
     title: {
-      rendered: "Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan",
+      rendered: 'Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan',
     },
     excerpt: {
       rendered:
-        "Smart living adalah salah satu dimensi smart city yang memprioritaskan kepraktisan dan efisiensi dalam hidup. Smart living menawarkan berbagai keuntungan bagi manusia, seperti kenyamanan, keamanan dan efisiensi energi dalam kehidupan sehari-hari.           ",
+        'Smart living adalah salah satu dimensi smart city yang memprioritaskan kepraktisan dan efisiensi dalam hidup. Smart living menawarkan berbagai keuntungan bagi manusia, seperti kenyamanan, keamanan dan efisiensi energi dalam kehidupan sehari-hari.           ',
     },
     content: {
       rendered:
@@ -316,20 +316,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)"
+      'IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)'
     ),
-    date_gmt: new Date("1 December 2022").toISOString(),
-    modified_gmt: new Date("1 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('1 December 2022').toISOString(),
+    modified_gmt: new Date('1 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/spongecity-1-2-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/spongecity-1-2-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)",
+        'IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)',
     },
     excerpt: {
       rendered:
@@ -343,18 +343,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Qatar Gunakan Serba AI di Piala Dunia 2022"),
-    date_gmt: new Date("30 November 2022").toISOString(),
-    modified_gmt: new Date("30 November 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Qatar Gunakan Serba AI di Piala Dunia 2022'),
+    date_gmt: new Date('30 November 2022').toISOString(),
+    modified_gmt: new Date('30 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/11/desain_29_Nov-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/11/desain_29_Nov-01-1536x896.png',
+    comment_status: 'open',
     title: {
-      rendered: "Qatar Gunakan Serba AI di Piala Dunia 2022",
+      rendered: 'Qatar Gunakan Serba AI di Piala Dunia 2022',
     },
     excerpt: {
       rendered:
@@ -368,18 +368,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Implementasi Smart Branding, Tidak Hanya Soal Wisata"),
-    date_gmt: new Date("25 November 2022").toISOString(),
-    modified_gmt: new Date("25 November 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Implementasi Smart Branding, Tidak Hanya Soal Wisata'),
+    date_gmt: new Date('25 November 2022').toISOString(),
+    modified_gmt: new Date('25 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 83, 88, 145, 90, 155, 86, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1LDmsUjoKixpG_yDD9vV5afobbW9VsWtG",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1LDmsUjoKixpG_yDD9vV5afobbW9VsWtG',
+    comment_status: 'open',
     title: {
-      rendered: "Implementasi Smart Branding, Tidak Hanya Soal Wisata",
+      rendered: 'Implementasi Smart Branding, Tidak Hanya Soal Wisata',
     },
     excerpt: {
       rendered: `Smart branding merupakan salah satu pilar dari pendekatan smart city yang memiliki definisi strategi memasarkan sebuah kota atau wilayah sehingga mampu menarik ekosistem sekitar, baik itu warga, masyarakat umum, ataupun pelaku bisnis. Aspek smart branding tidak hanya terbatas pada pengembangan smart branding di area pariwisata. Menurut Hari Kusdaryanto, CIO Citiasia, ekosistem bisnis dan ekonomi kreatif juga menarik untuk dikembangkan. Ketika memilih area pariwisata untuk dikembangkan sebagai smart branding, Hari melihat masih banyak daerah yang implementasinya kurang tepat karena masih terlalu fokus pada destinasi yang sebenarnya bisa lebih dari itu. Hari menjelaskan penilaian smart branding di pagelaran Indonesia Smart Nation Awards (ISNA) pada 17 November 2022 lalu, “Kalau hanya ‘jualan’ air terjun, akan selalu ada air terjun yang lebih indah,” tambah Hari. Objek wisata air terjun akan lebih diminati wisatawan jika tersedia amenitas atau fasilitas pendukung yang memadai. “Contohnya perjalanan ke sana mudah, ada tempat ganti yang layak di lokasi, dan lain sebagainya,” tambah Hari mencontohkan. Keterlibatan masyarakat juga penting dalam menyukseskan smart branding. Hari mengambil contoh Kabupaten Banyuwangi yang berhasil mengajak warga untuk berpartisipasi melalui program Smart Kampung. Melalui program tersebut, warga mendapat akses internet dan literasi digital agar mampu mengembangkan diri.  “Sehingga warga desa atau karang taruna di sana mampu melakukan branding sendiri terhadap kampungnya,” tambah Hari. Karena selain memperkaya daya tarik sebuah wilayah, inovasi yang lahir dari warga itu sendiri lebih terjaga keberlanjutannya sehingga pemerintah dapat fokus mengerjakan amenitas besar seperti membuat bandara, pelebaran jalan, dan lain-lain. Pemerintah daerah seharusnya juga aktif melakukan kerjasama atau co-creation dengan pelaku usaha. Contohnya untuk menjual produk unggulan UMKM secara online, pemerintah dapat melakukan kerjasama dengan marketplace yang sudah ada. “Cara ini lebih efektif dibanding membangun e-commerce sendiri,” tambah Hari. Pemerintah daerah juga bisa mengambil peran dengan memberi kemudahan pengusaha dalam mendapatkan izin usaha atau pendaftaran merek. Pemerintah daerah lebih baik fokus pada tugas pokok dan fungsinya, seperti kebijakan, infrastruktur, dan literasi warga. Dengan begitu, keberlanjutan inisiatif smart branding pun dapat selalu terjaga. Jadi, saat akan menerapkan smart branding sebaiknya sebuah daerah tidak hanya terpaku pada pariwisata dan memperhatikan aspek lain yang bisa menjadi potensi. Jika Anda butuh konsultansi, silahkan kunjungi akun Instagram @citiasiainc untuk informasi lebih lanjut.`,
@@ -392,24 +392,24 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!"
+      'Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!'
     ),
-    date_gmt: new Date("25 November 2022").toISOString(),
-    modified_gmt: new Date("25 November 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('25 November 2022').toISOString(),
+    modified_gmt: new Date('25 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 83, 88, 145, 90, 86, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1cDzj6ZUrHyGEAeXzh2P-3AjWwUonmtqc",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1cDzj6ZUrHyGEAeXzh2P-3AjWwUonmtqc',
+    comment_status: 'open',
     title: {
       rendered:
-        "Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!",
+        'Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!',
     },
     excerpt: {
       rendered:
-        "Indonesia Smart Nation Award (ISNA) 2022 kembali diadakan secara langsung setelah dua tahun lamanya. ISNA diadakan oleh Citiasia Center For Smart Nation yang sebelumnya telah berhasil menggelar ISNA 2015, 2016, 2019, 2020, dan akan diselenggarakan tahun ini pada hari Kamis, 17 November 2022 di Garuda Main Hall 1 (First Floor) – ICE BSD, Tangerang.",
+        'Indonesia Smart Nation Award (ISNA) 2022 kembali diadakan secara langsung setelah dua tahun lamanya. ISNA diadakan oleh Citiasia Center For Smart Nation yang sebelumnya telah berhasil menggelar ISNA 2015, 2016, 2019, 2020, dan akan diselenggarakan tahun ini pada hari Kamis, 17 November 2022 di Garuda Main Hall 1 (First Floor) – ICE BSD, Tangerang.',
     },
     content: {
       rendered:
@@ -420,24 +420,24 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020"
+      'Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020'
     ),
-    date_gmt: new Date("7 October 2022").toISOString(),
-    modified_gmt: new Date("7 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('7 October 2022').toISOString(),
+    modified_gmt: new Date('7 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 88, 90],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/web7okt-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/web7okt-1536x896.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020",
+        'Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020',
     },
     excerpt: {
       rendered:
-        "Pemerintah Kabupaten Batang terpilih sebagai penerima apresiasi The 4th ISNA 2020 melalui pengembangan inovasi layanan Drive Thru di Mal Pelayanan Publik (MPP) Batang, (Infopublik.id, 2020). MPP Batang merupakan yang ketiga di Jawa Tengah sebagai percontohan, dikarenakan MPP Batang menjadi MPP pertama di Indonesia yang memiliki layanan Drive Thru perpanjangan SIM A dan SIM B.",
+        'Pemerintah Kabupaten Batang terpilih sebagai penerima apresiasi The 4th ISNA 2020 melalui pengembangan inovasi layanan Drive Thru di Mal Pelayanan Publik (MPP) Batang, (Infopublik.id, 2020). MPP Batang merupakan yang ketiga di Jawa Tengah sebagai percontohan, dikarenakan MPP Batang menjadi MPP pertama di Indonesia yang memiliki layanan Drive Thru perpanjangan SIM A dan SIM B.',
     },
     content: {
       rendered:
@@ -448,24 +448,24 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020"
+      'Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [88, 90],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/ilustrasi-cek-bantuan-sosial-dalam-penanganan-covid-19-di-banyuwangi-360x220-1.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/ilustrasi-cek-bantuan-sosial-dalam-penanganan-covid-19-di-banyuwangi-360x220-1.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020",
+        'Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020',
     },
     excerpt: {
       rendered:
-        "TRIBUNJATIM.COM, BANYUWANGI - Kabupaten Banyuwangi meraih penghargaan Indonesia Smart Nation Award (ISNA) 2020.\n\nBanyuwangi meraih award kategori Smart Society berupa inovasi penggunaan TIK dalam penanganan dampak sosial virus Corona ( Covid-19 ).\n\nPenghargaan tersebut diselenggarakan oleh Citiasia Center for Smart Nation (CCSN) dan tahun ini merupakan penyelenggaraan ke-4. Pada tahun ini, ISNA mengusung tema “Smart City 2020: Driving Innovation &amp; Productivity During The Global Pandemic”. ",
+        'TRIBUNJATIM.COM, BANYUWANGI - Kabupaten Banyuwangi meraih penghargaan Indonesia Smart Nation Award (ISNA) 2020.\n\nBanyuwangi meraih award kategori Smart Society berupa inovasi penggunaan TIK dalam penanganan dampak sosial virus Corona ( Covid-19 ).\n\nPenghargaan tersebut diselenggarakan oleh Citiasia Center for Smart Nation (CCSN) dan tahun ini merupakan penyelenggaraan ke-4. Pada tahun ini, ISNA mengusung tema “Smart City 2020: Driving Innovation &amp; Productivity During The Global Pandemic”. ',
     },
     content: {
       rendered:
@@ -476,20 +476,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020"
+      'DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/Smart-Branding-1000x520-750x460-1-750x450.jpeg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/Smart-Branding-1000x520-750x460-1-750x450.jpeg',
+    comment_status: 'open',
     title: {
       rendered:
-        "DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020",
+        'DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020',
     },
     excerpt: {
       rendered: `READ.ID – Indonesia Smart City Investment Forum (ISCIF) talkshow kembali digelar oleh Citiasia Center for Smart Nation (CCSN) yang bermitra dengan PT Debindo – ITE dan didukung oleh PT Telkom Indonesia.\n\nDalam gelaran ini dibarengi dengan penganugerahan daerah-daerah pemenang The 4th Indonesia Smart Nation Award (ISNA) yang diselenggarakan secara daring pada Senin (5/10/2020) dengan tema Smart City 2020 yakni Driving Innovation and Productivity During The Global Pandemic.`,
@@ -502,24 +502,24 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020"
+      'PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0036-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0036-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020",
+        'PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020',
     },
     excerpt: {
       rendered:
-        "KANIGARAN – Kota Probolinggo kembali mengukir prestasi. Kali ini Kota Probolinggo  dinobatkan sebagai Smart Society Penguatan Kampung Tangguh, dalam ajang penghargaan Indonesia Smart Nation Award (ISNA) 2020, Senin (5/10), yang dilakukan secara virtual.        ",
+        'KANIGARAN – Kota Probolinggo kembali mengukir prestasi. Kali ini Kota Probolinggo  dinobatkan sebagai Smart Society Penguatan Kampung Tangguh, dalam ajang penghargaan Indonesia Smart Nation Award (ISNA) 2020, Senin (5/10), yang dilakukan secara virtual.        ',
     },
     content: {
       rendered: `<strong>KANIGARAN</strong>&nbsp;- Kota Probolinggo kembali mengukir prestasi. Kali ini Kota Probolinggo&nbsp; dinobatkan sebagai Smart Society Penguatan Kampung Tangguh, dalam ajang penghargaan Indonesia Smart Nation Award (ISNA) 2020, Senin (5/10), yang dilakukan secara virtual.\n\nPenghargaan yang diterima Wakil Wali (Wawali) Kota Probolinggo Mochammad Soufis Subri itu berdasarkan inovasi yang diciptakan Pemerintah Kota Probolinggo. Dalam penghargaan The 4th ISNA itu, kota ini berhasil menjadi daerah dengan peringkat terbaik melalui inovasi kategori penghargaan, Smart Society, bersanding dengan 5 kabupaten/kota lainnya sebagai daerah nominasi.\n\n<img src=\"https://portal.probolinggokota.go.id/images/berita/2020/IMG-20201005-WA0032.jpg\" alt=\"IMG 20201005 WA0032\">\n\nDari 514 kabupaten/kota, mengerucut menjadi 175 kabupaten/kota yang memiliki inovasi, totalnya 248 inovasi. Dan kembali mengerucut menjadi 183 inovasi yang berkaitan dengan COVID-19. Dari 183 inovasi ini juga diseleksi kembali dan ditemukan 60 inovasi murni dari Pemerintah Daerah dan ditetapkan 30 inovasi terbaik di ragam kategori; Smart Economy, Smart Goverment, Smart Branding, Smart Society, Smart Living, Smart Mention.\n\nPopulasi penelitiannya sendiri berdasarkan interest based sub-region pada kata kunci “COVID” dan “Inovasi” sebagai Proxy, atas citizen awareness pada issue COVID-19. Sekaligus sebagai proxy atas digital readiness masyarakat serta 100 kabupaten/kota G100SCN &amp; 63 kabupaten/kota Pemenang Lomba Tatanan New Normal sebagai variabel kontrol.\n\n“Untuk kategori Smart Society terbaik hanya ada lima daerah se-Indonesia. Yaitu Kota Probolinggo, Banyuwangi, Denpasar, Kabupaten Kendal dan Kabupaten Tegal,” ujarnya.\n\nPada Platfrom Smart Society atau Masyarakat Cerdas, Kota Probolinggo sangat konsen di sektor Penguatan Kampung Tangguh di tengah pandemi COVID-19. Meski masih dalam situasi dan kondisi pandemi, proses kehidupan bermasyarakat nyatanya tak terganggu. “Adanya kampung tangguh juga mendorong masyarakat untuk lebih taat dan tertib dalam menjalankan protokol kesehatan di lingkungannya,” terangnya.\n\nDi Kota Probolinggo, ada 33 kampung tangguh yang tersebar di 29 kelurahan sehingga penerapan ketangguhan secara menyeluruh dapat dilakukan secara maksimal. Wawali Subri menambahkan, kehadiran kampung tangguh merupakan inovasi Pemkot Probolinggo dengan tujuan masyarakat aware (peduli) dengan pencegahan penyebaran COVID-19.\n\nDimana ketangguhan itu sendiri, lanjut Subri, tidak hanya boleh dimiliki satu dua kelurahan saja, melainkan semua kelurahan yang ada. Tentu dengan didukung kerja sama yang baik antara Pemkot, TNI dan Polri. Sehingga kampung tangguh yang ada di Kota Probolinggo tidak hanya tangguh terkait penanganan COVID-19, tapi juga bergerak bagaimana menghidupkan sektor&nbsp; ekonomi sekaligus menyelesaikan dampak sosial yang muncul.\n\n“Dalam kesempatan ini, izinkan kami juga mengucapkan terima kasih dan apresiasi yang setinggi-tingginya, kepada TNI-Polri, relawan kampung tangguh di tiap-tiap RT/RW sampai kecamatan bahkan relawan di tingkat kota, yang selalu memberikan dukungan pada kami sehingga suasana kondusif dapat terjaga di tengah situasi pandemi. Sekaligus melalui penghargaan ini, semoga menjadi triger dan motivasi kami untuk membangun Kota Probolinggo lebih baik lagi,” tandasnya.\n\n<img src=\"https://portal.probolinggokota.go.id/images/berita/2020/IMG-20201005-WA0034.jpg\" alt=\"IMG 20201005 WA0034\">\n\nTak hanya sebagai ajang penghargaan semata, ISNA 2020 juga diisi dengan giat seperti Bussiness Presentation oleh Telkom Indonesia dan 2 sesi talkshow Indonesia Smart City Investment Forum 2020 dengan menggandeng narasumber di bidangnya masing-masing.\n\nSebagai sebuah penghargaan yang diberikan kepada daerah-daerah dengan pencapaian terbaik dalam pelaksanaan smart city / smart region sesuai framework yang dikembangkan oleh Citiasia Inc., ISNA 2020 dilaksanakan dengan melalui beberapa tahapan, yaitu proses penilaian indeks dan penjurian oleh para pakar di bidang smart city di Indonesia.\n\nSementara itu, Chairman Citiasia, Cahyana Ahmadjayadi, menyampaikan selamat bagi daerah yang berprestasi. Ia mengatakan, banyak daerah yang terus berpacu dan berinovasi menuju smart city. “Selamat bagi daerah pemenang. Melalui ISNA, semua daerah konsisten meningkatkan daya saing melalui smart city,” ujarnya.\n\nPenghargaan bergengsi ini sudah empat kali digelar sejak 2015 lalu. Melalui Gerakan Bangsa Cerdas, Citiasia terus berkomitmen untuk menjaga semangat Bangsa Indonesia Cerdas dengan memberikan apresiasi terhadap inovasi terbaik di masa yang bergejolak di tahun 2020. “Dengan banyaknya inovasi di sektor digital ini semoga Visi Indonesia Smart Nation segera terwujud,” pungkasnya.<strong><em>&nbsp;(Sonea)</em></strong>\n\n&nbsp;\n\n<em>sumber:&nbsp;https://portal.probolinggokota.go.id/index.php/k2/k2-category/1766-penguatan-kampung-tangguh-di-kota-probolinggo-mendapat-apresiasi-isna-2020</em>`,
@@ -529,19 +529,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Pemkot Parepare Raih Penghargaan Smart Nation Award 2020"
+      'Pemkot Parepare Raih Penghargaan Smart Nation Award 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0115-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0115-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Pemkot Parepare Raih Penghargaan Smart Nation Award 2020",
+      rendered: 'Pemkot Parepare Raih Penghargaan Smart Nation Award 2020',
     },
     excerpt: {
       rendered: `PAREPARE, BACAPESAN.COM – Kota Parepare kembali mendapat penghargaan prestesius di tingkat nasional. Kali ini dalam ajang “Indonesia Smart Nation Award (ISNA) 2020”.\n\nPenghargaan yang disaksikan secara virtual oleh Walikota Parepare melalui Wakilnya, Pangerang Rahim, Senin, (5/10/2020) diberikan lantaran Kota Parepare terpilih sebagai penerima apresiasi atas inovasi Penerapan New Normal pada Wisata Salo’ Karajae.`,
@@ -554,20 +554,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik"
+      'PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik",
+        'PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik',
     },
     excerpt: {
       rendered: `Batam (gokepri.com) – Dua aplikasi milik Pemko&nbsp;<a href=\"http://batam.go.id/\">Batam</a>&nbsp;dianugerahi Indonesian Smart Nation Award 2020. Batam dianggap sebagai kota yang berinovasi menjadi kota pintar atau smart city.\n\nDua penghargaan itu adalah Smart Economy dan Platfrom Belajar Mengajar Terbaik. Penghargaan tersebut diterima langsung oleh Sekretaris Daerah (Sekda) Kota Batam, Jefridin Hamid, melalui virtual di Kantor Wali Kota Batam, Senin (5/10/2020).`,
@@ -580,20 +580,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA"
+      'Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA",
+        'Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA',
     },
     excerpt: {
       rendered: `<b>LAMONGAN</b>&nbsp;- Pemerintah Kabupaten Lamongan dibawah kepemimpinan Bupati Fadeli banyak mendapatkan penghargaan dan apresiasi dari berbagai instansi tingkat provinsi dan nasional.\n\nDan yang terbaru terpilih sebagai salah satu penerima apresiasi The 4th&nbsp;<i>Indonesian Smart Nation Award</i>&nbsp;(ISNA) 2020 melalui inovasi Pasar Online Lamongan (POL) kategori&nbsp;<i>smart economy.</i>`,
@@ -606,20 +606,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia"
+      'Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia'
     ),
-    date_gmt: new Date("1 July 2022").toISOString(),
-    modified_gmt: new Date("1 July 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('1 July 2022').toISOString(),
+    modified_gmt: new Date('1 July 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 83, 85, 86, 129],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/07/cover_artikel_13-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/07/cover_artikel_13-1536x896.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia",
+        'Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia',
     },
     excerpt: {
       rendered: `span style=\"font-weight: 400;\">Semakin canggihnya perkembangan teknologi menjadikan bidang teknologi informatika menjadi salah satu bidang paling diminati anak muda yang sudah familiar dengan dunia teknologi. Sehingga, Citiasia Institute dan&nbsp; Oracle University Indonesia meluncurkan program beasiswa yang diberi nama Citiasia – Oracle Scholarship 2016, senilai lebih dari Rp 2,3 miliar.</span>`,
@@ -631,18 +631,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Bimtek Smart City Branding 2018"),
-    date_gmt: new Date("3 November 2018").toISOString(),
-    modified_gmt: new Date("3 November 2018").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Bimtek Smart City Branding 2018'),
+    date_gmt: new Date('3 November 2018').toISOString(),
+    modified_gmt: new Date('3 November 2018').toISOString(),
+    status: 'publish',
     categories: [83, 88, 129],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2018/11/2018-11-12_144620-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2018/11/2018-11-12_144620-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Bimtek Smart City Branding 2018",
+      rendered: 'Bimtek Smart City Branding 2018',
     },
     excerpt: {
       rendered: `JAKARTA. APEKSI dan CITIASIA menyelenggarakan Bimbingan Teknis Smart City Branding tanggal 1-3 November 2018 dalam rangka peningkatan kapasitas pemerintah kota dalam mengoptimalkan branding daerah melalui Pariwisata, Bisnis dan Wajah Kota serta sebagai bereaupreneur yang handal dalam meningkatkan daya saing melalui strategi Smart City Branding.`,
@@ -655,19 +655,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda"
+      'Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda'
     ),
-    date_gmt: new Date("7 November 2016").toISOString(),
-    modified_gmt: new Date("7 November 2016").toISOString(),
-    status: "publish",
+    date_gmt: new Date('7 November 2016').toISOString(),
+    modified_gmt: new Date('7 November 2016').toISOString(),
+    status: 'publish',
     categories: [82, 129],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2016/11/web-training-01-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2016/11/web-training-01-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda”",
+      rendered: 'Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda”',
     },
     excerpt: {
       rendered: `<b>LAMONGAN</b>&nbsp;- Pemerintah Kabupaten Lamongan dibawah kepemimpinan Bupati Fadeli banyak mendapatkan penghargaan dan apresiasi dari berbagai instansi tingkat provinsi dan nasional.\n\nDan yang terbaru terpilih sebagai salah satu penerima apresiasi The 4th&nbsp;<i>Indonesian Smart Nation Award</i>&nbsp;(ISNA) 2020 melalui inovasi Pasar Online Lamongan (POL) kategori&nbsp;<i>smart economy.</i>`,
@@ -680,20 +680,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!"
+      'Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!'
     ),
-    date_gmt: new Date("2 November 2022").toISOString(),
-    modified_gmt: new Date("2 November 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('2 November 2022').toISOString(),
+    modified_gmt: new Date('2 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1EEIpHvPJ-a8lCAXGxVQWlk1bIVkmyybB",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1EEIpHvPJ-a8lCAXGxVQWlk1bIVkmyybB',
+    comment_status: 'open',
     title: {
       rendered:
-        "Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!",
+        'Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!',
     },
     excerpt: {
       rendered: `<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Indonesia tengah bersiap untuk pindah ke Ibukota baru yang nantinya akan berlokasi di Penajam Paser Utara, Kalimantan Timur. Dilansir dari Nusa Daily dari detikFinance, Jokowi mengatakan bahwa Ibukota Negara Baru (IKN) akan menerapkan konsep </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">dan </span><i><span style=\"font-weight: 400;\">smart living</span></i><span style=\"font-weight: 400;\"> sehingga kendaraan yang digunakan harus ramah lingkungan dan identik dengan masa depan. Sementara, sumber energi yang dipakai berasal dari </span><i><span style=\"font-weight: 400;\">renewable</span></i><span style=\"font-weight: 400;\"> industri.&nbsp;</span></p>`,
@@ -706,20 +706,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?"
+      'Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?'
     ),
-    date_gmt: new Date("21 October 2022").toISOString(),
-    modified_gmt: new Date("21 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('21 October 2022').toISOString(),
+    modified_gmt: new Date('21 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1K6l_pk7XQYPRhKO38QnNtnWCRVrauPZd",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1K6l_pk7XQYPRhKO38QnNtnWCRVrauPZd',
+    comment_status: 'open',
     title: {
       rendered:
-        "Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?",
+        'Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?',
     },
     excerpt: {
       rendered: `<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Akhir-akhir ini, banjir kembali menjadi topik hangat. Terutama, banjir di Jakarta akibat intensitas hujan yang cukup tinggi sejak hari Kamis, 13 Oktober 2022. Selain karena disebabkan hujan, hal yang membuat Jakarta rentan banjir adalah letak geografisnya yang berada di </span><span style=\"font-weight: 400;\">dataran rendah yaitu di antara hulu sungai dan pesisir. Beberapa waktu lalu, Korea Selatan juga dilanda banjir bandang yang disebabkan oleh curah hujan yang tinggi. </span></p>`,
@@ -731,18 +731,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Inovasi Metaverse untuk Smart Branding"),
-    date_gmt: new Date("30 September 2022").toISOString(),
-    modified_gmt: new Date("30 September 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Inovasi Metaverse untuk Smart Branding'),
+    date_gmt: new Date('30 September 2022').toISOString(),
+    modified_gmt: new Date('30 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV',
+    comment_status: 'open',
     title: {
-      rendered: "Inovasi Metaverse untuk Smart Branding",
+      rendered: 'Inovasi Metaverse untuk Smart Branding',
     },
     excerpt: {
       rendered: `<i><span style=\"font-weight: 400;\">Smart city </span></i><span style=\"font-weight: 400;\">memiliki 6 dimensi, salah satunya adalah </span><i><span style=\"font-weight: 400;\">smart branding. Smart branding </span></i><span style=\"font-weight: 400;\">adalah sebuah upaya membangun </span><i><span style=\"font-weight: 400;\">branding </span></i><span style=\"font-weight: 400;\">daerah yang lebih pintar sesuai dengan potensi dan peluang pengembangan daerah. Dalam meningkatkan daya saing daerah, </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">mengedepankan tiga sub-dimensi, yaitu pariwisata, bisnis, dan daerah.</span>`,
@@ -755,19 +755,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?"
+      'Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?'
     ),
-    date_gmt: new Date("22 September 2022").toISOString(),
-    modified_gmt: new Date("22 September 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('22 September 2022').toISOString(),
+    modified_gmt: new Date('22 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/09/Artikel_23_Sept-1-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/09/Artikel_23_Sept-1-1536x896.png',
+    comment_status: 'open',
     title: {
-      rendered: "Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?",
+      rendered: 'Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Teknologi 6G mulai disiapkan oleh sejumlah negara, seperti China, Korea Selatan dan lain sebagainya. Tidak hanya itu, berbagai ahli pun berlomba-lomba melakukan penelitian untuk menemukan keunggulan jaringan 6G dan meluncurkannya. Hal ini dikarenakan seiring berkembang dan majunya teknologi, kebutuhan manusia pu n terus berubah.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Tapi sebenarnya, apa itu teknologi 6G dan apa manfaatnya untuk sisi kehidupan?</span>\n<h3><b>Mengenal Teknologi 6G</b></h3>\n<span style=\"font-weight: 400;\">Sebelumnya, mungkin teknologi atau sinyal 5G jadi juara dan tercepat. Tapi sekarang, telah muncul teknologi 6G yang siap menggantikannya.&nbsp;</span>`,
@@ -779,18 +779,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Peran Big Data dalam Pembangunan Smart City"),
-    date_gmt: new Date("16 September 2022").toISOString(),
-    modified_gmt: new Date("16 September 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Peran Big Data dalam Pembangunan Smart City'),
+    date_gmt: new Date('16 September 2022').toISOString(),
+    modified_gmt: new Date('16 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 101, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=11K7mQX_Oke7mSwk4ZaS-vCn8iTC30Ll-",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=11K7mQX_Oke7mSwk4ZaS-vCn8iTC30Ll-',
+    comment_status: 'open',
     title: {
-      rendered: "Peran Big Data dalam Pembangunan Smart City",
+      rendered: 'Peran Big Data dalam Pembangunan Smart City',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Seperti yang kita tahu, </span><i><span style=\"font-weight: 400;\">smart city</span></i><span style=\"font-weight: 400;\"> merupakan kota yang menggunakan sensor dan perangkat untuk memanfaatkan teknologi informasi dan internet secara maksimal dalam pengelolaan aset dalam suatu kota. Kemudian, perangkat dan sensor tersebut digunakan untuk mengumpulkan dan menganalisis data yang nanti hasilnya untuk mengoptimalkan pengelolaan kota, sumber daya, dan meningkatkan kualitas hidup.&nbsp;</span>`,
@@ -803,20 +803,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19"
+      'Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19'
     ),
-    date_gmt: new Date("23 September 2022").toISOString(),
-    modified_gmt: new Date("23 September 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('23 September 2022').toISOString(),
+    modified_gmt: new Date('23 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 117, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/09/revisimobilhealth-1536x1536.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/09/revisimobilhealth-1536x1536.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19",
+        'Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Masa pandemi COVID-19 di Indonesia mengakibatkan ketakutan masyarakat untuk melakukan konsultasi kesehatan di fasilitas-fasilitas kesehatan, terlebih lagi himbauan dari pemerintah untuk melakukan </span><i style=\"font-size: revert; color: initial;\"><span>social distancing </span></i><span style=\"font-weight: 400;\">dan PSBB. Salah satu cara yang dapat dilakukan dalam membantu memberikan solusi penanganan pandemi COVID-19 selain dengan PSBB yaitu menerapkan konsep </span><i style=\"font-size: revert; color: initial;\"><span>smart health.</span></i>`,
@@ -828,18 +828,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Ini Dia Deretan Startup Healthtech di Indonesia"),
-    date_gmt: new Date("13 October 2021").toISOString(),
-    modified_gmt: new Date("13 October 2021").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Ini Dia Deretan Startup Healthtech di Indonesia'),
+    date_gmt: new Date('13 October 2021').toISOString(),
+    modified_gmt: new Date('13 October 2021').toISOString(),
+    status: 'publish',
     categories: [148, 117],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2021/10/websitesmartnation_12102021_Mia-Patricia-Rizky-Sabilurrasyid_1-Mia-Patricia-780x450.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2021/10/websitesmartnation_12102021_Mia-Patricia-Rizky-Sabilurrasyid_1-Mia-Patricia-780x450.png',
+    comment_status: 'open',
     title: {
-      rendered: "Ini Dia Deretan Startup Healthtech di Indonesia",
+      rendered: 'Ini Dia Deretan Startup Healthtech di Indonesia',
     },
     excerpt: {
       rendered: `<p>Di masa pandemi ini, kebanyakan kegiatan dilakukan secara <em>online</em>. Bagaimana perasaan Smart People ketika tubuh kurang <em>fit</em> namun takut untuk pergi keluar? Sangat khawatir bukan? Teknologi kini bahkan sudah masuk ke dalam sektor kesehatan. Dulu kita harus datang ke rumah sakit dan menunggu antrian sekarang hanya perlu mengunduh aplikasi dan dalam sekejap Kamu dapat melakukan konsultasi dengan dokter perihal keluhanmu.</p>`,
@@ -852,20 +852,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA"
+      'Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA'
     ),
-    date_gmt: new Date("24 November 2022").toISOString(),
-    modified_gmt: new Date("24 November 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('24 November 2022').toISOString(),
+    modified_gmt: new Date('24 November 2022').toISOString(),
+    status: 'publish',
     categories: [83, 84, 155, 139, 154],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1d0wI2odXwBnWexOvBvjMFYtoxGqdLIeZ",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1d0wI2odXwBnWexOvBvjMFYtoxGqdLIeZ',
+    comment_status: 'open',
     title: {
       rendered:
-        "Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA",
+        'Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Citiasia Inc. merupakan lembaga konsultasi yang berkomitmen mendorong penghargaan </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">di Indonesia. Dalam perkembangannya, perusahaan Citiasia Inc. memiliki program besar, salah satunya Indonesian Smart Nation Award (ISNA) yang merupakan ajang penghargaan bagi pemerintah daerah (Pemda) Kota/Kabupaten di Indonesia yang menciptakan inovasi </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">terbaik bagi masyarakatnya. Citiasia Inc. resmi menggelar ISNA 2022 berlangsung di ICE BSD, Tangerang, pada Kamis (17/11/22). </span>`,
@@ -878,20 +878,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur"
+      'Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur'
     ),
-    date_gmt: new Date("28 October 2022").toISOString(),
-    modified_gmt: new Date("28 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('28 October 2022').toISOString(),
+    modified_gmt: new Date('28 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 84, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/Desain_Artikel_26_Oktober-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/Desain_Artikel_26_Oktober-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur",
+        'Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Pada hari Kamis tanggal 13 Oktober lalu, telah diselenggarakan Sosialisasi Program Gerakan Menuju Provinsi Cerdas (</span><i><span style=\"font-weight: 400;\">Smart Province) </span></i><span style=\"font-weight: 400;\">di Provinsi Jawa Timur. Acara sosialisasi ini disampaikan oleh Hari Kusdaryanto sebagai tenaga ahli kominfo dari PT. Citiasia Internasional dan juga dihadiri oleh Kepala Bidang Aptika, Achmad Fadlil Chusni yang mewakili Kadis Kominfo Jatim. </span>\r\n\r\n<span style=\"font-weight: 400;\">Melalui program </span><i><span style=\"font-weight: 400;\">smart province </span></i><span style=\"font-weight: 400;\">ini, harapannya pelayanan sektor publik dapat ditingkatkan dengan menyatukan beberapa elemen yang ada seperti pemerintahan, ekonomi, pendidikan, kesehatan, lingkungan, sumber daya manusia dan transportasi.</span>`,
@@ -904,20 +904,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”"
+      'Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”'
     ),
-    date_gmt: new Date("14 October 2022").toISOString(),
-    modified_gmt: new Date("14 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('14 October 2022').toISOString(),
+    modified_gmt: new Date('14 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 84, 145, 101, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1rZOg76e7FR5_8rGa3dP-fHKcPDhSMk6D",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1rZOg76e7FR5_8rGa3dP-fHKcPDhSMk6D',
+    comment_status: 'open',
     title: {
       rendered:
-        "Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”",
+        'Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”',
     },
     excerpt: {
       rendered: `<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Pada hari Senin, 10 Oktober 2022 telah diadakan Sosialisasi Program Gerakan Menuju Provinsi Cerdas (</span><i><span style=\"font-weight: 400;\">Smart Province) </span></i><span style=\"font-weight: 400;\">yang diselenggarakan di Hotel Novotel Semarang, Jawa Tengah. Acara sosialisasi ini dibawakan oleh Hari Kusdaryanto selaku tenaga ahli </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">dan Chief Innovation Officer PT. Citiasia Internasional dan dihadiri oleh Kepala Dinas Komunikasi dan Informatika (Diskominfo) Jawa Tengah, Riena Retnaningrum, Direktur Jenderal Aplikasi Komputer (Aptika) Kementerian Komunikasi dan Informatika RI, Semuel Abrijani Pangerapan dan OPD dari berbagai daerah di Provinsi Jawa Tengah.</span></p>`,
@@ -930,19 +930,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo"
+      'Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 83, 84, 145],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/12okt-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/12okt-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo",
+      rendered: 'Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Sistem Pemerintahan Berbasis Elektronik (SPBE) merupakan penyelenggaraan pemerintahan yang memanfaatkan </span><span style=\"font-weight: 400;\">informasi dan komunikasi untuk memberikan layanan kepada pengguna SPBE, baik tingkat masyarakat maupun pemerintah itu sendiri, (Diskominfo Bantul, 2022).&nbsp;</span>`,
@@ -954,24 +954,262 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Kabupaten Bantul Raih Predikat SPBE Terbaik"),
-    date_gmt: new Date("14 October 2022").toISOString(),
-    modified_gmt: new Date("14 October 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Kabupaten Bantul Raih Predikat SPBE Terbaik'),
+    date_gmt: new Date('14 October 2022').toISOString(),
+    modified_gmt: new Date('14 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 84, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/14okt-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/14okt-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Kabupaten Bantul Raih Predikat SPBE Terbaik",
+      rendered: 'Kabupaten Bantul Raih Predikat SPBE Terbaik',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Sistem Pemerintahan Berbasis Elektronik (SPBE) merupakan penyelenggaraan pemerintahan yang memanfaatkan </span><span style=\"font-weight: 400;\">informasi dan komunikasi untuk memberikan layanan kepada pengguna SPBE, baik tingkat masyarakat maupun pemerintah itu sendiri, (Diskominfo Bantul, 2022).&nbsp;</span>\n\n<span style=\"font-weight: 400;\">SPBE menjadi komitmen Pemkab Bantul dalam menciptakan budaya digital pada sistem pemerintahan. Terlihat bahwa Kabupaten Bantul masuk ke dalam 100 kabupaten/kota cerdas (</span><i><span style=\"font-weight: 400;\">smart city</span></i><span style=\"font-weight: 400;\">) di Indonesia, </span><span style=\"font-weight: 400;\">(Diskominfo Bantul,</span><span style=\"font-weight: 400;\"> 2022).&nbsp;</span`,
     },
     content: {
       rendered: `<span style=\"font-weight: 400;\">Sistem Pemerintahan Berbasis Elektronik (SPBE) merupakan penyelenggaraan pemerintahan yang memanfaatkan </span><span style=\"font-weight: 400;\">informasi dan komunikasi untuk memberikan layanan kepada pengguna SPBE, baik tingkat masyarakat maupun pemerintah itu sendiri, (Diskominfo Bantul, 2022).&nbsp;</span>\n\n<span style=\"font-weight: 400;\">SPBE menjadi komitmen Pemkab Bantul dalam menciptakan budaya digital pada sistem pemerintahan. Terlihat bahwa Kabupaten Bantul masuk ke dalam 100 kabupaten/kota cerdas (</span><i><span style=\"font-weight: 400;\">smart city</span></i><span style=\"font-weight: 400;\">) di Indonesia, </span><span style=\"font-weight: 400;\">(Diskominfo Bantul,</span><span style=\"font-weight: 400;\"> 2022).&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Bupati Bantul Abdul Halim Muslih mengatakan, sebagai pemerintah daerah harus bertransformasi menjadi pemerintah yang cepat dan tanggap. Pemerintah perlu pengembangan inovasi dan implementasi</span><i><span style=\"font-weight: 400;\"> smart city </span></i><span style=\"font-weight: 400;\">agar dapat menjadi</span> <span style=\"font-weight: 400;\">solusi mudah masyarakat mendapatkan informasi secara tepat dan cepat, ujarnya dalam acara workshop tindak lanjut peningkatan Sistem Pemerintah Berbasis Elektronik (SPBE) (</span><span style=\"font-weight: 400;\">jogja.antaranews</span><span style=\"font-weight: 400;\">, 2018).&nbsp;&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Komitmen tersebut tentu terus diupayakan mengingat masyarakat kini bergantung pada SPBE. Tanggung jawab ini kian meningkat usai Kabupaten Bantul mendapat predikat sangat baik saat hasil evaluasi SPBE tahun 2021 dalam skala nasional,&nbsp; </span><span style=\"font-weight: 400;\">(Bantul Kab, 2022).</span>\n\n<span style=\"font-weight: 400;\">Sekretaris Dinas Komunikasi dan Informatika Kabupaten Bantul Dra. Annihayah M.Eng dalam laporannya menyampaikan bahwa Kabupaten Bantul mendapatkan capaian indeks Sangat Baik dalam Evaluasi SPBE tahun 2021 yang diselenggarakan oleh Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi RI. “Kemenpan-RB menetapkan perolehan Indeks SPBE Kabupaten Bantul mencapai angka 3,62 dengan predikat Sangat Baik, capaian ini tertinggi untuk tingkat Kabupaten/Kota di Indonesia,” ucap Sekretaris Diskominfo </span><span style=\"font-weight: 400;\">(Bantul Kab, 2022).</span>\n\n<span style=\"font-weight: 400;\">Indeks pendukung dari Kabupaten Bantul mencapai prestasi terbaik dapat dilihat dari capain 6 dimensi</span><i><span style=\"font-weight: 400;\"> smart city </span></i><span style=\"font-weight: 400;\">Bantul. Dimensi </span><i><span style=\"font-weight: 400;\">Smart Governance</span></i><span style=\"font-weight: 400;\"> dari 100% program, ini terealisasi 96,2% dan 3,8% belum berjalan, </span><i><span style=\"font-weight: 400;\">Smart Brandin</span></i><span style=\"font-weight: 400;\">g 83,3% berjalan dan 16,7% belum berjalan, </span><i><span style=\"font-weight: 400;\">Smart Economy</span></i><span style=\"font-weight: 400;\"> 100% berjalan,</span><i><span style=\"font-weight: 400;\"> Smart Society </span></i><span style=\"font-weight: 400;\">berjalan 100%, </span><i><span style=\"font-weight: 400;\">Smart Living</span></i><span style=\"font-weight: 400;\"> 90,9% berjalan dan 9,1% belum berjalan, serta </span><i><span style=\"font-weight: 400;\">Smart Environment</span></i><span style=\"font-weight: 400;\"> 100% berjalan dengan baik, </span><span style=\"font-weight: 400;\">(Bantul Kab, 2022)</span><span style=\"font-weight: 400;\">.</span>\n\n<span style=\"font-weight: 400;\">Oleh karena itu, </span><span style=\"font-weight: 400;\">Pemkab Bantul akan terus berupaya dan&nbsp; bersinergi untuk mendukung kemajuan Bantul dalam menghadapi era globalisasi dan perkembangan teknologi digitalisasi era industri 4.0.</span>\n\n<a href=\"https://smartnation.id/kabupaten-bantul-raih-predikat-spbe-terbaik/\"><strong>Referensi</strong></a>`,
+    },
+  },
+
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug('Smart Nation 2015'),
+    date_gmt: new Date('24 March 2016').toISOString(),
+    modified_gmt: new Date('24 March 2016').toISOString(),
+    status: 'publish',
+    categories: [91],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2015/10/hqdefault-1.jpg',
+    comment_status: 'open',
+    title: {
+      rendered: 'Smart Nation 2015',
+    },
+    excerpt: {
+      rendered: `<p style=\"text-align: justify;\"><strong>Citiasia Center for Smart Nation</strong>\nCitiasia Center for Smart Nation (CCSN) merupakan lini strategis dari Citiasia, Inc. dengan fokus pada inisiatif untuk mewujudkan kemajuan bangsa (nation advancement). CCSN berkomitmen menjadi yang terdepan dalam membantu klien untuk meningkatkan kapabilitasnya agar Siap Pintar menjadi smart city (Smart Readiness) dan meningkatkan performa Kota Pintar (Smart City) yang direfleksikan pada tingkat kematangan kota (daerah) yang berada pada level optimal (optimized). Melalui pemahaman ini akan mendorong sebuah bangsa untuk maju mencapai tujuan utamanya menjadi sebuah bangsa yang pintar (Smart Nation).</p>`,
+    },
+    content: {
+      rendered: `<p style=\"text-align: justify;\"><strong>Citiasia Center for Smart Nation</strong>\nCitiasia Center for Smart Nation (CCSN) merupakan lini strategis dari Citiasia, Inc. dengan fokus pada inisiatif untuk mewujudkan kemajuan bangsa (nation advancement). CCSN berkomitmen menjadi yang terdepan dalam membantu klien untuk meningkatkan kapabilitasnya agar Siap Pintar menjadi smart city (Smart Readiness) dan meningkatkan performa Kota Pintar (Smart City) yang direfleksikan pada tingkat kematangan kota (daerah) yang berada pada level optimal (optimized). Melalui pemahaman ini akan mendorong sebuah bangsa untuk maju mencapai tujuan utamanya menjadi sebuah bangsa yang pintar (Smart Nation).</p>\n<p style=\"text-align: center;\"><strong>Citiasia Center for Smart Nation</strong></p>\n<p style=\"text-align: justify;\"><a href=\"http://smartnation.id/wp-content/uploads/2016/03/ccsn.png\"><img class=\"aligncenter size-full wp-image-1910\" src=\"http://smartnation.id/wp-content/uploads/2016/03/ccsn.png\" alt=\"ccsn\" width=\"400\" height=\"397\"></a></p>\n<p style=\"text-align: justify;\"><strong>What We Do?</strong>\nDi Citiasia Center for Smart Nation (CCSN), para ahli dari berbagai bidang keahlian bersinergi untuk merumuskan berbagai model dan rekomendasi yang dapat diimplementasikan untuk mewujudkan Smart Nation. Selain itu kami juga membangun berbagai aplikasi dan teknologi yang aplikatif untuk digunakan sebagai solusi yang canggih dan mudah untuk membantu pekerjaan sehari-hari.\n<strong>\nBackground</strong>\nKonsep Kota Pintar (Smart City) pada dasarnya telah berkembang sejak periode 80-an. Alasan munculnya konsep ini adalah meningkatnya populasi di kawasan perkotaan yang berpotensi memberikan dampak kurang baik bagi perkembangan kota. Berbagai masalah ini telah menstimulasi pengembangan konsep Smart City secara lebih jauh. Di Indonesia sendiri, populasi di kawasan perkotaan telah mencapai 53,3% di tahun 2015 (BPS RI), menjadikan konsep Smart City sangat relevan untuk diterapkan di Indonesia, melalui prinsip-prinsip pembangunan dan kemajuan yang mengagumkan dan berkelanjutan.</p>\n<p style=\"text-align: justify;\">Citiasia, Inc. membangun model ini untuk mempromosikan kemajuan bangsa dengan menyediakan solusi Kota Pintar (Smart City) yang menggabungkan model yang akurat dan kuat dengan dukungan teknologi canggih dan mudah digunakan (user-friendly).</p>\n<p style=\"text-align: justify;\"><a href=\"http://smartnation.id/wp-content/uploads/2016/03/indonesia-rural-urban.png\"><img class=\"aligncenter size-full wp-image-1911\" src=\"http://smartnation.id/wp-content/uploads/2016/03/indonesia-rural-urban.png\" alt=\"indonesia-rural-urban\" width=\"600\" height=\"305\"></a>\n<a href=\"http://smartnation.id/wp-content/uploads/2016/03/world-rural-urban.png\"><img class=\"aligncenter size-full wp-image-1913\" src=\"http://smartnation.id/wp-content/uploads/2016/03/world-rural-urban.png\" alt=\"world-rural-urban\" width=\"600\" height=\"273\"></a></p>\n<p style=\"text-align: justify;\"><strong>Smart Nation</strong>\nBangsa Pintar (Smart Nation) merupakan tujuan utama dari setiap bangsa. Smart Nation dapat diwujudkan oleh sebuah negara ketika setiap daerahnya (kota, kabupaten, provinsi) telah mengimplementasikan model Kota Pintar (Smart City) dalam proses pembangunannya. Implementasi model Smart City dapat dilakukan apabila sebuah daerah memiliki Smart Readiness (Kesiapan Kota Pintar) di tengah-tengah kompleksitas proses Citilisasi sebuah kota.</p>\n<p style=\"text-align: justify;\"><a href=\"http://smartnation.id/wp-content/uploads/2016/03/smart-nation-framework.png\"><img class=\"size-full wp-image-1912 aligncenter\" src=\"http://smartnation.id/wp-content/uploads/2016/03/smart-nation-framework.png\" alt=\"smart-nation-framework\" width=\"600\" height=\"167\"></a></p>`,
+    },
+  },
+
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug(
+      'Surabaya, Surakarta, dan Batu Raih Penghargaan Kota Pintar di Indonesia'
+    ),
+    date_gmt: new Date('21 October 2015').toISOString(),
+    modified_gmt: new Date('21 October 2015').toISOString(),
+    status: 'publish',
+    categories: [91],
+    tags: [],
+    author: 1,
+    featured_media: 'https://smartnation.id/wp-content/uploads/2015/10/s.png',
+    comment_status: 'open',
+    title: {
+      rendered:
+        'Surabaya, Surakarta, dan Batu Raih Penghargaan Kota Pintar di Indonesia',
+    },
+    excerpt: {
+      rendered: `Kamu udah tau belum kalo ada yang namanya Indonesia Smart Nation Award? ISNA itu memberikan penghargaan kepada daerah-daerah pintar di Indonesia. Dalam ISNA, kategori dibedakan menjadi tiga; kategori kecil, menengah, dan besar, yang dibedakan menurut jumlah penduduk.`,
+    },
+    content: {
+      rendered: `Kamu udah tau belum kalo ada yang namanya Indonesia Smart Nation Award? ISNA itu memberikan penghargaan kepada daerah-daerah pintar di Indonesia. Dalam ISNA, kategori dibedakan menjadi tiga; kategori kecil, menengah, dan besar, yang dibedakan menurut jumlah penduduk.\n<p style=\"text-align: justify;\">Penghargaan ini lebih komprehensif karena menilai semua variabel yang ada dalam kota yang dinilai. Ada ribuan variabel dengan jutaan data yang diolah. Terus dinilainya berdasarkan apa, yaitu:</p>\n<p style=\"text-align: justify;\">Pertama, kenyamanan daerah tersebut untuk ditinggali; kedua, daerah yang gak menyusahkan dalam artian kalo naik transportasi tidak macet, kalo belanja tidak jauh, dan kaya akan fasilitas umum. Selain itu, kota pintar juga adalah daerah yang aman, yang tidak rawan kejahatan, dan membuat penduduknya semakin sehat dan sejahtera.</p>\n<p style=\"text-align: justify;\">Lalu, siapa aja nih yang menang di ISNA 2015?</p>\n<p style=\"text-align: justify;\">Untuk kategori kota besar penghargaan diberikan kepada Kota Surabaya, peringkat kedua diraih Bandung, lalu disusul Semarang, Bekasi, dan Depok.</p>\n<p style=\"text-align: justify;\">Kategori kota menengah juara satunya adalah Kota Surakarta, peringkat kedua Yogyakarta, dan selanjutnya adalah Cimahi, Cirebon, dan Balikpapan.</p>\n<p style=\"text-align: justify;\">Sementara untuk kota kecil, juaranya adalah Kota Batu, diikuti oleh Pasuruan, Madiun, Blitar, dan Bontang.</p>\n<p style=\"text-align: justify;\">Gak cuma kota, penghargaan daerah pintar kiga diberikan kepada kabupaten dan provinsi. Kabupaten besar peringkat pertamanya diraih oleh Bogor, diikuti oleh Sleman, Tangerang, Banyuwangi, dan Bandung. Untuk kabupaten menengah, Bantul ada di urutan pertama diikuti oleh Badung, Semarang, Gianyar, dan Boyolali. Sementara untuk kabupaten kecil yang menduduki peringkat pertama adalah Bintan, diikuti oleh Mukomuko, Lampung Barat, Klungkung, dan Pohuwato.</p>\n<p style=\"text-align: justify;\">Nah kalo untuk provinsi, kategori provinsi besar yang jadi juaranya adalah Jawa Barat, diikuti secara berurutan oleh Jawa Timur, DKI Jakarta,dan Jawa Tengah. Kategori provinsi menengah dijawarai oleh Bali, peringkat selanjutnya adalah DI Yogyakarta dan Nusa Tenggara Barat, sementara untuk kategori provinsi kecil yang peringkat satu itu Kepulauan Riau, diikuti oleh Gorontalo, dan&nbsp;Kepulauan Bangka Belitung.</p>\n<p style=\"text-align: justify;\">Wah, selamat ya untuk para pemenang!</p>\n<p style=\"text-align: justify;\">Tapi variabel penilaian yang paling menjaga lingkungan atau alam paling gak rusak gitu masuk gak sih? Semoga sih ada ya. Karena buat apa kotanya maju, tapi untuk mencapainya banyak yang harus dikorbankan termasuk keasriannya. Ngomong-ngomong kota kamu ada gak di daftar di atas?</p>\n<a href=\"http://malesbanget.com/2015/10/surabaya-surakarta-dan-batu-raih-penghargaan-kota-pintar-di-indonesia/\" target=\"_blank\" rel=\"noopener\">Sumber</a>`,
+    },
+  },
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug(
+      'Peraih ISNA 2015 Didominasi Daerah-daerah di Pulau Jawa'
+    ),
+    date_gmt: new Date('21 October 2015').toISOString(),
+    modified_gmt: new Date('21 October 2015').toISOString(),
+    status: 'publish',
+    categories: [82, 91],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2015/10/IMG_20151021_100501-360x220-1.jpg',
+    comment_status: 'open',
+    title: {
+      rendered: 'Peraih ISNA 2015 Didominasi Daerah-daerah di Pulau Jawa',
+    },
+    excerpt: {
+      rendered: `<p style=\"text-align: justify;\">Citiasia Inc bersama Indosat dan Datacomm meluncurkan hasil studi Indonesia Smart Region Maturity Index (ISRMI) atau Indeks Kematangan Daerah Pintar. Peluncuran ISRMI tersebut dilaksanakan pada Malam Penganugerahan Indonesia Smart Nation Award (ISNA) di Jakarta kepada kepada 45 daerah.</p>`,
+    },
+    content: {
+      rendered: `<p style=\"text-align: justify;\">Citiasia Inc bersama Indosat dan Datacomm meluncurkan hasil studi Indonesia Smart Region Maturity Index (ISRMI) atau Indeks Kematangan Daerah Pintar. Peluncuran ISRMI tersebut dilaksanakan pada Malam Penganugerahan Indonesia Smart Nation Award (ISNA) di Jakarta kepada kepada 45 daerah.</p>\n<p style=\"text-align: justify;\">Menurut Farid Subkhan, CEO Citiasia.Inc, pengukuran indeks tersebut dilakukan kepada 34 provinsi, 412 kabupaten, dan 93 kota di seluruh Indonesia dengan menggunakan data terpublikasi (published data) dari berbagai sumber. Baik dari data kementerian/lembaga, statistik wilayah seluruh Indonesia, web resmi Pemda) beserta analisis 72 media cetak nasional dan lokal serta 100 media online.</p>\n<p style=\"text-align: justify;\">\u201cKami menghitung indeks dari dua indeks penyusun, yaitu indeks kesiapan menuju daerah pintar (Smart Readiness Index) dan indeks kinerja daerah pintar (Smart Region Index). Di dalam Smart Readiness Index, terdapat lima dimensi yang diukur, yaitu sumber daya alam (nature), struktur, infrastruktur, suprastruktur, dan kultur sebuah daerah,\u201d jelas Farid saat memberikan sambutannya pada malam menganugerahan ISNA 2015.</p>\n<p style=\"text-align: justify;\">Sedangkan pada Smart Region Index, terdapat enam dimensi yang diukur, yaitu dimensi smart governance, dimensi smart branding, dimensi smart living, dimensi smart society, dan dimensi smart environment. Pada akhirnya, nilai indeks ini ditampilkan dalam bentuk rating (A+/A/B+/B/C+/C/D/E).</p>\n<p style=\"text-align: justify;\">Menurut Cahyana Ahmadjayadi, Founder &amp; Chairman Citiasia karena kompleksitas data yang diukur, maka dalam studi tersebut menggunakan sebuah tool big data analitic yang disebut dengan Big CAT (Citiasia Tools for Big Data Analytic) versi 1.0, yang memungkinkan diolahnya data yang berskala masif dan beragam secara cepat dan akurat.</p>\n<p style=\"text-align: justify;\">\u201cISNA 2015 merupakan sebuah ikhtiar membantu pimpinan daerah untuk melihat kondisi daerahnya masing masing dan bersiap menjadi smart region, selain menciptakan semangat daya saing untuk berlomba-lomba dalam hal inovasi pemberian layanan,\u201d jelas Cahyana.</p>\n<p style=\"text-align: justify;\">Sementara itu, CEO Indosat Alex Rusli menyatakan siap memberi dukungan dan pengawalan bagi pemerintah daerah pemenang ISNA 2015 untuk implementasi program smart city/smart region. Dan sebagai tindak lanjut Gerakan Indonesia Smart Nation, Citiasia dan seluruh mitra strategisnya siap untuk memberikan konsultasi dan pendampingan teknis tentang implementasi daerah pintar (smart region) bagi daerah-daerah atau institusi yang berminat.</p>\n<p style=\"text-align: justify;\">Senada dengan Alex, Ketua DPD RI, Irman Gusman menjelaskan bahwa Bangsa Indonesia harus melakukan lompatan jauh ke depan, agar bisa menjadi sebuah smart nation. Infrastruktur terkait teknologi \u2013 konektivitas broadband misalnya \u2013 harus dibangun dengan sungguh sungguh, demikian juga menyiapkan mindset dan kultur di era digital.</p>\n<p style=\"text-align: justify;\">Rencananya Citiasia akan melakukan Indeks tersebut secara reguler sehingga bisa menjadi alat ukur (benchmarking tool) bagi masing masing daerah dalam memantau kemajuannya dari fase kesiapan menuju fase kematangan (maturity) sebagai daerah pintar yang berdaya saing.</p>\n<p style=\"text-align: justify;\">Berikut peraih nilai tertinggi menurut kategorisasi jumlah penduduk di Indonesia Smart Nation Award (ISNA) 2015 yang didominasi daerah-daerah di Pulau Jawa:</p>\nProvinsi Besar (Populasi &gt; 5 juta):\n1. Jawa Barat\n2. Jawa Timur\n3. DKI Jakarta/Jawa Tengah\n\nProvinsi Sedang (Populasi 2-5 juta)\n1. Bali\n2. DI Yogyakarta\n3. Nusa Tenggara Barat\n\nProvinsi Kecil (Populasi 1 juta)\n1. Bogor\n2. Sleman\n3. Tangerang\n\nKabupaten Sedang (Populasi 300 ribu-1 juta)\n1. Bantul\n2. Badung\n3. Semarang\n\nKabupaten Kecil (Populasi 800 ribu)\n1. Surabaya\n2. Bandung\n3. Semarang\n\nKota Sedang (Populasi 200-800 ribu)\n1. Surakarta\n2. Yogyakarta\n3. Cimahi\n\nKota Kecil (Populasi &lt; 200 ribu)\n1. Batu\n2. Pasuruan\n3. Madiun\n\n<a href=\"http://swa.co.id/swa/trends/business-research/peraih-isna-2015-didominasi-daerah-daerah-di-pulau-jawa\" target=\"_blank\" rel=\"noopener\">Sumber</a>`,
+    },
+  },
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug('Kota Semarang Raih Penghargaan Daerah Pintar 2015'),
+    date_gmt: new Date('21 October 2015').toISOString(),
+    modified_gmt: new Date('21 October 2015').toISOString(),
+    status: 'publish',
+    categories: [82, 91],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2015/10/semarang-kota-pintar-2015_20151021_205645-360x220-1.jpg',
+    comment_status: 'open',
+    title: {
+      rendered: 'Kota Semarang Raih Penghargaan Daerah Pintar 2015',
+    },
+    excerpt: {
+      rendered: `<p style=\"text-align: justify;\"><strong>Laporan Tribun Jateng, Galih Permadi</strong></p>\n<p style=\"text-align: justify;\"><strong>TRIBUNJATENG.COM, SEMARANG-</strong> Pemkot Semarang meraih Penghargaan Indonesia Smart National Award (ISNA) 2015 sebagai kota terbaik ketiga kategori kota besar setelah Kota Surabaya dan Kota Bandung.</p>\n<p style=\"text-align: justify;\">Penghargaan diserahkan Deputi SDM Kementerian Pendayagunaan Aparatur Negara, Setiawan Wangsaatmadja kepada Pj. Walikota Semarang, <a title=\"Tavip Supriyanto\" href=\"http://jateng.tribunnews.com/tag/tavip-supriyanto/\">Tavip Supriyanto</a> di Ballroom Hotel JS Luwansa Jakarta, Selasa (20/10).</p>`,
+    },
+    content: {
+      rendered: `<div class=\"side-article txt-article\">\n<p style=\"text-align: justify;\"><strong>Laporan Tribun Jateng, Galih Permadi</strong></p>\n<p style=\"text-align: justify;\"><strong>TRIBUNJATENG.COM, SEMARANG-</strong> Pemkot Semarang meraih Penghargaan Indonesia Smart National Award (ISNA) 2015 sebagai kota terbaik ketiga kategori kota besar setelah Kota Surabaya dan Kota Bandung.</p>\n<p style=\"text-align: justify;\">Penghargaan diserahkan Deputi SDM Kementerian Pendayagunaan Aparatur Negara, Setiawan Wangsaatmadja kepada Pj. Walikota Semarang, <a title=\"Tavip Supriyanto\" href=\"http://jateng.tribunnews.com/tag/tavip-supriyanto/\">Tavip Supriyanto</a> di Ballroom Hotel JS Luwansa Jakarta, Selasa (20/10).</p>\n<p style=\"text-align: justify;\">Sementara itu, Kota Bekasi dan Depok berada di urutan keempat dan kelima. Acara ini dihadiri Ketua DPD RI, Sekjen Kementerian Dalam Negeri, Gubernur, Bupati dan Wali Kota se Indonesia.</p>\n<p style=\"text-align: justify;\">Tavip menyampaikan terima kasih atas penghargaan yang merupakan prestasi bersama antara pemerintah, stakeholder, dan masyarakat Semarang ini. Ke depan, lanjut Tavip, Pemkot Semarang akan berupaya meningkatkan pelayanan masyarakat, penyediaan infrastruktur serta sarana pendidikan.</p>\n<p style=\"text-align: justify;\">\u201cUtamanya dalam menciptakan Kota Semarang yang semakin hijau, berbudaya dan lebih baik di sisi pendidikan, pelayanan masyarakat dan informasi publik,\u201d ujarnya dalam rilis yang diterima Tribun Jateng, Rabu (21/10). Oleh karenanya, lebih lanjut, jajaran Pemkot Semarang terus mengembangkan teknologi informasi sebagaimana semangat daerah pintar.</p>\n<p style=\"text-align: justify;\">Kota Semarang berhasil unggul mengalahkan 45 nominator ISNA 2015. Penghargaan ini awalnya digagas oleh Citiasia Center for Smart Nation sebagai wujud komitmen mendukung efektifitas komunikasi di daerah. Sejumlah juri dari akademisi, sektor publik maupun swasta dilibatkan dalam penilaian ISNA 2015.</p>\n<p style=\"text-align: justify;\">Para pemenang ISNA 2015, akan dijadikan percontohan penggunaan digital community based economy yang akan membantu percepatan akselerasi pertumbuhan ekonomi masyarakat berbasis digital. Selanjutnya, kepada para pemenang maupun nominator juga akan diberikan dukungan teknologi dan pendampingan smart region. Dukungan diberikan berupa secure email service (Sepadan) dansecure mobile collaboration (Sitegas) yang akan memberikan kenyamanan, keamanan dan efektivitas bagi Pemda untuk berkomunikasi baik secara internal maupun eksternal. Dukungan ini diberikan oleh Indosat, Datacomm, dan Citiasia, Inc. (*)</p>\n\n</div>\n<div class=\"side-article mb20\">\n<div class=\"f12 grey mb15\">\n<div style=\"text-align: justify;\">Penulis: galih permadi</div>\n<div style=\"text-align: justify;\">Editor: iswidodo</div>\n<div style=\"text-align: justify;\">Sumber: <a title=\"Tribun Jateng\" href=\"http://tribunjateng.com/\" target=\"_blank\" rel=\"noopener\">Tribun Jateng</a></div>\n</div>\n</div>\n<a href=\"http://jateng.tribunnews.com/2015/10/21/kota-semarang-raih-penghargaan-daerah-pintar-2015\" target=\"_blank\" rel=\"noopener\">Sumber</a>`,
+    },
+  },
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug('Kota Batu Raih Penghargaan Kota Terbaik se Indonesia'),
+    date_gmt: new Date('21 October 2015').toISOString(),
+    modified_gmt: new Date('21 October 2015').toISOString(),
+    status: 'publish',
+    categories: [82, 91],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2015/10/1445406917-Kota-Batu-Raih-Penghargaan-Kota-Terbaik-se-Indonesia-TINlhB0a-360x220-1.jpg',
+    comment_status: 'open',
+    title: {
+      rendered: 'Kota Batu Raih Penghargaan Kota Terbaik se Indonesia',
+    },
+    excerpt: {
+      rendered: `<b>TIMESINDONESIA</b> \u2013 <strong>TIMESINDONESIA, SURABAYA&nbsp;</strong>- Kota Batu mendapatkan penghargaan kota kecil terbaik oleh Indonesia Smart Nation Award (ISNA) 2015. Penghargaan tersebut diterima Walikota Batu bersama Ketua DPRD Kota Batu di Jakarta.\n<div id=\"ad_in_news\" class=\"article-main-content changable-content\">\n<p style=\"text-align: justify;\">Penghargaan tersebut diberikan ke Kota Batu berdasarkan penilaian indeks kematangan daerah pintar (<em>Smart Region Maturity Index</em>) untuk pemerintah Kabupaten, Kota, dan Provinsi di seluruh Indonesia.</p>`,
+    },
+    content: {
+      rendered: `<b>TIMESINDONESIA</b> \u2013 <strong>TIMESINDONESIA, SURABAYA&nbsp;</strong>- Kota Batu mendapatkan penghargaan kota kecil terbaik oleh Indonesia Smart Nation Award (ISNA) 2015. Penghargaan tersebut diterima Walikota Batu bersama Ketua DPRD Kota Batu di Jakarta.\n<div id=\"ad_in_news\" class=\"article-main-content changable-content\">\n<p style=\"text-align: justify;\">Penghargaan tersebut diberikan ke Kota Batu berdasarkan penilaian indeks kematangan daerah pintar (<em>Smart Region Maturity Index</em>) untuk pemerintah Kabupaten, Kota, dan Provinsi di seluruh Indonesia.</p>\n<p style=\"text-align: justify;\">Index tersebut dinilai dari kesiapan daerah pintar meliputi nature, stucture, intrastructure, suprastructure, dan culture.</p>\n<p style=\"text-align: justify;\">Kota Batu berhasil mendapatkan perdikat tersebut sebagai kota kecil terbaik pertama dari 41 kota kecil yang ada di Indonesia. \"Kota Batu menjadi predikat Kota Kecil terbaik, dan berhasil mengalahkan Kota Blitar, Kota Bontang, Kota Madiun dan Kota Pasuruan pada 5 besar,\" ujar Cahyo Ketua DPRD saat dihubungi melalui telepon.<strong>MALANGTIMES</strong>, Rabu, (21/10/2015).</p>\n<p style=\"text-align: justify;\">Cahyo menjelaskan, bahwa dalam kompetisi tersebut, Indonesia Smart Nations menurunkan 14 juri dalam penilaiannya, baik dari guru besar universitas hingga lembaga penelitian.</p>\n<p style=\"text-align: justify;\">\"Jurinya dari guru besar Universitas Pandjajaran, para pakar, peneliti LIPI, juga Perbanas, dan juga dari kementerian,\" terangnya.</p>\n<p style=\"text-align: justify;\">Dalam penganugrahan ISNA tersebut didukung dihadiri oleh Ketua DPD RI, Sekjen Kemendagri dan juga Bappenas. Penghargaan tersebut berlaku selama satu tahun.</p>\n<p style=\"text-align: justify;\">Cahyo mengaku bersyukur dan berterimakasih kepada masyarakat yang turut membantu mensukseskan Kota Batu bisa menjadi seperti saat ini. \"Semoga harapan ke depan bisa dipertahankan, atau bahkan jauh lebih baik lagi,\" harapnya.&nbsp;<strong>(*)</strong></p>\n\n</div>\n<div class=\"article-author\">\n<div class=\"article-user\">\n<table>\n<tbody>\n<tr>\n<td width=\"75\">Pewarta</td>\n<td width=\"10px\">:</td>\n<td>Muhammad Agus Salim</td>\n</tr>\n<tr>\n<td width=\"75\">Editor</td>\n<td width=\"10px\">:</td>\n<td>Wahyu Nurdiyanto</td>\n</tr>\n<tr>\n<td width=\"75\">Publisher</td>\n<td width=\"10px\">:</td>\n<td>Rochmat Shobirin</td>\n</tr>\n<tr>\n<td width=\"75\">Sumber</td>\n<td width=\"10px\">:</td>\n<td><a href=\"http://www.timesindonesia.co.id/baca/106430/20151021/124056/kota-batu-raih-penghargaan-kota-terbaik-se-indonesia/\" rel=\"dofollow\">Malang TIMES</a></td>\n</tr>\n</tbody>\n</table>\n</div>\n</div>\n<a href=\"http://www.timesindonesia.co.id/baca/106430/20151021/124056/kota-batu-raih-penghargaan-kota-terbaik-se-indonesia/\" target=\"_blank\" rel=\"noopener\">Sumber</a>`,
+    },
+  },
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug(
+      'Jakarta, Bandung, hingga Surabaya Dapat Penghargaan Smart Region'
+    ),
+    date_gmt: new Date('21 October 2015').toISOString(),
+    modified_gmt: new Date('21 October 2015').toISOString(),
+    status: 'publish',
+    categories: [91],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2015/10/0ce28553-de76-4bbb-ac02-d5a1af39977f_169.jpg',
+    comment_status: 'open',
+    title: {
+      rendered:
+        'Jakarta, Bandung, hingga Surabaya Dapat Penghargaan Smart Region',
+    },
+    excerpt: {
+      rendered: `<b>Jakarta</b> - Sebanyak 45 daerah di Indonesia yang terdiri dari provinsi, kabupaten, dan kota mendapat penghagaan sebagai Smart Region yang merupakan bagian dari Indonesia Smart Nation Award (ISNA). Beberapa daerah di antaranya adalah Provinsi DKI Jakarta, Kabupaten Banyuwangi, Kota Bandung, dan Kota Surabaya.\n\nMalam penganugerahan Indonesia Smart Nation Award (ISNA) dilaksanakan di Hotel JS Luwansa, Jakarta Selatan, Selasa (20/10/2015). Acara ini merupakan kerja sama dari Citiasia inc, Indosat dan Datacomm sebagai penggagas dan mendapat dukungan dari Kemendagri serta DPD RI.`,
+    },
+    content: {
+      rendered: `<b>Jakarta</b> - Sebanyak 45 daerah di Indonesia yang terdiri dari provinsi, kabupaten, dan kota mendapat penghagaan sebagai Smart Region yang merupakan bagian dari Indonesia Smart Nation Award (ISNA). Beberapa daerah di antaranya adalah Provinsi DKI Jakarta, Kabupaten Banyuwangi, Kota Bandung, dan Kota Surabaya.\n\nMalam penganugerahan Indonesia Smart Nation Award (ISNA) dilaksanakan di Hotel JS Luwansa, Jakarta Selatan, Selasa (20/10/2015). Acara ini merupakan kerja sama dari Citiasia inc, Indosat dan Datacomm sebagai penggagas dan mendapat dukungan dari Kemendagri serta DPD RI.\n\nDalam sambutannya, Sekjen Kemendagri Yuswandi Temanggung menyampaikan apresiasi terhadap penghargaan ini. Menurutnya, suatu daerah memang sudah seharusnya menerapkan smart region.\n\n\"Saya mengira ini adalah sebuah kebutuhan, bukan lagi sebuah keinginan,\" ucap Yuswandi.\n\nKetua DPD RI Irman Gusman yang hadir dalam acara ini menekankan pentingnya aspek teknologi informasi dalam pengembangan suatu daerah. Dia menjadikan India sebagai contoh.\n\n\"India maju karena menggunakan IT. Kita belajar dari India yang tingkat buta hurufnya tinggi, Indonesia pasti bisa. Jadi asal ada kemauan, kita pasti bisa,\" ujar Irman.\n\nPemenang dalam anugerah ini dibagi menjadi kategori kota, kabupaten, provinsi. Lalu pemenang dibagi lagi menjadi sub kategori berukuran besar, sedang dan kecil.\n\nBerikut adalah daftar pemenang penghargaan Smart Region:\n\nKategori kabupaten berukuran kecil\n1. Bintan\n2. Muko-muko\n3. Lampung Barat\n4. Tungkup\n5. Polwano\n\nKategori kabupaten berukuran sedang\n1. Bantul\n2. Badung\n3. Semarang,\n4. Gianyar\n5. Boyolali\n\nKategori kabupaten berukuran besar\n1. Bogor\n2. Sleman\n3. Tangerang\n4. Banyuwangi\n5. Kabupaten Bandung\n\nKategori kota berukuran kecil\n1. Batu\n2. Pasuruan\n3. Madiun\n4. Blitar\n5. Bontang\n\nKategori kota berukuran sedang\n1. Surakarta\n2. Yogyakarta\n3. Cimahi\n4. Cirebon\n5. Balikpapan\n\nKategori kota berukuran besar\n1. Surabaya\n2. Bandung\n3. Semarang\n4. Bekasi\n5. Depok\n\nKategori provinsi berukuran kecil\n1. Kepulauan Riau\n2. Gorontalo\n3. Kepulauan Bangka Belitung\n4. Bengkulu\n5. Maluku\n\nKategori provinsi berukuran sedang\n1. Bali\n2. Yogyakarta\n3. Nusa Tenggara Barat\n4. Aceh\n5. Kalimantan Selatan\n\nKategori provinsi berukuran besar\n1. Jawa Barat\n2. Jawa Timur\n3. DKI Jakarta\n4. Jawa Tengah\n5. Banten\n<strong>(imk/imk)</strong>\n\n&nbsp;\n\nSumber:\n\n<a href=\"http://news.detik.com/berita/3049068/jakarta-bandung-hingga-surabaya-dapat-penghargaan-smart-region\">Detik.com</a>`,
+    },
+  },
+
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug(
+      'Jawa Barat dan Enam Kota/Kabupaten Raih Penghargaan ISNA 2015'
+    ),
+    date_gmt: new Date('21 October 2015').toISOString(),
+    modified_gmt: new Date('21 October 2015').toISOString(),
+    status: 'publish',
+    categories: [91],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2015/05/logo-ok-02-e1471946863472.png',
+    comment_status: 'open',
+    title: {
+      rendered: 'Jawa Barat dan Enam Kota/Kabupaten Raih Penghargaan ISNA 2015',
+    },
+    excerpt: {
+      rendered: `<p style=\"text-align: justify;\">JAKARTA, (PRLM).- Jawa Barat dan enam kota/kabupaten di Jabar berhasil meraih penghargaan Indonesia Smart Nation Award (ISNA) 2015. Jabar menempati peringkat 1 untuk kategori provinsi besar, sedangkan enam kota/kabupaten itu adalah Bandung, Bekasi, Depok (kategori kota besar), Cimahi, Cirebon (kategori kota sedang), dan Bogor (kategori kabupaten besar).</p>`,
+    },
+    content: {
+      rendered: `<p style=\"text-align: justify;\">JAKARTA, (PRLM).- Jawa Barat dan enam kota/kabupaten di Jabar berhasil meraih penghargaan Indonesia Smart Nation Award (ISNA) 2015. Jabar menempati peringkat 1 untuk kategori provinsi besar, sedangkan enam kota/kabupaten itu adalah Bandung, Bekasi, Depok (kategori kota besar), Cimahi, Cirebon (kategori kota sedang), dan Bogor (kategori kabupaten besar).</p>\n<p style=\"text-align: justify;\">Penganugerahan Penghargaan ISNA 2015 dilaksanakan di Hotel JS Luwansa, Jakarta, Selasa (20/10/2015) malam. Penghargaan ISNA 2015 diserahkan Ketua DPD RI, Irman Gusman dan Sekjen Kementerian Dalam Negeri Yuswandi A. Temenggung.</p>\n<p style=\"text-align: justify;\">Pada kesempatan tersebut juga dilakukan penandatanganan komitmen bersama antara Indosat, Datacomm Diangraha dan Citiasia, Inc. sebagai inisiator Gerakan Indonesia Smart Nation untuk bersama-sama bersinergi membangun daerah percontohan Smart Region (Smart City) di Indonesia.</p>\n<p style=\"text-align: justify;\">Managing Director Datacomm Cloud Business, Sutedjo Tjahjadi dalam siaran persnya mengatakan, sebanyak 45 daerah terdiri dari provinsi, kabupaten, kota, peraih nominasi Indonesia Smart Nation Award (ISNA) 2015, termasuk 9 daerah peraih indeks terbaik, akan mendapat dukungan teknologi dan pendampingan Smart Region (Smart City).</p>\n<p style=\"text-align: justify;\">\"Untuk mewujudkan Daerah Pintar (Smart Region) bagi provinsi, kabupaten, dan kota di seluruh Indonesia, terlebih dahulu harus dibangun Kesiapan Daerah Pintar atau Smart Region Readiness di antaranya dengan membangun dan mengembangkan infrastruktur fisik, digital (ICT), dan sosial,\" ujarnya.</p>\n<p style=\"text-align: justify;\">Menurut Sutedjo, perubahan perilaku masyarakat baik pribadi maupun lembaga akibat penggunaan teknologi digital menjadikan aspek infrastruktur ICT sangat penting bagi pemerintah daerah, terutama untuk mendukung\nefektifitas komunikasi daerah. Oleh karenanya Indosat bersama Datacomm dan Citiasia, Inc. berkomitmen melakukan pendampingan dalam menyiapkan dukungan teknologi ICT daerah menuju Smart Region.</p>\n<p style=\"text-align: justify;\">Dukungan teknologi tersebut di antaranya akan diberikan oleh Datacomm berupa Secure Email Service (Sepadan) dan Secure Mobile Collaboration (Si Cegas). Datacomm merupakan salah satu penyedia layanan jaringan telekomunikasi terkemuka di Indonesia. Si Cegas akan diberikan kepada 50 akun selama\n1 tahun lengkap dengan fasilitas cloud storage. Si Cegas akan diberikan dalam bentuk layanan secure text messaging, secure VoIP call , dan secure walkie-talkie selama satu tahun penuh.</p>\n<p style=\"text-align: justify;\">\"Ini adalah bagian dari komitmen Datacomm untuk membantu mewujudkan Smart Region atau Smart City di Indonesia. Layanan ini akan diberikan secara gratis kepada 45 daerah peraih nominasi ISNA 2015,\" katanya.</p>\n<p style=\"text-align: justify;\">Sutedjo mengatakan, melalui layanan Sepadan dan Si Cegas menjadikan pemerintah daerah lebih nyaman, aman, dan efisien dalam berkomunikasi baik diantara staff internal maupun dengan pihak eksternal ketika membicarakan\nhal-hal yang bersifat rahasia bagi pemerintah.</p>\n<p style=\"text-align: justify;\">Datacomm juga ingin mengedukasi kepada pemerintah daerah agar memanfaatkan server di dalam negeri ketika berkomunikasi digital untuk berkomunikasi agar lebih aman terhadap risiko eksternal.</p>\n<p style=\"text-align: justify;\">Dukungan lainnya akan diberikan oleh Indosat, bagian dari Grup Oreedoo, sebagai business partner Citiasia pada ISNA 2015 yakni fasilitas layanan online Pemerintah Daerah melalui internet.org. Fasilitas ini akan diberikan secara gratis kepada 45 daerah nominasi ISNA 2015.</p>\n<p style=\"text-align: justify;\">Group Head Major &amp; Strategic Account Indosat, Feby Sallyanto mengatakan, melalui layanan ini, pemerintah daerah akan mendapatkan beberapa aplikasi yang mendukung pelaksanaan Smart Region secara cuma-cuma.</p>\n<p style=\"text-align: justify;\">Feby menegaskan, melalui layanan internet.org memungkinkan masyarakat untuk mengakses konten layanan yang diberikan oleh Pemda secara cuma-cuma. Khusus kepada 9 daerah peraih Gold Trophy ISNA 2015, Indosat akan memberikan paket layanan CUG (close user group) yang memfasilitasi kepala daerah dan aparat pemda untuk berkomunikasi menggunakan telefon genggam tanpa biaya selama satu tahun penuh. Kami berharap fasilitas tersebut bisa mempermudah kerja birokrasi selain mendekatkan layanan kepada masyarakat.</p>\n<p style=\"text-align: justify;\">CEO Citiasia Farid Subkhan mengatakan, pihaknya memahami bahwa Smart Region termasuk Smart City tidak hanya terkait teknologi telekomunikasi, akan tetapi teknologi telekomunikasi atau ICT merupakan salah satu enabler utama dalam mewujudkan Smart Region (Smart City), dengan semakin mudahnya masyarakat mengakses layanan yang diberikan oleh pemerintahnya melalui teknologi telekomunikasi, maka Smart Region akan semakin cepat terwujud.</p>\n<p style=\"text-align: justify;\">Sebagai bagian dari komitmen untuk mendorong terwujudnya Smart Region di berbagai daerah di Indonesia, melalui Citiasia Center for Smart Nation, Citiasia juga akan menjadikan 45 daerah penerima ISNA 2015 sebagai daerah percontohan penggunaan digital community based economy yang akan membantu mempercepat akselerasi pertumbuhan ekonomi masyarakat berbasis komunitas digital melalui aplikasi khusus yang dikembangkan oleh Citiasia.</p>\n<p style=\"text-align: justify;\">Sebagai tindak lanjut dari ISNA 2015, Indosat bersama Citiasia juga berkomitmen untuk melakukan piloting implementasi Smart Region secara lebih menyeluruh ke dua daerah. Daerah akan dipilih mewakili kota dan kabupaten di Indonesia. Daerah yang tidak masuk nominasi ISNA 2015 juga diberikan kesempatan untuk mengajukan diri menjadi tempat untuk piloting Smart Region dengan memenuhi syarat tertentu. (Satrio Widianto/A-147)</p>\n\n<a href=\"http://www.pikiran-rakyat.com/ekonomi/2015/10/21/346841/jawa-barat-dan-enam-kotakabupaten-raih-penghargaan-isna-2015\" target=\"_blank\" rel=\"noopener\">Sumber</a>`,
+    },
+  },
+
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug('Jawa Barat Raih Provinsi Besar Terbaik di ISNA 2015'),
+    date_gmt: new Date('21 October 2015').toISOString(),
+    modified_gmt: new Date('21 October 2015').toISOString(),
+    status: 'publish',
+    categories: [91],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2015/05/logo-ok-02-e1471946863472.png',
+    comment_status: 'open',
+    title: {
+      rendered: 'Jawa Barat Raih Provinsi Besar Terbaik di ISNA 2015',
+    },
+    excerpt: {
+      rendered: `<p style=\"text-align: justify;\"><a href=\"http://smartnation.id/wp-content/uploads/2015/05/logo-ok-02-e1471946863472.png\"><img class=\"aligncenter size-medium wp-image-1037\" src=\"http://smartnation.id/wp-content/uploads/2015/05/logo-ok-02-300x185.png\" alt=\"logo ok-02\" width=\"300\" height=\"185\" /></a></p>\n<p style=\"text-align: justify;\">Metronews.com, Bandung:\u00a0Provinsi Jawa Barat memenangkan kategori Provinsi Besar Terbaik dalam <em>Indonesia Smart Nation Award</em> <em>(ISNA)</em> 2015, yang digelar di Hotel JS Luwansa, Kuningan, Jakarta Selatan, Selasa (20/10/2015) malam. Provinsi Jawa Barat menyisihkan empat provinsi besar lainnya, termasuk DKI Jakarta yang menempati posisi ketiga kategori itu.Penghargaan ini diberikan berdasarkan penilaian indeks kematangan daerah pintar <em>(Smart Region Maturity Index)</em> untuk pemerintah kabupaten, kota, dan provinsi di seluruh Indonesia. Indeks itu menilai kesiapan daerah pintar meliputi alam, struktur, infrastruktur, suprastruktur, dan budaya.</p>`,
+    },
+    content: {
+      rendered: `<p style=\"text-align: justify;\"><a href=\"http://smartnation.id/wp-content/uploads/2015/05/logo-ok-02-e1471946863472.png\"><img class=\"aligncenter size-medium wp-image-1037\" src=\"http://smartnation.id/wp-content/uploads/2015/05/logo-ok-02-300x185.png\" alt=\"logo ok-02\" width=\"300\" height=\"185\" /></a></p>\n<p style=\"text-align: justify;\">Metronews.com, Bandung:\u00a0Provinsi Jawa Barat memenangkan kategori Provinsi Besar Terbaik dalam <em>Indonesia Smart Nation Award</em> <em>(ISNA)</em> 2015, yang digelar di Hotel JS Luwansa, Kuningan, Jakarta Selatan, Selasa (20/10/2015) malam. Provinsi Jawa Barat menyisihkan empat provinsi besar lainnya, termasuk DKI Jakarta yang menempati posisi ketiga kategori itu.Penghargaan ini diberikan berdasarkan penilaian indeks kematangan daerah pintar <em>(Smart Region Maturity Index)</em> untuk pemerintah kabupaten, kota, dan provinsi di seluruh Indonesia. Indeks itu menilai kesiapan daerah pintar meliputi alam, struktur, infrastruktur, suprastruktur, dan budaya.</p>\n<p style=\"text-align: justify;\">Kepala Dinas Komunikasi Informatika (Diskominfo) Jawa Barat Dudi Sudradjat Abdurachim mengatakan, penghargaan ini menandakan kesiapan Jawa Barat menghadapi era pemerintahan berbasis teknologi informasi komunikasi (TIK). Penghargaan ini diharapkan semakin memperteguh konsep<em>West Java Cyber Province.</em>\n\nGubernur Jawa Barat Ahmad Heryawan menambahkan, penghargaan ini membuat pihaknya semakin berkomitmen menerapkan <em>e-Government</em>. Di antaranya organisasi perangkat daerah (OPD) yang sudah lama menerapkan TIK untuk penganggaran <em>(e-Budgeting) </em>dan proses tender<em> (e-Procurement) </em>proyek pemerintahan sejak 2009.\n\n\"Komitmen Jawa Barat terkait dengan kelembagaannya, regulasinya, dan implementasinya yang sudah cukup bagus. Contohnya dalam pengganggaran, semenjak awal sudah<em> e-Budgeting</em>, sehingga kita sudah tidak manual. Kemudian<em> tendering</em>, juga sudah menggunakan IT, bahkan kita paling lama. Kalau tempat yang lain baru dimulai 2012, sementara Jabar sudah sejak 2009 yang lalu,\" kata Ahmad Heryawan.\n\n<strong>Berikut daftar 45 daerah pemenang ISNA 2015:</strong>\n\nPemenang kategori Kabupaten Kecil Terbaik:\n1. Kabupaten Bintan\n2. Kabupaten Muko\n3. Kabupaten Lampung Barat\n4. Kabupaten Tungkup\n5. Kabupaten Kohuwato\n\nPemenang kategori Kabupaten Sedang Terbaik:\n1. Kabupaten Bantul\n2. Kabupaten Bandung\n3. Kabupaten Semarang\n4. Kabupaten Gianyar\n5. Kabupaten Boyolali\n\nPemenang kategori Kabupaten Besar Terbaik:\n1. Kabupaten Bogor\n2. Kabupaten Sleman\n3. Kabupaten Tangerang\n4. Kabupaten Banyuwangi\n5. Kabupaten Bandung\n\nPemenang kategori Kota Kecil Terbaik:\n1. Kota Batu\n2. Kota Pasuruan\n3. Kota Madiun\n4. Kota Blitar\n5. Kota Bontan\n\nPemenang kategori Kota Sedang Terbaik:\n1. Kota Surakarta\n2. Kota Jogja\n3. Kota Cimahi\n4. Kota Cirebon\n5. Kota Balikpapan\n\nPemenang kategori Kota Besar Terbaik:\n1. Kota Surabaya\n2. Kota Bandung\n3. Kota Semarang\n4. Kota Bekasi\n5. Kota Depok\n\nPemenang kategori Provinsi Kecil Terbaik:\n1. Provinsi Kep. Riau\n2. Provinsi Gorontalo\n3. Provinsi Bangka Belitung\n4. Provinsi Bengkulu\n5. Provinsi Maluku\n\nPemenang kategori Provinsi Sedang Terbaik:\n1. Provinsi Bali\n2. Provinsi Jogjakarta\n3. Provinsi NTB\n4. Provinsi Nangro Aceh Darussalam\n5. Provinsi Kalimantan Selatan\n\nPemenang kategori Provinsi Besar Terbaik:\n1. Provinsi Jawa Barat\n2. Provinsi Jawa Timur\n3. Provinsi DKI Jakarta\n4. Provinsi Jawa Tengah\n5. Provinsi Banten</p>\n\n<a href=\"http://jabar.metrotvnews.com/read/2015/10/21/442917/jawa-barat-raih-provinsi-besar-terbaik-di-isna-2015\" target=\"_blank\" rel=\"noopener\">Sumber</a>`,
+    },
+  },
+
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug('Inilah Para Penerima Penghargaan The 3rd ISNA 2018'),
+    date_gmt: new Date('5 May 2018').toISOString(),
+    modified_gmt: new Date('5 May 2018').toISOString(),
+    status: 'publish',
+    categories: [82, 83, 84, 93, 86],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2018/05/ISNA-2018-banner_1-750x460-1-750x450.jpg',
+    comment_status: 'open',
+    title: {
+      rendered: 'Inilah Para Penerima Penghargaan The 3rd ISNA 2018',
+    },
+    excerpt: {
+      rendered: `The 3<sup>rd</sup> Indonesia Smart Nation Award 2018 telah berlansung dengan sukses 3 Me 2018 kemarin. Acara yang diselenggarakan di Nusantara 2 Hall, ICE BSD City ini dihadiri langsung oleh Menteri Pariwisata Arief Yahya, dan 50 lebih kepala daerah atau perwakilannya. Acara yang diselenggarakan atas kerja sama Citiasia Center for Smart Nation (CCSN), Debindo, Visit Wonderful Indonesia (ViWI), dan Kementerian Pariwisata Republik Indonesia.\n\nAcara yang berlangsung di tengah-tengah gelaran pameran industri konstruksi, arsitektur dan bangunan di Asia Tenggara, Indobuildtech 2018 ini dimeriahkan dengan penampilan kesenian rampak bedug dari Provinsi Banten. Disamping itu, juga dilakukan penandatanganan MoU antara pelaku industri sektor pariwisata, baik perhotelan, maskapai penerbangan, penyelenggara pameran dan event, serta travel agent.`,
+    },
+    content: {
+      rendered: `The 3<sup>rd</sup> Indonesia Smart Nation Award 2018 telah berlansung dengan sukses 3 Me 2018 kemarin. Acara yang diselenggarakan di Nusantara 2 Hall, ICE BSD City ini dihadiri langsung oleh Menteri Pariwisata Arief Yahya, dan 50 lebih kepala daerah atau perwakilannya. Acara yang diselenggarakan atas kerja sama Citiasia Center for Smart Nation (CCSN), Debindo, Visit Wonderful Indonesia (ViWI), dan Kementerian Pariwisata Republik Indonesia.\n\nAcara yang berlangsung di tengah-tengah gelaran pameran industri konstruksi, arsitektur dan bangunan di Asia Tenggara, Indobuildtech 2018 ini dimeriahkan dengan penampilan kesenian rampak bedug dari Provinsi Banten. Disamping itu, juga dilakukan penandatanganan MoU antara pelaku industri sektor pariwisata, baik perhotelan, maskapai penerbangan, penyelenggara pameran dan event, serta travel agent.\n\n<a href=\"https://smartnation.id/wp-content/uploads/2018/05/rampak.jpg\"><img class=\"aligncenter wp-image-2433 \" src=\"https://smartnation.id/wp-content/uploads/2018/05/rampak-1024x683.jpg\" alt=\"rampak\" width=\"612\" height=\"408\"></a>\n\nPada puncak acara, Menteri Arief Yahya menyerahkan penghargaan Indonesia Smart Nation Award 2018 kepada 56 kepala daerah atas pencapaian yang patut diapresiasi pada 7 kategori penghargaan, yaitu smart readiness, smart governance, smart branding, smart economy, smart living, smart society, dan smart environment. Disamping itu juga diberikan penghargaan special mention kepada 8 daerah atas pencapaian yang inovatif di 7 bidang. &nbsp;Daerah-daerah tersebut adalah sebagai berikut:<a href=\"https://smartnation.id/wp-content/uploads/2018/05/ISNA-awardees.png\">\n</a><a href=\"https://smartnation.id/wp-content/uploads/2018/05/ISNA-awardees-1.png\"><img class=\"aligncenter size-large wp-image-2429\" src=\"https://smartnation.id/wp-content/uploads/2018/05/ISNA-awardees-1-1024x309.png\" alt=\"ISNA awardees\" width=\"1024\" height=\"309\"></a>\n\n<a href=\"https://smartnation.id/wp-content/uploads/2018/05/special-mention.jpg\"><img class=\"aligncenter size-large wp-image-2428\" src=\"https://smartnation.id/wp-content/uploads/2018/05/special-mention-1024x100.jpg\" alt=\"special mention\" width=\"1024\" height=\"100\"></a>`,
+    },
+  },
+
+  {
+    id: useGenerateUniqueId(),
+    slug: useCreateSlug(
+      'The 3rd Indonesia Smart Nation Award 2018 akan Dihadiri oleh Menteri Pariwisata Arief Yahya'
+    ),
+    date_gmt: new Date('30 April 2018').toISOString(),
+    modified_gmt: new Date('30 April 2018').toISOString(),
+    status: 'publish',
+    categories: [82, 83, 84, 93, 86],
+    tags: [],
+    author: 1,
+    featured_media:
+      'https://smartnation.id/wp-content/uploads/2018/04/web-Banner-isna-viwi-1-750x460-1-750x450.jpg',
+    comment_status: 'open',
+    title: {
+      rendered:
+        'The 3rd Indonesia Smart Nation Award 2018 akan Dihadiri oleh Menteri Pariwisata Arief Yahya',
+    },
+    excerpt: {
+      rendered: `The 3<sup>rd</sup> Indonesia Smart Nation Award (ISNA) 2018 yang akan diselenggarakan pada tanggal 3 Mei 2018 mendatang di ICE-BSD akan dihadiri oleh Menteri Pariwisata Arief Yahya. Rencana ini sudah dikonfirmasi oleh Staf Ahli Menteri Bidang Ekonomi dan Kawasan Pariwisata Anang Sutono, karena pada helatan tahunan tersebut juga akan dilakukan Peluncuran Program Jakdeals Visit Wonderful Indonesia (ViWI) 2018 oleh Menteri Pariwisata.`,
+    },
+    content: {
+      rendered: `The 3<sup>rd</sup> Indonesia Smart Nation Award (ISNA) 2018 yang akan diselenggarakan pada tanggal 3 Mei 2018 mendatang di ICE-BSD akan dihadiri oleh Menteri Pariwisata Arief Yahya. Rencana ini sudah dikonfirmasi oleh Staf Ahli Menteri Bidang Ekonomi dan Kawasan Pariwisata Anang Sutono, karena pada helatan tahunan tersebut juga akan dilakukan Peluncuran Program Jakdeals Visit Wonderful Indonesia (ViWI) 2018 oleh Menteri Pariwisata.\n\nSelain akan dilakukan peluncuran Jakdeals ViWI 2018, dalam event The 3<sup>rd</sup> ISNA 2018 tersebut juga akan diisi dengan kegiatan talkshow yang bertema \u201c<em>Creating&nbsp; Competitive and Sustainable Cities\nfor Tourism, Trade &amp; Investment</em>\u201d dengan pembicara yang berasal dari kepala daerah, kementerian, serta praktisi di industri pariwisata, investasi, dan ICT.\n\nDisamping pemberian penghargaan kepada sekitar 35 kota, kabupaten dan provinsi, The 3<sup>rd</sup> ISNA 2018 juga akan menjadi ajang berkumpulnya para pelaku industri pariwisata, baik asosiasi hotel, maskapai penerbangan, travel agent, pengelola destinasi wisata, event organizer dan penyelenggara pameran. Sehingga acara ini akan dihadiri oleh kurang lebih 500 peserta dari seluruh Indonesia.\n\nThe 3<sup>rd</sup> ISNA 2018 dan Launching ViWI 2018 akan menjadi salah satu daya tarik di tengah gelaran akbar Indobuildtech 2018, yaitu pameran terbesar di Asia Tenggara di bidang industri infrastruktur, arstitektur, dan bangunan.`,
     },
   },
 ];

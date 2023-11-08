@@ -114,7 +114,7 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
             </svg>
           </button>
 
-          <TranslateGoogleTranslateButtonSticky class="mx-2 px-0 py-2" />
+          <!-- <TranslateGoogleTranslateButtonSticky class="mx-2 px-0 py-2" /> -->
 
           <button class="navbar-toggler border-0 d-xl-none d-xxl-none button-hamburger" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
@@ -231,7 +231,7 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
           </li>
 
           <li class="nav-item">
-            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/gallery' ? 'active' : ''
+            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/gallery' || route.path === `/gallery/${route.params.id}` ? 'active' : ''
               }`" to="/gallery">Galeri
             </NuxtLink>
           </li>
