@@ -1,32 +1,28 @@
 <script lang="ts" setup>
-import { CategoryPostsType } from '~/utils/data/getInitialCategoryPostData';
+import { categories } from '~/utils/data/getInitialCategoryPostData';
 
 // Set Meta SEO
 useSeoMeta({
     title: "Galeri Smartnation",
     ogTitle: 'Galeri Smartnation',
-    description: 'Kumpulan Galeri Smartnation',
+    description: 'Kumpulan Semua Galeri & Video Smart Nation',
 })
 
 
 const colorMode = useColorMode()
 
-const { data: categories } = await useAsyncData('category-posts', () => $fetch('/api/categories'), {
-    transform: (categories: CategoryPostsType) => {
-        return categories.filter(category =>
-            category.id === Number(90) ||
-            category.id === Number(91) ||
-            category.id === Number(92) ||
-            category.id === Number(93) ||
-            category.id === Number(94) ||
-            category.id === Number(155)
-        )
-            .map(cat => ({ id: cat.id, name: cat.name, slug: cat.slug }))
-            .sort((a, b) => b.name.localeCompare(a.name))
-    }
-})
 
-const albumsTitleName: (title: string) => string = (title: string) => `Album ${title}`
+const categoriesData = categories.filter(category =>
+    category.id === Number(90) ||
+    category.id === Number(91) ||
+    category.id === Number(92) ||
+    category.id === Number(93) ||
+    category.id === Number(94) ||
+    category.id === Number(155) ||
+    category.id === Number(89) ||
+    category.id === Number(129)
+)
+    .sort((a, b) => b.name.localeCompare(a.name))
 
 </script>
 
@@ -35,24 +31,19 @@ const albumsTitleName: (title: string) => string = (title: string) => `Album ${t
         background="/images/background/bg-galeri.png" />
     <main id="content">
 
-        <section class="albums-section-container">
+        <section class="albums-section-container py-5">
             <div class="container px-3 px-md-0 px-lg-0">
-
-
-                <div v-for="category in categories" :key="category.id" class="row justify-content-start g-2 py-4"
-                    data-aos="fade-up" data-aos-duration="1500">
-                    <div class="col">
-                        <div class="d-flex flex-column">
-                            <LazyHeadingTitle :title="albumsTitleName(category.name)" />
-                            <Albums :categoryId="category.id" />
-
-                        </div>
+                <div class="row justify-content-start g-3">
+                    <div v-for="category in categoriesData" :key="category.id" class="col-xl-4 col-lg-4 col-md-6"
+                        data-aos="fade-up" data-aos-duration="1500">
+                        <GalleryCardAlbum :title="category.name" :created="new Date().toISOString()"
+                            :albumImage="'https://drive.google.com/uc?export=download&id=1cDzj6ZUrHyGEAeXzh2P-3AjWwUonmtqc'"
+                            :total="category.count" :class="'mb-3'" :redirect="category.slug" />
                     </div>
                 </div>
             </div>
         </section>
-
-        <hr v-show="colorMode.preference === 'dark'" />
+        <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
     </main>
 </template>
 

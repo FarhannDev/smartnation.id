@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-const props = defineProps({ title: { type: String }, created: { type: String }, albumImage: { type: String }, total: { type: Number }, redirect: { type: String } })
+defineProps({ title: { type: String }, created: { type: String }, albumImage: { type: String }, total: { type: Number }, redirect: { type: String } })
 
 
 </script>
 
 <template>
   <div class="card album-card">
-    <NuxtLink :to="redirect" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya">
+    <NuxtLink :to="`/gallery/${redirect}`" aria-label="Lihat Selengkapnya" :title="`Album ${title}`">
       <NuxtImg class="card-img-top img-fluid album-cover__images" :src="albumImage" alt="Album 1" loading="lazy"
         format="webp" />
     </NuxtLink>
@@ -14,9 +14,9 @@ const props = defineProps({ title: { type: String }, created: { type: String }, 
 
     <div class="card-body">
       <div class="d-flex flex-column justify-content-start align-self-stretch">
-        <NuxtLink class="album-cover__title" :to="'/gallery/album-isna-2016'" aria-label="Lihat Selengkapnya"
+        <NuxtLink class="album-cover__title" :to="`/gallery/${redirect}`" aria-label="Lihat Selengkapnya"
           title="Lihat Selengkapnya">
-          {{ title }}
+          {{ `Album ${title}` }}
         </NuxtLink>
 
         <h5 class="card-subtitle album-cover__subtitle ">

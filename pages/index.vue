@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 
+import { ColorModeInstance } from '@nuxtjs/color-mode/dist/runtime/types';
 import { categories } from '~/utils/data/getInitialCategoryPostData';
 import { posts } from "~/utils/data/getInitialPostsData"
 
@@ -18,6 +19,8 @@ useSeoMeta({
 });
 
 
+
+const colorMode: ColorModeInstance = useColorMode()
 
 </script>
 
@@ -56,7 +59,7 @@ useSeoMeta({
   <!-- News Feed Section Start -->
   <section class="latest-newsfeed-section position-relative py-5">
     <div class="container" data-aos="fade-up" data-aos-duration="1500">
-      <LazyHeadingTitle style="color: #FFFFFF !important" class="latest-newsfeed__title" title="Berita Terkini" />
+      <LazyHeadingTitle :class="colorMode.preference !== 'dark' && 'text-white'" title="Berita Terkini" />
       <div class="row justify-content-arround g-3 py-3">
         <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
           <ArticlesArticleListSingleColumn :isBackground="true"
@@ -152,9 +155,11 @@ useSeoMeta({
   /* border: 2px solid #555555; */
   border-radius: 10px;
 }
+
 .text-decoration-underline {
   margin-bottom: 25px !important;
 }
+
 .article-list-item::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #f5f5f5;

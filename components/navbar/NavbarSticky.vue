@@ -13,6 +13,7 @@ const isDropdownEvents: globalThis.Ref<boolean> = ref(false);
 const isDropdownTranslate: globalThis.Ref<boolean> = ref(false);
 const isLanguage: globalThis.Ref<string> = ref("ID");
 
+
 const toggleColorMode = () => {
   const newColorMode: "dark" | "light" =
     colorMode.preference === "dark" ? "light" : "dark";
@@ -78,6 +79,7 @@ const toggleMenu = (() => {
     : navbar?.classList.add('show')
 })
 
+const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => route.params.id)
 
 </script>
 
@@ -141,7 +143,8 @@ const toggleMenu = (() => {
           <!-- Show Dropdown display in laptop or desktop -->
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)"
             class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles'
+              || route.path == `/category/${routePathMenu}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
@@ -152,15 +155,18 @@ const toggleMenu = (() => {
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name }}
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`"
+                  :to="`/category/${category.slug}`">
+                  {{
+                    category.name }}
                 </NuxtLink>
               </li>
             </ul>
           </li>
           <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)"
             class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
-              }`" to="/events" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path === `/events/category/${routePathMenu}` ? 'active' : ''
+              }`" to="#" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
                 <path
@@ -170,8 +176,9 @@ const toggleMenu = (() => {
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownEvents }">
               <li v-for="category in categoriesEvents" :key="category.id">
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/events/category/${category.slug}`">{{
-                  category.name }}</NuxtLink>
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`"
+                  :to="`/events/category/${category.slug}`">{{
+                    category.name }}</NuxtLink>
               </li>
 
             </ul>
@@ -179,7 +186,8 @@ const toggleMenu = (() => {
 
           <!-- Showing dropdown display in mobile or tablet -->
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles'
+              || route.path == `/category/${routePathMenu}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -190,18 +198,20 @@ const toggleMenu = (() => {
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/articles`">Indeks</NuxtLink>
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`" :to="`/articles`">Indeks
+                </NuxtLink>
               </li>
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name }}
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`"
+                  :to="`/category/${category.slug}`">{{ category.name }}
                 </NuxtLink>
               </li>
             </ul>
           </li>
 
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
-              }`" to="/events" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path == `/events/category/${routePathMenu}` ? 'active' : ''
+              }`" to="/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                 <path
@@ -210,19 +220,17 @@ const toggleMenu = (() => {
               </svg>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownEvents }">
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/events`">Indeks</NuxtLink>
-              </li>
               <li v-for="category in categoriesEvents" :key="category.id">
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/events/category/${category.slug}`">{{
-                  category.name }}</NuxtLink>
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`"
+                  :to="`/events/category/${category.slug}`">{{
+                    category.name }}</NuxtLink>
               </li>
             </ul>
           </li>
 
           <li class="nav-item">
-            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/gallery-smartnation' ? 'active' : ''
-              }`" to="/gallery-smartnation">Galeri
+            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/gallery' ? 'active' : ''
+              }`" to="/gallery">Galeri
             </NuxtLink>
           </li>
           <li class="nav-item">
@@ -375,8 +383,8 @@ const toggleMenu = (() => {
   color: #d71149 !important;
 }
 
-.dropdown-item.active {
-  color: var(--primary-600, #d71149) !important;
+.dropdown-item.active-menu {
+  color: #d71149 !important;
 }
 
 .navbar-sticky .bi {

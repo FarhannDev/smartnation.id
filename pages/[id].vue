@@ -1,14 +1,12 @@
-<script setup>
+<script setup lang="ts">
+
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
+import { posts } from "~/utils/data/getInitialPostsData"
 
 definePageMeta({ layout: "content-layout" })
 
-import { posts } from "~/utils/data/getInitialPostsData"
-
-
 const route = useRoute();
-
 const postId = String(route.params.id)
-
 const post = posts.find(post => post.slug === postId)
 
 if (!post) {
@@ -23,11 +21,11 @@ useSeoMeta({
   title: post.title.rendered,
   description: post.excerpt.rendered,
   author: 'Smart Nation',
-  articleAuthor: 'Smart Nation',
-  articlePublishedTime: useFormatter(post.date_gmt),
-  articleModifiedTime: useFormatter(post.date_gmt),
-  articleSection: 'Smart City',
-  articleTag: post.categories,
+  // articleAuthor: 'Smart Nation',
+  // articlePublishedTime: useFormatter(post.date_gmt),
+  // articleModifiedTime: useFormatter(post.date_gmt),
+  // articleSection: 'Smart City',
+  // articleTag: post.categories,
   ogType: 'article',
   ogTitle: post.title.rendered,
   ogDescription: post.excerpt.rendered,
@@ -37,6 +35,9 @@ useSeoMeta({
   ogLocale: "ID",
   ogImageUrl: `https://smartnation.vercel.app/${post.featured_media}`,
 })
+
+
+const colorMode: ColorModeInstance = useColorMode()
 
 </script>
 
@@ -69,6 +70,8 @@ useSeoMeta({
       </div>
     </section>
     <!-- section berita detail end -->
+
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 

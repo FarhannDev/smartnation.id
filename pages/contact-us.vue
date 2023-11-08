@@ -32,7 +32,7 @@ const colorMode = useColorMode();
     </section>
     <!-- section kontak end -->
 
-    <hr v-show="colorMode.preference === 'dark'" />
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 
