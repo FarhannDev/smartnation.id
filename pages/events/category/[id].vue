@@ -5,13 +5,16 @@ import { posts } from "~/utils/data/getInitialPostsData";
 
 
 const route = useRoute();
+const colorMode: ColorModeInstance = useColorMode()
 const categoryId = route.params.id
 const categoryPostsId: globalThis.Ref<number | undefined> = ref(139);
 const categoryTitle: globalThis.Ref<string | undefined> = ref('')
 const categoryDescription: globalThis.Ref<string | undefined> = ref('')
 const categoryParentId: globalThis.Ref<number | undefined> = ref(0)
 
-const category = categories.find(category => category.slug === categoryId)
+const isnaValues: globalThis.Ref<number> = ref(0)
+
+let category = categories.find(category => category.slug === categoryId)
 
 if (!category) {
   throw createError({
@@ -25,43 +28,47 @@ categoryPostsId.value = category.id
 categoryDescription.value = category.description
 categoryParentId.value = category.parent
 
+let eventsData =
+  posts.filter(post => post.categories.find(category => category === categoryPostsId.value))
+    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+    ?.slice(0, 12)
+
+const isnaCategoriesData = categories.filter(category => category.parent === Number(90))
 
 
-const eventsData = posts.filter(post => post.categories.find(category => category === categoryPostsId.value))
-  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-  ?.slice(0, 12)
+const handleClickButton = (values: any) => {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+  isnaValues.value = values
+
+  console.log(posts.filter(post => post.categories.find(category => category === isnaValues.value))
+    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+    ?.slice(0, 12))
+
+  const category = categories.find(category => category.id === isnaValues.value)
+
+  if (category) {
+    categoryTitle.value = category.name
+    categoryDescription.value = category.description
+
+    useSeoMeta({
+      title: `Berita Kategori ${categoryTitle.value}`,
+      description: categoryDescription.value,
+    });
+
+    return eventsData = posts.filter(post => post.categories.find(category => category === isnaValues.value))
+      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      ?.slice(0, 12)
+  }
+
+  return null
+}
 
 
-const isnaYearsData = ref([
-  {
-    id: 1,
-    value: 2015,
-  },
-  {
-    id: 2,
-    value: 2016,
-  },
-  {
-    id: 3,
-    value: 2018,
-  },
-  {
-    id: 4,
-    value: 2020,
-  },
-  {
-    id: 5,
-    value: 2022,
-  },
-])
-
-const isnaValues: globalThis.Ref<string | undefined> = ref('')
-
-const colorMode: ColorModeInstance = useColorMode()
 useSeoMeta({
-  title: `Berita Kategori ${categoryTitle?.value}`,
-  description: `Kumpulan Acara ISNA dari beberapa Kategori`,
+  title: `Berita Kategori ${categoryTitle.value}`,
+  description: categoryDescription.value,
 });
+
 </script>
 
 <template>
@@ -92,7 +99,6 @@ useSeoMeta({
             </div>
             <div class="d-flex justify-content-between py-3">
               <h1 class="berita-section-title">{{ categoryTitle }}</h1>
-
               <div v-if="categoryPostsId === Number(90) || categoryParentId === Number(90)">
                 <div class="dropdown" style="width: 150px">
                   <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -100,14 +106,12 @@ useSeoMeta({
                     Pilih Tahun
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li v-for="isna in isnaYearsData" :key="isna.id"><a class="dropdown-item">{{ isna.value }}</a></li>
+                    <li v-for="isna in isnaCategoriesData" :key="isna.id" @click="handleClickButton(isna.id)"><a
+                        class="dropdown-item border-bottom">{{ isna.name.replace('ISNA', "") }}</a></li>
                   </ul>
                 </div>
-
               </div>
             </div>
-
-
             <div>
               <div class="d-flex flex-column ">
                 <ul v-if="eventsData" class="list-group list-group-flush">
@@ -359,6 +363,7 @@ useSeoMeta({
   text-align: center;
   /* margin: 0 auto;
   width: 124px; */
+  cursor: pointer;
 
 }
 
