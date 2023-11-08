@@ -1,14 +1,8 @@
 <script lang="ts" setup>
-
+import { PropType } from "vue"
 import { PostsDataType } from '~/utils/data/getInitialPostsData';
 
-const { data: posts } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-      .slice(1, 5)
-  }
-})
-
+defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 </script>
 
 

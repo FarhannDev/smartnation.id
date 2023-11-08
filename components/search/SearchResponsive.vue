@@ -10,6 +10,11 @@ const onSearchHandler = () => {
   query ? route.replace(`/search/${query}`) : null
 
   searchQuery.value = ''
+
+  const navbar = document.querySelector('.navbar-collapse')
+  return navbar?.classList.contains('show')
+    ? navbar.classList.remove('show')
+    : navbar?.classList.add('show')
 };
 
 

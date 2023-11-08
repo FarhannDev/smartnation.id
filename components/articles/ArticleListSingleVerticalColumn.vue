@@ -1,17 +1,9 @@
 <script lang="ts" setup>
 
+import { PropType } from "vue"
 import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
-const props = defineProps({ categoryId: { type: Number } })
-
-const { data: posts } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.filter(post => post.categories.find(category => category === props.categoryId))
-      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-      .slice(0, 5)
-  }
-})
-
+const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 </script>
 
@@ -19,14 +11,14 @@ const { data: posts } = await useFetch('/api/posts', {
   <article class="d-grid gap-2  article-list-item">
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
       <div class="row justify-content-start align-items-start g-0">
-        <div class="col-lg-6 col-md-6">
+        <div class="col-xl-6 col-lg-6 col-md-6">
           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
             <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.featured_media" :height="253" loading="lazy"
               :alt="post.title.rendered" />
           </NuxtLink>
         </div>
 
-        <div class="col-lg-6 col-md-6">
+        <div class="col-xl-6 col-lg-6 col-md-6">
           <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
             <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
               :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
@@ -42,9 +34,9 @@ const { data: posts } = await useFetch('/api/posts', {
               </span>
             </div>
 
-            <div class="article-desc mb-3" v-html="post.excerpt.rendered.length >= 250
+            <div class="article-desc mb-2" v-html="post.excerpt.rendered.length >= 250
               ? `${post.excerpt.rendered.substring(0, 250)}...`
-              : post.excerpt
+              : post.excerpt.rendered
               "></div>
 
             <ArticlesArticleCategories v-for="(category, index) in post.categories.slice(0, 3)" :key="index"
@@ -57,11 +49,9 @@ const { data: posts } = await useFetch('/api/posts', {
 </template>
 
 <style scoped>
-@media (min-width: 992px) {
-  .card-body {
-    margin-top: -20px;
-  }
-
+.card-body {
+  margin-top: -20px;
+  position: relative;
 }
 
 .article-list-item {

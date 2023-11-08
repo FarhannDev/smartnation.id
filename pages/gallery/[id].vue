@@ -1,579 +1,244 @@
-<script setup>
+<script setup lang="ts">
+import { RouteLocationNormalizedLoaded } from "#vue-router"
+import { posts } from "~/utils/data/getInitialPostsData";
+import { categories } from "~/utils/data/getInitialCategoryPostData";
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
+
 definePageMeta({
+  layout: "content-layout",
   layoutTransition: {
     name: 'slide-in',
     mode: 'out-in'
   },
   pageTransition: { name: 'fade', mode: 'out-in' }
-  
+
 })
 
-import { posts } from "~/utils/data/getInitialData";
+const route: RouteLocationNormalizedLoaded = useRoute()
+const galleryId = ref(route.params.id)
+const pageTitle: globalThis.Ref<string | undefined> = ref('')
+const pageDescription: globalThis.Ref<string | undefined> = ref('')
+const albumsId = ref(0)
 
-const route = useRoute()
 
-const { id } = route.params
-
+const categoriesData = categories.filter(category => category.slug === route.params.id)[0]
 
 
+if (!categoriesData) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Halaman Tidak Ditemukan!'
+  })
+}
+
+pageTitle.value = `Album ${categoriesData.name}`;
+pageDescription.value = categoriesData.description;
+albumsId.value = categoriesData.id
 
 useSeoMeta({
-  title: "Detail Galeri Smart Nation",
-  description: "Halaman detail galeri smart nation"
+  title: `${pageTitle.value} - Smart Nation`,
+  description: pageDescription.value,
+  ogTitle: `${pageTitle.value} - Smart Nation`,
+  ogDescription: pageDescription.value,
 })
 
-definePageMeta({
-  layout: "content-layout"
-})
+const albumsData = posts.filter(post => post.categories.find(category => category === categoriesData.id))
+  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
 
+
+const categoriesDataAlbums = categories.filter(category =>
+  category.id === Number(90) ||
+  category.id === Number(91) ||
+  category.id === Number(92) ||
+  category.id === Number(93) ||
+  category.id === Number(94) ||
+  category.id === Number(155)
+)
+  .sort((a, b) => b.name.localeCompare(a.name))
+  .slice(0, 3)
+
+
+const colorMode: ColorModeInstance = useColorMode()
 
 </script>
 
 
 <template>
-  <section class="berita-section-container position-relative py-5">
+  <section class="py-5 mt-5">
+
     <div class="container">
-      <div class="row d-flex g-3 py-5">
+      <div class="row justify-content-start g-3">
         <div class="col-lg-7 col-md-12 col-sm-12 me-5">
-          
-          <!-- Article Content Start -->
-          <section class="article-details-container">
-            <div class="d-grid gap-3">
-              <div class="article-details__title__wrapper">
-                <h1 class="article-details__title">Album ISNA 2016</h1>
-              </div>
-              
-              <div class="article-details__content__wrapper" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;">
-                <div class="article-details__content__cover__wrapper" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;">
-                  <div class="carousel slide" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;">
-                    <img class="img-fluid rounded-4"
-                    src="https://smartnation.id/wp-content/uploads/2021/10/Arief_Yahya-1.jpg" alt="content-foto"
-                    >
-                    <a class="carousel-control-prev" role="button" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" role="button" style="padding-right: 0cm; padding-left:0cm; margin-right:0cm; margin-left:0cm; border-right: 0cm; border-left: 0cm;" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>>
-                  </div>
+          <div class="d-flex flex-column">
+            <h1 class="event-heading__title">{{ pageTitle }}</h1>
+            <div class="event-albums__images__container">
+
+              <Swiper v-if="albumsData" :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation]"
+                :slides-per-view="1" :space-between="50" :grabCursor="true" :navigation="{
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                }" :effect="'creative'" :creative-effect="{
+  prev: {
+    shadow: false,
+    translate: ['-20%', 0, -1],
+  },
+  next: {
+    translate: ['100%', 0, 0],
+  },
+}" class="custom-swiper">
+                <SwiperSlide v-for="albums in albumsData" :key="albums.id">
+                  <NuxtImg class="event-albums__images " :src="albums.featured_media" :alt="albums.title.rendered"
+                    loading="lazy" :quality="50" format="webp" />
+                </SwiperSlide>
+                <!-- Custom Navigation -->
+                <div class="custom-navigation">
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
                 </div>
-                
-                <div class="container article_content p-0 mt-3">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate ab voluptas non ducimus similique
-                    adipisci ut! Magni tempora eligendi ratione distinctio commodi nulla cum. Harum vitae hic accusantium
-                    velit sapiente. Amet veniam quidem magnam rem optio ducimus fuga rerum officiis? Incidunt velit sunt
-                    animi excepturi nostrum, quia, eveniet earum soluta officia neque odio, reprehenderit quis culpa dolor
-                    sequi eaque tenetur itaque totam. Tempore quasi iure, impedit sapiente cupiditate laboriosam, sint
-                    eligendi enim corporis voluptatum at? Alias reprehenderit reiciendis, odit eum recusandae
-                    exercitationem dolor fugiat perferendis temporibus quam dicta praesentium eveniet!
-                  </p>
-                </div>
-                
-              </div>
+              </Swiper>
             </div>
-          </section>
-          
+            <div class="event-albums__description__container">
+              <div class="event-albums__description" v-html="pageDescription"></div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-sm-12">
-          <div class="d-flex flex-column g-0 px-md-3 mx-md-2 ">
-            <h3 style="color: #CE2F2F;
-            font-family: Poppins;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 120%;">Album Lainnya</h3>
-            <div class="d-grid gap-2 py-3">
-              <div class="vstack gap-3 tablet-hstack">
-                <div class="scroll-container">
-                  <div class="otherAlbum container rounded-4"
-                  style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/Rudiantara-1.jpg');">
-                  <p>Lorem, ipsum dolor.</p>
-                </div>
-                <div class="otherAlbum container rounded-4"
-                style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent), url('https://smartnation.id/wp-content/uploads/2021/10/presscon1-1.jpg');">
-                <p>Lorem, ipsum dolor.</p>
-              </div>
+        <div class="col-lg-4 col-md-12">
+          <h1 class="event-heading__title__albums">Album Lainnya</h1>
+          <div class="d-flex flex-column pt-3">
+            <div v-for="albums in categoriesDataAlbums" :key="albums.id">
+              <figure class="figure">
+                <NuxtLink :to="`/gallery/${albums.slug}`" :aria-label="`Album ${albums.name}`" target="_top">
+                  <NuxtImg :src="`https://drive.google.com/uc?export=download&id=1cDzj6ZUrHyGEAeXzh2P-3AjWwUonmtqc`"
+                    class="figure-img" alt="Album ISNA 2020" loading="lazy" :quality="50" format="webp" />
+                  <figcaption class="figure-caption">{{ `Album ${albums.name}` }} </figcaption>
+                </NuxtLink>
+              </figure>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
+
+  <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
 </template>
 
 <style scoped>
-.article-details__title {
-  color: var(--danger-600, #CE2F2F);
+.event-heading__title {
+  color: #CE2F2F;
   font-family: Poppins;
-  font-size: 32px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
-  /* 28.8px */
+  margin-bottom: 13px;
+  /* 37.2px */
 }
 
-.article_content {
-  color: #454545;
-  text-align: justify;
+.event-heading__title__albums {
+  color: var(--danger-600, #CE2F2F);
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 22px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 120%;
-  /* 19.2px */
+  /* 22.5px */
 }
 
-.article-details__content {
-  color: var(--font-800, #454545);
-  text-align: justify;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  /* 21px */
-}
-
-.article-details__cover {
+.event-albums__images {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: scroll;
   width: 100%;
-  min-height: 433.57px;
+  height: 433.57px;
+  border-radius: 12px;
+  filter: brightness(50%);
 }
 
-
-.article-details__content__wrapper {
+.event-albums__images__container {
   width: 100%;
   height: auto;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-
-.article-details__info__created {
-  color: var(--font-400, #888);
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 8.992px */
-}
-
-.article-details__info__comments {
-  color: var(--font-400, #888);
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 8.992px */
-}
-
-.article-details__info__views {
-  color: var(--font-400, #888);
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 8.992px */
-}
-
-.article-details__content__share__medsos {
-  font-size: 22px;
-  color: #D1D1D1;
-}
-
-.article-comments-card {
-  border-radius: 16px;
-  border: 0.836px solid var(--font-100, #E7E7E7);
-  background: var(--font-50, #F6F6F6);
-  padding: 20px;
-}
-
-.article-comments__name {
+.event-albums__description {
   color: var(--font-800, #454545);
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  /* 12px */
-}
-
-.article-comments__created {
-  color: var(--font-400, #888);
-  font-family: Poppins;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  padding-top: 5px;
-  margin-bottom: 8px;
-  /* 9.6px */
-}
-
-.article-comments__content {
-  color: var(--font-900, #3D3D3D);
-  font-family: Poppins;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  margin-bottom: 10px;
-  /* 9.6px */
-}
-
-.dateFormat {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 400;
-  color: #888888;
-}
-
-.titleComment {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 19.2px;
-  color: #4F4F4F;
-}
-
-.descComment {
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 9.6px;
-  color: #888888;
-}
-
-.commentTextArea {
-  border-radius: 12px;
-  border: 1px solid #d1d1d1;
-  background-color: #f6f6f6;
-  height: 180px;
-  font-family: Poppins;
-}
-
-.nameForm,
-.emailForm,
-.webForm {
-  border-radius: 8px;
-  border: 1px solid #d1d1d1;
-  background-color: #f6f6f6;
-  height: 30px;
-  color: #b0b0b0;
-  font-family: Poppins;
-  font-size: 10px;
-  font-weight: 400;
-}
-
-.labelCheckBox {
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  color: #888888;
-}
-
-.btnCategory {
-  color: #6d6d6d;
-  font-family: Poppins;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  border-radius: 5px;
-  background-color: #e7e7e7;
-}
-
-.btnComment {
-  width: 80px;
-  height: 25px;
-  color: #F6F6F6;
-  font-family: Poppins;
-  font-size: 8px;
-  font-weight: 400;
-  border-radius: 8px;
-  background-color: #8E0D3D;
-}
-
-.nameUserComment {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 600;
-  color: #454545;
-  margin-bottom: 4px;
-}
-
-.timeUserComment {
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  color: #888888;
-  margin-bottom: 8px;
-}
-
-.contentUserComment {
-  font-family: Poppins;
-  font-size: 13px;
-  font-weight: 400;
-  color: #3D3D3D;
-  margin-bottom: 8px;
-}
-
-.dataLikes,
-.dataDislikes {
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 400;
-  color: #888888;
-}
-
-.contentArticle {
   text-align: justify;
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 21px;
-  color: #454545;
+  line-height: 150%;
+  /* 24px */
 }
 
-#dummy_ig {
-  background-color: #F6F6F6;
-  height: 80px;
-  width: 80px;
-  z-index: 1;
-  border-radius: 8px;
-  margin-top: 3px;
-  margin-bottom: 3px;
+.swiper-button-next {
+  width: 32px;
+  height: 32px;
+  color: #fff;
 }
 
-#text-button {
-  font-size: 13px;
-  color: #FFF;
-  text-align: center;
+.swiper-button-prev {
+  width: 32px;
+  height: 32px;
+  color: #fff;
 }
 
-#ig {
+.custom-swiper {
+  width: 100%;
+  height: auto;
   border-radius: 12px;
-  border: 1px solid #D71149;
+  border: 0;
 }
 
-#ig .contentButton>div {
-  color: #FE3565;
-  font-family: Poppins;
-  font-size: 9.75px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-}
 
-.titleInstagramContent {
-  color: #CE2F2F;
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  /* 21.6px */
-}
-
-.leadInstagramContent {
-  color: #6D6D6D;
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 14.4px */
-}
-
-.descInstagramContent {
-  color: #454545;
-  font-family: Poppins;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  /* 18px */
-}
-
-.otherAlbum {
+.figure {
   position: relative;
   width: 100%;
-  height: 138px;
+  height: auto;
   overflow: hidden;
+  margin-bottom: 0;
+}
+
+.figure .figure-img {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, rgba(50, 50, 50, 0.00) 0%, rgba(39, 39, 39, 0.50) 100%);
+  border-radius: 8px;
   background-size: cover;
-  background-position: center center;
-  margin: 0 0 1em 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(50%);
 }
 
-.otherAlbum p {
+.figure .figure-caption {
+  color: var(--font-100, #E7E7E7);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 20px;
-  margin: 0;
-  color: white;
-  font-size: 1.4vw;
+  top: 150px;
+  left: 20px;
 }
 
-@media (max-width: 992px) {
-  .main-content {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .article-details__title {
-    color: var(--danger-600, #CE2F2F);
-    font-family: Poppins;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    /* 28.8px */
-  }
-  
-  .article_content {
-    color: #454545;
-    text-align: justify;
-    font-family: Poppins;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    /* 19.2px */
-  }
-  
-  /*  */
-  .tablet-hstack {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0;
-  }
-  
-  .scroll-container {
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  
-  .otherAlbum {
-    width: 50%;
-    margin: 0px 1em 0 0;
-    height: 140px;
-    display: inline-block;
-    scroll-behavior: smooth;
-  }
-  
-  .otherAlbum p {
-    position: absolute;
-    bottom: 0%;
-  }
-  
-  /* Hide scrollbars in WebKit-based browsers */
-  .scroll-container::-webkit-scrollbar {
-    width: 0;
-  }
-  
-  /* Hide scroll track in WebKit-based browsers */
-  .scroll-container::-webkit-scrollbar-track {
-    display: none;
+
+
+@media (min-width: 1400px) {
+  .event-heading__title {
+    font-size: 31px;
   }
 }
 
-@media (max-width: 768px) {
-  .article-details__title {
-    color: var(--danger-600, #CE2F2F);
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    /* 28.8px */
-  }
-  
-  .article_content {
-    color: #454545;
-    text-align: justify;
-    font-family: Poppins;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    /* 19.2px */
-  }
-  
-  .otherAlbum p {
-    position: absolute;
-    bottom: 0%;
-    font-size: 14px;
-  }
-  
-  /* Hide scrollbars in WebKit-based browsers */
-  .scroll-container::-webkit-scrollbar {
-    width: 0;
-  }
-  
-  /* Hide scroll track in WebKit-based browsers */
-  .scroll-container::-webkit-scrollbar-track {
-    display: none;
-  }
-  .carousel-control-prev-icon{
-    padding-right: 0cm !important;
-    padding-left:0cm !important;
-    margin-right:0cm !important;
-    margin-left:0cm !important;
-    border-right: 0cm !important;
-    border-left: 0cm !important;
-  }
-  .carousel-control-next-icon{
-    padding-right: 0cm !important;
-    padding-left:0cm !important;
-    margin-right:0cm !important;
-    margin-left:0cm !important;
-    border-right: 0cm !important;
-    border-left: 0cm !important;
-  }
-  .carousel-control-prev{
-    padding-right: 0cm !important;
-    padding-left:0cm !important;
-    margin-right:0cm !important;
-    margin-left:0cm !important;
-    border-right: 0cm !important;
-    border-left: 0cm !important;
-  }
-  .carousel-control-next{
-    padding-right: 0cm !important;
-    padding-left:0cm !important;
-    margin-right:0cm !important;
-    margin-left:0cm !important;
-    border-right: 0cm !important;
-    border-left: 0cm !important;
-  }
-  .carousel{
-    padding-right: 0cm !important;
-    padding-left:0cm !important;
-    margin-right:0cm !important;
-    margin-left:0cm !important;
-    border-right: 0cm !important;
-    border-left: 0cm !important;
-  }
-  .slide{
-    padding-right: 0cm !important;
-    padding-left:0cm !important;
-    margin-right:0cm !important;
-    margin-left:0cm !important;
-    border-right: 0cm !important;
-    border-left: 0cm !important;
-  }
+/*
+   dark mode
+*/
+
+.dark-mode .event-albums__description {
+  color: #fff;
 }
 </style>
 

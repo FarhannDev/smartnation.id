@@ -52,12 +52,22 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
   }
 })
 
+
+const toggleMenu = (() => {
+  const navbar = document.querySelector('.navbar-collapse')
+  return navbar?.classList.contains('show')
+    ? navbar.classList.remove('show')
+    : navbar?.classList.add('show')
+})
+
+
+const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => route.params.id)
 </script>
 
 <template>
   <nav :class="`navbar navbar-expand-xl fixed-top`">
     <div class="container">
-      <NuxtLink to="/" aria-label="Smart Nation Logo" class="navbar-brand">
+      <NuxtLink @click="toggleMenu()" to="/" aria-label="Smart Nation Logo" class="navbar-brand">
         <NuxtImg src="/images/logo.png" alt="Smart Nation Logo"
           class="d-inline-block align-text-top navbar-brand__logo" />
       </NuxtLink>
@@ -104,7 +114,8 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
       <div class="collapse navbar-collapse " id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1 ${route.path === '/' ? 'active' : ''}`" aria-current="page" to="/">Beranda
+            <NuxtLink @click="toggleMenu()" :class="`nav-link mx-md-1 ${route.path === '/' ? 'active' : ''}`"
+              aria-current="page" to="/">Beranda
             </NuxtLink>
           </li>
 
@@ -112,7 +123,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
           <!-- Show Dropdown display in laptop or desktop -->
           <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)"
             class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' || route.path === `/${routePathMenu}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
@@ -130,7 +141,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
           <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)"
             class="nav-item dropdown d-none d-lg-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
-              }`" to="/events" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
+              }`" to="/#" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
                 <path
@@ -142,16 +153,14 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               <li v-for="category in categoriesEvents" :key="category.id">
                 <NuxtLink class="dropdown-item" :to="`/events/category/${category.slug}`">{{ category.name }}</NuxtLink>
               </li>
-              <!-- <li><a class="dropdown-item" href="#">ISNA</a></li>
-              <li><a class="dropdown-item" href="#">ISCIF</a></li>
-              <li><a class="dropdown-item" href="#">Training</a></li> -->
+
             </ul>
           </li>
 
 
           <!-- Showing dropdown display in mobile or tablet -->
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/articles' || route.path === `/${routePathMenu}` ? 'active' : ''
               }`" to="/articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Berita
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
@@ -161,15 +170,20 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               </svg>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
+              <li>
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/articles`">Indeks</NuxtLink>
+              </li>
               <li v-for="category in categories" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/category/${category.slug}`">{{ category.name }}</NuxtLink>
+                <NuxtLink @click="toggleMenu()" class="dropdown-item" :active-class="`active-menu`"
+                  :to="`/category/${category.slug}`">{{ category.name
+                  }}</NuxtLink>
               </li>
             </ul>
           </li>
 
           <li class="nav-item dropdown d-lg-none d-md-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' ? 'active' : ''
-              }`" to="/events" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              }`" to="/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Acara
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                 <path
@@ -178,25 +192,29 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               </svg>
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownEvents }">
-              <li><a class="dropdown-item" href="#">ISNA</a></li>
-              <li><a class="dropdown-item" href="#">ISCIF</a></li>
-              <li><a class="dropdown-item" href="#">Training</a></li>
+              <li>
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/events`">Indeks</NuxtLink>
+              </li>
+              <li v-for="category in categoriesEvents" :key="category.id">
+                <NuxtLink class="dropdown-item" :to="`/events/category/${category.slug}`">{{ category.name }}</NuxtLink>
+              </li>
+
             </ul>
           </li>
 
 
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/gallery-smartnation' ? 'active' : ''
-              }`" to="/gallery-smartnation">Galeri
+            <NuxtLink @click="toggleMenu()" :class="`nav-link mx-md-1  ${route.path === '/gallery' || route.path === `/gallery/${route.params.id}` ? 'active' : ''
+              }`" to="/gallery">Galeri
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/about-us' ? 'active' : ''
+            <NuxtLink @click="toggleMenu()" :class="`nav-link mx-md-1  ${route.path === '/about-us' ? 'active' : ''
               }`" to="/about-us">Tentang Kami
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/contact-us' ? 'active' : ''
+            <NuxtLink @click="toggleMenu()" :class="`nav-link mx-md-1  ${route.path === '/contact-us' ? 'active' : ''
               }`" to="/contact-us">Hubungi Kami
             </NuxtLink>
           </li>
@@ -232,7 +250,7 @@ const { data: categoriesEvents } = await useFetch('/api/categories', {
               </svg>
             </button>
           </div>
-          <TranslateGoogleTranslateButtonFixed />
+          <!-- <TranslateGoogleTranslateButtonFixed /> -->
         </div>
       </div>
     </div>

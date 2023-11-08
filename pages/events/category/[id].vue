@@ -1,38 +1,78 @@
 <script lang="ts" setup>
-import { posts } from "~/utils/data/getInitialData";
-import { CategoryPostsType } from "~/utils/data/getInitialCategoryPostData";
-import { PostsDataType } from "~/utils/data/getInitialPostsData";
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
+import { categories } from "~/utils/data/getInitialCategoryPostData";
+import { posts } from "~/utils/data/getInitialPostsData";
 
 
 const route = useRoute();
+const colorMode: ColorModeInstance = useColorMode()
 const categoryId = route.params.id
 const categoryPostsId: globalThis.Ref<number | undefined> = ref(139);
 const categoryTitle: globalThis.Ref<string | undefined> = ref('')
+const categoryDescription: globalThis.Ref<string | undefined> = ref('')
+const categoryParentId: globalThis.Ref<number | undefined> = ref(0)
 
-const { data } = await useFetch('/api/categories', {
-  transform: (categories: CategoryPostsType) => {
-    return categories.find(category => {
-      if (category.slug === categoryId) {
-        categoryTitle.value = category.name
-        categoryPostsId.value = category.id
-      }
-    })
+const isnaValues: globalThis.Ref<number> = ref(0)
+
+let category = categories.find(category => category.slug === categoryId)
+
+if (!category) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found'
+  })
+}
+
+categoryTitle.value = category.name
+categoryPostsId.value = category.id
+categoryDescription.value = category.description
+categoryParentId.value = category.parent
+
+let eventsData =
+  posts.filter(post => post.categories.find(category => category === categoryPostsId.value))
+    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+    ?.slice(0, 12)
+
+const isnaCategoriesData = categories.filter(category => category.parent === Number(90))
+
+
+const handleClickButton = (values: any) => {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+  isnaValues.value = values
+
+  console.log(posts.filter(post => post.categories.find(category => category === isnaValues.value))
+    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+    ?.slice(0, 12))
+
+  const category = categories.find(category => category.id === isnaValues.value)
+
+  if (category) {
+    categoryTitle.value = category.name
+    categoryDescription.value = category.description
+
+    useSeoMeta({
+      title: `Berita Kategori ${categoryTitle.value}`,
+      description: categoryDescription.value,
+    });
+
+    return eventsData = posts.filter(post => post.categories.find(category => category === isnaValues.value))
+      .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+      ?.slice(0, 12)
   }
-})
 
-const { data: postsData } = await useFetch('/api/posts')
+  return null
+}
+
 
 useSeoMeta({
-  title: `Berita Kategori ${categoryTitle?.value}`,
-  description: ``,
+  title: `Berita Kategori ${categoryTitle.value}`,
+  description: categoryDescription.value,
 });
-
 
 </script>
 
 <template>
-  <HeroParallaxBackground v-for="(post, index) in postsData.slice(0, 1)" :key="index"
-    :text="`Kumpulan Acara ${categoryTitle}`" :desc="`Kumpulan Acara ISNA dari beberapa Kategori`"
+  <HeroParallaxBackground :text="`Kumpulan Acara ${categoryTitle}`" :desc="`Kumpulan Acara ISNA dari beberapa Kategori`"
     :background="'/images/background/bg-isna.png'" />
   <main id="content">
     <!-- Section berita start -->
@@ -40,18 +80,46 @@ useSeoMeta({
       <div class="container">
         <div class="row justify-content-start align-content-start g-5">
           <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
-            <article class="article-section position-relative mb-3">
-              <h1 class="berita-section-title">{{ categoryTitle }}</h1>
+            <div class="d-flex flex-column">
+              <LazyHeadingTitle :title="`Tentang ${categoryTitle}`" />
 
+              <div class="row justify-content-start g-2">
+                <div class="col-lg-4 d-none d-lg-block d-xl-block">
+                  <NuxtImg :src="'/images/event_isna.png'" class="isna-images__logo" loading="lazy" />
+                </div>
+                <div class="col-lg-8">
+                  <div class="d-flex flex-column">
+                    <h3 class='isna-heading__title'>Apa itu {{ categoryTitle }}?</h3>
+                    <p class="isna-heading__description">{{ categoryDescription }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="d-flex justify-content-between py-3">
+              <h1 class="berita-section-title">{{ categoryTitle }}</h1>
+              <div v-if="categoryPostsId === Number(90) || categoryParentId === Number(90)">
+                <div class="dropdown" style="width: 150px">
+                  <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Pilih Tahun
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li v-for="isna in isnaCategoriesData" :key="isna.id" @click="handleClickButton(isna.id)"><a
+                        class="dropdown-item border-bottom">{{ isna.name.replace('ISNA', "") }}</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div>
               <div class="d-flex flex-column ">
-                <ul class="list-group list-group-flush">
-                  <li v-for="post in postsData
-                    .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-                    ?.slice(0, 12)" :key="post.id" class="list-group-item mx-0 px-0">
+                <ul v-if="eventsData" class="list-group list-group-flush">
+                  <li v-for="post in eventsData" :key="post.id" class="list-group-item mx-0 px-0">
                     <div class="card border-0 rounded-0">
                       <div class="row justify-content-start align-items-center g-3">
                         <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
-                          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+                          <NuxtLink :to="`/events/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
                             <NuxtImg :class="'article-thumbnail'" :src="post.featured_media" loading="lazy"
                               :alt="post.title.rendered" />
                           </NuxtLink>
@@ -67,7 +135,8 @@ useSeoMeta({
                               }}</span>
                             </div>
 
-                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+                            <NuxtLink :to="`/events/${post.slug}`"
+                              :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
                               :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
                               {{
                                 post.title.rendered.length >= 80
@@ -86,7 +155,6 @@ useSeoMeta({
                   </li>
                 </ul>
               </div>
-
               <!-- Pagination start -->
               <div v-show="posts.length >= 12" class="d-flex justify-content-center g-2 pt-5">
                 <nav aria-label="Page navigation example">
@@ -114,19 +182,20 @@ useSeoMeta({
                 </nav>
               </div>
               <!-- Pagination end -->
-            </article>
+            </div>
+
+
           </div>
           <div class="col-xl-4 col-xxl-4 col-lg-12 ">
             <article>
               <h1 class="berita-section-title text-decoration-underline">
-                Berita Terpopuler Lainnya
+                Terpopuler
               </h1>
 
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleRecomended v-for="(post, index) in posts
-                    .sort((a, b) => a.title.localeCompare(b.title))
-                    .slice(0, 10)" :key="post.id" :number="index" :postId="post.slug" :title="post.title" />
+                  <ArticlesArticleListTitle
+                    :posts="posts.filter(post => post.categories.find(category => category === Number(90))).sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)" />
                 </div>
               </div>
             </article>
@@ -135,6 +204,8 @@ useSeoMeta({
       </div>
     </section>
     <!-- Section berita end -->
+
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 
@@ -168,9 +239,11 @@ useSeoMeta({
   line-height: 120%;
   /* 24px */
 }
+
 .text-decoration-underline {
   margin-bottom: 25px !important;
 }
+
 .line-break {
   position: relative;
   top: -5px;
@@ -254,6 +327,84 @@ useSeoMeta({
   object-fit: cover;
 }
 
+
+.isna-images__logo {
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* object-position: center; */
+  width: 250px;
+  height: 250px;
+  border-radius: 4px;
+
+}
+
+.isna-heading__title {
+  overflow: hidden;
+  color: var(--font-600, #5D5D5D);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  /* 19.2px */
+}
+
+.dropdown-item {
+  margin-bottom: 10px;
+
+  color: var(--font-600, #5D5D5D);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  text-align: center;
+  /* margin: 0 auto;
+  width: 124px; */
+  cursor: pointer;
+
+}
+
+.dropdown-item:hover {
+  color: var(--primary-600, #D71149);
+}
+
+.dropdown-item:focus {
+  color: var(--primary-600, #D71149);
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.dropdown-menu {
+  /* position: absolute; */
+  width: 124px;
+  padding: 24px;
+  gap: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--font-100, #E7E7E7);
+  background: var(--Background, #FFF);
+  margin-top: 13px !important;
+}
+
+.dropdown-divider {
+  width: 95px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+
+.dropdown-toggle {
+  /* width: 100%; */
+  width: 100%;
+  text-align: center;
+  border-radius: 4px;
+  vertical-align: top;
+}
+
 @media (min-width: 992px) {
   .article-thumbnail {
     width: 256px;
@@ -320,6 +471,10 @@ useSeoMeta({
 }
 
 .dark-mode .article-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .isna-heading__title {
   color: rgba(255, 255, 255, 0.9);
 }
 </style>

@@ -1,20 +1,18 @@
 
 <script lang="ts" setup>
+import { PropType } from "vue"
 import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
-defineProps({ start: { type: Number, default: 0 }, end: { type: Number, default: 5 } })
 
-
-const { data: posts, pending, error } = await useFetch<PostsDataType>('/api/posts')
+defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 
 </script>
 
 <template>
-  <div class="d-flex flex-column">
-    <div v-if="posts" class="vstack g-3">
-      <div v-for="(post, index) in posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-            .slice(start, end)" :key="post.id">
-        <div class="d-flex justify-content-arround mb-4 ">
+  <div class="d-flex flex-column pt-3">
+    <div v-if="posts" class="vstack gap-4">
+      <div v-for="(post, index) in posts" :key="post.id">
+        <div class="d-flex justify-content-arround mb-3">
           <span class="article-number me-3">{{ index + 1 }}</span>
           <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
             :class="'article-title text-start text-wrap fw-normal fs-6 lh-base link-offset-2 d-block link-underline-opacity-0 '">

@@ -1,4 +1,5 @@
-<script setup>
+<script setup lang="ts">
+import Swal from 'sweetalert2';
 // Set Meta SEO
 useSeoMeta({
   title: "Tentang Kami",
@@ -9,8 +10,32 @@ useSeoMeta({
 const colorMode = useColorMode();
 
 const { data: teams } = await useFetch('/api/teams')
-
 const { data: clients } = await useFetch('/api/client')
+
+
+const showTooltip = (name: string, message: string, images: string) => {
+  // alert(message)
+  return Swal.fire({
+    title: name,
+    text: message,
+    imageUrl: images,
+    // imageWidth: 300,
+    imageHeight: 300,
+    width: 1000,
+    color: "#5d5d5d",
+    background: "#fff url(/images/trees.png)",
+    backdrop: `
+    rgba(0,0,123,0.4)
+    url("/images/nyan-cat.gif")
+    left top
+    no-repeat
+  `,
+    showCloseButton: true,
+    showCancelButton: false,
+    showConfirmButton: false,
+    focusConfirm: true,
+  });
+}
 
 </script>
 
@@ -104,16 +129,38 @@ const { data: clients } = await useFetch('/api/client')
     <section class="teams-citiasia-section-container py-5">
       <div class="container" data-aos="fade-down" data-aos-duration="1500">
         <h1 class="teams-citiasia__title">Tim Citiasia Inc</h1>
-        <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-3 pt-5">
-          <div v-for="team in teams" :key="team.id" class="col">
-            <figure class="figure">
-              <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images" :alt="team.name"
-                loading="lazy" :quality="75" format="webp" />
-              <figcaption class="figure-caption">
-                <h3 class="teams-citiasia__name">{{ team.name }}</h3>
-                <p class="teams-citiasia__job">{{ team.jobs }}</p>
-              </figcaption>
-            </figure>
+
+
+        <!-- Tampilkan tooltips ketika user menghover -->
+        <div class="d-none d-lg-none d-xl-block d-xxl-block">
+          <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-3 pt-5 ">
+            <div v-for="team in teams" :key="team.id" class="col">
+              <figure class="figure">
+                <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images"
+                  :alt="team.name" loading="lazy" :quality="75" format="webp" />
+                <figcaption class="figure-caption" @mouseover="showTooltip(team.name, team.description, team.thumbnail)">
+                  <h3 class="teams-citiasia__name">{{ team.name }}</h3>
+                  <p class="teams-citiasia__job">{{ team.jobs }}</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- sembunyikan tootips pada tampilan mobile -->
+        <div class="d-xl-none d-xxl-none">
+          <div class="row row-cols-2 row-cols-lg-5 row-cols-md-3 justify-content-start g-3 pt-5 ">
+            <div v-for="team in teams" :key="team.id" class="col">
+              <figure class="figure">
+                <NuxtImg :src="team.thumbnail" class="figure-img img-fluid rounded teams-citiasia__images"
+                  :alt="team.name" loading="lazy" :quality="75" format="webp" />
+                <figcaption class="figure-caption">
+                  <h3 class="teams-citiasia__name">{{ team.name }}</h3>
+                  <p class="teams-citiasia__job">{{ team.jobs }}</p>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
@@ -208,7 +255,7 @@ const { data: clients } = await useFetch('/api/client')
       </div>
     </section>
     <!-- section portofolio end -->
-    <hr v-show="colorMode.preference === 'dark'" />
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 
@@ -248,7 +295,7 @@ const { data: clients } = await useFetch('/api/client')
 .citiasia-section-container {
   width: 100%;
   height: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   background: var(--Background, #fff);
 }
 
@@ -269,7 +316,8 @@ const { data: clients } = await useFetch('/api/client')
 
 .visimisi-section-container {
   background: var(--primary-800, #a60b40);
-  height: auto;
+  /* height: auto; */
+  height: 1000px;
   overflow-x: hidden;
   position: relative;
 }
@@ -872,5 +920,22 @@ const { data: clients } = await useFetch('/api/client')
   border-radius: 14px 0px 0px 14px;
   background: var(--primary-400, #FF6A89);
 
+}
+
+
+
+.dark-mode .rectangle-bottom {
+  display: none;
+}
+
+.dark-mode .rectangle-top {
+  display: none;
+}
+
+/* responsive */
+@media (min-width: 1200px) {
+  .visimisi-section-container {
+    height: 800px;
+  }
 }
 </style>

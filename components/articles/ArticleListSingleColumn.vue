@@ -1,20 +1,16 @@
 
 <script lang="ts" setup>
+import { PropType } from "vue"
 import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
 
 const props = defineProps({
-  // posts: { type: Object as PropType<PostsDataType> },
+  posts: { type: Object as PropType<PostsDataType> },
   isBackground: { type: Boolean },
   isDescription: { type: Boolean, default: true }
 })
 
-const { data: posts, pending, error } = await useFetch('/api/posts', {
-  transform: (posts: PostsDataType) => {
-    return posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-      .slice(0, 1)
-  }
-})
+
 </script>
 
 <template>
@@ -23,7 +19,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
       <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
         <NuxtImg :class="'card-img-top img-fluid article-thumbnail'" :src="post.featured_media" :height="253"
-          loading="lazy" :alt="post.title.rendered" format="webp" />
+          loading="lazy" :alt="post.title.rendered" format="webp" :quality="50" />
       </NuxtLink>
       <div class="card-body px-0 mx-0">
 
@@ -42,7 +38,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
         </NuxtLink>
 
         <div v-show="isDescription"
-          :class="`card-text text-start lh-base ${isBackground ? 'article-desc__background' : 'article-desc'}   pt-2`"
+          :class="`card-text text-start lh-base ${isBackground ? 'article-desc__background' : 'article-desc'}   py-3`"
           v-html="post.excerpt.rendered.length >= 250
             ? `${post.excerpt.rendered.substring(0, 250)}...`
             : post.excerpt.rendered
@@ -177,18 +173,14 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 }
 
 /* / Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-
-} 
+@media (min-width: 576px) {}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-
-}
+@media (min-width: 768px) {}
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     min-height: 253px;
     width: 100%;
     max-width: 1000px !important;
@@ -205,14 +197,14 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
   border-radius: 8px;
   /* margin-left: 30px; */
   /* animation: animate__zoomIn; */
-  /* animation-duration: 1ms; */ 
+  /* animation-duration: 1ms; */
 
-/* } */
+  /* } */
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     min-height: 253px;
     width: 100%;
     max-width: 1000px !important;
@@ -222,7 +214,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     min-height: 253px;
     width: 100%;
     max-width: 1000px !important;
@@ -233,7 +225,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
 /* // `sm` applies to x-small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     max-height: 100%;
     width: 100%;
     max-width: 1000px !important;
@@ -245,7 +237,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
 /* // `md` applies to small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     max-height: 100%;
     width: 100%;
     max-width: 1000px !important;
@@ -257,7 +249,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
 /* // `lg` applies to medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     max-height: 100%;
     width: 100%;
     max-width: 1000px !important;
@@ -269,7 +261,7 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
 /* // `xl` applies to large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     max-height: 100%;
     width: 100%;
     max-width: 1000px !important;
@@ -281,13 +273,12 @@ const { data: posts, pending, error } = await useFetch('/api/posts', {
 
 /* // `xxl` applies to x-large devices (large desktops, less than 1400px) */
 @media (max-width: 1399.98px) {
-  .card  .article-thumbnail{
+  .card .article-thumbnail {
     max-height: 100%;
     display: flex;
     text-align: center;
     max-width: 1000px !important;
   }
 }
-
 </style>
 

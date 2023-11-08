@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-import { PostsDataType } from "~/utils/data/getInitialPostsData"
+import { posts } from "~/utils/data/getInitialPostsData"
 
 const props = defineProps({ search: { type: String, required: true } })
-
-
-const { data: results, pending, error } = await useFetch<PostsDataType>('/api/posts');
 
 
 </script>
@@ -14,8 +11,8 @@ const { data: results, pending, error } = await useFetch<PostsDataType>('/api/po
   <div v-show="search" class="search-result-container">
     <div class="d-flex flex-column">
 
-      <div v-if="results" class="pt-3">
-        <div v-for="(result, index) in results.filter(post => post.title.rendered.toLowerCase().includes(props.search.toLowerCase())
+      <div class="pt-3">
+        <div v-for="(result, index) in posts.filter(post => post.title.rendered.toLowerCase().includes(props.search.toLowerCase())
             ).sort((a, b) => b.modified_gmt.toString().localeCompare(a.modified_gmt.toString())).slice(0, 5)"
           :key="index" class="d-flex justify-content-between g-0 mb-3">
           <NuxtLink :to="`/${result.slug}`" aria-label="Selengkapnya" class="search-result__title">

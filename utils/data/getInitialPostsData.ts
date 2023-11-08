@@ -1,5 +1,5 @@
-import useCreateSlug from "~/composables/useCreateSlug";
-import useGenerateUniqueId from "~/composables/useGenerateUniqueId";
+import useCreateSlug from '~/composables/useCreateSlug';
+import useGenerateUniqueId from '~/composables/useGenerateUniqueId';
 
 export interface Posts {
   id: number | string;
@@ -23,20 +23,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas"
+      'Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas'
     ),
-    date_gmt: new Date("21 December 2022").toISOString(),
-    modified_gmt: new Date("21 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('21 December 2022').toISOString(),
+    modified_gmt: new Date('21 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/21_Des-01-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/21_Des-01-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas",
+        'Smart City: Standar Nasional Indonesia (SNI) untuk Kota Cerdas',
     },
     excerpt: {
       rendered: `<span style="font-weight: 400;">Pembangunan dan pengembangan </span><i><span style="font-weight: 400;">smart city </span></i><span style="font-weight: 400;">sedang menjadi hal yang banyak dilakukan oleh daerah-daerah di Indonesia. Apalagi, pemerintah Indonesia memiliki program Gerakan Menuju 100 </span><i><span style="font-weight: 400;">smart city </span></i><span style="font-weight: 400;">yang merupakan program bersama Kementerian Komunikasi dan Informatika, Kementerian Dalam Negeri, Kementerian PUPR, Bappenas dan Kantor Staf Kepresidenan.&nbsp;</span>`,
@@ -48,75 +48,74 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia"
+      'Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia'
     ),
-    date_gmt: new Date("20 December 2022").toISOString(),
-    modified_gmt: new Date("20 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('20 December 2022').toISOString(),
+    modified_gmt: new Date('20 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 101, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/WEB-20-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/WEB-20-1536x896.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia",
+        'Terapkan Smart Fisheries Village (SFV) pada Industri Kelautan di Indonesia',
     },
     excerpt: {
       rendered:
-        `<span style="font-weight: 400;">Kementerian Kelautan dan Perikanan (KKP) melalui Badan Riset dan Sumber Daya Manusia Kelautan dan Perikanan menciptakan inovasi di bidang perikanan melalui&nbsp; </span><i><span style="font-weight: 400;">Smart Fisheries Village </span></i><span style="font-weight: 400;">(SFV). Program </span><i><span style="font-weight: 400;">SFV diluncurkan oleh Menteri Kelautan dan Perikanan pada 2 Agustus 2022 di Rapat Kerja Teknis BRSDM, memiliki dua konsep yakni yakni SFV Desa dan SFV UPT.&nbsp; </span>`,
+        '<span style="font-weight: 400;">Kementerian Kelautan dan Perikanan (KKP) melalui Badan Riset dan Sumber Daya Manusia Kelautan dan Perikanan menciptakan inovasi di bidang perikanan melalui&nbsp; </span><i><span style="font-weight: 400;">Smart Fisheries Village </span></i><span style="font-weight: 400;">(SFV). Program </span><span style="font-weight: 400;">SFV diluncurkan oleh Menteri Kelautan dan Perikanan pada 2 Agustus 2022 di Rapat Kerja Teknis BRSDM, memiliki dua konsep yakni yakni SFV Desa dan SFV UPT.&nbsp;</span></span>',
     },
     content: {
       rendered:
-        '<span style="font-weight: 400;">Kementerian Kelautan dan Perikanan (KKP) melalui Badan Riset dan Sumber Daya Manusia Kelautan dan Perikanan menciptakan inovasi di bidang perikanan melalui&nbsp; </span><i><span style="font-weight: 400;">Smart Fisheries Village </span></i><span style="font-weight: 400;">(SFV). Program </span><span style="font-weight: 400;">SFV diluncurkan oleh Menteri Kelautan dan Perikanan pada 2 Agustus 2022 di Rapat Kerja Teknis BRSDM, memiliki dua konsep yakni yakni SFV Desa dan SFV UPT.&nbsp;</span></span></p>\n<i><span style="font-weight: 400;">Smart Fisheries Village</span></i><span style="font-weight: 400;"> (SFV) merupakan konsep pembangunan desa atau kawasan perikanan berbasis teknologi informasi dan komunikasi manajemen berkelanjutan guna mendukung pengembangan potensi lokal.&nbsp;</span></span></p>\n<span style="font-weight: 400;">Dalam pembangunannya, SFV telah meningkatkan daya saing desa dan kapasitas sumber daya manusia (SDM), termasuk dalam percepatan pemanfaatan sarana teknologi digital, sehingga </span><span style="font-weight: 400;">kegiatan ekonomi di dalamnya menjadi lebih beragam, seperti adanya spot wisata hingga produksi produk UMKM.</span><span style="font-weight: 400;">&nbsp;</span></span></p>\n<span style="font-weight: 400;">Inovasi ini membutuhkan dukungan dari lintas sektoral, baik dari kementerian maupun lembaga, pemerintah daerah dan perbankan serta swasta. Hal ini menjadi salah satu peningkatan perekonomian melalui inisiatif strategis berbasis agro-maritim.&nbsp;</span></p>\n<i><span style="font-weight: 400;">Smart Fisheries Village</span></i><span style="font-weight: 400;"> (SFV) dalam meningkatkan digitalisasi korporasi yang memiliki visi dan misi, sebagai berikut:&nbsp;</span></span></p>\n\n<ol>\n \t<li style="font-weight: 400; text-align: justify;" aria-level="1"><span style="font-weight: 400;">Mempercepat pembangunan infrastruktur dan platform digital cerdas yang berkelanjutan, ekonomi, dan dapat diakses oleh semua kalangan;</span></li>\n \t<li style="font-weight: 400; text-align: justify;" aria-level="1"><span style="font-weight: 400;">Mengembangkan talenta digital untuk mendorong kemampuan serta tingkat adopsi digital masyarakat;</span></li>\n \t<li style="font-weight: 400; text-align: justify;" aria-level="1"><span style="font-weight: 400;">Memimpin pembentukan ekosistem digital yang memberi pengalaman terbaik bagi pengguna.</span></li>\n</ol>\n<a href="https://smartnation.id/terapkan-smart-fisheries-village-sfv-pada-industri-kelautan-di-indonesia/"><strong><em>Reference</em></strong></a>',
+        '<span style="font-weight: 400;">Kementerian Kelautan dan Perikanan (KKP) melalui Badan Riset dan Sumber Daya Manusia Kelautan dan Perikanan menciptakan inovasi di bidang perikanan melalui&nbsp; </span><i><span style="font-weight: 400;">Smart Fisheries Village </span></i><span style="font-weight: 400;">(SFV). Program </span><span style="font-weight: 400;">SFV diluncurkan oleh Menteri Kelautan dan Perikanan pada 2 Agustus 2022 di Rapat Kerja Teknis BRSDM, memiliki dua konsep yakni yakni SFV Desa dan SFV UPT.&nbsp;</span></span></p>\n<i><span style="font-weight: 400;">Smart Fisheries Village</span></i><span style="font-weight: 400;"> (SFV) merupakan konsep pembangunan desa atau kawasan perikanan berbasis teknologi informasi dan komunikasi manajemen berkelanjutan guna mendukung pengembangan potensi lokal.&nbsp;</span></span></p>\n<span style="font-weight: 400;">Dalam pembangunannya, SFV telah meningkatkan daya saing desa dan kapasitas sumber daya manusia (SDM), termasuk dalam percepatan pemanfaatan sarana teknologi digital, sehingga </span><span style="font-weight: 400;">kegiatan ekonomi di dalamnya menjadi lebih beragam, seperti adanya spot wisata hingga produksi produk UMKM.</span><span style="font-weight: 400;">&nbsp;</span></span></p>\n<span style="font-weight: 400;">Inovasi ini membutuhkan dukungan dari lintas sektoral, baik dari kementerian maupun lembaga, pemerintah daerah dan perbankan serta swasta. Hal ini menjadi salah satu peningkatan perekonomian melalui inisiatif strategis berbasis agro-maritim.&nbsp;</span></p>\n<i><span style="font-weight: 400;">Smart Fisheries Village</span></i><span style="font-weight: 400;"> (SFV) dalam meningkatkan digitalisasi korporasi yang memiliki visi dan misi, sebagai berikut:&nbsp;</span></span></p>\n\n<ol>\n \t<li style="font-weight: 400;><span style="font-weight: 400;">Mempercepat pembangunan infrastruktur dan platform digital cerdas yang berkelanjutan, ekonomi, dan dapat diakses oleh semua kalangan;</span></li>\n \t<li style="font-weight: 400;><span style="font-weight: 400;">Mengembangkan talenta digital untuk mendorong kemampuan serta tingkat adopsi digital masyarakat;</span></li>\n \t<li style="font-weight: 400;><span style="font-weight: 400;">Memimpin pembentukan ekosistem digital yang memberi pengalaman terbaik bagi pengguna.</span></li>\n</ol>\n<a href="https://smartnation.id/terapkan-smart-fisheries-village-sfv-pada-industri-kelautan-di-indonesia/"><strong><em>Reference</em></strong></a>',
     },
   },
 
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022"
+      'Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022'
     ),
-    date_gmt: new Date("16 December 2022").toISOString(),
-    modified_gmt: new Date("16 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('16 December 2022').toISOString(),
+    modified_gmt: new Date('16 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/artikel16-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/artikel16-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022",
+      rendered: 'Teknologi VAR dalam Pertandingan Sepak Bola Piala Dunia 2022',
     },
     excerpt: {
-      rendered:
-        'Teknologi Video Assistant Referee (VAR) dalam Pertandingan Sepak Bola Piala Dunia 2022\n\n<span style="font-weight: 400;">Teknologi telah berkembang dengan sangat pesat, bahkan sudah merambah di bidang olahraga yaitu sepak bola.</span>\n\n<span style="font-weight: 400;">Piala Dunia 2022 yang diselenggarakan oleh negara Qatar telah menggunakan teknologi </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) dalam menentukan posisi </span><i>',
+      rendered: `<span style="font-weight: 400;">Teknologi Video Assistant Referee (VAR) dalam Pertandingan Sepak Bola Piala Dunia 2022 Teknologi telah berkembang dengan sangat pesat, bahkan sudah merambah di bidang olahraga yaitu sepak bola.</span>\n\n<span style="font-weight: 400;">Piala Dunia 2022 yang diselenggarakan oleh negara Qatar telah menggunakan teknologi </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) dalam menentukan posisi </span><i>`,
     },
     content: {
       rendered:
-        ' Teknologi Video Assistant Referee (VAR) dalam Pertandingan Sepak Bola Piala Dunia 2022\n\n<span style="font-weight: 400;">Teknologi telah berkembang dengan sangat pesat, bahkan sudah merambah di bidang olahraga yaitu sepak bola.</span>\n\n<span style="font-weight: 400;">Piala Dunia 2022 yang diselenggarakan oleh negara Qatar telah menggunakan teknologi </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) dalam menentukan posisi </span><i><span style="font-weight: 400;">offside</span></i><span style="font-weight: 400;">.</span>\n\n<i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) adalah prosedur bantuan teknologi untuk membantu asisten wasit meninjau tayangan ulang sebuah insiden dalam permainan sepak bola, sebagai bahan pertimbangan untuk wasit utama. Fungsi VAR dalam sepak bola adalah untuk menegakan maupun menegakkan peraturan pertandingan sepak bola (</span><i><span style="font-weight: 400;">Laws of the Game</span></i><span style="font-weight: 400;">) semaksimal mungkin, seperti dikutip dari panduan Dewan Asosiasi Sepak Bola Internasional (IFAB).</span>\n\n<b>Bagaimana cara kerja sistem VAR?</b>\n\n<i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) telah membantu wasit dalam beberapa situasi penting, hal inilah yang akhirnya membuat sistem VAR digunakan oleh FIFA dalam menentukan poin dalam permainan sepak bola. Adapun cara kerja dari sistem ini, sebagai berikut:</span>\n<ol>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Dapat memeriksa siaran televisi atau rekaman pertandingan secara langsung untuk melihat insiden dalam sebuah pertandingan sepak bola;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Teknologi VAR dapat meninjau tayangan siaran pertandingan secara normal atau memakai tayangan ulang dengan kecepatan diperlambat (</span><i><span style="font-weight: 400;">slow motion</span></i><span style="font-weight: 400;">) dari berbagai sudut;&nbsp;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Teknologi VAR memiliki akses ke 33 kamera televisi, diantaranya terdapat 8 kamera yang menerapkan super </span><i><span style="font-weight: 400;">slow motion</span></i><span style="font-weight: 400;"> dan empat ultra slow-motion. Selain itu, tim VAR juga terhubung ke dua kamera </span><i><span style="font-weight: 400;">offside</span></i><span style="font-weight: 400;">.</span></li>\n</ol>\n<span style="font-weight: 400;">Hal-hal yang dapat ditinjau dalam penggunaan </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) </span><span style="font-weight: 400;">&nbsp;di pertandingan sepak bola FIFA, sebagai berikut:</span>\n<ol>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Meninjau proses terjadinya gol, jika ada kemungkinan pelanggaran, </span><i><span style="font-weight: 400;">handball, </span></i><span style="font-weight: 400;">atau </span><i><span style="font-weight: 400;">offside;</span></i></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Meninjau terjadinya pinalti, melihat kemungkinan terjadinya pelanggaran, handball, dan diving yang sengaja dilakukan untuk mencari keuntungan;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Meninjau pelanggaran yang berpotensi hukuman kartu merah, misalnya ketika insiden perkelahian antar pemain atau adanya pelecehan dari gestur pemain;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Memeriksa ulang kesalahan identifikasi dari wasit, guna memastikan pemberian kartu kuning atau merah.</span></li>\n</ol>\n<span style="font-weight: 400;">Dengan begitu, teknologi </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) telah meningkatkan kenyamanan dan kepercayaan seluruh elemen yang terlibat dalam pertandingan sepak bola. Perselisihan dan keraguan dari pemain bola, klub, panitia, supporter dalam menilai keputusan wasit kini bisa diminimalisir.</span>\n\n<a href="https://smartnation.id/teknologi-var-dalam-pertandingan-sepak-bola-piala-dunia-2022/" data-wplink-edit="true"><strong>Referensi</strong></a>',
+        '<span style="font-weight: 400;">Teknologi Video Assistant Referee (VAR) dalam Pertandingan Sepak Bola Piala Dunia 2022 Teknologi telah berkembang dengan sangat pesat, bahkan sudah merambah di bidang olahraga yaitu sepak bola.</span>\n\n<span style="font-weight: 400;">Piala Dunia 2022 yang diselenggarakan oleh negara Qatar telah menggunakan teknologi </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) dalam menentukan posisi </span><i><span style="font-weight: 400;">offside</span></i><span style="font-weight: 400;">.</span>\n\n<i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) adalah prosedur bantuan teknologi untuk membantu asisten wasit meninjau tayangan ulang sebuah insiden dalam permainan sepak bola, sebagai bahan pertimbangan untuk wasit utama. Fungsi VAR dalam sepak bola adalah untuk menegakan maupun menegakkan peraturan pertandingan sepak bola (</span><i><span style="font-weight: 400;">Laws of the Game</span></i><span style="font-weight: 400;">) semaksimal mungkin, seperti dikutip dari panduan Dewan Asosiasi Sepak Bola Internasional (IFAB).</span>\n\n<b>Bagaimana cara kerja sistem VAR?</b>\n\n<i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) telah membantu wasit dalam beberapa situasi penting, hal inilah yang akhirnya membuat sistem VAR digunakan oleh FIFA dalam menentukan poin dalam permainan sepak bola. Adapun cara kerja dari sistem ini, sebagai berikut:</span>\n<ol>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Dapat memeriksa siaran televisi atau rekaman pertandingan secara langsung untuk melihat insiden dalam sebuah pertandingan sepak bola;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Teknologi VAR dapat meninjau tayangan siaran pertandingan secara normal atau memakai tayangan ulang dengan kecepatan diperlambat (</span><i><span style="font-weight: 400;">slow motion</span></i><span style="font-weight: 400;">) dari berbagai sudut;&nbsp;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Teknologi VAR memiliki akses ke 33 kamera televisi, diantaranya terdapat 8 kamera yang menerapkan super </span><i><span style="font-weight: 400;">slow motion</span></i><span style="font-weight: 400;"> dan empat ultra slow-motion. Selain itu, tim VAR juga terhubung ke dua kamera </span><i><span style="font-weight: 400;">offside</span></i><span style="font-weight: 400;">.</span></li>\n</ol>\n<span style="font-weight: 400;">Hal-hal yang dapat ditinjau dalam penggunaan </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) </span><span style="font-weight: 400;">&nbsp;di pertandingan sepak bola FIFA, sebagai berikut:</span>\n<ol>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Meninjau proses terjadinya gol, jika ada kemungkinan pelanggaran, </span><i><span style="font-weight: 400;">handball, </span></i><span style="font-weight: 400;">atau </span><i><span style="font-weight: 400;">offside;</span></i></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Meninjau terjadinya pinalti, melihat kemungkinan terjadinya pelanggaran, handball, dan diving yang sengaja dilakukan untuk mencari keuntungan;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Meninjau pelanggaran yang berpotensi hukuman kartu merah, misalnya ketika insiden perkelahian antar pemain atau adanya pelecehan dari gestur pemain;</span></li>\n \t<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Memeriksa ulang kesalahan identifikasi dari wasit, guna memastikan pemberian kartu kuning atau merah.</span></li>\n</ol>\n<span style="font-weight: 400;">Dengan begitu, teknologi </span><i><span style="font-weight: 400;">Video Assistant Referee</span></i><span style="font-weight: 400;"> (VAR) telah meningkatkan kenyamanan dan kepercayaan seluruh elemen yang terlibat dalam pertandingan sepak bola. Perselisihan dan keraguan dari pemain bola, klub, panitia, supporter dalam menilai keputusan wasit kini bisa diminimalisir.</span>\n\n<a href="https://smartnation.id/teknologi-var-dalam-pertandingan-sepak-bola-piala-dunia-2022/" data-wplink-edit="true"><strong>Referensi</strong></a>',
     },
   },
 
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan"
+      'Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan'
     ),
-    date_gmt: new Date("16 December 2022").toISOString(),
-    modified_gmt: new Date("16 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('16 December 2022').toISOString(),
+    modified_gmt: new Date('16 December 2022').toISOString(),
+    status: 'publish',
     categories: [82, 83, 145, 101, 86, 139, 137, 117],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/Artikel-16-Desember-1-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/Artikel-16-Desember-1-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan",
+        'Wamenkes Ingin Mendorong Inovasi Teknologi di Bidang Kesehatan',
     },
     excerpt: {
       rendered:
@@ -130,18 +129,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Uang Digital RI Akan Rilis Tahun Depan"),
-    date_gmt: new Date("13 December 2022").toISOString(),
-    modified_gmt: new Date("13 December 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Uang Digital RI Akan Rilis Tahun Depan'),
+    date_gmt: new Date('13 December 2022').toISOString(),
+    modified_gmt: new Date('13 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 139, 154],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/14_Des-01-01-1-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/14_Des-01-01-1-1536x896.png',
+    comment_status: 'open',
     title: {
-      rendered: "Uang Digital RI Akan Rilis Tahun Depan",
+      rendered: 'Uang Digital RI Akan Rilis Tahun Depan',
     },
     excerpt: {
       rendered:
@@ -156,46 +155,46 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Tingkatkan SDM Daerah Melalui Seminar Smart City 2022"
+      'Tingkatkan SDM Daerah Melalui Seminar Smart City 2022'
     ),
-    date_gmt: new Date("13 December 2022").toISOString(),
-    modified_gmt: new Date("13 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('13 December 2022').toISOString(),
+    modified_gmt: new Date('13 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 145, 86, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/Artikel13-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/Artikel13-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Tingkatkan SDM Daerah Melalui Seminar Smart City 2022",
+      rendered: 'Tingkatkan SDM Daerah Melalui Seminar Smart City 2022',
     },
     excerpt: {
       rendered:
-        '<h5><b>Referensi</b></h5>\r\n<span style="font-weight: 400;">Amanda, G. (2022, Desember 01). </span><i><span style="font-weight: 400;">Kadin Kominfo Muba Hadiri Seminar dan Pameran Gerakan Menuju Smart City Tahun 2022</span></i><span style="font-weight: 400;">. Retrieved from republika.co.id: </span><a href="https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022"><span style="font-weight: 400;">https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022</span> ',
+        '<span style="font-weight: 400;">Amanda, G. (2022, Desember 01). </span><i><span style="font-weight: 400;">Kadin Kominfo Muba Hadiri Seminar dan Pameran Gerakan Menuju Smart City Tahun 2022</span></i><span style="font-weight: 400;">. Retrieved from republika.co.id: </span><a href="https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022"><span style="font-weight: 400;">https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022</span> ',
     },
     content: {
       rendered:
-        '<h5><b>Referensi</b></h5>\r\n<span style="font-weight: 400;">Amanda, G. (2022, Desember 01). </span><i><span style="font-weight: 400;">Kadin Kominfo Muba Hadiri Seminar dan Pameran Gerakan Menuju Smart City Tahun 2022</span></i><span style="font-weight: 400;">. Retrieved from republika.co.id: </span><a href="https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022"><span style="font-weight: 400;">https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022</span></a>\r\n\r\n<span style="font-weight: 400;">Fitriana, S. N. (2022, Oktober 22). </span><i><span style="font-weight: 400;">Tingkatkan Kualitas SDM, Pemkot Bitung Ajak Pemuda Ikut Seminar Smart City</span></i><span style="font-weight: 400;">. Retrieved from detik.com: </span><a href="https://www.detik.com/sulsel/berita/d-6363138/tingkatkan-kualitas-sdm-pemkot-bitung-ajak-pemuda-ikut-seminar-smart-city"><span style="font-weight: 400;">https://www.detik.com/sulsel/berita/d-6363138/tingkatkan-kualitas-sdm-pemkot-bitung-ajak-pemuda-ikut-seminar-smart-city</span></a>, ',
+        '<span style="font-weight: 400;">Amanda, G. (2022, Desember 01). </span><i><span style="font-weight: 400;">Kadin Kominfo Muba Hadiri Seminar dan Pameran Gerakan Menuju Smart City Tahun 2022</span></i><span style="font-weight: 400;">. Retrieved from republika.co.id: </span><a href="https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022"><span style="font-weight: 400;">https://www.republika.co.id/berita/rm77wc423/kadin-kominfo-muba-hadiri-seminar-dan-pameran-gerakan-menuju-smart-city-tahun-2022</span></a>\r\n\r\n<span style="font-weight: 400;">Fitriana, S. N. (2022, Oktober 22). </span><i><span style="font-weight: 400;">Tingkatkan Kualitas SDM, Pemkot Bitung Ajak Pemuda Ikut Seminar Smart City</span></i><span style="font-weight: 400;">. Retrieved from detik.com: </span><a href="https://www.detik.com/sulsel/berita/d-6363138/tingkatkan-kualitas-sdm-pemkot-bitung-ajak-pemuda-ikut-seminar-smart-city"><span style="font-weight: 400;">https://www.detik.com/sulsel/berita/d-6363138/tingkatkan-kualitas-sdm-pemkot-bitung-ajak-pemuda-ikut-seminar-smart-city</span></a>, ',
     },
   },
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan"
+      'KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan'
     ),
-    date_gmt: new Date("10 December 2022").toISOString(),
-    modified_gmt: new Date("10 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('10 December 2022').toISOString(),
+    modified_gmt: new Date('10 December 2022').toISOString(),
+    status: 'publish',
     categories: [82, 83, 145, 101, 86, 139, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/09_Desember-01-01-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/09_Desember-01-01-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan",
+        'KPK ingin Menekan Korupsi dengan Digitalisasi Sistem Pemerintahan',
     },
     excerpt: {
       rendered:
@@ -209,19 +208,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan"
+      'Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan'
     ),
-    date_gmt: new Date("8 December 2022").toISOString(),
-    modified_gmt: new Date("8 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('8 December 2022').toISOString(),
+    modified_gmt: new Date('8 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/8-des-web-1024x597.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/8-des-web-1024x597.png',
+    comment_status: 'open',
     title: {
-      rendered: "Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan",
+      rendered: 'Gunakan Teknologi RFID Untuk Mendeteksi Plat Nomor Kendaraan',
     },
     excerpt: {
       rendered:
@@ -235,20 +234,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City"
+      'Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City'
     ),
-    date_gmt: new Date("8 December 2022").toISOString(),
-    modified_gmt: new Date("8 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('8 December 2022').toISOString(),
+    modified_gmt: new Date('8 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/08_des-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/08_des-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City",
+        'Kominfo Ingin Dunia Usaha Ikut Mendorong Kolaborasi dalam Inisiatif Smart City',
     },
     excerpt: {
       rendered:
@@ -262,20 +261,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City"
+      'Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City'
     ),
-    date_gmt: new Date("7 December 2022").toISOString(),
-    modified_gmt: new Date("7 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('7 December 2022').toISOString(),
+    modified_gmt: new Date('7 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 139, 86, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1Afl0CYymvD4OIK9symWpcLHLZBzcU4AR",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1Afl0CYymvD4OIK9symWpcLHLZBzcU4AR',
+    comment_status: 'open',
     title: {
       rendered:
-        "Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City",
+        'Dalam Kenalkan Energi Terbarukan, Indonesia Gelar Pameran Teknologi Smart City',
     },
     excerpt: {
       rendered:
@@ -290,23 +289,23 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan"
+      'Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan'
     ),
-    date_gmt: new Date("8 December 2022").toISOString(),
-    modified_gmt: new Date("8 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('8 December 2022').toISOString(),
+    modified_gmt: new Date('8 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 101, 139, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1ysbrz2aT7qo92No_yBlw7ic2h85Ytc6d",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1ysbrz2aT7qo92No_yBlw7ic2h85Ytc6d',
+    comment_status: 'open',
     title: {
-      rendered: "Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan",
+      rendered: 'Konsep Smart Living, Mengedepankan Keamanan dan Kenyamanan',
     },
     excerpt: {
       rendered:
-        "Smart living adalah salah satu dimensi smart city yang memprioritaskan kepraktisan dan efisiensi dalam hidup. Smart living menawarkan berbagai keuntungan bagi manusia, seperti kenyamanan, keamanan dan efisiensi energi dalam kehidupan sehari-hari.           ",
+        'Smart living adalah salah satu dimensi smart city yang memprioritaskan kepraktisan dan efisiensi dalam hidup. Smart living menawarkan berbagai keuntungan bagi manusia, seperti kenyamanan, keamanan dan efisiensi energi dalam kehidupan sehari-hari.           ',
     },
     content: {
       rendered:
@@ -317,20 +316,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)"
+      'IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)'
     ),
-    date_gmt: new Date("1 December 2022").toISOString(),
-    modified_gmt: new Date("1 December 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('1 December 2022').toISOString(),
+    modified_gmt: new Date('1 December 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/12/spongecity-1-2-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/12/spongecity-1-2-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)",
+        'IMPLEMENTASI SPONGE CITY DALAM PEMBANGUNAN IBU KOTA NUSANTARA (IKN)',
     },
     excerpt: {
       rendered:
@@ -344,18 +343,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Qatar Gunakan Serba AI di Piala Dunia 2022"),
-    date_gmt: new Date("30 November 2022").toISOString(),
-    modified_gmt: new Date("30 November 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Qatar Gunakan Serba AI di Piala Dunia 2022'),
+    date_gmt: new Date('30 November 2022').toISOString(),
+    modified_gmt: new Date('30 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 139, 154, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/11/desain_29_Nov-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/11/desain_29_Nov-01-1536x896.png',
+    comment_status: 'open',
     title: {
-      rendered: "Qatar Gunakan Serba AI di Piala Dunia 2022",
+      rendered: 'Qatar Gunakan Serba AI di Piala Dunia 2022',
     },
     excerpt: {
       rendered:
@@ -369,48 +368,48 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Implementasi Smart Branding, Tidak Hanya Soal Wisata"),
-    date_gmt: new Date("25 November 2022").toISOString(),
-    modified_gmt: new Date("25 November 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Implementasi Smart Branding, Tidak Hanya Soal Wisata'),
+    date_gmt: new Date('25 November 2022').toISOString(),
+    modified_gmt: new Date('25 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 83, 88, 145, 90, 155, 86, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1LDmsUjoKixpG_yDD9vV5afobbW9VsWtG",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1LDmsUjoKixpG_yDD9vV5afobbW9VsWtG',
+    comment_status: 'open',
     title: {
-      rendered: "Implementasi Smart Branding, Tidak Hanya Soal Wisata",
+      rendered: 'Implementasi Smart Branding, Tidak Hanya Soal Wisata',
     },
     excerpt: {
-      rendered: `<span style=\"font-weight: 400;\">Smart branding </span></><span style=\"font-weight: 400;\">merupakan salah satu pilar dari pendekatan </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">yang memiliki definisi strategi memasarkan sebuah kota atau wilayah sehingga mampu menarik ekosistem sekitar, baik itu warga, masyarakat umum, ataupun pelaku bisnis.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Aspek </span><i><span style=\"font-weight: 400;\">smart branding </span></i><span style=\"font-weight: 400;\">tidak hanya terbatas pada pengembangan </span><i><span style=\"font-weight: 400;\">smart branding </span></i><span style=\"font-weight: 400;\">di area pariwisata. Menurut Hari Kusdaryanto, CIO Citiasia, ekosistem bisnis dan ekonomi kreatif juga menarik untuk dikembangkan.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Ketika memilih area pariwisata untuk dikembangkan sebagai </span><i><span style=\"font-weight: 400;\">smart branding, </span></i><span style=\"font-weight: 400;\">Hari melihat masih banyak daerah yang implementasinya kurang tepat karena masih terlalu fokus pada destinasi yang sebenarnya bisa lebih dari itu.</span>\n\n<span style=\"font-weight: 400;\">Hari menjelaskan penilaian </span><i><span style=\"font-weight: 400;\">smart branding</span></i><span style=\"font-weight: 400;\"> di pagelaran Indonesia Smart Nation Awards (ISNA) pada 17 November 2022 lalu, “Kalau hanya ‘jualan’ air terjun, akan selalu ada air terjun yang lebih indah,” tambah Hari.&nbsp;</span>`,
+      rendered: `Smart branding merupakan salah satu pilar dari pendekatan smart city yang memiliki definisi strategi memasarkan sebuah kota atau wilayah sehingga mampu menarik ekosistem sekitar, baik itu warga, masyarakat umum, ataupun pelaku bisnis. Aspek smart branding tidak hanya terbatas pada pengembangan smart branding di area pariwisata. Menurut Hari Kusdaryanto, CIO Citiasia, ekosistem bisnis dan ekonomi kreatif juga menarik untuk dikembangkan. Ketika memilih area pariwisata untuk dikembangkan sebagai smart branding, Hari melihat masih banyak daerah yang implementasinya kurang tepat karena masih terlalu fokus pada destinasi yang sebenarnya bisa lebih dari itu. Hari menjelaskan penilaian smart branding di pagelaran Indonesia Smart Nation Awards (ISNA) pada 17 November 2022 lalu, “Kalau hanya ‘jualan’ air terjun, akan selalu ada air terjun yang lebih indah,” tambah Hari. Objek wisata air terjun akan lebih diminati wisatawan jika tersedia amenitas atau fasilitas pendukung yang memadai. “Contohnya perjalanan ke sana mudah, ada tempat ganti yang layak di lokasi, dan lain sebagainya,” tambah Hari mencontohkan. Keterlibatan masyarakat juga penting dalam menyukseskan smart branding. Hari mengambil contoh Kabupaten Banyuwangi yang berhasil mengajak warga untuk berpartisipasi melalui program Smart Kampung. Melalui program tersebut, warga mendapat akses internet dan literasi digital agar mampu mengembangkan diri.  “Sehingga warga desa atau karang taruna di sana mampu melakukan branding sendiri terhadap kampungnya,” tambah Hari. Karena selain memperkaya daya tarik sebuah wilayah, inovasi yang lahir dari warga itu sendiri lebih terjaga keberlanjutannya sehingga pemerintah dapat fokus mengerjakan amenitas besar seperti membuat bandara, pelebaran jalan, dan lain-lain. Pemerintah daerah seharusnya juga aktif melakukan kerjasama atau co-creation dengan pelaku usaha. Contohnya untuk menjual produk unggulan UMKM secara online, pemerintah dapat melakukan kerjasama dengan marketplace yang sudah ada. “Cara ini lebih efektif dibanding membangun e-commerce sendiri,” tambah Hari. Pemerintah daerah juga bisa mengambil peran dengan memberi kemudahan pengusaha dalam mendapatkan izin usaha atau pendaftaran merek. Pemerintah daerah lebih baik fokus pada tugas pokok dan fungsinya, seperti kebijakan, infrastruktur, dan literasi warga. Dengan begitu, keberlanjutan inisiatif smart branding pun dapat selalu terjaga. Jadi, saat akan menerapkan smart branding sebaiknya sebuah daerah tidak hanya terpaku pada pariwisata dan memperhatikan aspek lain yang bisa menjadi potensi. Jika Anda butuh konsultansi, silahkan kunjungi akun Instagram @citiasiainc untuk informasi lebih lanjut.`,
     },
     content: {
-      rendered: `<span style=\"font-weight: 400;\">Smart branding </span></i><span style=\"font-weight: 400;\">merupakan salah satu pilar dari pendekatan </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">yang memiliki definisi strategi memasarkan sebuah kota atau wilayah sehingga mampu menarik ekosistem sekitar, baik itu warga, masyarakat umum, ataupun pelaku bisnis.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Aspek </span><i><span style=\"font-weight: 400;\">smart branding </span></i><span style=\"font-weight: 400;\">tidak hanya terbatas pada pengembangan </span><i><span style=\"font-weight: 400;\">smart branding </span></i><span style=\"font-weight: 400;\">di area pariwisata. Menurut Hari Kusdaryanto, CIO Citiasia, ekosistem bisnis dan ekonomi kreatif juga menarik untuk dikembangkan.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Ketika memilih area pariwisata untuk dikembangkan sebagai </span><i><span style=\"font-weight: 400;\">smart branding, </span></i><span style=\"font-weight: 400;\">Hari melihat masih banyak daerah yang implementasinya kurang tepat karena masih terlalu fokus pada destinasi yang sebenarnya bisa lebih dari itu.</span>\n\n<span style=\"font-weight: 400;\">Hari menjelaskan penilaian </span><i><span style=\"font-weight: 400;\">smart branding</span></i><span style=\"font-weight: 400;\"> di pagelaran Indonesia Smart Nation Awards (ISNA) pada 17 November 2022 lalu, “Kalau hanya ‘jualan’ air terjun, akan selalu ada air terjun yang lebih indah,” tambah Hari.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Objek wisata air terjun akan lebih diminati wisatawan jika tersedia amenitas atau fasilitas pendukung yang memadai. “Contohnya perjalanan ke sana mudah, ada tempat ganti yang layak di lokasi, dan lain sebagainya,” tambah Hari mencontohkan</span><span style=\"font-weight: 400;\">.</span>\n\n<span style=\"font-weight: 400;\">Keterlibatan masyarakat juga penting dalam menyukseskan </span><i><span style=\"font-weight: 400;\">smart branding. </span></i><span style=\"font-weight: 400;\">Hari mengambil contoh Kabupaten Banyuwangi yang berhasil mengajak warga untuk berpartisipasi melalui program Smart Kampung. Melalui program tersebut, warga mendapat akses internet dan literasi digital agar mampu mengembangkan diri. </span><span style=\"font-weight: 400;\">&nbsp;</span><span style=\"font-weight: 400;\">“Sehingga warga desa atau karang taruna di sana mampu melakukan </span><i><span style=\"font-weight: 400;\">branding </span></i><span style=\"font-weight: 400;\">sendiri terhadap kampungnya,” tambah Hari.&nbsp;&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Karena selain memperkaya daya tarik sebuah wilayah, inovasi yang lahir dari warga itu sendiri lebih terjaga keberlanjutannya sehingga pemerintah dapat fokus mengerjakan amenitas besar seperti membuat bandara, pelebaran jalan, dan lain-lain.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Pemerintah daerah seharusnya juga aktif melakukan kerjasama atau </span><i><span style=\"font-weight: 400;\">co-creation</span></i><span style=\"font-weight: 400;\"> dengan pelaku usaha. Contohnya untuk menjual produk unggulan UMKM secara online, pemerintah dapat melakukan kerjasama dengan marketplace yang sudah ada.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">“Cara ini lebih efektif dibanding membangun e-</span><i><span style=\"font-weight: 400;\">commerce</span></i><span style=\"font-weight: 400;\"> sendiri,” tambah Hari. Pemerintah daerah juga bisa mengambil peran dengan memberi kemudahan pengusaha dalam mendapatkan izin usaha atau pendaftaran merek.</span>\n\n<span style=\"font-weight: 400;\">Pemerintah daerah lebih baik fokus pada tugas pokok dan fungsinya, seperti kebijakan, infrastruktur, dan literasi warga. Dengan begitu, keberlanjutan inisiatif </span><i><span style=\"font-weight: 400;\">smart branding</span></i><span style=\"font-weight: 400;\"> pun dapat selalu terjaga.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Jadi, saat akan menerapkan </span><i><span style=\"font-weight: 400;\">smart branding </span></i><span style=\"font-weight: 400;\">sebaiknya sebuah daerah tidak hanya terpaku pada pariwisata dan memperhatikan aspek lain yang bisa menjadi potensi. Jika Anda butuh konsultansi, silahkan kunjungi akun Instagram @citiasiainc untuk informasi lebih lanjut.</span>\n\n<a href=\"https://smartnation.id/implementasi-smart-branding-tidak-hanya-soal-wisata/\"><em><strong>Reference</strong></em></a>`,
+      rendered: `Smart branding merupakan salah satu pilar dari pendekatan smart city yang memiliki definisi strategi memasarkan sebuah kota atau wilayah sehingga mampu menarik ekosistem sekitar, baik itu warga, masyarakat umum, ataupun pelaku bisnis. Aspek smart branding tidak hanya terbatas pada pengembangan smart branding di area pariwisata. Menurut Hari Kusdaryanto, CIO Citiasia, ekosistem bisnis dan ekonomi kreatif juga menarik untuk dikembangkan. Ketika memilih area pariwisata untuk dikembangkan sebagai smart branding, Hari melihat masih banyak daerah yang implementasinya kurang tepat karena masih terlalu fokus pada destinasi yang sebenarnya bisa lebih dari itu. Hari menjelaskan penilaian smart branding di pagelaran Indonesia Smart Nation Awards (ISNA) pada 17 November 2022 lalu, “Kalau hanya ‘jualan’ air terjun, akan selalu ada air terjun yang lebih indah,” tambah Hari. Objek wisata air terjun akan lebih diminati wisatawan jika tersedia amenitas atau fasilitas pendukung yang memadai. “Contohnya perjalanan ke sana mudah, ada tempat ganti yang layak di lokasi, dan lain sebagainya,” tambah Hari mencontohkan. Keterlibatan masyarakat juga penting dalam menyukseskan smart branding. Hari mengambil contoh Kabupaten Banyuwangi yang berhasil mengajak warga untuk berpartisipasi melalui program Smart Kampung. Melalui program tersebut, warga mendapat akses internet dan literasi digital agar mampu mengembangkan diri.  “Sehingga warga desa atau karang taruna di sana mampu melakukan branding sendiri terhadap kampungnya,” tambah Hari. Karena selain memperkaya daya tarik sebuah wilayah, inovasi yang lahir dari warga itu sendiri lebih terjaga keberlanjutannya sehingga pemerintah dapat fokus mengerjakan amenitas besar seperti membuat bandara, pelebaran jalan, dan lain-lain. Pemerintah daerah seharusnya juga aktif melakukan kerjasama atau co-creation dengan pelaku usaha. Contohnya untuk menjual produk unggulan UMKM secara online, pemerintah dapat melakukan kerjasama dengan marketplace yang sudah ada. “Cara ini lebih efektif dibanding membangun e-commerce sendiri,” tambah Hari. Pemerintah daerah juga bisa mengambil peran dengan memberi kemudahan pengusaha dalam mendapatkan izin usaha atau pendaftaran merek. Pemerintah daerah lebih baik fokus pada tugas pokok dan fungsinya, seperti kebijakan, infrastruktur, dan literasi warga. Dengan begitu, keberlanjutan inisiatif smart branding pun dapat selalu terjaga. Jadi, saat akan menerapkan smart branding sebaiknya sebuah daerah tidak hanya terpaku pada pariwisata dan memperhatikan aspek lain yang bisa menjadi potensi. Jika Anda butuh konsultansi, silahkan kunjungi akun Instagram @citiasiainc untuk informasi lebih lanjut.`,
     },
   },
 
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!"
+      'Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!'
     ),
-    date_gmt: new Date("25 November 2022").toISOString(),
-    modified_gmt: new Date("25 November 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('25 November 2022').toISOString(),
+    modified_gmt: new Date('25 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 83, 88, 145, 90, 86, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1cDzj6ZUrHyGEAeXzh2P-3AjWwUonmtqc",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1cDzj6ZUrHyGEAeXzh2P-3AjWwUonmtqc',
+    comment_status: 'open',
     title: {
       rendered:
-        "Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!",
+        'Siap-siap, di Pertengahan November Tahun Ini, ISNA 2022 Akan Digelar!',
     },
     excerpt: {
       rendered:
-        "Indonesia Smart Nation Award (ISNA) 2022 kembali diadakan secara langsung setelah dua tahun lamanya. ISNA diadakan oleh Citiasia Center For Smart Nation yang sebelumnya telah berhasil menggelar ISNA 2015, 2016, 2019, 2020, dan akan diselenggarakan tahun ini pada hari Kamis, 17 November 2022 di Garuda Main Hall 1 (First Floor) – ICE BSD, Tangerang.",
+        'Indonesia Smart Nation Award (ISNA) 2022 kembali diadakan secara langsung setelah dua tahun lamanya. ISNA diadakan oleh Citiasia Center For Smart Nation yang sebelumnya telah berhasil menggelar ISNA 2015, 2016, 2019, 2020, dan akan diselenggarakan tahun ini pada hari Kamis, 17 November 2022 di Garuda Main Hall 1 (First Floor) – ICE BSD, Tangerang.',
     },
     content: {
       rendered:
@@ -421,24 +420,24 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020"
+      'Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020'
     ),
-    date_gmt: new Date("7 October 2022").toISOString(),
-    modified_gmt: new Date("7 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('7 October 2022').toISOString(),
+    modified_gmt: new Date('7 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 88, 90],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/web7okt-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/web7okt-1536x896.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020",
+        'Inovasi Layanan Drive Thru Kabupaten Batang Sebagai Pemenang ISNA 2020',
     },
     excerpt: {
       rendered:
-        "Pemerintah Kabupaten Batang terpilih sebagai penerima apresiasi The 4th ISNA 2020 melalui pengembangan inovasi layanan Drive Thru di Mal Pelayanan Publik (MPP) Batang, (Infopublik.id, 2020). MPP Batang merupakan yang ketiga di Jawa Tengah sebagai percontohan, dikarenakan MPP Batang menjadi MPP pertama di Indonesia yang memiliki layanan Drive Thru perpanjangan SIM A dan SIM B.",
+        'Pemerintah Kabupaten Batang terpilih sebagai penerima apresiasi The 4th ISNA 2020 melalui pengembangan inovasi layanan Drive Thru di Mal Pelayanan Publik (MPP) Batang, (Infopublik.id, 2020). MPP Batang merupakan yang ketiga di Jawa Tengah sebagai percontohan, dikarenakan MPP Batang menjadi MPP pertama di Indonesia yang memiliki layanan Drive Thru perpanjangan SIM A dan SIM B.',
     },
     content: {
       rendered:
@@ -449,24 +448,24 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020"
+      'Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [88, 90],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/ilustrasi-cek-bantuan-sosial-dalam-penanganan-covid-19-di-banyuwangi-360x220-1.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/ilustrasi-cek-bantuan-sosial-dalam-penanganan-covid-19-di-banyuwangi-360x220-1.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020",
+        'Inovasi Cek Bantuan Sosial Covid-19 Banyuwangi Raih Indonesia Smart Nation Award 2020',
     },
     excerpt: {
       rendered:
-        "TRIBUNJATIM.COM, BANYUWANGI - Kabupaten Banyuwangi meraih penghargaan Indonesia Smart Nation Award (ISNA) 2020.\n\nBanyuwangi meraih award kategori Smart Society berupa inovasi penggunaan TIK dalam penanganan dampak sosial virus Corona ( Covid-19 ).\n\nPenghargaan tersebut diselenggarakan oleh Citiasia Center for Smart Nation (CCSN) dan tahun ini merupakan penyelenggaraan ke-4. Pada tahun ini, ISNA mengusung tema “Smart City 2020: Driving Innovation &amp; Productivity During The Global Pandemic”. ",
+        'TRIBUNJATIM.COM, BANYUWANGI - Kabupaten Banyuwangi meraih penghargaan Indonesia Smart Nation Award (ISNA) 2020.\n\nBanyuwangi meraih award kategori Smart Society berupa inovasi penggunaan TIK dalam penanganan dampak sosial virus Corona ( Covid-19 ).\n\nPenghargaan tersebut diselenggarakan oleh Citiasia Center for Smart Nation (CCSN) dan tahun ini merupakan penyelenggaraan ke-4. Pada tahun ini, ISNA mengusung tema “Smart City 2020: Driving Innovation &amp; Productivity During The Global Pandemic”. ',
     },
     content: {
       rendered:
@@ -477,20 +476,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020"
+      'DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/Smart-Branding-1000x520-750x460-1-750x450.jpeg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/Smart-Branding-1000x520-750x460-1-750x450.jpeg',
+    comment_status: 'open',
     title: {
       rendered:
-        "DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020",
+        'DPMPTSP Kabupaten Blitar Raih Penghargaan “Smart Branding” 2020',
     },
     excerpt: {
       rendered: `READ.ID – Indonesia Smart City Investment Forum (ISCIF) talkshow kembali digelar oleh Citiasia Center for Smart Nation (CCSN) yang bermitra dengan PT Debindo – ITE dan didukung oleh PT Telkom Indonesia.\n\nDalam gelaran ini dibarengi dengan penganugerahan daerah-daerah pemenang The 4th Indonesia Smart Nation Award (ISNA) yang diselenggarakan secara daring pada Senin (5/10/2020) dengan tema Smart City 2020 yakni Driving Innovation and Productivity During The Global Pandemic.`,
@@ -503,24 +502,24 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020"
+      'PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0036-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0036-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020",
+        'PENGUATAN KAMPUNG TANGGUH DI KOTA PROBOLINGGO MENDAPAT APRESIASI ISNA 2020',
     },
     excerpt: {
       rendered:
-        "KANIGARAN – Kota Probolinggo kembali mengukir prestasi. Kali ini Kota Probolinggo  dinobatkan sebagai Smart Society Penguatan Kampung Tangguh, dalam ajang penghargaan Indonesia Smart Nation Award (ISNA) 2020, Senin (5/10), yang dilakukan secara virtual.        ",
+        'KANIGARAN – Kota Probolinggo kembali mengukir prestasi. Kali ini Kota Probolinggo  dinobatkan sebagai Smart Society Penguatan Kampung Tangguh, dalam ajang penghargaan Indonesia Smart Nation Award (ISNA) 2020, Senin (5/10), yang dilakukan secara virtual.        ',
     },
     content: {
       rendered: `<strong>KANIGARAN</strong>&nbsp;- Kota Probolinggo kembali mengukir prestasi. Kali ini Kota Probolinggo&nbsp; dinobatkan sebagai Smart Society Penguatan Kampung Tangguh, dalam ajang penghargaan Indonesia Smart Nation Award (ISNA) 2020, Senin (5/10), yang dilakukan secara virtual.\n\nPenghargaan yang diterima Wakil Wali (Wawali) Kota Probolinggo Mochammad Soufis Subri itu berdasarkan inovasi yang diciptakan Pemerintah Kota Probolinggo. Dalam penghargaan The 4th ISNA itu, kota ini berhasil menjadi daerah dengan peringkat terbaik melalui inovasi kategori penghargaan, Smart Society, bersanding dengan 5 kabupaten/kota lainnya sebagai daerah nominasi.\n\n<img src=\"https://portal.probolinggokota.go.id/images/berita/2020/IMG-20201005-WA0032.jpg\" alt=\"IMG 20201005 WA0032\">\n\nDari 514 kabupaten/kota, mengerucut menjadi 175 kabupaten/kota yang memiliki inovasi, totalnya 248 inovasi. Dan kembali mengerucut menjadi 183 inovasi yang berkaitan dengan COVID-19. Dari 183 inovasi ini juga diseleksi kembali dan ditemukan 60 inovasi murni dari Pemerintah Daerah dan ditetapkan 30 inovasi terbaik di ragam kategori; Smart Economy, Smart Goverment, Smart Branding, Smart Society, Smart Living, Smart Mention.\n\nPopulasi penelitiannya sendiri berdasarkan interest based sub-region pada kata kunci “COVID” dan “Inovasi” sebagai Proxy, atas citizen awareness pada issue COVID-19. Sekaligus sebagai proxy atas digital readiness masyarakat serta 100 kabupaten/kota G100SCN &amp; 63 kabupaten/kota Pemenang Lomba Tatanan New Normal sebagai variabel kontrol.\n\n“Untuk kategori Smart Society terbaik hanya ada lima daerah se-Indonesia. Yaitu Kota Probolinggo, Banyuwangi, Denpasar, Kabupaten Kendal dan Kabupaten Tegal,” ujarnya.\n\nPada Platfrom Smart Society atau Masyarakat Cerdas, Kota Probolinggo sangat konsen di sektor Penguatan Kampung Tangguh di tengah pandemi COVID-19. Meski masih dalam situasi dan kondisi pandemi, proses kehidupan bermasyarakat nyatanya tak terganggu. “Adanya kampung tangguh juga mendorong masyarakat untuk lebih taat dan tertib dalam menjalankan protokol kesehatan di lingkungannya,” terangnya.\n\nDi Kota Probolinggo, ada 33 kampung tangguh yang tersebar di 29 kelurahan sehingga penerapan ketangguhan secara menyeluruh dapat dilakukan secara maksimal. Wawali Subri menambahkan, kehadiran kampung tangguh merupakan inovasi Pemkot Probolinggo dengan tujuan masyarakat aware (peduli) dengan pencegahan penyebaran COVID-19.\n\nDimana ketangguhan itu sendiri, lanjut Subri, tidak hanya boleh dimiliki satu dua kelurahan saja, melainkan semua kelurahan yang ada. Tentu dengan didukung kerja sama yang baik antara Pemkot, TNI dan Polri. Sehingga kampung tangguh yang ada di Kota Probolinggo tidak hanya tangguh terkait penanganan COVID-19, tapi juga bergerak bagaimana menghidupkan sektor&nbsp; ekonomi sekaligus menyelesaikan dampak sosial yang muncul.\n\n“Dalam kesempatan ini, izinkan kami juga mengucapkan terima kasih dan apresiasi yang setinggi-tingginya, kepada TNI-Polri, relawan kampung tangguh di tiap-tiap RT/RW sampai kecamatan bahkan relawan di tingkat kota, yang selalu memberikan dukungan pada kami sehingga suasana kondusif dapat terjaga di tengah situasi pandemi. Sekaligus melalui penghargaan ini, semoga menjadi triger dan motivasi kami untuk membangun Kota Probolinggo lebih baik lagi,” tandasnya.\n\n<img src=\"https://portal.probolinggokota.go.id/images/berita/2020/IMG-20201005-WA0034.jpg\" alt=\"IMG 20201005 WA0034\">\n\nTak hanya sebagai ajang penghargaan semata, ISNA 2020 juga diisi dengan giat seperti Bussiness Presentation oleh Telkom Indonesia dan 2 sesi talkshow Indonesia Smart City Investment Forum 2020 dengan menggandeng narasumber di bidangnya masing-masing.\n\nSebagai sebuah penghargaan yang diberikan kepada daerah-daerah dengan pencapaian terbaik dalam pelaksanaan smart city / smart region sesuai framework yang dikembangkan oleh Citiasia Inc., ISNA 2020 dilaksanakan dengan melalui beberapa tahapan, yaitu proses penilaian indeks dan penjurian oleh para pakar di bidang smart city di Indonesia.\n\nSementara itu, Chairman Citiasia, Cahyana Ahmadjayadi, menyampaikan selamat bagi daerah yang berprestasi. Ia mengatakan, banyak daerah yang terus berpacu dan berinovasi menuju smart city. “Selamat bagi daerah pemenang. Melalui ISNA, semua daerah konsisten meningkatkan daya saing melalui smart city,” ujarnya.\n\nPenghargaan bergengsi ini sudah empat kali digelar sejak 2015 lalu. Melalui Gerakan Bangsa Cerdas, Citiasia terus berkomitmen untuk menjaga semangat Bangsa Indonesia Cerdas dengan memberikan apresiasi terhadap inovasi terbaik di masa yang bergejolak di tahun 2020. “Dengan banyaknya inovasi di sektor digital ini semoga Visi Indonesia Smart Nation segera terwujud,” pungkasnya.<strong><em>&nbsp;(Sonea)</em></strong>\n\n&nbsp;\n\n<em>sumber:&nbsp;https://portal.probolinggokota.go.id/index.php/k2/k2-category/1766-penguatan-kampung-tangguh-di-kota-probolinggo-mendapat-apresiasi-isna-2020</em>`,
@@ -530,19 +529,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Pemkot Parepare Raih Penghargaan Smart Nation Award 2020"
+      'Pemkot Parepare Raih Penghargaan Smart Nation Award 2020'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0115-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0115-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Pemkot Parepare Raih Penghargaan Smart Nation Award 2020",
+      rendered: 'Pemkot Parepare Raih Penghargaan Smart Nation Award 2020',
     },
     excerpt: {
       rendered: `PAREPARE, BACAPESAN.COM – Kota Parepare kembali mendapat penghargaan prestesius di tingkat nasional. Kali ini dalam ajang “Indonesia Smart Nation Award (ISNA) 2020”.\n\nPenghargaan yang disaksikan secara virtual oleh Walikota Parepare melalui Wakilnya, Pangerang Rahim, Senin, (5/10/2020) diberikan lantaran Kota Parepare terpilih sebagai penerima apresiasi atas inovasi Penerapan New Normal pada Wisata Salo’ Karajae.`,
@@ -555,20 +554,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik"
+      'PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik",
+        'PENGHARGAAN: Aplikasi Bakulan dan Platform Belajar Kota Batam Jadi yang Terbaik',
     },
     excerpt: {
       rendered: `Batam (gokepri.com) – Dua aplikasi milik Pemko&nbsp;<a href=\"http://batam.go.id/\">Batam</a>&nbsp;dianugerahi Indonesian Smart Nation Award 2020. Batam dianggap sebagai kota yang berinovasi menjadi kota pintar atau smart city.\n\nDua penghargaan itu adalah Smart Economy dan Platfrom Belajar Mengajar Terbaik. Penghargaan tersebut diterima langsung oleh Sekretaris Daerah (Sekda) Kota Batam, Jefridin Hamid, melalui virtual di Kantor Wali Kota Batam, Senin (5/10/2020).`,
@@ -581,20 +580,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA"
+      'Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [82, 94],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2020/10/IMG-20201005-WA0077-1024x697-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA",
+        'Wujudkan Smart City, Pasar Online Lamongan Terima Apresiasi Dari ISNA',
     },
     excerpt: {
       rendered: `<b>LAMONGAN</b>&nbsp;- Pemerintah Kabupaten Lamongan dibawah kepemimpinan Bupati Fadeli banyak mendapatkan penghargaan dan apresiasi dari berbagai instansi tingkat provinsi dan nasional.\n\nDan yang terbaru terpilih sebagai salah satu penerima apresiasi The 4th&nbsp;<i>Indonesian Smart Nation Award</i>&nbsp;(ISNA) 2020 melalui inovasi Pasar Online Lamongan (POL) kategori&nbsp;<i>smart economy.</i>`,
@@ -607,20 +606,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia"
+      'Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia'
     ),
-    date_gmt: new Date("1 July 2022").toISOString(),
-    modified_gmt: new Date("1 July 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('1 July 2022').toISOString(),
+    modified_gmt: new Date('1 July 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 83, 85, 86, 129],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/07/cover_artikel_13-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/07/cover_artikel_13-1536x896.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia",
+        'Citiasia bersama Oracle Memberikan Beasiswa TI Senilai Rp 2,3 Miliar kepada Mahasiswa di Indonesia',
     },
     excerpt: {
       rendered: `span style=\"font-weight: 400;\">Semakin canggihnya perkembangan teknologi menjadikan bidang teknologi informatika menjadi salah satu bidang paling diminati anak muda yang sudah familiar dengan dunia teknologi. Sehingga, Citiasia Institute dan&nbsp; Oracle University Indonesia meluncurkan program beasiswa yang diberi nama Citiasia – Oracle Scholarship 2016, senilai lebih dari Rp 2,3 miliar.</span>`,
@@ -632,18 +631,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Bimtek Smart City Branding 2018"),
-    date_gmt: new Date("3 November 2018").toISOString(),
-    modified_gmt: new Date("3 November 2018").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Bimtek Smart City Branding 2018'),
+    date_gmt: new Date('3 November 2018').toISOString(),
+    modified_gmt: new Date('3 November 2018').toISOString(),
+    status: 'publish',
     categories: [83, 88, 129],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2018/11/2018-11-12_144620-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2018/11/2018-11-12_144620-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Bimtek Smart City Branding 2018",
+      rendered: 'Bimtek Smart City Branding 2018',
     },
     excerpt: {
       rendered: `JAKARTA. APEKSI dan CITIASIA menyelenggarakan Bimbingan Teknis Smart City Branding tanggal 1-3 November 2018 dalam rangka peningkatan kapasitas pemerintah kota dalam mengoptimalkan branding daerah melalui Pariwisata, Bisnis dan Wajah Kota serta sebagai bereaupreneur yang handal dalam meningkatkan daya saing melalui strategi Smart City Branding.`,
@@ -656,19 +655,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda"
+      'Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda'
     ),
-    date_gmt: new Date("7 November 2016").toISOString(),
-    modified_gmt: new Date("7 November 2016").toISOString(),
-    status: "publish",
+    date_gmt: new Date('7 November 2016').toISOString(),
+    modified_gmt: new Date('7 November 2016').toISOString(),
+    status: 'publish',
     categories: [82, 129],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2016/11/web-training-01-750x460-1-750x450.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2016/11/web-training-01-750x460-1-750x450.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda”",
+      rendered: 'Bimbingan Teknis “Smart City Branding Untuk Aparatur Pemda”',
     },
     excerpt: {
       rendered: `<b>LAMONGAN</b>&nbsp;- Pemerintah Kabupaten Lamongan dibawah kepemimpinan Bupati Fadeli banyak mendapatkan penghargaan dan apresiasi dari berbagai instansi tingkat provinsi dan nasional.\n\nDan yang terbaru terpilih sebagai salah satu penerima apresiasi The 4th&nbsp;<i>Indonesian Smart Nation Award</i>&nbsp;(ISNA) 2020 melalui inovasi Pasar Online Lamongan (POL) kategori&nbsp;<i>smart economy.</i>`,
@@ -681,20 +680,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!"
+      'Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!'
     ),
-    date_gmt: new Date("2 November 2022").toISOString(),
-    modified_gmt: new Date("2 November 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('2 November 2022').toISOString(),
+    modified_gmt: new Date('2 November 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1EEIpHvPJ-a8lCAXGxVQWlk1bIVkmyybB",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1EEIpHvPJ-a8lCAXGxVQWlk1bIVkmyybB',
+    comment_status: 'open',
     title: {
       rendered:
-        "Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!",
+        'Presiden Jokowi Usung Konsep Smart City dan Smart Living di Ibu Kota Negara Baru!',
     },
     excerpt: {
       rendered: `<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Indonesia tengah bersiap untuk pindah ke Ibukota baru yang nantinya akan berlokasi di Penajam Paser Utara, Kalimantan Timur. Dilansir dari Nusa Daily dari detikFinance, Jokowi mengatakan bahwa Ibukota Negara Baru (IKN) akan menerapkan konsep </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">dan </span><i><span style=\"font-weight: 400;\">smart living</span></i><span style=\"font-weight: 400;\"> sehingga kendaraan yang digunakan harus ramah lingkungan dan identik dengan masa depan. Sementara, sumber energi yang dipakai berasal dari </span><i><span style=\"font-weight: 400;\">renewable</span></i><span style=\"font-weight: 400;\"> industri.&nbsp;</span></p>`,
@@ -707,20 +706,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?"
+      'Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?'
     ),
-    date_gmt: new Date("21 October 2022").toISOString(),
-    modified_gmt: new Date("21 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('21 October 2022').toISOString(),
+    modified_gmt: new Date('21 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1K6l_pk7XQYPRhKO38QnNtnWCRVrauPZd",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1K6l_pk7XQYPRhKO38QnNtnWCRVrauPZd',
+    comment_status: 'open',
     title: {
       rendered:
-        "Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?",
+        'Beberapa Teknologi Penanganan Banjir di Sejumlah Negara, Apakah Indonesia Punya?',
     },
     excerpt: {
       rendered: `<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Akhir-akhir ini, banjir kembali menjadi topik hangat. Terutama, banjir di Jakarta akibat intensitas hujan yang cukup tinggi sejak hari Kamis, 13 Oktober 2022. Selain karena disebabkan hujan, hal yang membuat Jakarta rentan banjir adalah letak geografisnya yang berada di </span><span style=\"font-weight: 400;\">dataran rendah yaitu di antara hulu sungai dan pesisir. Beberapa waktu lalu, Korea Selatan juga dilanda banjir bandang yang disebabkan oleh curah hujan yang tinggi. </span></p>`,
@@ -732,18 +731,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Inovasi Metaverse untuk Smart Branding"),
-    date_gmt: new Date("30 September 2022").toISOString(),
-    modified_gmt: new Date("30 September 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Inovasi Metaverse untuk Smart Branding'),
+    date_gmt: new Date('30 September 2022').toISOString(),
+    modified_gmt: new Date('30 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV',
+    comment_status: 'open',
     title: {
-      rendered: "Inovasi Metaverse untuk Smart Branding",
+      rendered: 'Inovasi Metaverse untuk Smart Branding',
     },
     excerpt: {
       rendered: `<i><span style=\"font-weight: 400;\">Smart city </span></i><span style=\"font-weight: 400;\">memiliki 6 dimensi, salah satunya adalah </span><i><span style=\"font-weight: 400;\">smart branding. Smart branding </span></i><span style=\"font-weight: 400;\">adalah sebuah upaya membangun </span><i><span style=\"font-weight: 400;\">branding </span></i><span style=\"font-weight: 400;\">daerah yang lebih pintar sesuai dengan potensi dan peluang pengembangan daerah. Dalam meningkatkan daya saing daerah, </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">mengedepankan tiga sub-dimensi, yaitu pariwisata, bisnis, dan daerah.</span>`,
@@ -756,19 +755,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?"
+      'Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?'
     ),
-    date_gmt: new Date("22 September 2022").toISOString(),
-    modified_gmt: new Date("22 September 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('22 September 2022').toISOString(),
+    modified_gmt: new Date('22 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 145, 101, 85, 86, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/09/Artikel_23_Sept-1-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/09/Artikel_23_Sept-1-1536x896.png',
+    comment_status: 'open',
     title: {
-      rendered: "Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?",
+      rendered: 'Asyik, Teknologi 6G Sudah Disiapkan. Apa Saja Manfaatnya?',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Teknologi 6G mulai disiapkan oleh sejumlah negara, seperti China, Korea Selatan dan lain sebagainya. Tidak hanya itu, berbagai ahli pun berlomba-lomba melakukan penelitian untuk menemukan keunggulan jaringan 6G dan meluncurkannya. Hal ini dikarenakan seiring berkembang dan majunya teknologi, kebutuhan manusia pu n terus berubah.&nbsp;</span>\n\n<span style=\"font-weight: 400;\">Tapi sebenarnya, apa itu teknologi 6G dan apa manfaatnya untuk sisi kehidupan?</span>\n<h3><b>Mengenal Teknologi 6G</b></h3>\n<span style=\"font-weight: 400;\">Sebelumnya, mungkin teknologi atau sinyal 5G jadi juara dan tercepat. Tapi sekarang, telah muncul teknologi 6G yang siap menggantikannya.&nbsp;</span>`,
@@ -780,18 +779,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Peran Big Data dalam Pembangunan Smart City"),
-    date_gmt: new Date("16 September 2022").toISOString(),
-    modified_gmt: new Date("16 September 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Peran Big Data dalam Pembangunan Smart City'),
+    date_gmt: new Date('16 September 2022').toISOString(),
+    modified_gmt: new Date('16 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 101, 139, 137, 112],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=11K7mQX_Oke7mSwk4ZaS-vCn8iTC30Ll-",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=11K7mQX_Oke7mSwk4ZaS-vCn8iTC30Ll-',
+    comment_status: 'open',
     title: {
-      rendered: "Peran Big Data dalam Pembangunan Smart City",
+      rendered: 'Peran Big Data dalam Pembangunan Smart City',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Seperti yang kita tahu, </span><i><span style=\"font-weight: 400;\">smart city</span></i><span style=\"font-weight: 400;\"> merupakan kota yang menggunakan sensor dan perangkat untuk memanfaatkan teknologi informasi dan internet secara maksimal dalam pengelolaan aset dalam suatu kota. Kemudian, perangkat dan sensor tersebut digunakan untuk mengumpulkan dan menganalisis data yang nanti hasilnya untuk mengoptimalkan pengelolaan kota, sumber daya, dan meningkatkan kualitas hidup.&nbsp;</span>`,
@@ -804,20 +803,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19"
+      'Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19'
     ),
-    date_gmt: new Date("23 September 2022").toISOString(),
-    modified_gmt: new Date("23 September 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('23 September 2022').toISOString(),
+    modified_gmt: new Date('23 September 2022').toISOString(),
+    status: 'publish',
     categories: [148, 117, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/09/revisimobilhealth-1536x1536.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/09/revisimobilhealth-1536x1536.jpg',
+    comment_status: 'open',
     title: {
       rendered:
-        "Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19",
+        'Peran Smart Health dalam Kehidupan Masyarakat Indonesia Melawan Covid-19',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Masa pandemi COVID-19 di Indonesia mengakibatkan ketakutan masyarakat untuk melakukan konsultasi kesehatan di fasilitas-fasilitas kesehatan, terlebih lagi himbauan dari pemerintah untuk melakukan </span><i style=\"font-size: revert; color: initial;\"><span>social distancing </span></i><span style=\"font-weight: 400;\">dan PSBB. Salah satu cara yang dapat dilakukan dalam membantu memberikan solusi penanganan pandemi COVID-19 selain dengan PSBB yaitu menerapkan konsep </span><i style=\"font-size: revert; color: initial;\"><span>smart health.</span></i>`,
@@ -829,18 +828,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Ini Dia Deretan Startup Healthtech di Indonesia"),
-    date_gmt: new Date("13 October 2021").toISOString(),
-    modified_gmt: new Date("13 October 2021").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Ini Dia Deretan Startup Healthtech di Indonesia'),
+    date_gmt: new Date('13 October 2021').toISOString(),
+    modified_gmt: new Date('13 October 2021').toISOString(),
+    status: 'publish',
     categories: [148, 117],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2021/10/websitesmartnation_12102021_Mia-Patricia-Rizky-Sabilurrasyid_1-Mia-Patricia-780x450.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2021/10/websitesmartnation_12102021_Mia-Patricia-Rizky-Sabilurrasyid_1-Mia-Patricia-780x450.png',
+    comment_status: 'open',
     title: {
-      rendered: "Ini Dia Deretan Startup Healthtech di Indonesia",
+      rendered: 'Ini Dia Deretan Startup Healthtech di Indonesia',
     },
     excerpt: {
       rendered: `<p>Di masa pandemi ini, kebanyakan kegiatan dilakukan secara <em>online</em>. Bagaimana perasaan Smart People ketika tubuh kurang <em>fit</em> namun takut untuk pergi keluar? Sangat khawatir bukan? Teknologi kini bahkan sudah masuk ke dalam sektor kesehatan. Dulu kita harus datang ke rumah sakit dan menunggu antrian sekarang hanya perlu mengunduh aplikasi dan dalam sekejap Kamu dapat melakukan konsultasi dengan dokter perihal keluhanmu.</p>`,
@@ -853,20 +852,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA"
+      'Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA'
     ),
-    date_gmt: new Date("24 November 2022").toISOString(),
-    modified_gmt: new Date("24 November 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('24 November 2022').toISOString(),
+    modified_gmt: new Date('24 November 2022').toISOString(),
+    status: 'publish',
     categories: [83, 84, 155, 139, 154],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1d0wI2odXwBnWexOvBvjMFYtoxGqdLIeZ",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1d0wI2odXwBnWexOvBvjMFYtoxGqdLIeZ',
+    comment_status: 'open',
     title: {
       rendered:
-        "Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA",
+        'Talkshow ISNA 2022: Implementasi Smart City Bagi Kemajuan Indonesia Bersama PEMDA',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Citiasia Inc. merupakan lembaga konsultasi yang berkomitmen mendorong penghargaan </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">di Indonesia. Dalam perkembangannya, perusahaan Citiasia Inc. memiliki program besar, salah satunya Indonesian Smart Nation Award (ISNA) yang merupakan ajang penghargaan bagi pemerintah daerah (Pemda) Kota/Kabupaten di Indonesia yang menciptakan inovasi </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">terbaik bagi masyarakatnya. Citiasia Inc. resmi menggelar ISNA 2022 berlangsung di ICE BSD, Tangerang, pada Kamis (17/11/22). </span>`,
@@ -879,20 +878,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur"
+      'Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur'
     ),
-    date_gmt: new Date("28 October 2022").toISOString(),
-    modified_gmt: new Date("28 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('28 October 2022').toISOString(),
+    modified_gmt: new Date('28 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 84, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/Desain_Artikel_26_Oktober-01-1536x896.png",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/Desain_Artikel_26_Oktober-01-1536x896.png',
+    comment_status: 'open',
     title: {
       rendered:
-        "Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur",
+        'Smart City Semakin di Depan, Pemprov Jatim Dukung Program Kota Cerdas Kabupaten/Kota di Jawa Timur',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Pada hari Kamis tanggal 13 Oktober lalu, telah diselenggarakan Sosialisasi Program Gerakan Menuju Provinsi Cerdas (</span><i><span style=\"font-weight: 400;\">Smart Province) </span></i><span style=\"font-weight: 400;\">di Provinsi Jawa Timur. Acara sosialisasi ini disampaikan oleh Hari Kusdaryanto sebagai tenaga ahli kominfo dari PT. Citiasia Internasional dan juga dihadiri oleh Kepala Bidang Aptika, Achmad Fadlil Chusni yang mewakili Kadis Kominfo Jatim. </span>\r\n\r\n<span style=\"font-weight: 400;\">Melalui program </span><i><span style=\"font-weight: 400;\">smart province </span></i><span style=\"font-weight: 400;\">ini, harapannya pelayanan sektor publik dapat ditingkatkan dengan menyatukan beberapa elemen yang ada seperti pemerintahan, ekonomi, pendidikan, kesehatan, lingkungan, sumber daya manusia dan transportasi.</span>`,
@@ -905,20 +904,20 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”"
+      'Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”'
     ),
-    date_gmt: new Date("14 October 2022").toISOString(),
-    modified_gmt: new Date("14 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('14 October 2022').toISOString(),
+    modified_gmt: new Date('14 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 84, 145, 101, 137],
     tags: [],
     author: 1,
     featured_media:
-      "https://drive.google.com/uc?export=download&id=1rZOg76e7FR5_8rGa3dP-fHKcPDhSMk6D",
-    comment_status: "open",
+      'https://drive.google.com/uc?export=download&id=1rZOg76e7FR5_8rGa3dP-fHKcPDhSMk6D',
+    comment_status: 'open',
     title: {
       rendered:
-        "Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”",
+        'Jateng Dorong Terobosan dalam Meningkatkan Kemudahan, Ketepatan dan Kepercayaan Masyarakat sebagai Langkah Menuju “Smart Province”',
     },
     excerpt: {
       rendered: `<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Pada hari Senin, 10 Oktober 2022 telah diadakan Sosialisasi Program Gerakan Menuju Provinsi Cerdas (</span><i><span style=\"font-weight: 400;\">Smart Province) </span></i><span style=\"font-weight: 400;\">yang diselenggarakan di Hotel Novotel Semarang, Jawa Tengah. Acara sosialisasi ini dibawakan oleh Hari Kusdaryanto selaku tenaga ahli </span><i><span style=\"font-weight: 400;\">smart city </span></i><span style=\"font-weight: 400;\">dan Chief Innovation Officer PT. Citiasia Internasional dan dihadiri oleh Kepala Dinas Komunikasi dan Informatika (Diskominfo) Jawa Tengah, Riena Retnaningrum, Direktur Jenderal Aplikasi Komputer (Aptika) Kementerian Komunikasi dan Informatika RI, Semuel Abrijani Pangerapan dan OPD dari berbagai daerah di Provinsi Jawa Tengah.</span></p>`,
@@ -931,19 +930,19 @@ const posts: PostsDataType = [
   {
     id: useGenerateUniqueId(),
     slug: useCreateSlug(
-      "Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo"
+      'Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo'
     ),
-    date_gmt: new Date("12 October 2022").toISOString(),
-    modified_gmt: new Date("12 October 2022").toISOString(),
-    status: "publish",
+    date_gmt: new Date('12 October 2022').toISOString(),
+    modified_gmt: new Date('12 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 83, 84, 145],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/12okt-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/12okt-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo",
+      rendered: 'Konsep Smart Branding pada Kesenian Reog Kabupaten Ponorogo',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Sistem Pemerintahan Berbasis Elektronik (SPBE) merupakan penyelenggaraan pemerintahan yang memanfaatkan </span><span style=\"font-weight: 400;\">informasi dan komunikasi untuk memberikan layanan kepada pengguna SPBE, baik tingkat masyarakat maupun pemerintah itu sendiri, (Diskominfo Bantul, 2022).&nbsp;</span>`,
@@ -955,18 +954,18 @@ const posts: PostsDataType = [
 
   {
     id: useGenerateUniqueId(),
-    slug: useCreateSlug("Kabupaten Bantul Raih Predikat SPBE Terbaik"),
-    date_gmt: new Date("14 October 2022").toISOString(),
-    modified_gmt: new Date("14 October 2022").toISOString(),
-    status: "publish",
+    slug: useCreateSlug('Kabupaten Bantul Raih Predikat SPBE Terbaik'),
+    date_gmt: new Date('14 October 2022').toISOString(),
+    modified_gmt: new Date('14 October 2022').toISOString(),
+    status: 'publish',
     categories: [148, 82, 84, 139],
     tags: [],
     author: 1,
     featured_media:
-      "https://smartnation.id/wp-content/uploads/2022/10/14okt-1536x896.jpg",
-    comment_status: "open",
+      'https://smartnation.id/wp-content/uploads/2022/10/14okt-1536x896.jpg',
+    comment_status: 'open',
     title: {
-      rendered: "Kabupaten Bantul Raih Predikat SPBE Terbaik",
+      rendered: 'Kabupaten Bantul Raih Predikat SPBE Terbaik',
     },
     excerpt: {
       rendered: `<span style=\"font-weight: 400;\">Sistem Pemerintahan Berbasis Elektronik (SPBE) merupakan penyelenggaraan pemerintahan yang memanfaatkan </span><span style=\"font-weight: 400;\">informasi dan komunikasi untuk memberikan layanan kepada pengguna SPBE, baik tingkat masyarakat maupun pemerintah itu sendiri, (Diskominfo Bantul, 2022).&nbsp;</span>\n\n<span style=\"font-weight: 400;\">SPBE menjadi komitmen Pemkab Bantul dalam menciptakan budaya digital pada sistem pemerintahan. Terlihat bahwa Kabupaten Bantul masuk ke dalam 100 kabupaten/kota cerdas (</span><i><span style=\"font-weight: 400;\">smart city</span></i><span style=\"font-weight: 400;\">) di Indonesia, </span><span style=\"font-weight: 400;\">(Diskominfo Bantul,</span><span style=\"font-weight: 400;\"> 2022).&nbsp;</span`,
