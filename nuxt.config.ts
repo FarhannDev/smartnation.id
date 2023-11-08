@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     'nuxt-bootstrap-icons',
     'nuxt-swiper',
     '@nuxtjs/color-mode',
-    // "@vite-pwa/nuxt",
+    '@vite-pwa/nuxt',
   ],
 
   plugins: [
@@ -186,6 +186,7 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: '/',
+      navigateFallbackDenylist: [/^\/backoffice/],
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
         {
