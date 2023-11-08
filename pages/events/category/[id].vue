@@ -61,7 +61,7 @@ const handleClickButton = (values: any) => {
     categoryDescription.value = category.description
 
     useSeoMeta({
-      title: `Berita Kategori ${categoryTitle.value}`,
+      title: `Kumpulan Acara ${categoryTitle.value}`,
       description: categoryDescription.value,
     });
 
@@ -84,7 +84,7 @@ const popularEventsData = posts.filter(post => post.categories.find(category => 
   .slice(0, 10)
 
 useSeoMeta({
-  title: `Berita Kategori ${categoryTitle.value}`,
+  title: `Kumpulan Acara ${categoryTitle.value}`,
   description: categoryDescription.value,
 });
 
