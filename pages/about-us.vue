@@ -253,7 +253,7 @@ const showTooltip = (name: string, message: string, images: string) => {
       </div>
     </section>
     <!-- section portofolio end -->
-    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
+    <hr v-show="colorMode.preference === 'dark'" />
   </main>
 </template>
 
