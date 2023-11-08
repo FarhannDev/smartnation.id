@@ -36,7 +36,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
 
 .figure .figure-img {
   width: 100%;
-  min-height: 160px;
+  height: 250px;
   border-radius: 8px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%,
       rgba(0, 0, 0, 0.65) 100%);
@@ -116,26 +116,20 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
 } */
 
 @media (min-width: 1200px) {
-  .figure .figure-caption {
-    top: 45% !important;
+  .figure .figure-img {
+    width: 100%;
+    height: 200px;
   }
 }
-
-/* @media (max-width: 1200px) {
-  .figure .figure-caption {
-    top: 50% !important;
-  }
-} */
 
 @media (min-width: 1400px) {
   .figure .figure-caption {
     top: 50% !important;
   }
-}
 
-/* @media (max-width: 1400px) {
-  .figure .figure-caption {
-    top: 50% !important;
+  .figure .figure-img {
+    width: 100%;
+    height: 200px;
   }
-} */
+}
 </style>
