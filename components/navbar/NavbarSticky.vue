@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import { POSITION, TYPE, useToast } from 'vue-toastification'
 import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { RouteLocationNormalizedLoaded } from "vue-router";
-// import { categories } from "~/utils/data/getInitialData";
 import { CategoryPostsType } from "~/utils/data/getInitialCategoryPostData";
 
 
@@ -12,13 +12,18 @@ const isDropdownVisible: globalThis.Ref<boolean> = ref(false);
 const isDropdownEvents: globalThis.Ref<boolean> = ref(false);
 const isDropdownTranslate: globalThis.Ref<boolean> = ref(false);
 const isLanguage: globalThis.Ref<string> = ref("ID");
+const toast = useToast()
 
 
 const toggleColorMode = () => {
-  const newColorMode: "dark" | "light" =
-    colorMode.preference === "dark" ? "light" : "dark";
+  const newColorMode: "dark" | "light" | 'system' =
+    colorMode.preference === "dark"
+      ? "light"
+      : "dark";
 
   colorMode.preference = newColorMode;
+
+  toast.error(`Berhasil mengganti warna tema menjadi ${colorMode.preference === 'dark' ? 'Gelap' : 'Terang'}`, { timeout: 3000, position: POSITION.BOTTOM_RIGHT, icon: { type: TYPE.SUCCESS } })
 };
 
 onMounted(() => {
@@ -28,6 +33,7 @@ onMounted(() => {
 onBeforeMount(() => {
   window.removeEventListener("scroll", onNavbarScroll);
 });
+
 
 const onNavbarScroll = () => {
   const scrollY = window.scrollY;
@@ -80,6 +86,8 @@ const toggleMenu = (() => {
 })
 
 const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => route.params.id)
+
+
 
 </script>
 
