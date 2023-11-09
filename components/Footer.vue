@@ -113,40 +113,35 @@
                     <h5 class="text-white mb-1">Smartnation.id</h5>
                     <p id="address" class="text-white mb-2">Towards Indonesia Smart Nation</p>
 
-                    <div class="hstack gap-3">
-                        <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                href="https://www.instagram.com/smartnation.id/">
+                    <div class="d-flex flex-unwrap">
+                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-us-1.jpeg"
                                     alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                href="https://www.instagram.com/smartnation.id/">
+                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-us-2.jpeg"
                                     alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                href="https://www.instagram.com/smartnation.id/">
+                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-us-3.jpeg"
                                     alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                href="https://www.tiktok.com/@smartnation.id/">
+                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-ig-1.jpeg"
                                     alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                href="https://www.tiktok.com/@smartnation.id/">
+                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-ig-2.jpeg"
                                     alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                href="https://www.tiktok.com/@smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-ig-3.jpeg"
-                                    alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
                     </div>
-                    <div class="hstack gap-2">
-                        <NuxtLink id="ig" type="button" class="btn btn-danger rounded mt-3  w-100" rel='noreferrer'
+                    <div class="d-flex">
+                        <NuxtLink id="ig" class="btn btn-danger btn-sm rounded mt-3 w-50 me-2" rel='noreferrer'
                             to="https://www.instagram.com/smartnation.id/" target="_blank"
                             aria-label="Ikuti Kami Di Instagram" title="Ikuti Kami Di Instagram">
                             <div class="d-flex">
@@ -162,8 +157,7 @@
                             </div>
 
                         </NuxtLink>
-
-                        <NuxtLink id="ig" type="button" class="btn btn-danger rounded mt-3  w-100" rel='noreferrer'
+                        <NuxtLink id="ig" class="btn btn-danger btn-sm rounded mt-3 w-50 me-2" rel='noreferrer'
                             to="https://www.tiktok.com/@smartnation.id/" target="_blank"
                             aria-label="Ikuti Kami Di Instagram" title="Ikuti Kami Di Instagram">
                             <div class="d-flex">
@@ -177,10 +171,8 @@
                                     <div id="text-button" class="pt-1">Ikuti di Tiktok</div>
                                 </span>
                             </div>
-
                         </NuxtLink>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -253,7 +245,7 @@ p {
 }
 
 #text-button {
-    font-size: 10px;
+    font-size: 11px;
     color: #FFF;
     text-align: center;
 }
