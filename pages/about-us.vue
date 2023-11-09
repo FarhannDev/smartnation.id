@@ -23,10 +23,8 @@ const showTooltip = (name: string, message: string, images: string) => {
     imageHeight: 300,
     width: 1000,
     color: "#5d5d5d",
-    background: "#fff url(/images/trees.png)",
     backdrop: `
     rgba(0,0,123,0.4)
-    url("/images/nyan-cat.gif")
     left top
     no-repeat
   `,

@@ -108,40 +108,57 @@
 
 
                 <!-- Tampil di mobile -->
-                <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 col-8 d-xl-none d-lg-none">
+                <div class="col-12  d-xl-none d-lg-none">
                     <h5 class="mb-3" id="a">Ikuti Kami</h5>
                     <h5 class="text-white mb-1">Smartnation.id</h5>
                     <p id="address" class="text-white mb-2">Towards Indonesia Smart Nation</p>
 
-                    <div class="d-flex flex-unwrap">
-                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                    <div class="d-flex flex-wrap">
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
                                 title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-us-1.jpeg"
                                     alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
                                 title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-us-2.jpeg"
                                     alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
+                                <NuxtImg style="width:80px" src="/images/social-media/follow-us-2.jpeg"
+                                    alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
+                            </a></div>
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
                                 title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-us-3.jpeg"
                                     alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
                                 title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-ig-1.jpeg"
                                     alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
                             </a></div>
-                        <div id="dummy_ig" class="me-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
                                 title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
                                 <NuxtImg style="width:80px" src="/images/social-media/follow-ig-2.jpeg"
                                     alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
                             </a></div>
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
+                                <NuxtImg style="width:80px" src="/images/social-media/follow-ig-3.jpeg"
+                                    alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
+                            </a></div>
+                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
+                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
+                                <NuxtImg style="width:80px" src="/images/social-media/follow-ig-3.jpeg"
+                                    alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
+                            </a></div>
+
+
                     </div>
-                    <div class="d-flex">
-                        <NuxtLink id="ig" class="btn btn-danger btn-sm rounded mt-3 w-50 me-2" rel='noreferrer'
+                    <div class="d-inline">
+                        <NuxtLink id="ig" class="btn btn-danger btn-md rounded mt-3 me-2 w-auto" rel='noreferrer'
                             to="https://www.instagram.com/smartnation.id/" target="_blank"
                             aria-label="Ikuti Kami Di Instagram" title="Ikuti Kami Di Instagram">
                             <div class="d-flex">
@@ -157,7 +174,7 @@
                             </div>
 
                         </NuxtLink>
-                        <NuxtLink id="ig" class="btn btn-danger btn-sm rounded mt-3 w-50 me-2" rel='noreferrer'
+                        <NuxtLink id="ig" class="btn btn-danger btn-md rounded mt-3 w-auto me-2" rel='noreferrer'
                             to="https://www.tiktok.com/@smartnation.id/" target="_blank"
                             aria-label="Ikuti Kami Di Instagram" title="Ikuti Kami Di Instagram">
                             <div class="d-flex">
@@ -187,10 +204,9 @@ img {
 }
 
 footer {
-    display: flex;
+    display: block;
     background-color: #262626;
     width: 100%;
-    position: fixed;
     font-family: Poppins;
 }
 
