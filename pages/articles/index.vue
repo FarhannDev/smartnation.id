@@ -16,7 +16,7 @@ useSeoMeta({
 <template>
   <!-- hero start -->
   <HeroParallaxBackground :text="'Daftar Berita'" :desc="`Daftar berita dari semua kategori`"
-    :background="'https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV'" />
+  :background="'https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV'" />
   <!-- rendered content main -->
   <main id="content">
     <!-- section berita start -->
@@ -27,16 +27,16 @@ useSeoMeta({
             <article class="article-section position-relative mb-3">
               <h1 class="berita-section-title">Berita Terbaru</h1>
               <div class="line-break"></div>
-
+              
               <div class="row justify-content-arround g-4 py-3">
                 <div class="col-xl-6 col-xxl-6 col-lg-6  col-md-12 article-list-container">
                   <NewsCardItemSingleColumn
-                    :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 1)" />
-
+                  :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 1)" />
+                  
                 </div>
                 <div class="col-xl-6 col-xxl-6 col-lg-6 col-md-12">
                   <NewsCardItemListThumbnailMini
-                    :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(1, 5)" />
+                  :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(1, 5)" />
                 </div>
               </div>
             </article>
@@ -44,8 +44,8 @@ useSeoMeta({
               <h1 class="berita-section-title">Berita Terpopuler</h1>
               <div class="row justify-content-arround g-3 py-3">
                 <NewsCardItemFeatured
-                  :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 2)" />
-
+                :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 2)" />
+                
               </div>
             </article>
             <article class="d-block d-md-block d-lg-none d-xl-none">
@@ -55,54 +55,60 @@ useSeoMeta({
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
                   <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
+                  <div style="margin-top: 35px;">
+                    <img style="height: 550px;" src="\images\advertisement\available4.png" alt="\images\advertisement\available4.png">
+                  </div>
                 </div>
               </div>
             </article>
             <article v-for="category in categories" :key="category.id"
-              class="article-section position-relative mb-3 py-5">
-              <div class="d-flex flex-wrap justify-content-between g-0">
-                <div>
-                  <h1 class="berita-section-title">{{ category.name }}</h1>
-                </div>
-                <span>
-                  <NuxtLink :to="`/category/${category.slug}`" aria-label="Lihat Selengkapnya"
-                    class="link-offset-2 link-underline link-underline-opacity-0 link-secondary article-link-title">
-                    Selengkapnya
-                  </NuxtLink>
-                  <BootstrapIcon name="chevron-right" />
-                </span>
+            class="article-section position-relative mb-3 py-5">
+            <div class="d-flex flex-wrap justify-content-between g-0">
+              <div>
+                <h1 class="berita-section-title">{{ category.name }}</h1>
               </div>
-              <div class="d-flex flex-column">
-                <NewsCardItemListThumbnail :categoryId="category.id" :categoryName="category.name" />
-
-              </div>
-            </article>
+              <span>
+                <NuxtLink :to="`/category/${category.slug}`" aria-label="Lihat Selengkapnya"
+                class="link-offset-2 link-underline link-underline-opacity-0 link-secondary article-link-title">
+                Selengkapnya
+              </NuxtLink>
+              <BootstrapIcon name="chevron-right" />
+            </span>
           </div>
-          <div class="col-xl-4 col-xxl-4 col-lg-12 d-none d-lg-block d-xl-block d-xxl-block">
-            <article>
-              <h1 class="berita-section-title text-decoration-underline">
-                Terpopuler Lainnya
-              </h1>
-              <div class="d-flex flex-column">
-                <div class="vstack g-3">
-                  <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
-                </div>
-              </div>
-            </article>
+          <div class="d-flex flex-column">
+            <NewsCardItemListThumbnail :categoryId="category.id" :categoryName="category.name" />
+            
           </div>
-
-        </div>
+        </article>
       </div>
-    </section>
-    <!-- section berita end -->
-    <!-- Section  subcribe start -->
-    <section class="subscribe-section-container py-5">
-      <div class="container">
-        <Subscribe />
+      <div class="col-xl-4 col-xxl-4 col-lg-12 d-none d-lg-block d-xl-block d-xxl-block">
+        <article>
+          <h1 class="berita-section-title text-decoration-underline">
+            Terpopuler Lainnya
+          </h1>
+          <div class="d-flex flex-column">
+            <div class="vstack g-3">
+              <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
+              <div style="margin-top: 35px;">
+                <img style="height: 550px;" src="\images\advertisement\available4.png" alt="\images\advertisement\available4.png">
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-    </section>
-    <!-- Section subcribe end -->
-  </main>
+      
+    </div>
+  </div>
+</section>
+<!-- section berita end -->
+<!-- Section  subcribe start -->
+<section class="subscribe-section-container py-5">
+  <div class="container">
+    <Subscribe />
+  </div>
+</section>
+<!-- Section subcribe end -->
+</main>
 </template>
 
 <style scoped>
@@ -162,7 +168,7 @@ useSeoMeta({
 
 .article-timestamp {
   color: var(--font-400, #888);
-
+  
   /* Font/Caption Reguler */
   font-family: Poppins;
   font-size: 12px;
@@ -230,7 +236,7 @@ useSeoMeta({
   .article-list-container {
     border-right: 1px solid var(--font-100, #e7e7e7);
   }
-
+  
   .article-list__thumbnail {
     width: 256px;
     height: 151px;
@@ -292,7 +298,7 @@ useSeoMeta({
 /* .dark-mode .list-group,
 .list-group-flush .list-group-item {
   background: #3D3D3D;
-
+  
 } */
 
 .dark-mode .subscribe-section-container {
