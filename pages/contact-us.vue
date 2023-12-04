@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { ColorModeInstance } from '@nuxtjs/color-mode/dist/runtime/types';
+
 // Set Meta SEO
 useSeoMeta({
   title: "Hubungi Kami",
@@ -7,33 +9,18 @@ useSeoMeta({
   ogDescription: "Jangan ragu untuk menghubungi kami.",
 });
 
-const colorMode = useColorMode();
+const colorMode: ColorModeInstance = useColorMode();
 </script>
 
 <template>
-  <!-- hero start -->
-  <LazyHeroParallaxBackground text="Hubungi Kami" desc="Jangan ragu untuk menghubungi kami."
-    background="/images/background/bg-contact-me.png" />
-  <!-- rendered content main -->
-  <main id="content">
-    <!-- section kontak start -->
-    <section class="contactme-section-container position-relative py-5">
-      <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <div class="row justify-content-start align-items-center g-3 py-5">
-          <div class="col-lg-6">
-            <LazyContactsContactFormMessage title="Mari Berbincang!"
-              description="Kami sangat ingin mendengar dari Anda! Apakah Anda memiliki pertanyaan, komentar, atau saran yang ingin Anda sampaikan? Jangan ragu untuk menghubungi kami. Kami senantiasa siap menerima pesan Anda." />
-          </div>
-          <div class="col-lg-6">
-            <LazyContactsContactFormInput />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- section kontak end -->
+  <div>
+    <HeroBackgroundParallax text="Hubungi Kami" desc="Jangan ragu untuk menghubungi kami."
+      background="/images/background/bg-contact-me.png" />
+    <ContactMessage title="Mari Berbincang!"
+      description="Kami sangat ingin mendengar dari Anda! Apakah Anda memiliki pertanyaan, komentar, atau saran yang ingin Anda sampaikan? Jangan ragu untuk menghubungi kami. Kami senantiasa siap menerima pesan Anda." />
 
     <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
-  </main>
+  </div>
 </template>
 
 <style scoped>
