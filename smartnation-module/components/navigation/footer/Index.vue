@@ -1,186 +1,42 @@
+<script lang="ts" setup>
+
+const address: string = `Jl. Jatinegara Barat 1 No.5-6, RT.2/RW.4, Bali Mester, <br /> 
+Kecamatan Jatinegara, Kota Jakarta Timur, <br />
+Daerah Khusus Ibukota Jakarta 13310`;
+
+const locationShareMaps: string = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.335373225675!2d106.86252437378327!3d-6.21943039376856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3382c07455d%3A0x8dcc8b271afc13d7!2sCitiasia%20Co-Creation%20Lab!5e0!3m2!1sid!2sid!4v1697729172835!5m2!1sid!2sid`;
+
+
+const loadedImagesTiktok: string[] = ['/images/social-media/follow-tt-1.jpeg', '/images/social-media/follow-tt-2.jpeg', '/images/social-media/follow-tt-3.jpeg']
+
+const loadedImagesInstagram: string[] = ['/images/social-media/follow-ig-1.jpeg', '/images/social-media/follow-ig-2.jpeg', '/images/social-media/follow-ig-3.jpeg']
+
+const followTiktokIcon: string = `<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+  <path d="M10.4014 3.22267V4.94577C10.0531 4.91669 9.6024 4.84814 9.10192 4.68923C8.44919 4.48202 7.9631 4.19847 7.64543 3.9788V7.46239L7.63764 7.45148C7.64304 7.52055 7.64543 7.59066 7.64543 7.66181C7.64543 9.39218 6.02112 10.8 4.0234 10.8C2.02567 10.8 0.401367 9.39166 0.401367 7.66181C0.401367 5.93196 2.02567 4.52304 4.0234 4.52304C4.21879 4.52304 4.41059 4.53655 4.5982 4.56251V6.2612C4.41779 6.20512 4.22479 6.175 4.0234 6.175C3.07758 6.175 2.30738 6.8418 2.30738 7.66181C2.30738 8.48181 3.07758 9.14861 4.0234 9.14861C4.96921 9.14861 5.73941 8.48129 5.73941 7.66181C5.73941 7.63117 5.73882 7.60053 5.73642 7.56989V0.800049H7.72455C7.73174 0.945977 7.73893 1.09294 7.74553 1.23887C7.75871 1.52606 7.87679 1.80181 8.08238 2.02772C8.32392 2.29309 8.67996 2.60157 9.18104 2.84772C9.64975 3.07778 10.0897 3.17593 10.4014 3.22267Z" fill="white"/>
+</svg>`;
+
+const followInstagramIcon: string = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.97871 0.840549C5.74649 0.807412 5.99129 0.800049 7.94707 0.800049C9.90285 0.800049 10.1477 0.808026 10.9148 0.840549C11.6819 0.873072 12.2055 0.987822 12.6637 1.15412C13.1435 1.32409 13.5788 1.5898 13.9388 1.93344C14.3053 2.27032 14.5881 2.67778 14.7687 3.12819C14.9468 3.55773 15.0685 4.04864 15.1039 4.76659C15.1392 5.48762 15.1471 5.71712 15.1471 7.55005C15.1471 9.38359 15.1386 9.61309 15.1039 10.3329C15.0692 11.0508 14.9468 11.5418 14.7687 11.9713C14.5881 12.4218 14.3049 12.8299 13.9388 13.1673C13.5788 13.5109 13.1435 13.776 12.6637 13.9454C12.2055 14.1123 11.6819 14.2264 10.9161 14.2595C10.1477 14.2927 9.90285 14.3 7.94707 14.3C5.99129 14.3 5.74649 14.2921 4.97871 14.2595C4.21289 14.227 3.68925 14.1123 3.23107 13.9454C2.75058 13.776 2.31524 13.5105 1.95536 13.1673C1.58906 12.8302 1.3056 12.4223 1.12474 11.9719C0.947361 11.5424 0.825616 11.0515 0.79027 10.3335C0.754925 9.61248 0.74707 9.38298 0.74707 7.55005C0.74707 5.7165 0.755579 5.487 0.79027 4.76782C0.824961 4.04864 0.947361 3.55773 1.12474 3.12819C1.30587 2.67783 1.58955 2.2699 1.95602 1.93282C2.31539 1.58949 2.75029 1.32375 3.23042 1.15412C3.6886 0.987822 4.21223 0.873685 4.97805 0.840549H4.97871ZM10.8565 2.05555C10.0973 2.02303 9.86947 2.01628 7.94707 2.01628C6.02467 2.01628 5.79689 2.02303 5.03762 2.05555C4.33529 2.08562 3.95434 2.19546 3.70038 2.28812C3.3646 2.41084 3.12438 2.55628 2.87238 2.79253C2.6335 3.0104 2.44966 3.27563 2.33434 3.56878C2.23551 3.80687 2.11834 4.164 2.08627 4.82244C2.05158 5.53425 2.04438 5.7478 2.04438 7.55005C2.04438 9.3523 2.05158 9.56584 2.08627 10.2777C2.11834 10.9361 2.23551 11.2932 2.33434 11.5313C2.44954 11.824 2.63347 12.0897 2.87238 12.3076C3.10474 12.5315 3.38816 12.704 3.70038 12.812C3.95434 12.9046 4.33529 13.0145 5.03762 13.0445C5.79689 13.0771 6.02402 13.0838 7.94707 13.0838C9.87012 13.0838 10.0973 13.0771 10.8565 13.0445C11.5589 13.0145 11.9398 12.9046 12.1938 12.812C12.5295 12.6893 12.7698 12.5438 13.0218 12.3076C13.2607 12.0897 13.4446 11.824 13.5598 11.5313C13.6586 11.2932 13.7758 10.9361 13.8079 10.2777C13.8426 9.56584 13.8498 9.3523 13.8498 7.55005C13.8498 5.7478 13.8426 5.53425 13.8079 4.82244C13.7758 4.164 13.6586 3.80687 13.5598 3.56878C13.4289 3.25398 13.2738 3.02878 13.0218 2.79253C12.7893 2.56859 12.5064 2.39625 12.1938 2.28812C11.9398 2.19546 11.5589 2.08562 10.8565 2.05555ZM7.02743 9.63089C7.54103 9.83132 8.11292 9.85837 8.64542 9.70742C9.17793 9.55647 9.63802 9.23688 9.94711 8.80324C10.2562 8.3696 10.3951 7.84881 10.3401 7.32982C10.2851 6.81082 10.0397 6.32583 9.64562 5.95766C9.39443 5.72232 9.0907 5.54212 8.75631 5.43003C8.42191 5.31794 8.06517 5.27675 7.71176 5.30943C7.35835 5.34211 7.01706 5.44784 6.71247 5.61902C6.40788 5.79019 6.14756 6.02255 5.95025 6.29937C5.75294 6.57618 5.62356 6.89057 5.57141 7.21989C5.51926 7.54921 5.54564 7.88527 5.64866 8.20389C5.75168 8.5225 5.92877 8.81574 6.16718 9.06249C6.40559 9.30924 6.69939 9.50337 7.02743 9.63089ZM5.3302 5.09673C5.67385 4.77456 6.08182 4.51899 6.53083 4.34463C6.97983 4.17027 7.46107 4.08053 7.94707 4.08053C8.43307 4.08053 8.91431 4.17027 9.36331 4.34463C9.81231 4.51899 10.2203 4.77456 10.5639 5.09673C10.9076 5.4189 11.1802 5.80138 11.3662 6.22232C11.5522 6.64326 11.6479 7.09443 11.6479 7.55005C11.6479 8.00567 11.5522 8.45683 11.3662 8.87778C11.1802 9.29872 10.9076 9.68119 10.5639 10.0034C9.8699 10.654 8.92859 11.0196 7.94707 11.0196C6.96555 11.0196 6.02424 10.654 5.3302 10.0034C4.63616 9.35271 4.24625 8.47022 4.24625 7.55005C4.24625 6.62988 4.63616 5.74739 5.3302 5.09673ZM12.4687 4.59723C12.5538 4.52192 12.622 4.43135 12.6692 4.3309C12.7163 4.23044 12.7415 4.12213 12.7432 4.01239C12.7449 3.90265 12.7231 3.7937 12.6791 3.692C12.6351 3.5903 12.5698 3.49791 12.487 3.4203C12.4042 3.34269 12.3056 3.28145 12.1972 3.24018C12.0887 3.19892 11.9725 3.17849 11.8554 3.18009C11.7383 3.18169 11.6228 3.20529 11.5157 3.2495C11.4085 3.29371 11.3119 3.35762 11.2316 3.43746C11.0753 3.59273 10.9898 3.79896 10.9931 4.01239C10.9964 4.22582 11.0884 4.42963 11.2494 4.58057C11.4103 4.7315 11.6277 4.81767 11.8554 4.82078C12.0831 4.82389 12.3031 4.7437 12.4687 4.59723Z" fill="white"/>
+</svg>`;
+
+</script>
+
 <template>
-    <footer class="w-100 py-4 flex-shrink-0 position-absolute">
-        <div class="container py-4">
-            <div class="row gy-4 gx-5">
-                <div class="col-xxl-5 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
-                    <NavigationFooterShareLocation />
-                </div>
+    <footer class="py-5 px-4">
+        <div class="container">
+            <div class="row justify-content-start g-5">
+                <NavigationFooterShareLocation title="Lokasi" :address="address" :locationUrl="locationShareMaps"
+                    class="col-xxl-5 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12" />
+                <NavigationFooterFollowAccountSociaMedia :heading="'Ikuti Kami'" :subheading="'Smartnation.id'"
+                    title="Ikuti Di instagram" :description="'Towards Indonesia Smart Nation'"
+                    :images="loadedImagesInstagram" :icon="followInstagramIcon"
+                    link="https://www.instagram.com/smartnation.id/" name="Instagram"
+                    :class="'col-xxl-3 col-xl-4 col-lg-4 col-md-auto col-sm-8 col-xs-8 col-8'" />
+                <NavigationFooterFollowAccountSociaMedia :heading="'Ikuti Kami'" :subheading="'Smartnation.id'"
+                    title="Ikuti Di Tiktok" :description="'Towards Indonesia Smart Nation'" :images="loadedImagesTiktok"
+                    :icon="followTiktokIcon" link="https://www.tiktok.com/@smartnation.id/" name="Tiktok"
+                    :class="'col-xxl-3 col-xl-4 col-lg-4 col-md-auto col-sm-8 col-xs-8 col-8'" />
 
-                <!-- Tampil di desktop, laptop -->
-                <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 col-8 d-none d-xl-block d-lg-block ">
-                    <h5 class="text-white mb-3">Ikuti Kami</h5>
-                    <h5 class="text-white mb-1">Smartnation.id</h5>
-                    <p id="address" class="text-white mb-2">Towards Indonesia Smart Nation</p>
-                    <div class="row mb-0 mt-0">
-                        <div class="col-4">
-                            <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                    href="https://www.instagram.com/smartnation.id/">
-                                    <NuxtImg style="width:80px" src="/images/social-media/follow-us-1.jpeg"
-                                        alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
-                                </a></div>
-                        </div>
-                        <div class="col-4">
-                            <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                    href="https://www.instagram.com/smartnation.id/">
-                                    <NuxtImg style="width:80px" src="/images/social-media/follow-us-2.jpeg"
-                                        alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
-                                </a></div>
-                        </div>
-                        <div class="col-4">
-                            <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                    href="https://www.instagram.com/smartnation.id/">
-                                    <NuxtImg style="width:80px" src="/images/social-media/follow-us-3.jpeg"
-                                        alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
-                                </a></div>
-                        </div>
-                    </div>
-                    <NuxtLink id="ig" type="button" class="btn btn-danger rounded mt-3 d-none d-xl-block d-lg-block w-100"
-                        rel='noreferrer' to="https://www.instagram.com/smartnation.id/" target="_blank"
-                        aria-label="Ikuti Kami Di Instagram" title="Ikuti Kami Di Instagram">
-                        <div class="row align-items-center">
-                            <div class="col-1">
-                                <svg id="ig-before" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                    viewBox="0 0 33 32" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M10.0035 0.676725C11.7399 0.601645 12.2935 0.584961 16.7167 0.584961C21.1398 0.584961 21.6935 0.603036 23.4284 0.676725C25.1633 0.750414 26.3475 1.01041 27.3837 1.3872C28.4688 1.77233 29.4532 2.37436 30.2674 3.15297C31.0963 3.91628 31.7358 4.83948 32.1444 5.86001C32.547 6.83327 32.8224 7.94556 32.9023 9.57229C32.9823 11.206 33 11.726 33 15.879C33 20.0334 32.9808 20.5534 32.9023 22.1843C32.8239 23.811 32.547 24.9233 32.1444 25.8966C31.7358 26.9172 31.0953 27.842 30.2674 28.6064C29.4532 29.385 28.4688 29.9856 27.3837 30.3694C26.3475 30.7476 25.1633 31.0062 23.4313 31.0812C21.6935 31.1563 21.1398 31.173 16.7167 31.173C12.2935 31.173 11.7399 31.1549 10.0035 31.0812C8.27155 31.0076 7.08731 30.7476 6.0511 30.3694C4.96444 29.9856 3.97989 29.384 3.16599 28.6064C2.33758 27.8426 1.69651 26.9183 1.28748 25.898C0.886322 24.9247 0.610986 23.8124 0.53105 22.1857C0.451113 20.552 0.43335 20.032 0.43335 15.879C0.43335 11.7246 0.452594 11.2046 0.53105 9.57507C0.609506 7.94556 0.886322 6.83327 1.28748 5.86001C1.69712 4.83959 2.33868 3.91532 3.16747 3.15158C3.98022 2.37367 4.96378 1.77156 6.04962 1.3872C7.08583 1.01041 8.27007 0.751805 10.002 0.676725H10.0035ZM23.2966 3.42965C21.5795 3.35596 21.0643 3.34067 16.7167 3.34067C12.369 3.34067 11.8539 3.35596 10.1367 3.42965C8.54837 3.49778 7.68683 3.74665 7.11248 3.9566C6.35308 4.23467 5.80981 4.56419 5.23989 5.09948C4.69965 5.59313 4.28388 6.19409 4.02308 6.85829C3.79956 7.39775 3.53458 8.20695 3.46205 9.69881C3.38359 11.3116 3.36731 11.7955 3.36731 15.879C3.36731 19.9625 3.38359 20.4463 3.46205 22.0592C3.53458 23.551 3.79956 24.3602 4.02308 24.8997C4.28362 25.5629 4.69958 26.1649 5.23989 26.6585C5.7654 27.166 6.40637 27.5567 7.11248 27.8014C7.68683 28.0113 8.54837 28.2602 10.1367 28.3283C11.8539 28.402 12.3676 28.4173 16.7167 28.4173C21.0658 28.4173 21.5795 28.402 23.2966 28.3283C24.885 28.2602 25.7465 28.0113 26.3209 27.8014C27.0803 27.5233 27.6236 27.1938 28.1935 26.6585C28.7338 26.1649 29.1497 25.5629 29.4103 24.8997C29.6338 24.3602 29.8988 23.551 29.9713 22.0592C30.0498 20.4463 30.0661 19.9625 30.0661 15.879C30.0661 11.7955 30.0498 11.3116 29.9713 9.69881C29.8988 8.20695 29.6338 7.39775 29.4103 6.85829C29.1142 6.14503 28.7634 5.63477 28.1935 5.09948C27.6679 4.59209 27.028 4.2016 26.3209 3.9566C25.7465 3.74665 24.885 3.49778 23.2966 3.42965ZM14.6369 20.5937C15.7984 21.0479 17.0918 21.1091 18.2961 20.7671C19.5004 20.4251 20.5409 19.701 21.2399 18.7185C21.9389 17.7359 22.2531 16.5559 22.1287 15.38C22.0044 14.2041 21.4492 13.1052 20.5581 12.271C19.99 11.7377 19.3031 11.3294 18.5468 11.0755C17.7906 10.8215 16.9838 10.7282 16.1845 10.8022C15.3852 10.8763 14.6134 11.1158 13.9245 11.5037C13.2357 11.8915 12.6469 12.418 12.2007 13.0452C11.7545 13.6724 11.4619 14.3847 11.3439 15.1309C11.226 15.8771 11.2857 16.6385 11.5187 17.3604C11.7516 18.0824 12.1521 18.7468 12.6913 19.3059C13.2305 19.8649 13.895 20.3048 14.6369 20.5937ZM10.7984 10.3203C11.5756 9.59033 12.4983 9.01128 13.5137 8.61622C14.5292 8.22116 15.6176 8.01782 16.7167 8.01782C17.8158 8.01782 18.9042 8.22116 19.9196 8.61622C20.9351 9.01128 21.8577 9.59033 22.6349 10.3203C23.4121 11.0503 24.0286 11.9169 24.4492 12.8706C24.8699 13.8244 25.0864 14.8466 25.0864 15.879C25.0864 16.9113 24.8699 17.9336 24.4492 18.8873C24.0286 19.8411 23.4121 20.7077 22.6349 21.4377C21.0653 22.9119 18.9365 23.7402 16.7167 23.7402C14.4969 23.7402 12.368 22.9119 10.7984 21.4377C9.22881 19.9634 8.34701 17.9639 8.34701 15.879C8.34701 13.7941 9.22881 11.7946 10.7984 10.3203ZM26.9426 9.18855C27.1352 9.0179 27.2894 8.8127 27.396 8.58509C27.5027 8.35748 27.5596 8.11208 27.5635 7.86343C27.5673 7.61478 27.518 7.36793 27.4185 7.13749C27.319 6.90706 27.1712 6.69772 26.984 6.52188C26.7968 6.34604 26.5739 6.20726 26.3286 6.11378C26.0832 6.02029 25.8204 5.97399 25.5557 5.97761C25.2909 5.98124 25.0297 6.03471 24.7873 6.13488C24.545 6.23504 24.3265 6.37986 24.1448 6.56075C23.7915 6.91256 23.5981 7.37985 23.6056 7.86343C23.6131 8.34701 23.8209 8.80881 24.185 9.15079C24.5491 9.49277 25.0408 9.688 25.5557 9.69505C26.0705 9.7021 26.5681 9.52041 26.9426 9.18855Z"
-                                        fill="#FFFFFF" />
-                                </svg>
-                            </div>
-                            <div id="text-button" class="col-10">Ikuti di Instagram</div>
-                        </div>
-                    </NuxtLink>
-                </div>
-                <!-- Tampil di desktop, laptop -->
-                <div class="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 col-8 d-none d-xl-block d-lg-block">
-                    <h5 class="mb-3" id="a">Ikuti Kami</h5>
-                    <h5 class="text-white mb-1">Smartnation.id</h5>
-                    <p id="address" class="text-white mb-2">Towards Indonesia Smart Nation</p>
-                    <div class="row mb-0 mt-0">
-                        <div class="col-4">
-                            <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                    href="https://www.tiktok.com/@smartnation.id/">
-                                    <NuxtImg style="width:80px" src="/images/social-media/follow-ig-1.jpeg"
-                                        alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                                </a></div>
-                        </div>
-                        <div class="col-4">
-                            <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                    href="https://www.tiktok.com/@smartnation.id/">
-                                    <NuxtImg style="width:80px" src="/images/social-media/follow-ig-2.jpeg"
-                                        alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                                </a></div>
-                        </div>
-                        <div class="col-4">
-                            <div id="dummy_ig"><a target="_blank" aria-label="Lihat Selengkapnya" title="Lihat Selengkapnya"
-                                    href="https://www.tiktok.com/@smartnation.id/">
-                                    <NuxtImg style="width:80px" src="/images/social-media/follow-ig-3.jpeg"
-                                        alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                                </a></div>
-                        </div>
-                    </div>
-                    <NuxtLink id="ig" type="button" class="btn btn-danger rounded mt-3 d-none d-xl-block d-lg-block w-100"
-                        rel=”noreferrer” to="https://www.tiktok.com/@smartnation.id/" target="_blank"
-                        aria-label="Ikuti Kami Di Tiktok" title="Ikuti Kami Di Tiktok">
-                        <div class="row align-items-center">
-                            <div class="col-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32"
-                                    fill="none">
-                                    <path
-                                        d="M31.2367 7.77177V13.1203C30.1557 13.03 28.7566 12.8172 27.2032 12.324C25.1771 11.6808 23.6683 10.8007 22.6822 10.1188V20.9319L22.6581 20.898C22.6748 21.1124 22.6822 21.33 22.6822 21.5508C22.6822 26.9219 17.6404 31.292 11.4394 31.292C5.2385 31.292 0.196655 26.9203 0.196655 21.5508C0.196655 16.1814 5.2385 11.8081 11.4394 11.8081C12.0459 11.8081 12.6413 11.85 13.2236 11.9306V17.2034C12.6636 17.0293 12.0646 16.9358 11.4394 16.9358C8.50362 16.9358 6.11292 19.0056 6.11292 21.5508C6.11292 24.0961 8.50362 26.1659 11.4394 26.1659C14.3752 26.1659 16.7659 24.0945 16.7659 21.5508C16.7659 21.4557 16.7641 21.3606 16.7567 21.2655V0.251953H22.9278C22.9501 0.704915 22.9725 1.1611 22.9929 1.61406C23.0339 2.50548 23.4004 3.36143 24.0385 4.06264C24.7883 4.88635 25.8934 5.84386 27.4488 6.60793C28.9036 7.32203 30.2692 7.62831 31.2367 7.77338V7.77177Z"
-                                        fill="#FFFFFF" />
-                                </svg>
-                            </div>
-                            <div id="text-button" class="col-10">Ikuti di Tiktok</div>
-                        </div>
-                    </NuxtLink>
-                </div>
-
-
-
-                <!-- Tampil di mobile -->
-                <div class="col-12  d-xl-none d-lg-none">
-                    <h5 class="mb-3" id="a">Ikuti Kami</h5>
-                    <h5 class="text-white mb-1">Smartnation.id</h5>
-                    <p id="address" class="text-white mb-2">Towards Indonesia Smart Nation</p>
-
-                    <div class="d-flex flex-wrap">
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-us-1.jpeg"
-                                    alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-us-2.jpeg"
-                                    alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-us-2.jpeg"
-                                    alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.instagram.com/smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-us-3.jpeg"
-                                    alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-ig-1.jpeg"
-                                    alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-ig-2.jpeg"
-                                    alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-ig-3.jpeg"
-                                    alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-                        <div id="dummy_ig" class="me-3 mb-3"><a target="_blank" aria-label="Lihat Selengkapnya"
-                                title="Lihat Selengkapnya" href="https://www.tiktok.com/@smartnation.id/">
-                                <NuxtImg style="width:80px" src="/images/social-media/follow-ig-3.jpeg"
-                                    alt="Ikuti Kami Di Instagram" loading="lazy" :quality="75" format="webp" />
-                            </a></div>
-
-
-                    </div>
-                    <div class="d-inline">
-                        <NuxtLink id="ig" class="btn btn-danger btn-md rounded mt-3 me-2 w-auto" rel='noreferrer'
-                            to="https://www.instagram.com/smartnation.id/" target="_blank"
-                            aria-label="Ikuti Kami Di Instagram" title="Ikuti Kami Di Instagram">
-                            <div class="d-flex">
-                                <span class="me-2"> <svg id="ig-before" xmlns="http://www.w3.org/2000/svg" width="18"
-                                        height="18" viewBox="0 0 33 32" fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M10.0035 0.676725C11.7399 0.601645 12.2935 0.584961 16.7167 0.584961C21.1398 0.584961 21.6935 0.603036 23.4284 0.676725C25.1633 0.750414 26.3475 1.01041 27.3837 1.3872C28.4688 1.77233 29.4532 2.37436 30.2674 3.15297C31.0963 3.91628 31.7358 4.83948 32.1444 5.86001C32.547 6.83327 32.8224 7.94556 32.9023 9.57229C32.9823 11.206 33 11.726 33 15.879C33 20.0334 32.9808 20.5534 32.9023 22.1843C32.8239 23.811 32.547 24.9233 32.1444 25.8966C31.7358 26.9172 31.0953 27.842 30.2674 28.6064C29.4532 29.385 28.4688 29.9856 27.3837 30.3694C26.3475 30.7476 25.1633 31.0062 23.4313 31.0812C21.6935 31.1563 21.1398 31.173 16.7167 31.173C12.2935 31.173 11.7399 31.1549 10.0035 31.0812C8.27155 31.0076 7.08731 30.7476 6.0511 30.3694C4.96444 29.9856 3.97989 29.384 3.16599 28.6064C2.33758 27.8426 1.69651 26.9183 1.28748 25.898C0.886322 24.9247 0.610986 23.8124 0.53105 22.1857C0.451113 20.552 0.43335 20.032 0.43335 15.879C0.43335 11.7246 0.452594 11.2046 0.53105 9.57507C0.609506 7.94556 0.886322 6.83327 1.28748 5.86001C1.69712 4.83959 2.33868 3.91532 3.16747 3.15158C3.98022 2.37367 4.96378 1.77156 6.04962 1.3872C7.08583 1.01041 8.27007 0.751805 10.002 0.676725H10.0035ZM23.2966 3.42965C21.5795 3.35596 21.0643 3.34067 16.7167 3.34067C12.369 3.34067 11.8539 3.35596 10.1367 3.42965C8.54837 3.49778 7.68683 3.74665 7.11248 3.9566C6.35308 4.23467 5.80981 4.56419 5.23989 5.09948C4.69965 5.59313 4.28388 6.19409 4.02308 6.85829C3.79956 7.39775 3.53458 8.20695 3.46205 9.69881C3.38359 11.3116 3.36731 11.7955 3.36731 15.879C3.36731 19.9625 3.38359 20.4463 3.46205 22.0592C3.53458 23.551 3.79956 24.3602 4.02308 24.8997C4.28362 25.5629 4.69958 26.1649 5.23989 26.6585C5.7654 27.166 6.40637 27.5567 7.11248 27.8014C7.68683 28.0113 8.54837 28.2602 10.1367 28.3283C11.8539 28.402 12.3676 28.4173 16.7167 28.4173C21.0658 28.4173 21.5795 28.402 23.2966 28.3283C24.885 28.2602 25.7465 28.0113 26.3209 27.8014C27.0803 27.5233 27.6236 27.1938 28.1935 26.6585C28.7338 26.1649 29.1497 25.5629 29.4103 24.8997C29.6338 24.3602 29.8988 23.551 29.9713 22.0592C30.0498 20.4463 30.0661 19.9625 30.0661 15.879C30.0661 11.7955 30.0498 11.3116 29.9713 9.69881C29.8988 8.20695 29.6338 7.39775 29.4103 6.85829C29.1142 6.14503 28.7634 5.63477 28.1935 5.09948C27.6679 4.59209 27.028 4.2016 26.3209 3.9566C25.7465 3.74665 24.885 3.49778 23.2966 3.42965ZM14.6369 20.5937C15.7984 21.0479 17.0918 21.1091 18.2961 20.7671C19.5004 20.4251 20.5409 19.701 21.2399 18.7185C21.9389 17.7359 22.2531 16.5559 22.1287 15.38C22.0044 14.2041 21.4492 13.1052 20.5581 12.271C19.99 11.7377 19.3031 11.3294 18.5468 11.0755C17.7906 10.8215 16.9838 10.7282 16.1845 10.8022C15.3852 10.8763 14.6134 11.1158 13.9245 11.5037C13.2357 11.8915 12.6469 12.418 12.2007 13.0452C11.7545 13.6724 11.4619 14.3847 11.3439 15.1309C11.226 15.8771 11.2857 16.6385 11.5187 17.3604C11.7516 18.0824 12.1521 18.7468 12.6913 19.3059C13.2305 19.8649 13.895 20.3048 14.6369 20.5937ZM10.7984 10.3203C11.5756 9.59033 12.4983 9.01128 13.5137 8.61622C14.5292 8.22116 15.6176 8.01782 16.7167 8.01782C17.8158 8.01782 18.9042 8.22116 19.9196 8.61622C20.9351 9.01128 21.8577 9.59033 22.6349 10.3203C23.4121 11.0503 24.0286 11.9169 24.4492 12.8706C24.8699 13.8244 25.0864 14.8466 25.0864 15.879C25.0864 16.9113 24.8699 17.9336 24.4492 18.8873C24.0286 19.8411 23.4121 20.7077 22.6349 21.4377C21.0653 22.9119 18.9365 23.7402 16.7167 23.7402C14.4969 23.7402 12.368 22.9119 10.7984 21.4377C9.22881 19.9634 8.34701 17.9639 8.34701 15.879C8.34701 13.7941 9.22881 11.7946 10.7984 10.3203ZM26.9426 9.18855C27.1352 9.0179 27.2894 8.8127 27.396 8.58509C27.5027 8.35748 27.5596 8.11208 27.5635 7.86343C27.5673 7.61478 27.518 7.36793 27.4185 7.13749C27.319 6.90706 27.1712 6.69772 26.984 6.52188C26.7968 6.34604 26.5739 6.20726 26.3286 6.11378C26.0832 6.02029 25.8204 5.97399 25.5557 5.97761C25.2909 5.98124 25.0297 6.03471 24.7873 6.13488C24.545 6.23504 24.3265 6.37986 24.1448 6.56075C23.7915 6.91256 23.5981 7.37985 23.6056 7.86343C23.6131 8.34701 23.8209 8.80881 24.185 9.15079C24.5491 9.49277 25.0408 9.688 25.5557 9.69505C26.0705 9.7021 26.5681 9.52041 26.9426 9.18855Z"
-                                            fill="#FFFFFF" />
-                                    </svg></span>
-                                <span>
-                                    <div id="text-button" class="pt-1">Ikuti di Instagram</div>
-                                </span>
-                            </div>
-
-                        </NuxtLink>
-                        <NuxtLink id="ig" class="btn btn-danger btn-md rounded mt-3 w-auto me-2" rel='noreferrer'
-                            to="https://www.tiktok.com/@smartnation.id/" target="_blank"
-                            aria-label="Ikuti Kami Di Instagram" title="Ikuti Kami Di Instagram">
-                            <div class="d-flex">
-                                <span class="me-2"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                        viewBox="0 0 32 32" fill="none">
-                                        <path
-                                            d="M31.2367 7.77177V13.1203C30.1557 13.03 28.7566 12.8172 27.2032 12.324C25.1771 11.6808 23.6683 10.8007 22.6822 10.1188V20.9319L22.6581 20.898C22.6748 21.1124 22.6822 21.33 22.6822 21.5508C22.6822 26.9219 17.6404 31.292 11.4394 31.292C5.2385 31.292 0.196655 26.9203 0.196655 21.5508C0.196655 16.1814 5.2385 11.8081 11.4394 11.8081C12.0459 11.8081 12.6413 11.85 13.2236 11.9306V17.2034C12.6636 17.0293 12.0646 16.9358 11.4394 16.9358C8.50362 16.9358 6.11292 19.0056 6.11292 21.5508C6.11292 24.0961 8.50362 26.1659 11.4394 26.1659C14.3752 26.1659 16.7659 24.0945 16.7659 21.5508C16.7659 21.4557 16.7641 21.3606 16.7567 21.2655V0.251953H22.9278C22.9501 0.704915 22.9725 1.1611 22.9929 1.61406C23.0339 2.50548 23.4004 3.36143 24.0385 4.06264C24.7883 4.88635 25.8934 5.84386 27.4488 6.60793C28.9036 7.32203 30.2692 7.62831 31.2367 7.77338V7.77177Z"
-                                            fill="#FFFFFF" />
-                                    </svg></span>
-                                <span>
-                                    <div id="text-button" class="pt-1">Ikuti di Tiktok</div>
-                                </span>
-                            </div>
-                        </NuxtLink>
-                    </div>
-                </div>
             </div>
         </div>
     </footer>
@@ -188,93 +44,11 @@
 
 
 <style scoped>
-img {
-    z-index: 2;
-    border-radius: 8px;
-}
-
 footer {
     display: block;
     background-color: #262626;
     width: 100%;
-    font-family: Poppins;
-}
-
-#a {
-    color: #262626;
-}
-
-#address {
-    color: #E7E7E7;
-    font-family: Poppins;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 100px;
-    line-height: 150%;
-}
-
-#dummy_map {
-    background-color: #F6F6F6;
-    height: 140px;
-    width: 100%;
-    z-index: 1;
-    border-radius: 10px;
-}
-
-#map {
-    height: 140px;
-    width: 100%;
-    z-index: 2;
-    border-radius: 10px;
-}
-
-#map2 {
-    border-radius: 10px;
-}
-
-#dummy_ig {
-    background-color: #F6F6F6;
-    height: 80px;
-    width: 80px;
-    z-index: 1;
-    border-radius: 8px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
-
-p {
-    font-size: 12.5px;
-    margin-bottom: 10px;
-    font-style: normal;
-    font-weight: 300;
-    color: #F6F6F6;
-}
-
-#text-button {
-    font-size: 11px;
-    color: #FFF;
-    text-align: center;
-}
-
-#ig {
-    border-radius: 6px;
-    background: #D71149;
-}
-
-@media (min-width: 1200px) {
-    #text-button {
-        font-size: 13px;
-        color: #FFF;
-        text-align: center;
-    }
-}
-
-
-@media (min-width: 1400px) {
-    #text-button {
-        font-size: 13px;
-        color: #FFF;
-        text-align: center;
-    }
+    height: auto;
+    overflow: hidden;
 }
 </style>
