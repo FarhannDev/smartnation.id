@@ -39,12 +39,8 @@ const toggleColorMode = () => {
 </template>
 
 <style lang="css" scoped>
-.navbar-sticky .bi {
-  color: #5d5d5d;
-}
-
 .translate__button {
-  color: #fff;
+  color: #5d5d5d;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
@@ -53,7 +49,7 @@ const toggleColorMode = () => {
   /* 14.4px */
 }
 
-.dark-mode .bi {
+.dark-mode .translate__button {
   color: #e7e7e7;
 }
 </style>

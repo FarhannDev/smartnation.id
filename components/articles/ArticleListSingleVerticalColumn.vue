@@ -12,7 +12,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
       <div class="row justify-content-start align-items-start g-0">
         <div class="col-xl-6 col-lg-6 col-md-6">
-          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+          <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
             <NuxtImg :class="'card-img-top img-fluid rounded mb-3'" :src="post.featured_media" :height="253"
               loading="lazy" :alt="post.title.rendered" />
           </NuxtLink>
@@ -20,7 +20,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
 
         <div class="col-xl-6 col-lg-6 col-md-6">
           <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+            <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
               :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
               {{ post.title.rendered.length >= 80
                 ? `${post.title.rendered.substring(0, 80)}...`

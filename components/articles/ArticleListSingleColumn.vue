@@ -17,7 +17,7 @@ const props = defineProps({
   <article class="d-grid gap-2  article-list-item">
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
 
-      <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+      <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
         <NuxtImg :class="'card-img-top img-fluid article-thumbnail'" :src="post.featured_media" :height="253"
           loading="lazy" :alt="post.title.rendered" format="webp" :quality="50" />
       </NuxtLink>
@@ -29,7 +29,7 @@ const props = defineProps({
               useTimestamps(post.date_gmt) }}
           </span>
         </div>
-        <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+        <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
           :class="`card-title text-start  text-wrap lh-base link-offset-2 link-underline link-underline-opacity-0 ${isBackground ? 'article-title__background' : 'article-title'} `">
           {{ post.title.rendered.length >= 80
             ? `${post.title.rendered.substring(0, 80)}...`

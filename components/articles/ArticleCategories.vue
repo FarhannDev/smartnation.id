@@ -12,7 +12,8 @@ const category = categories.find(category => category.id === props.categoryId)
 <template>
   <div class="d-inline">
 
-    <NuxtLink :to="`/category/${category?.slug}`" aria-label="Lihat Selengkapnya" class=" article-button__category me-2">
+    <NuxtLink :to="`/article/category/${category?.slug}`" aria-label="Lihat Selengkapnya"
+      class=" article-button__category me-2">
       {{
         category?.name }}</NuxtLink>
   </div>

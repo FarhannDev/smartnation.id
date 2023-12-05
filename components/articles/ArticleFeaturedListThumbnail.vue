@@ -20,7 +20,7 @@ const props = defineProps({
           <span class="article-info-timestamps ">
             <BootstrapIcon name="clock" /> {{ useTimestamps(date) }}
           </span>
-          <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
+          <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title link-offset-2   text-wrap d-block link-underline-opacity-0 '">
             {{ title?.length > 50 ? `${title.substring(0, 80)}...`
               : title
@@ -31,7 +31,7 @@ const props = defineProps({
             :categoryId="category" />
         </div>
 
-        <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
+        <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
           <NuxtImg class="article-thumbnail" :src="featuredImage" :width="86" :height="86" loading="lazy" :alt="title" />
         </NuxtLink>
       </div>
