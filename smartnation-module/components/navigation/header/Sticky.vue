@@ -211,7 +211,7 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
 
       <div class="d-none d-lg-none d-xl-block d-xxl-block">
         <div class="hstack gx-2">
-          <NavigationFeatureSearchBox />
+          <NavigationFeatureSearchBox isResults />
           <NavigationFeatureColorMode />
           <NavigationFeatureTranslateGoogleButtonSticky />
         </div>

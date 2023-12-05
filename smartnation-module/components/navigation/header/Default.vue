@@ -167,7 +167,7 @@ const toggleMenu = (() => {
           </li>
 
           <li class="nav-item">
-            <SearchResponsive />
+            <NavigationFeatureSearchBox class="d-xl-none d-xxl-none py-3" />
           </li>
         </ul>
       </div>
@@ -175,7 +175,7 @@ const toggleMenu = (() => {
 
       <div class="d-none d-lg-none d-xl-block d-xxl-block">
         <div class="hstack gx-2">
-          <NavigationFeatureSearchBox />
+          <NavigationFeatureSearchBox isResults />
           <NavigationFeatureColorMode />
           <NavigationFeatureTranslateGoogleButtonDefault />
         </div>

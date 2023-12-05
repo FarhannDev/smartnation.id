@@ -8,10 +8,12 @@ const searchQuery: globalThis.Ref<string> = ref("");
 // method
 const onSearchHandler = () => {
   const query: string = searchQuery.value.toLowerCase();
-  query ? route.replace(`/search/${query}`) : null
 
+  query ? route.push(`/search/${query.replace(/\s+/g, ' ')}`) : null
   searchQuery.value = ''
 };
+
+const props = defineProps({ isResults: { type: Boolean } })
 
 </script>
 
@@ -22,7 +24,9 @@ const onSearchHandler = () => {
         placeholder="Cari Artikel Terkait" aria-label="Cari Artikel Terkait" autocomplete="name" />
     </form>
 
-    <NavigationFeatureSearchBoxResult :search="searchQuery" />
+    <div v-if="isResults">
+      <NavigationFeatureSearchBoxResult :search="searchQuery" />
+    </div>
   </div>
 </template>
 
