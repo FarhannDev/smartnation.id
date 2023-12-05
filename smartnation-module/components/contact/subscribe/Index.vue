@@ -98,11 +98,15 @@ const onSubmitHandler = () => {
 
 
 /* Set Dark-Mode */
-.dark-mode .subscribe-title {
+.dark-mode .subscribe-container {
+  background: #3d3d3d;
+}
+
+.dark-mode .subscribe-heading__title {
   color: #fafafa;
 }
 
-.dark-mode .subscribe-subtitle {
+.dark-mode .subscribe-heading__subtitle {
   color: #fafafa;
 }
 </style>

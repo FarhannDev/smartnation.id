@@ -1,5 +1,4 @@
 
-import { NuxtLink } from '#build/components';
 <script lang="ts" setup>
 
 const props = defineProps({
@@ -23,7 +22,7 @@ const props = defineProps({
       <h5 class="follow-sosmed__subheading">{{ subheading }}</h5>
       <p class="follow-sosmed__description">{{ description }}</p>
 
-      <div class="d-flex justify-content-start mb-3">
+      <div class="d-flex justify-content-start">
         <NuxtImg v-for="(image, index) in images" :key="index" class="follow-sosmed__cover" :src="image"
           alt="Ikuti Kami Di Tiktok" loading="lazy" :quality="75" format="webp" />
       </div>
@@ -91,7 +90,7 @@ const props = defineProps({
   width: 167.4px;
   height: 36px;
   border-radius: 7.2px;
-  background: var(--primary-600, #D71149);
+  background: #D71149;
 }
 
 .follow-sosmed__button__link .follow-sosmed__button__link__icon {
@@ -101,7 +100,7 @@ const props = defineProps({
 }
 
 .follow-sosmed__button__link .follow-sosmed__button__link__name {
-  color: var(--Background, #FFF);
+  color: #FFF;
   font-family: Poppins;
   font-size: 11.7px;
   font-style: normal;
