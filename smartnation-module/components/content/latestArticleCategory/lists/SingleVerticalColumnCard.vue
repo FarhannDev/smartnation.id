@@ -8,7 +8,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
 </script>
 
 <template>
-  <article class="d-grid gap-2  article-list-item">
+  <div>
     <div v-for="post in posts" :key="post.id" class="card border-0 rounded-0 mb-3">
       <div class="row justify-content-start align-items-start g-0">
         <div class="col-xl-6 col-lg-6 col-md-6">
@@ -45,7 +45,8 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
         </div>
       </div>
     </div>
-  </article>
+
+  </div>
 </template>
 
 <style scoped>

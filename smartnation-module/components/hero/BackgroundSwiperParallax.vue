@@ -40,7 +40,7 @@ defineProps({ posts: { type: Object as PropType<PostsDataType> } })
       :pagination="{
         clickable: true,
       }" :effect="'creative'" :autoplay="{
-  delay: 2500,
+  delay: 3000,
   disableOnInteraction: true,
 }" :creative-effect="{
   prev: {
@@ -61,7 +61,7 @@ defineProps({ posts: { type: Object as PropType<PostsDataType> } })
           <div class="hero-image-bg__gradient "></div>
           <div class="container ">
             <div class="hero-heading-container ">
-              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+              <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
                 :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
                 {{ post.title.rendered.length >= 120
                   ? `${post.title.rendered.substring(0, 120)}...`
