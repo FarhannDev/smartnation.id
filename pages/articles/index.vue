@@ -58,8 +58,8 @@ useSeoMeta({
                 </div>
               </div>
             </article>
-            <div style="margin-top: 35px;">
-                <img style="width: 100%;" src="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 )'.png" alt="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 )'.png">
+            <div style="margin-top: 0px;">
+                <img style="width: 100%;" src="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 ).png" alt="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 ).png">
               </div>
             <article v-for="category in categories" :key="category.id"
             class="article-section position-relative mb-3 py-5">
