@@ -55,12 +55,12 @@ useSeoMeta({
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
                   <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
-                  <div style="margin-top: 35px;">
-                    <img style="height: 550px;" src="\images\advertisement\available4.png" alt="\images\advertisement\available4.png">
-                  </div>
                 </div>
               </div>
             </article>
+            <div style="margin-top: 35px;">
+                <img style="width: 100%;" src="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 )'.png" alt="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 )'.png">
+              </div>
             <article v-for="category in categories" :key="category.id"
             class="article-section position-relative mb-3 py-5">
             <div class="d-flex flex-wrap justify-content-between g-0">
@@ -83,6 +83,9 @@ useSeoMeta({
       </div>
       <div class="col-xl-4 col-xxl-4 col-lg-12 d-none d-lg-block d-xl-block d-xxl-block">
         <article>
+          <div style="margin-bottom: 60px;">
+                <img style="width: 100%;" src="\images\advertisement\Iklan large rectangle (336 x 280).png" alt="\images\advertisement\Iklan large rectangle (336 x 280).png">
+              </div>
           <h1 class="berita-section-title text-decoration-underline">
             Terpopuler Lainnya
           </h1>
@@ -90,7 +93,7 @@ useSeoMeta({
             <div class="vstack g-3">
               <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
               <div style="margin-top: 35px;">
-                <img style="height: 550px;" src="\images\advertisement\available4.png" alt="\images\advertisement\available4.png">
+                <img style="width: 100%;" src="\images\advertisement\Iklan half page 1 (336 x 600).png" alt="\images\advertisement\Iklan half page 1 (336 x 600).png">
               </div>
             </div>
           </div>

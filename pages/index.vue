@@ -32,9 +32,9 @@ const colorMode: ColorModeInstance = useColorMode()
   <HeroParallaxBackgroundHeroSwipe :posts="posts" />
   <!-- Hero Section End -->
   
-  <Modal v-model:visible="isVisible" title="Iklan" width="fit-content" type="clean">
+  <Modal v-model:visible="isVisible" title="Iklan" width="fit-content" type="clean" style="align-content: center;">
     <div style="width: fit-content;">
-      <img style="width: 800px;" src="\images\advertisement\available2.png" alt="\images\advertisement\available2.png">
+      <img src="\images\advertisement\Iklan pop up (796 x 486).png" alt="\images\advertisement\Iklan pop up (796 x 486).png">
     </div>
   </Modal>
   
@@ -60,6 +60,9 @@ const colorMode: ColorModeInstance = useColorMode()
           <HeadingTitle class="text-decoration-underline" title="Terpopuler" />
           <ArticlesArticleListTitle :posts="posts.slice(0, 5)" />
         </div>
+      </div>
+      <div style="margin-top: 15px;">
+        <img style="width: 100%;" src="\images\advertisement\iklan leaderboard 1 ( 1200 x 90 ).png" alt="\images\advertisement\iklan leaderboard 1 ( 1200 x 90 ).png">
       </div>
     </div>
   </section>
@@ -116,7 +119,7 @@ const colorMode: ColorModeInstance = useColorMode()
                     <ArticlesArticleListTitle
                     :posts="posts.filter(post => post.categories.find(category => category === Number(83))).sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)" />
                     <div style="margin-top: 35px;">
-                      <img style="height: 550px;" src="\images\advertisement\available4.png" alt="\images\advertisement\available4.png">
+                      <img style="width: 100%;" src="\images\advertisement\Iklan half page 2 (300 x 600).png" alt="\images\advertisement\Iklan half page 2 (300 x 600).png">
                     </div>
                   </div>
                 </div>

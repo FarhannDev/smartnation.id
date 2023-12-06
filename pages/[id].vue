@@ -53,6 +53,9 @@ const colorMode: ColorModeInstance = useColorMode()
             <!-- Article Content Start -->
             <PostsPostContentDetails :post="post" />
             <!-- Article Content End -->
+            <div style="margin-bottom: 35px;">
+                <img style="width: 100%;" src="\images\advertisement\iklan leaderboard 2 ( 817x 90 ).png" alt="\images\advertisement\iklan leaderboard 2 ( 817x 90 ).png">
+              </div>
             <!-- Article Comments Start -->
             <PostsPostComments />
             <PostsPostUserComments />
@@ -61,11 +64,14 @@ const colorMode: ColorModeInstance = useColorMode()
           </div>
           <div class="col-lg-auto col-xl-4 col-md-auto">
             <div class="px-md-3 mx-md-2">
+              <div style="margin-bottom: 60px;">
+                <img style="width: 100%;" src="\images\advertisement\Iklan inline rectangle ( 300 x 250 ).png" alt="\images\advertisement\Iklan inline rectangle ( 300 x 250 ).png">
+              </div>
               <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
               <PostsPostItem
               :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)" />
               <div style="margin-top: 35px;">
-                <img style="height: 550px;" src="\images\advertisement\available4.png" alt="\images\advertisement\available4.png">
+                <img style="width: 100%;" src="\images\advertisement\Iklan half page 2 (300 x 600).png" alt="\images\advertisement\Iklan half page 2 (300 x 600).png">
               </div>
             </div>
           </div>
