@@ -14,7 +14,7 @@ const props = defineProps({
 <template>
   <div class="card border-0 rounded-0 mb-3">
 
-    <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
+    <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
       <NuxtImg :class="'card-img-top img-fluid article-thumbnail'" :src="featuredImage" :height="253" loading="lazy"
         :alt="title" format="webp" />
     </NuxtLink>
@@ -25,7 +25,7 @@ const props = defineProps({
           <BootstrapIcon name="clock" class="article-timestamp-icon " /> {{ useTimestamps(timestamp) }}
         </span>
       </div>
-      <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
+      <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
         :class="'card-title text-start  text-wrap lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
         {{ title.length >= 80
           ? `${title.substring(0, 80)}...`

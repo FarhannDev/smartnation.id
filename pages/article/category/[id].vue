@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { CategoryPostsType } from "~/utils/data/getInitialCategoryPostData";
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
+import { categories } from "~/utils/data/getInitialCategoryPostData";
+import { posts } from "~/utils/data/getInitialPostsData"
 
 
 const route = useRoute();
@@ -7,16 +9,17 @@ const categoryId = route.params.id
 const categoryPostsId: globalThis.Ref<number | undefined> = ref(139);
 const categoryTitle: globalThis.Ref<string | undefined> = ref('')
 
-const { data } = await useFetch('/api/categories', {
-  transform: (categories: CategoryPostsType) => {
-    return categories.find(category => {
-      if (category.slug === categoryId) {
-        categoryTitle.value = category.name
-        categoryPostsId.value = category.id
-      }
-    })
-  }
-})
+const category = categories.find(category => category.slug === categoryId)
+
+if (!category) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found'
+  })
+}
+
+categoryTitle.value = category.name
+categoryPostsId.value = category.id
 
 
 useSeoMeta({
@@ -24,6 +27,8 @@ useSeoMeta({
   description: ``,
 });
 
+
+const colorMode: ColorModeInstance = useColorMode()
 
 </script>
 
@@ -75,12 +80,12 @@ useSeoMeta({
           <div class="col-xl-4 col-xxl-4 col-lg-12 ">
             <article>
               <h1 class="berita-section-title text-decoration-underline">
-                Berita Terpopuler Lainnya
+                Terpopuler
               </h1>
 
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
-                  <ArticlesArticleListTitle :end="10" />
+                  <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
                 </div>
               </div>
             </article>
@@ -89,6 +94,8 @@ useSeoMeta({
       </div>
     </section>
     <!-- Section berita end -->
+
+    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
 </template>
 
@@ -104,9 +111,11 @@ useSeoMeta({
   /* 28.8px */
   /* 24px */
 }
+
 .text-decoration-underline {
   margin-bottom: 25px !important;
 }
+
 .line-break {
   position: relative;
   top: -5px;

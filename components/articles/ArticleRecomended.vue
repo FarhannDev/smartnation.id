@@ -11,7 +11,7 @@ const props = defineProps({
 <template>
   <div class="d-flex justify-content-arround mb-4 ">
     <span class="article-number me-3">{{ number + 1 }}</span>
-    <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
+    <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
       :class="'article-title text-start text-wrap fw-normal fs-6 lh-base link-offset-2 d-block link-underline-opacity-0 '">
       {{ title.length >= 80
         ? `${title.substring(0, 80)}...`

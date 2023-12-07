@@ -203,7 +203,8 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
               <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`" :to="`/articles`">Indeks
+                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`" :to="`/articles`">
+                  Indeks
                 </NuxtLink>
               </li>
               <li v-for="category in categories" :key="category.id">

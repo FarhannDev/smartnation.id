@@ -3,7 +3,7 @@
   <div class="card border-0 rounded-0 mb-3">
     <div class="row justify-content-start align-items-start g-0">
       <div class="col-lg-6">
-        <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
+        <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
           <NuxtImg :class="'card-img-top img-fluid rounded'" :src="featuredImage" :height="253" loading="lazy"
             :alt="title" />
         </NuxtLink>
@@ -11,7 +11,7 @@
 
       <div class="col-lg-6">
         <div class="card-body px-0 mx-0 px-md-2 mx-md-2 ">
-          <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
+          <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
             {{ title.length >= 80
               ? `${title.substring(0, 80)}...`

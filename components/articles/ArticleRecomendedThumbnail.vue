@@ -19,7 +19,7 @@ const props = defineProps({
 
         <div class="d-flex justify-content-arround ">
           <span class="article-number me-3 align-middle">{{ number + 1 }}</span>
-          <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
+          <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`"
             :class="'article-title link-offset-2   d-block link-underline-opacity-0 '">
             {{ title.length >= 60
               ? `${title.substring(0, 60)}...`
@@ -28,7 +28,7 @@ const props = defineProps({
           </NuxtLink>
         </div>
 
-        <NuxtLink :to="`/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
+        <NuxtLink :to="`/article/${postId}`" :aria-label="`Baca Selengkapnya ${title}`">
           <NuxtImg class="article-thumbnail" :src="featuredImage" :width="86" :height="86" loading="lazy" :alt="title" />
         </NuxtLink>
       </div>

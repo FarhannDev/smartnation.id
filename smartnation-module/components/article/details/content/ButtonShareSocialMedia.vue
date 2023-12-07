@@ -1,87 +1,24 @@
-<script setup lang="ts">
-
-import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
-import { posts } from "~/utils/data/getInitialPostsData"
-
-definePageMeta({ layout: "content-layout" })
-
-const route = useRoute();
-const postId = String(route.params.id)
-const post = posts.find(post => post.slug === postId)
-
-if (!post) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Halaman Tidak Ditemukan!'
-  })
-}
-
-
-useSeoMeta({
-  title: post.title.rendered,
-  description: post.excerpt.rendered,
-  author: 'Smart Nation',
-  // articleAuthor: 'Smart Nation',
-  // articlePublishedTime: useFormatter(post.date_gmt),
-  // articleModifiedTime: useFormatter(post.date_gmt),
-  // articleSection: 'Smart City',
-  // articleTag: post.categories,
-  ogType: 'article',
-  ogTitle: post.title.rendered,
-  ogDescription: post.excerpt.rendered,
-  ogImage: post.featured_media,
-  ogSiteName: 'SmartNation.id',
-  ogUrl: 'https://smartnation.vercel.app/',
-  ogLocale: "ID",
-  ogImageUrl: `https://smartnation.vercel.app/${post.featured_media}`,
-})
-
-
-const colorMode: ColorModeInstance = useColorMode()
-
-</script>
-
 <template>
-  <!-- rendered content main -->
-  <main id="content">
-    <!-- section berita detail start -->
-    <section class="berita-section-container position-relative py-5 mt-5">
-      <div class="container">
-        <div class="row justify-content-start g-3 pt-3">
-          
-          <div class="col-lg-12 col-xl-8 col-md-auto">
-            <!-- Article Content Start -->
-            <PostsPostContentDetails :post="post" />
-            <!-- Article Content End -->
-            <div style="margin-bottom: 35px;">
-                <img style="width: 100%;" src="\images\advertisement\iklan leaderboard 2 ( 817x 90 ).png" alt="\images\advertisement\iklan leaderboard 2 ( 817x 90 ).png">
-              </div>
-            <!-- Article Comments Start -->
-            <PostsPostComments />
-            <PostsPostUserComments />
-            
-            <!-- Article Comments End -->
-          </div>
-          <div class="col-lg-auto col-xl-4 col-md-auto">
-            <div class="px-md-3 mx-md-2">
-              <div style="margin-bottom: 60px;">
-                <img style="width: 100%;" src="\images\advertisement\Iklan inline rectangle ( 300 x 250 ).png" alt="\images\advertisement\Iklan inline rectangle ( 300 x 250 ).png">
-              </div>
-              <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
-              <PostsPostItem
-              :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)" />
-              <div style="margin-top: 35px;">
-                <img style="width: 100%;" src="\images\advertisement\Iklan half page 2 (300 x 600).png" alt="\images\advertisement\Iklan half page 2 (300 x 600).png">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- section berita detail end -->
-    
-    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
-  </main>
+  <div class="article-details__content__share pt-3">
+    <div class="d-flex flex-wrap justify-content-end g-2">
+      <NuxtLink to="https://www.instagram.com/smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
+      </NuxtLink>
+      <NuxtLink to="https://www.facebook.com/smartnation.id" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="facebook" class="article-details__content__share__medsos" />
+      </NuxtLink>
+      <NuxtLink to="https://wa.me/6285882002191" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="whatsapp" class="article-details__content__share__medsos" />
+      </NuxtLink>
+      <NuxtLink to="https://www.tiktok.com/@smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="tiktok" class="article-details__content__share__medsos" />
+      </NuxtLink>
+    </div>
+  </div>
 </template>
 
 <style scoped>

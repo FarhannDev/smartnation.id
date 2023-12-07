@@ -1,25 +1,27 @@
 <script lang="ts" setup>
 
+const props = defineProps({ error: { type: Object } })
+
 definePageMeta({ layout: 'maintenance' })
 
-useSeoMeta({
-  title: "Maaf, Situs Ini Sedang Dalam Perbaikan"
-})
+useSeoMeta({ title: "Sedang Dalam Perbaikan", description: 'Maaf, Situs Ini Sedang Dalam Perbaikan, Situs Kami Tidak Tersedia Sementara Waktu, Perbaikan Sedang Dilakukan, Kami Berusaha Secepat Mungkin' })
+
+
+const message = `
+  Maaf, Situs Ini Sedang Dalam Perbaikan <br />
+  Situs Kami Tidak Tersedia Sementara Waktu <br />
+  Perbaikan Sedang Dilakukan, Kami Berusaha Secepat Mungkin
+`
+
 </script>
 
 
 <template>
-  <div class="page-notfound-container d-flex justify-content-center align-self-center ">
-
-    <div class="d-flex flex-column mb-3 mx-auto">
-      <NuxtImg :class="'image-notfound'" placeholder="/images/ccsn_empty_page.png" src="/images/ccsn_empty_page.png"
-        loading="lazy" />
-      <h3 class="page-notfound__text">Maaf, Situs Ini Sedang Dalam Perbaikan</h3>
-      <h3 class="page-notfound__text">Situs Kami Tidak Tersedia Sementara Waktu</h3>
-      <h3 class="page-notfound__text">Perbaikan Sedang Dilakukan, Kami Berusaha Secepat Mungkin</h3>
-
+  <div>
+    <div class="row justify-content-center align-content-center g-3 pt-5">
+      <ErrorMaintenance :statusCode="error?.statusCode" :message="message"
+        class="col-lg-4 col-xl-5 col-md-auto col-sm-auto" />
     </div>
-
   </div>
 </template>
 
