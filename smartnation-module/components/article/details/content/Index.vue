@@ -1,133 +1,19 @@
+<script lang="ts" setup>
+import { PropType } from "vue"
+import { Posts } from "~/utils/data/getInitialPostsData";
+
+const props = defineProps({ post: { type: Object as PropType<Posts> } })
+
+</script>
+
+
 <template>
-  <div class="row justify-content-start">
-    <div class="col">
-      <div class="d-flex flex-column justify-content-start g-2 py-5">
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div>
+    <div class="article-details__content__wrapper">
+      <ArticleDetailsContentCoverArticle v-if="post" :images="post.featured_media" :alt="post.title.rendered" />
+      <ArticleDetailsContentButtonArticleCategory :categoryId="post.categories" />
+      <ArticleDetailsContentMarkdownArticle v-if="post" :content="post.content.rendered" />
+      <ArticleDetailsContentButtonShareSocialMedia :class="'pt-5'" />
     </div>
   </div>
 </template>

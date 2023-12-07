@@ -1,133 +1,22 @@
 <template>
-  <div class="row justify-content-start">
-    <div class="col">
-      <div class="d-flex flex-column justify-content-start g-2 py-5">
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="article-comments-card mb-3">
-          <div class="d-flex justify-content-start align-content-start">
-            <NuxtImg src="/images/user1.png" class="rounded me-3" :width="70" :height="70" />
-            <div class="d-flex flex-column justify-content-start g-2">
-              <div class="article-comments__name">Atika Putri</div>
-              <div class="article-comments__created">
-                30 Menit yang lalu
-              </div>
-              <div class="article-comments__content">
-                Wahh Sangat Menarik
-              </div>
-              <div class="article-comments__action">
-                <div class="hstack gap-3">
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-up" /> 0
-                  </span>
-                  <span class="d-inline">
-                    <BootstrapIcon name="hand-thumbs-down" /> 0
-                  </span>
-                  <span class="d-inline"> Balas </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="article-details__content__share pt-3">
+    <div class="d-flex flex-wrap justify-content-end g-2">
+      <NuxtLink to="https://www.instagram.com/smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="instagram" class="article-details__content__share__medsos" />
+      </NuxtLink>
+      <NuxtLink to="https://www.facebook.com/smartnation.id" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="facebook" class="article-details__content__share__medsos" />
+      </NuxtLink>
+      <NuxtLink to="https://wa.me/6285882002191" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="whatsapp" class="article-details__content__share__medsos" />
+      </NuxtLink>
+      <NuxtLink to="https://www.tiktok.com/@smartnation.id/" target="_blank" rel="noopener" title="" aria-label=""
+        class="link-offset-2 link-underline link-underline-opacity-0 mx-2">
+        <BootstrapIcon name="tiktok" class="article-details__content__share__medsos" />
+      </NuxtLink>
     </div>
   </div>
 </template>
