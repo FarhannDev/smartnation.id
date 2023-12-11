@@ -55,17 +55,9 @@ useSeoMeta({
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
                   <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
-                  <div style="margin-top: 35px;">
-                    <img style="height: 550px;" src="\images\advertisement\available4.png"
-                      alt="\images\advertisement\available4.png">
-                  </div>
                 </div>
               </div>
             </article>
-            <div style="margin-top: 0px;">
-              <img style="width: 100%;" src="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 ).png"
-                alt="\images\advertisement\Iklan leaderboard 3 ( 742 x 90 ).png">
-            </div>
             <article v-for="category in categories" :key="category.id"
               class="article-section position-relative mb-3 py-5">
               <div class="d-flex flex-wrap justify-content-between g-0">
@@ -94,10 +86,6 @@ useSeoMeta({
               <div class="d-flex flex-column">
                 <div class="vstack g-3">
                   <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
-                  <div style="margin-top: 35px;">
-                    <img style="height: 550px;" src="\images\advertisement\available4.png"
-                      alt="\images\advertisement\available4.png">
-                  </div>
                 </div>
               </div>
             </article>
@@ -304,7 +292,7 @@ useSeoMeta({
 /* .dark-mode .list-group,
 .list-group-flush .list-group-item {
   background: #3D3D3D;
-  
+
 } */
 
 .dark-mode .subscribe-section-container {

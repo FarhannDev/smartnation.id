@@ -44,28 +44,32 @@ const colorMode: ColorModeInstance = useColorMode()
 <template>
   <!-- rendered content main -->
   <main id="content">
-    <div class="container py-5 mt-5">
-      <div class="row justify-content-start g-3 pt-3">
-        <div class="col-lg-12 col-xl-8 col-md-auto">
-          <ArticleDetails :post="post" />
-          <ArticleCommentsUserFormSubmit />
-          <ArticleCommentsUser :class="'pt-5'" />
-        </div>
+    <!-- section berita detail start -->
+    <section class="berita-section-container position-relative py-5 mt-5">
+      <div class="container">
+        <div class="row justify-content-start g-3 pt-3">
 
-        <div class="col-lg-auto col-xl-4 col-md-auto">
-          <div class="px-md-3 mx-md-2">
-            <ContentNewArticleHeading title="Berita Terpopuler" />
-            <div class="row justify-content-start g-3 pt-3">
-              <div :class="'col-xl-12 col-lg-4 col-md-6'"
-                v-for="post in posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)"
-                :key="post.id">
-                <ContentRelatedArticleListsCardItem :post="post" />
-              </div>
+          <div class="col-lg-12 col-xl-8 col-md-auto">
+            <!-- Article Content Start -->
+            <PostsPostContentDetails :post="post" />
+            <!-- Article Content End -->
+            <!-- Article Comments Start -->
+            <PostsPostComments />
+            <PostsPostUserComments />
+
+            <!-- Article Comments End -->
+          </div>
+          <div class="col-lg-auto col-xl-4 col-md-auto">
+            <div class="px-md-3 mx-md-2">
+              <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
+              <PostsPostItem
+                :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 5)" />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- section berita detail end -->
 
     <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </main>
