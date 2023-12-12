@@ -100,8 +100,7 @@ useSeoMeta({
         <div class="row justify-content-start align-content-start g-5">
           <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
             <div class="d-flex flex-column">
-              <LazyHeadingTitle :title="`Tentang ${categoryTitle}`" />
-
+              <LazyHeadingContentHeadingTitle :title="`Tentang ${categoryTitle}`" />
               <div class="row justify-content-start g-2">
                 <div class="col-lg-4 d-none d-lg-block d-xl-block">
                   <NuxtImg :src="'/images/event_isna.png'" class="isna-images__logo" loading="lazy" />
@@ -114,8 +113,8 @@ useSeoMeta({
                   </div>
                 </div>
               </div>
-
             </div>
+
             <div class="d-flex justify-content-between py-3">
               <h1 class="berita-section-title">{{ categoryTitle }}</h1>
               <div v-if="categoryPostsId === Number(90) || categoryParentId === Number(90)">
@@ -131,6 +130,8 @@ useSeoMeta({
                 </div>
               </div>
             </div>
+
+
             <div>
               <div class="d-flex flex-column ">
                 <ul v-if="eventsData" class="list-group list-group-flush">
@@ -174,33 +175,7 @@ useSeoMeta({
                   </li>
                 </ul>
               </div>
-              <!-- Pagination start -->
-              <div v-if="eventsData.length" class="d-flex justify-content-center g-2 pt-5">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item mx-2">
-                      <a class="page-link border-0 text-dark" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li class="page-item mx-1">
-                      <a class="page-link text-center text-white border-0 rounded bg-danger" href="#">1</a>
-                    </li>
-                    <li class="page-item mx-1">
-                      <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">2</a>
-                    </li>
-                    <li class="page-item mx-1">
-                      <a class="page-link text-center text-dark border-0 rounded bg-none" href="#">3</a>
-                    </li>
-                    <li class="page-item mx-2">
-                      <a class="page-link border-0 text-dark" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              <!-- Pagination end -->
+              <LazyButtonPagination />
             </div>
 
 

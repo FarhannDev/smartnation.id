@@ -21,11 +21,6 @@ useSeoMeta({
   title: post.title.rendered,
   description: post.excerpt.rendered,
   author: 'Smart Nation',
-  // articleAuthor: 'Smart Nation',
-  // articlePublishedTime: useFormatter(post.date_gmt),
-  // articleModifiedTime: useFormatter(post.date_gmt),
-  // articleSection: 'Smart City',
-  // articleTag: post.categories,
   ogType: 'article',
   ogTitle: post.title.rendered,
   ogDescription: post.excerpt.rendered,
@@ -42,37 +37,104 @@ const colorMode: ColorModeInstance = useColorMode()
 </script>
 
 <template>
-  <!-- rendered content main -->
-  <main id="content">
-    <!-- section berita detail start -->
-    <section class="berita-section-container position-relative py-5 mt-5">
-      <div class="container">
-        <div class="row justify-content-start g-3 pt-3">
+  <div>
 
-          <div class="col-lg-12 col-xl-8 col-md-auto">
-            <!-- Article Content Start -->
-            <PostsPostContentDetails :post="post" />
-            <!-- Article Content End -->
-            <!-- Article Comments Start -->
-            <PostsPostComments />
-            <PostsPostUserComments />
+    <div class="container py-5 mt-5 ">
+      <div class="row justify-content-start g-3">
+        <div class="col-lg-12 col-xl-8 col-md-auto">
 
-            <!-- Article Comments End -->
-          </div>
-          <div class="col-lg-auto col-xl-4 col-md-auto">
-            <div class="px-md-3 mx-md-2">
-              <HeadingTitle class="text-capitalize fw-bold fs-5" title="Berita Terpopuler" />
-              <PostsPostItem
-                :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 5)" />
+          <!-- Section Artikel Detail Start -->
+          <section>
+            <article class="article-details-container d-grid gap-3">
+              <div class="article-details__title__wrapper">
+                <h1 class="article-details__title">{{ post.title.rendered }}</h1>
+              </div>
+
+              <div class="article-details__info__wrapper">
+                <div class="d-flex flex-wrap justify-content-start g-2">
+                  <div class="article-details__info__created me-3">
+                    <BootstrapIcon name="clock" />
+                    {{ useFormatter(post.date_gmt) }}
+                  </div>
+                  <div class="article-details__info__comments me-3">
+                    <BootstrapIcon name="chat" /> 0
+                  </div>
+                  <span class="article-details__info__views me-3">
+                    <BootstrapIcon name="eye" /> 0
+                  </span>
+                </div>
+              </div>
+
+              <div class="article-details__content__wrapper">
+                <div class="article-details__content__cover__wrapper">
+                  <NuxtImg class="img-fluid article-details__cover" :src="post.featured_media" :height="433"
+                    :alt="post.title.rendered" />
+                </div>
+
+                <div class="article-details__content__tags py-3">
+                  <div class="d-flex flex-wrap g-2 mx-0 px-0">
+                    <LazyButtonArticleDetailCategory v-for="(cat, index) in post.categories" :key="index"
+                      :category-id="cat" />
+                  </div>
+                </div>
+
+                <div class="article-details__content" v-html="post.content.rendered"></div>
+
+                <div class="article-details__content__share pt-3">
+                  <div class="d-flex flex-wrap justify-content-end g-2">
+                    <LazyButtonShareContentArticle link="https://www.instagram.com/smartnation.id" title="instagram"
+                      icon="instagram" />
+                    <LazyButtonShareContentArticle link="https://www.facebook.com/smartnation.id" title="facebook"
+                      icon="facebook" />
+                    <LazyButtonShareContentArticle link="https://wa.me/6285882002191" title="whatsapp" icon="whatsapp" />
+                    <LazyButtonShareContentArticle link="https://www.tiktok.com/@smartnation.id/" title="tiktok"
+                      icon="tiktok" />
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+          <!-- Section Artikel Detail End -->
+
+          <!-- Section Komentar -->
+          <section>
+            <!-- Komentar form -->
+            <div class="d-grid gap-3 py-3">
+              <ContentDetailsCommentsForm title="Komentar"
+                description="Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai" />
+              <!-- Komentar user -->
+              <ContentDetailsCommentsCardItem user="Farhan" text="Di komentar oleh Farhan" />
+              <ContentDetailsCommentsCardItem user="Bella" text="Di komentar oleh Bella" />
+              <ContentDetailsCommentsCardItem user="Reza" text="Di komentar oleh Reza" />
+              <ContentDetailsCommentsCardItem user="Abdul" text="Di komentar oleh Abdul" />
+
+              <ButtonLoadContent />
             </div>
+          </section>
+
+        </div>
+        <div class="col-lg-auto col-xl-4 col-md-auto">
+          <div class="px-md-3 mx-md-2">
+            <LazyHeadingContentHeadingTitle title="Berita Terpopuler" />
+
+            <div class="row justify-content-start g-3 pt-3">
+              <div
+                v-for="post in posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)"
+                :key="post.id" class="col-xl-12 col-lg-4 col-md-6">
+                <ContentRelatedPost :post="post" />
+              </div>
+            </div>
+
           </div>
+
         </div>
       </div>
-    </section>
-    <!-- section berita detail end -->
+    </div>
+
+
 
     <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
-  </main>
+  </div>
 </template>
 
 <style scoped>

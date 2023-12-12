@@ -19,11 +19,19 @@ const message = `
 <template>
   <div>
     <div class="row justify-content-center align-content-center g-3 pt-5">
-      <ErrorMaintenance :statusCode="error?.statusCode" :message="message"
-        class="col-lg-4 col-xl-5 col-md-auto col-sm-auto" />
+      <div class="col-lg-4 col-xl-5 col-md-auto col-sm-auto">
+        <div class="d-flex flex-column mb-3 mx-auto">
+          <NuxtImg :class="'image-notfound img-fluid'" placeholder="/images/mascot_smartnation.png"
+            src="/images/mascot_smartnation.png" loading="lazy" />
+
+          <div class="page-notfound__statuscode">503</div>
+          <h3 class="page-notfound__text" v-html="message"></h3>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 
 
 <style lang="css" scoped>
@@ -39,19 +47,30 @@ const message = `
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 13px;
+}
+
+.page-notfound__statuscode {
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
   line-height: 120%;
   text-align: center;
   margin-bottom: 13px;
 }
 
+
 .image-notfound {
-  width: auto;
+  width: fit-content;
   height: 350px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   object-fit: cover;
-  margin-bottom: 13px;
+  /* margin-bottom: 13px; */
 }
 
 
@@ -69,6 +88,10 @@ const message = `
 
   .page-notfound__text {
     font-size: 18px;
+  }
+
+  .page-notfound__statuscode {
+    font-size: 28px;
   }
 
 }

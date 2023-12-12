@@ -1,7 +1,7 @@
 <template>
   <div>
     <NuxtLoadingIndicator :duration="5000" color="#a60b40" />
-    <NavigationHeaderDefault />
+    <NavigationMenuDefault />
     <main>
       <slot></slot>
     </main>

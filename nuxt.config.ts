@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     },
   ],
 
-  components: [{ path: '~/smartnation-module/components' }, '~/components'],
+  components: ['~/components'],
 
   css: [
     '~/assets/css/index.css',

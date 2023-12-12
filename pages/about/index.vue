@@ -39,12 +39,10 @@ const showTooltip = (name: string, message: string, images: string) => {
 </script>
 
 <template>
-  <!-- hero start -->
-  <LazyHeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
-    background="/images/background/bg-galeri.png" />
+  <div>
+    <LazyHeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
+      background="/images/background/bg-galeri.png" />
 
-  <!-- rendered content main -->
-  <main id="content-main">
     <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
     <section class="ccsn-section-container">
       <div class="container" data-aos="fade-up" data-aos-duration="1500">
@@ -252,7 +250,7 @@ const showTooltip = (name: string, message: string, images: string) => {
     </section>
     <!-- section portofolio end -->
     <hr v-show="colorMode.preference === 'dark'" />
-  </main>
+  </div>
 </template>
 
 <style scoped>

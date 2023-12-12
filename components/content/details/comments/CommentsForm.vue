@@ -1,143 +1,56 @@
-<script setup lang="ts">
-
-definePageMeta({ layout: "content-layout" })
-import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
-import { posts } from "~/utils/data/getInitialPostsData"
-
-const route = useRoute();
-
-const postId = String(route.params.id)
-const post = posts.find(post => post.slug === postId)
-
-if (!post) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Halaman Tidak Ditemukan!'
-  })
-}
-
-
-useSeoMeta({
-  title: post.title.rendered,
-  description: post.excerpt.rendered,
-  author: 'Smart Nation',
-  ogType: 'article',
-  ogTitle: post.title.rendered,
-  ogDescription: post.excerpt.rendered,
-  ogImage: post.featured_media,
-  ogSiteName: 'SmartNation.id',
-  ogUrl: 'https://smartnation.vercel.app/',
-  ogLocale: "ID",
-  ogImageUrl: `https://smartnation.vercel.app/${post.featured_media}`,
-})
-
-
-const postsCategories = posts.filter(post => post.categories.find(category => category === 90))
-  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-  ?.slice(0, 5)
-
-const colorMode: ColorModeInstance = useColorMode()
-
+<script lang="ts" setup>
+const props = defineProps({ title: { type: String }, description: { type: String } })
 </script>
+
 
 <template>
   <div>
+    <div class="article-comments__card">
+      <div class="article-comments__body">
+        <h3 class="article-comments-title">{{ title }}</h3>
+        <p class="article-comments__text">
+          {{ description }}
+          <span class="article-comments__text__label">*</span>
+        </p>
 
-    <div class="container py-5 mt-5 ">
-      <div class="row justify-content-start g-3">
-        <div class="col-lg-12 col-xl-8 col-md-auto">
-
-          <!-- Section Artikel Detail Start -->
-          <section>
-            <article class="article-details-container d-grid gap-3">
-              <div class="article-details__title__wrapper">
-                <h1 class="article-details__title">{{ post.title.rendered }}</h1>
-              </div>
-
-              <div class="article-details__info__wrapper">
-                <div class="d-flex flex-wrap justify-content-start g-2">
-                  <div class="article-details__info__created me-3">
-                    <BootstrapIcon name="clock" />
-                    {{ useFormatter(post.date_gmt) }}
-                  </div>
-                  <div class="article-details__info__comments me-3">
-                    <BootstrapIcon name="chat" /> 0
-                  </div>
-                  <span class="article-details__info__views me-3">
-                    <BootstrapIcon name="eye" /> 0
-                  </span>
-                </div>
-              </div>
-
-              <div class="article-details__content__wrapper">
-                <div class="article-details__content__cover__wrapper">
-                  <NuxtImg class="img-fluid article-details__cover" :src="post.featured_media" :height="433"
-                    :alt="post.title.rendered" />
-                </div>
-
-                <div class="article-details__content__tags py-3">
-                  <div class="d-flex flex-wrap g-2 mx-0 px-0">
-                    <LazyButtonArticleDetailCategory v-for="(cat, index) in post.categories" :key="index"
-                      :category-id="cat" />
-                  </div>
-                </div>
-
-                <div class="article-details__content" v-html="post.content.rendered"></div>
-
-                <div class="article-details__content__share pt-3">
-                  <div class="d-flex flex-wrap justify-content-end g-2">
-                    <LazyButtonShareContentArticle link="https://www.instagram.com/smartnation.id" title="instagram"
-                      icon="instagram" />
-                    <LazyButtonShareContentArticle link="https://www.facebook.com/smartnation.id" title="facebook"
-                      icon="facebook" />
-                    <LazyButtonShareContentArticle link="https://wa.me/6285882002191" title="whatsapp" icon="whatsapp" />
-                    <LazyButtonShareContentArticle link="https://www.tiktok.com/@smartnation.id/" title="tiktok"
-                      icon="tiktok" />
-                  </div>
-                </div>
-              </div>
-            </article>
-          </section>
-          <!-- Section Artikel Detail End -->
-
-          <!-- Section Komentar -->
-          <section>
-            <!-- Komentar form -->
-            <div class="d-grid gap-3 py-3">
-              <ContentDetailsCommentsForm title="Komentar"
-                description="Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai" />
-              <!-- Komentar user -->
-              <ContentDetailsCommentsCardItem user="Farhan" text="Di komentar oleh Farhan" />
-              <ContentDetailsCommentsCardItem user="Bella" text="Di komentar oleh Bella" />
-              <ContentDetailsCommentsCardItem user="Reza" text="Di komentar oleh Reza" />
-              <ContentDetailsCommentsCardItem user="Abdul" text="Di komentar oleh Abdul" />
-
-              <ButtonLoadContent />
+        <div class="d-flex flex-column justify-content-start g-2">
+          <form class="article-form__input-container">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label" hidden>Example textarea</label>
+              <textarea class="form-control article-form__input__text" id="exampleFormControlTextarea1"
+                rows="3"></textarea>
             </div>
-          </section>
 
-        </div>
-        <div class="col-lg-auto col-xl-4 col-md-auto">
-          <div class="px-md-3 mx-md-2">
-            <LazyHeadingContentHeadingTitle title="Acara Terpopuler" />
-
-            <div class="row justify-content-start g-3 pt-3">
-              <div
-                v-for="post in postsCategories.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)"
-                :key="post.id" class="col-xl-12 col-lg-4 col-md-6">
-                <ContentRelatedPost :post="post" />
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-sm-6 mb-3">
+                  <input type="text" class="form-control article-form__input" placeholder="Nama Lengkap"
+                    aria-label="Nama Lengkap" />
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <input type="text" class="form-control article-form__input" placeholder="Alamat Email"
+                    aria-label="Alamat Email" />
+                </div>
               </div>
             </div>
 
-          </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input rounded-0" id="exampleCheck1" checked />
+              <label class="form-check-label article-form__input_check__label" for="exampleCheck1">Simpan
+                nama, email, dan situs web saya pada
+                peramban ini untuk komentar saya
+                berikutnya.</label>
+            </div>
 
+            <div class="mb-3">
+              <button disabled type="submit" class="article-form__button">
+                Posting
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-
-
-
-    <hr v-if="colorMode.preference === 'dark'" class="text-secondary" />
   </div>
 </template>
 
@@ -289,9 +202,12 @@ const colorMode: ColorModeInstance = useColorMode()
   /* 19.2px */
 }
 
-.article-comments__card,
+
+
+
+
 .article-comments__text {
-  color: var(--font-400, #888);
+  color: var(--font-400, #888) !important;
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -466,6 +382,10 @@ const colorMode: ColorModeInstance = useColorMode()
 }
 
 .dark-mode .article-details__info__comments {
+  color: #fff;
+}
+
+.dark-mode .article-comments__text {
   color: #fff;
 }
 </style>

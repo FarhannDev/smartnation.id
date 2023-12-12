@@ -36,10 +36,11 @@ defineProps({ posts: { type: Object as PropType<PostsDataType> } })
 <template>
   <section class="hero-section">
 
-    <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :grabCursor="true"
-      :pagination="{
-        clickable: true,
-      }" :effect="'creative'" :autoplay="{
+    <div v-if="posts">
+      <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]" :slides-per-view="1" :grabCursor="true"
+        :pagination="{
+          clickable: true,
+        }" :effect="'creative'" :autoplay="{
   delay: 2500,
   disableOnInteraction: true,
 }" :creative-effect="{
@@ -51,30 +52,33 @@ defineProps({ posts: { type: Object as PropType<PostsDataType> } })
     translate: ['100%', 0, 0],
   },
 }">
-      <SwiperSlide v-if="posts" v-for="post in posts
-            .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-            .slice(0, 5)" :key="post.id">
+        <SwiperSlide v-for="post in posts
+              .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+              .slice(0, 5)" :key="post.id">
 
 
 
-        <div class="hero-image-parallax" :style="backgroundStyle(post.featured_media)">
-          <div class="hero-image-bg__gradient "></div>
-          <div class="container ">
-            <div class="hero-heading-container ">
-              <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
-                :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
-                {{ post.title.rendered.length >= 120
-                  ? `${post.title.rendered.substring(0, 120)}...`
-                  : post.title.rendered
-                }}
-              </NuxtLink>
+          <div class="hero-image-parallax" :style="backgroundStyle(post.featured_media)">
+            <div class="hero-image-bg__gradient "></div>
+            <div class="container ">
+              <div class="hero-heading-container ">
+                <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+                  :class="'text-start link-offset-2 link-underline link-underline-opacity-0 hero-heading__title'">
+                  {{ post.title.rendered.length >= 120
+                    ? `${post.title.rendered.substring(0, 120)}...`
+                    : post.title.rendered
+                  }}
+                </NuxtLink>
+              </div>
+
+              <ButtonSocialMediaIcon />
+
             </div>
-            <HeroSocialMedia />
-
           </div>
-        </div>
-      </SwiperSlide>
-    </Swiper>
+        </SwiperSlide>
+      </Swiper>
+
+    </div>
   </section>
 </template>
 
