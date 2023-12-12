@@ -123,7 +123,7 @@ useSeoMeta({
   </div>
 </template>
 
-<style >
+<style scoped >
 .latest-newsfeed-section {
   width: 100%;
   height: auto;

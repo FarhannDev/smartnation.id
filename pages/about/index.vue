@@ -1,6 +1,8 @@
 <script setup lang="ts">
 
 import { clients } from '~/utils/data/getInitialClientData';
+import { Posts, posts } from '~/utils/data/getInitialPostsData';
+import { categories } from '~/utils/data/getInitialCategoryPostData';
 
 // Set Meta SEO
 useSeoMeta({
@@ -12,13 +14,25 @@ useSeoMeta({
 const colorMode = useColorMode();
 
 
+const years: string[] = Array.from(Array(new Date().getFullYear() - 2014), (_, i) => (i + 2015).toString())
+const selectYears: globalThis.Ref<number> = ref(2023);
+
+const events = posts
+  .filter(post => post.categories.find(category => category === Number(88)))
+  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+  .slice(0, 8)
+
+const handleClickButton = (values: any) => {
+  selectYears.value = values
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
+
 </script>
 
 <template>
   <div>
     <LazyHeroParallaxBackground text="Citiasia Center for Smart Nation (CCSN)"
       background="/images/background/bg-galeri.png" />
-
     <!-- section tentang Citiasia Center for Smart Nation (CCSN) start -->
     <section class="ccsn-section-container">
       <div class="container" data-aos="fade-up" data-aos-duration="1500">
@@ -40,11 +54,37 @@ const colorMode = useColorMode();
     </section>
     <!-- section tentang Citiasia Center for Smart Nation (CCSN)  end -->
 
+    <section class="event-section py-5">
+      <div class="container">
+        <div class="d-flex justify-content-between flex-wrap py-3">
+          <LazyHeadingContentHeadingTitle title="Acara yang diadakan oleh kami" />
+          <div>
+            <div class="dropdown" style="width: 150px">
+              <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Pilih Tahun
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li v-for="(year, index) in years" :key="index" @click="handleClickButton(year)">
+                  <a class="dropdown-item border-bottom">{{
+                    year }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pt-3">
+          <LazyContentEventsLatestEventsCardItemThumbnail :events="events" />
+          <ButtonPagination />
+        </div>
+      </div>
+    </section>
+
 
     <!-- section partner start -->
     <section class="partner-section-container py-5">
       <div class="container" data-aos="fade-down" data-aos-duration="1500">
-        <h1 class="partner-citiasia__title">Partner</h1>
+        <LazyHeadingContentHeadingTitle title="Partner" />
         <div class="row justify-content-start g-5 py-5">
           <div class="col">
             <Swiper :modules="[SwiperAutoplay, SwiperNavigation]" :navigation="{
@@ -320,5 +360,60 @@ const colorMode = useColorMode();
 
 .dark-mode .partner__name {
   color: #fafafa;
+}
+
+
+.dropdown-item {
+  margin-bottom: 10px;
+
+  color: var(--font-600, #5D5D5D);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  text-align: center;
+  /* margin: 0 auto;
+  width: 124px; */
+  cursor: pointer;
+
+}
+
+.dropdown-item:hover {
+  color: var(--primary-600, #D71149);
+}
+
+.dropdown-item:focus {
+  color: var(--primary-600, #D71149);
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.dropdown-menu {
+  /* position: absolute; */
+  width: 124px;
+  padding: 24px;
+  gap: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--font-100, #E7E7E7);
+  background: var(--Background, #FFF);
+  margin-top: 13px !important;
+}
+
+.dropdown-divider {
+  width: 95px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+
+.dropdown-toggle {
+  /* width: 100%; */
+  width: 100%;
+  text-align: center;
+  border-radius: 4px;
+  vertical-align: top;
 }
 </style>
