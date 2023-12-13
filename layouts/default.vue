@@ -1,9 +1,12 @@
 <template>
-    <NavbarSticky />
-    <!-- Content Main -->
+  <div>
+    <NuxtLoadingIndicator :duration="5000" color="#a60b40" />
+    <NavigationMenuSticky />
     <main>
-        <slot />
+      <slot />
     </main>
-    <ScroolTopButton />
-    <Footer />
+
+    <ButtonScrollTop />
+    <NavigationFooter />
+  </div>
 </template>

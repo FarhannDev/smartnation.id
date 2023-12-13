@@ -1,8 +1,0 @@
-###
-GET http://localhost:3000/api/v1/articles
-
-###
-GET http://localhost:3000/api/categories
-
-###
-GET http://localhost:3000/api/posts/smart-city-standar-nasional-indonesia-sni-untuk-kota-cerdas

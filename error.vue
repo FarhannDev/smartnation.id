@@ -4,27 +4,26 @@ definePageMeta({ layout: "404" })
 
 const props = defineProps({ error: { type: Object } })
 
-
 const title: globalThis.Ref<string> = ref(`${props.error?.statusCode} - ${props.error?.message}`)
 const statusCode: globalThis.Ref<string> = ref(`${props.error?.statusCode}`)
-const message: globalThis.Ref<string> = ref(`${props.error?.message}`)
+const message: globalThis.Ref<string> = ref(`${props.error?.statusMessage}`)
 
 useSeoMeta({ title: title.value, description: message })
-
-
 const handleError = () => clearError({ redirect: '/' })
-
 </script>
 
 <template>
-  <div class="page-notfound-container d-flex justify-content-center align-self-center ">
-
-    <div class="d-flex flex-column mb-3 mx-auto">
-      <NuxtImg :class="'image-notfound'" placeholder="/images/ccsn_empty_page.png" src="/images/ccsn_empty_page.png"
-        loading="lazy" :alt="title" :quality="75" />
-      <div class="page-notfound__statuscode">{{ statusCode }}</div>
-      <div class="page-notfound__message">{{ message }}</div>
-      <button @click="handleError" type="button" class="page-notfound__button bn28"> Kembali Halaman Utama</button>
+  <div>
+    <div class="row justify-content-center align-content-center g-3 pt-5">
+      <div class="col-lg-4 col-xl-4 col-md-auto col-sm-auto">
+        <div class="d-flex flex-column mb-3 mx-auto">
+          <NuxtImg :class="'image-notfound'" placeholder="/images/ccsn_empty_page.png" src="/images/ccsn_empty_page.png"
+            loading="lazy" :alt="title" :quality="75" />
+          <div class="page-notfound__statuscode">{{ statusCode }}</div>
+          <div class="page-notfound__message">{{ message }}</div>
+          <button @click="handleError" type="button" class="page-notfound__button bn28"> Kembali Halaman Utama</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -107,7 +106,7 @@ const handleError = () => clearError({ redirect: '/' })
   background-repeat: no-repeat;
   background-position: center;
   object-fit: cover;
-  /* margin-bottom: 13px; */
+  margin-bottom: 13px;
 }
 
 

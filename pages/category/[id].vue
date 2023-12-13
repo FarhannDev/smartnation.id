@@ -31,7 +31,7 @@ useSeoMeta({
 const colorMode: ColorModeInstance = useColorMode()
 
 </script>
-
+  
 <template>
   <HeroParallaxBackground :text="'Daftar Berita'" :desc="`Daftar berita dari kategori ${categoryTitle}`"
     :background="'https://drive.google.com/uc?export=download&id=1ZC_bP2Pn8FppePARz0ZunSpsQXTFKPqV'" />
@@ -123,9 +123,7 @@ const colorMode: ColorModeInstance = useColorMode()
   width: 51px;
   border: 1px solid #c70943;
 }
-.text-decoration-underline {
-  margin-bottom: 25px !important;
-}
+
 .berita-section-title {
   color: var(--font-600, #d71149);
   font-family: Poppins;

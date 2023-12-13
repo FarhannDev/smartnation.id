@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-definePageMeta({ layout: "content-layout" })
 import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { posts } from "~/utils/data/getInitialPostsData"
 
-const route = useRoute();
+definePageMeta({ layout: "content-layout" })
 
+const route = useRoute();
 const postId = String(route.params.id)
 const post = posts.find(post => post.slug === postId)
 
@@ -31,10 +31,6 @@ useSeoMeta({
   ogImageUrl: `https://smartnation.vercel.app/${post.featured_media}`,
 })
 
-
-const postsCategories = posts.filter(post => post.categories.find(category => category === 90))
-  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-  ?.slice(0, 5)
 
 const colorMode: ColorModeInstance = useColorMode()
 
@@ -119,13 +115,13 @@ const colorMode: ColorModeInstance = useColorMode()
         </div>
         <div class="col-lg-auto col-xl-4 col-md-auto">
           <div class="px-md-3 mx-md-2">
-            <LazyHeadingContentHeadingTitle title="Acara Terpopuler" />
+            <LazyHeadingContentHeadingTitle title="Berita Terpopuler" />
 
             <div class="row justify-content-start g-3 pt-3">
               <div
-                v-for="post in postsCategories.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)"
+                v-for="post in posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)"
                 :key="post.id" class="col-xl-12 col-lg-4 col-md-6">
-                <ContentEventsRelatedEvents :post="post" />
+                <ContentRelatedPost :post="post" />
               </div>
             </div>
 

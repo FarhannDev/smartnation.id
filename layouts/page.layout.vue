@@ -1,4 +1,0 @@
-<template>
-  <!-- <LazyNavbarSticky /> -->
-  <slot />
-</template>
