@@ -1,46 +1,41 @@
 <script lang="ts" setup>
 
-import { PostsDataType } from '~/utils/data/getInitialPostsData';
+import { Posts } from '~/utils/data/getInitialPostsData';
 
 
-defineProps({ posts: { type: Object as PropType<PostsDataType> } })
+defineProps({ post: { type: Object as PropType<Posts> } })
 
 
 
 </script>
 
 <template>
-  <div class="row justify-content-start g-3 py-3">
-    <div v-for="post in posts" :key="post.id" class="col-xl-12 col-lg-4 col-md-6">
-      <div class="card post-card__item">
-        <NuxtImg :src="post.featured_media" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;"
-          :alt="'berita'" />
-        <div class="card-body ">
-          <div class="vstack gap-2">
+  <div class="card post-card__item mb-3">
+    <NuxtImg :src="post?.featured_media" class="card-img-top border-0" style="border-radius: 20px 20px 0 0;"
+      :alt="'berita'" />
+    <div class="card-body ">
+      <div class="vstack gap-2">
 
-            <span class="d-inline post-card__item__datetime">
-              <BootstrapIcon name="clock" style="color: #888888;" />
-              <span style="color: #888888;" class="ms-1">
-                {{ useFormatter(post.date_gmt, 'id-ID', 'long') }}
-              </span>
-            </span>
+        <span class="d-inline post-card__item__datetime">
+          <BootstrapIcon name="clock" style="color: #888888;" />
+          <span style="color: #888888;" class="ms-1">
+            {{ useFormatter(post?.date_gmt, 'id-ID', 'long') }}
+          </span>
+        </span>
 
 
-            <NuxtLink :to="`/${post.slug}`"
-              class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
-              <div v-html="post.title.rendered.length >= 60
-                ? `${post.title.rendered.substring(0, 60)}...`
-                : post.title.rendered" class="post-card__item__title"></div>
-            </NuxtLink>
-            <div class="hstack gap-2 mx-0 px-0">
-              <PostsPostCategoriesButton v-for="(cat, index) in post.categories.slice(0, 3)" :key="index"
-                :category-id="cat" />
+        <NuxtLink :to="`/events/${post?.slug}`"
+          class="link-secondary link-offset-2 link-underline-0 link-underline-opacity-0 text-start fs-5 stretched-link post-card__item__link">
+          <div v-if="post" v-html="post.title.rendered.length >= 60
+            ? `${post?.title.rendered.substring(0, 60)}...`
+            : post?.title.rendered" class="post-card__item__title"></div>
+        </NuxtLink>
+        <div class="hstack gap-2 mx-0 px-0">
+          <LazyButtonArticleDetailCategory v-for="(cat, index) in post.categories.slice(0, 3)" :key="index"
+            :category-id="cat" />
 
-            </div>
-          </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>

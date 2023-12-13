@@ -18,13 +18,13 @@ const years: string[] = Array.from(Array(new Date().getFullYear() - 2014), (_, i
 const selectYears: globalThis.Ref<number> = ref(2023);
 
 const events = posts
-  .filter(post => post.categories.find(category => category === Number(88)))
+  .filter(post => post.categories.find(category => category === Number(88) || category === Number(155) || category === Number(94)))
   .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
   .slice(0, 8)
 
 const handleClickButton = (values: any) => {
   selectYears.value = values
-  window.scrollTo({ top: 0, behavior: "smooth" })
+  // window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
 </script>

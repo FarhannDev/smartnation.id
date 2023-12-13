@@ -38,11 +38,9 @@ useSeoMeta({
     <div class="container">
       <div class="row justify-content-start align-content-start g-5 py-5">
         <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-auto">
-
           <div v-if="results?.length">
             <article class="article-section position-relative mb-3">
-              <h1 class="berita-section-title">{{ resultName }}</h1>
-
+              <LazyHeadingContentHeadingTitle :title="resultName" />
               <div class="d-flex flex-column ">
                 <ul class="list-group list-group-flush">
                   <li v-for="post in results
@@ -84,8 +82,6 @@ useSeoMeta({
                   </li>
                 </ul>
               </div>
-
-
               <ButtonPagination v-if="results?.length >= 8" />
             </article>
           </div>
@@ -94,24 +90,19 @@ useSeoMeta({
           <div v-else>
             <div class="text-center mx-auto">
               <NuxtImg src="/images/ccsn_empty_page.png" class="img-fluid" loading="lazt" :width="342" :height="342" />
-              <h1 class="berita-section-title">{{ resultNameEmpty }}</h1>
-              <h1 class="berita-section-title">Untuk saat ini berita belum tersedia, Coba dengan kata kunci lain </h1>
+              <!-- <h1 class="berita-section-title">{{ resultNameEmpty }}</h1> -->
+              <LazyHeadingContentHeadingTitle class="text-center" :title="resultNameEmpty" />
+              <LazyHeadingContentHeadingTitle class="text-center"
+                title="Untuk saat ini berita belum tersedia, Coba dengan kata kunci lain " />
+              <!-- <h1 class="berita-section-title">Untuk saat ini berita belum tersedia, Coba dengan kata kunci lain </h1> -->
             </div>
           </div>
-
-
         </div>
         <div class="col-xl-4 col-xxl-4 col-lg-12 ">
           <article>
-            <h1 class="berita-section-title text-decoration-underline">
-              Baca Berita Lainnya
-            </h1>
-
-            <div class="d-flex flex-column ">
-              <div class="vstack g-3">
-                <ArticlesArticleListTitle :posts="posts.slice(0, 10)" />
-              </div>
-            </div>
+            <LazyHeadingContentHeadingTitle class=" text-decoration-underline" title="Berita Lainnya" />
+            <LazyContentRelatedArticle
+              :posts="posts.filter(post => post.categories.find(category => category === Number(83))).sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)" />
           </article>
         </div>
       </div>

@@ -51,16 +51,15 @@ useSeoMeta({
               <LazyHeadingContentHeadingTitle title="Terpopuler" class="text-decoration-underline" />
               <LazyContentRelatedArticle :posts="posts.slice(0, 10)" />
             </article>
-            <article v-for="category in categories" :key="category.id"
-              class="article-section position-relative mb-3 py-5">
+            <article
+              v-for="category in categories.filter(category => category.id !== Number(88) && category.parent !== Number(88) && category.id !== Number(90) && category.parent !== Number(90))"
+              :key="category.id" class="article-section position-relative mb-3 py-5">
               <div class="d-flex flex-wrap justify-content-between g-0">
                 <LazyHeadingContentHeadingTitleSecondary :title="category.name" />
                 <LazyButtonLinkViewArticle :link="category.slug" />
               </div>
               <div class="d-flex flex-column pt-3">
-
                 <LazyContentPostCardItemThumbnail :categoryId="category.id" :categoryName="category.name" />
-
               </div>
             </article>
           </div>

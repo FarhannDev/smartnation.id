@@ -68,4 +68,5 @@ export default {
     transform: translateY(-20px);
     /* Menggerakkan tombol ke atas saat animasi berada di titik 40% */
   }
-}</style>
+}
+</style>

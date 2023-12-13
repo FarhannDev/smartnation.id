@@ -36,7 +36,7 @@ const backgroundStyle = () => {
           <p class="hero-heading__desc">{{ desc }}</p>
         </div>
 
-        <HeroSocialMedia />
+        <ButtonSocialMediaIcon />
       </div>
     </div>
 

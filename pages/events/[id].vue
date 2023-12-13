@@ -125,7 +125,7 @@ const colorMode: ColorModeInstance = useColorMode()
               <div
                 v-for="post in postsCategories.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)"
                 :key="post.id" class="col-xl-12 col-lg-4 col-md-6">
-                <ContentRelatedPost :post="post" />
+                <ContentEventsRelatedEvents :post="post" />
               </div>
             </div>
 

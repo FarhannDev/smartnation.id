@@ -46,7 +46,7 @@ useSeoMeta({
     <!-- News Feed Section Start -->
     <section class="latest-newsfeed-section position-relative py-5">
       <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <LazyHeadingTitle :class="'text-white'" title="Berita Terkini" />
+        <LazyHeadingContentHeadingTitle class="content-heading__title2" title="Berita Terkini" />
         <div class="row justify-content-arround g-3 py-3">
           <div class="col-xl-6 col-xxl-6 col-lg-12 col-md-auto">
 
@@ -65,7 +65,7 @@ useSeoMeta({
     <!-- Events Section Start -->
     <section class="py-5">
       <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <LazyHeadingTitle title="Acara " />
+        <LazyHeadingContentHeadingTitle title="Acara " />
         <div class="row justify-content-start align-content-start g-3 py-3">
 
           <LazyContentLatestArticleCardBackground :posts="posts.filter(post => post.categories.find(category => category === Number(88) || category === Number(90)))
@@ -104,7 +104,7 @@ useSeoMeta({
             v-for="category in categories.filter(category => category.id === 84 || category.id === 85 || category.id === 86).slice(0, 3)"
             :key="category.id" class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
 
-            <LazyHeadingContentHeadingTitle :title="category.name" />
+            <LazyHeadingContentHeadingTitle :title="category.name" class="content-heading__category" />
             <div class="line-break"></div>
             <div class="d-grid pt-3 gap-3">
               <LazyContentLatestArticleListNumberThumbnail :categoryId="category.id" />
@@ -139,6 +139,21 @@ useSeoMeta({
   border-bottom: 1px solid var(--danger-600, #CE2F2F);
 }
 
+.content-heading__category {
+  color: var(--font-600, #5D5D5D);
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  /* 19.2px */
+}
+
+
+.content-heading__title2 {
+  color: #fff !important;
+}
+
 /* 
   color mode:dark-mode 
 */
@@ -149,5 +164,13 @@ useSeoMeta({
 
 .dark-mode .subscribe-section-container {
   background: #3d3d3d;
+}
+
+.dark-mode .content-heading__category {
+  color: #D71149;
+}
+
+.dark-mode .content-heading__title2 {
+  color: #D71149 !important;
 }
 </style>
