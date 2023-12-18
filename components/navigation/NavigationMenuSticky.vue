@@ -377,8 +377,8 @@ const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => 
             </NuxtLink>
           </li> -->
           <li class="nav-item">
-            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/maintenance' || route.path === `/maintenance/${route.params.id}` ? 'active' : ''
-              }`" to="/maintenance">Media
+            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/media' || route.path === `/media/${route.params.id}` ? 'active' : ''
+              }`" to="/media">Media
             </NuxtLink>
           </li>
           <li class="nav-item">
