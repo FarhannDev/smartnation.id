@@ -19,8 +19,8 @@
       </div>
       <div class="d-flex justify-content-center mx-auto">
         <audio controls class="media-streams-feature-podcast__audio">
-          <source src="/audio/KUNTI BOGEL,MAMANG!!.mp3" type="audio/ogg">
-          <source src="/audio/KUNTI BOGEL,MAMANG!!.mp3" type="audio/mpeg">
+          <source src="/audio/podcast_audio_example.mp3" type="audio/ogg">
+          <source src="/audio/podcast_audio_example.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
       </div>
