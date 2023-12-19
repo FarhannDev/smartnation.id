@@ -63,7 +63,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
@@ -118,7 +131,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
@@ -155,7 +181,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
@@ -220,7 +259,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
@@ -261,7 +313,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
@@ -302,7 +367,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
@@ -360,7 +438,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
@@ -417,7 +508,20 @@ const colorMode: ColorModeInstance = useColorMode();
                     }" :navigation="{
   nextEl: '.swiper-button-next',
   prevEl: '.swiper-button-prev',
-}" :slidesPerView="3.5" :spaceBetween="10" :grabCursor="true" :creative-effect="{
+}" :slidesPerView="1.5" :spaceBetween="10" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '768': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1024': {
+    slidesPerView: 3.5,
+    spaceBetween: 10,
+  },
+}" :grabCursor="true" :creative-effect="{
   prev: {
     shadow: false,
     translate: ['-20%', 0, -1],
