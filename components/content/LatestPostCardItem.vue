@@ -13,7 +13,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
     <div class="row justify-content-start g-3">
       <div v-for="post in posts" :key="post.id" class="col-xl-6 col-lg-6 col-md-6">
         <div class="card border-0 rounded-0 mb-3">
-          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+          <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
             <NuxtImg :class="'card-img-top img-fluid rounded'" :src="post.featured_media" :height="253" loading="lazy"
               :alt="post.title.rendered" />
           </NuxtLink>
@@ -24,7 +24,7 @@ const props = defineProps({ posts: { type: Object as PropType<PostsDataType> } }
                 {{ useTimestamps(post.date_gmt) }}
               </span>
             </div>
-            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+            <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
               :class="'card-title text-start  lh-base link-offset-2 link-underline link-underline-opacity-0 article-title'">
               {{
                 post.title.rendered.length >= 80

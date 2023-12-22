@@ -1,9 +1,8 @@
 <script lang="ts" setup>
+import { posts } from '~/utils/data/getInitialPostsData';
 import { PostsDataType } from "~/utils/data/getInitialPostsData";
 
 defineProps({ categoryId: { type: Number } })
-
-const { data: posts } = await useFetch<PostsDataType>('/api/posts')
 
 
 </script>
@@ -22,8 +21,8 @@ const { data: posts } = await useFetch<PostsDataType>('/api/posts')
               <span class="article-number me-3 align-middle">{{ index + 1 }}</span>
               <NuxtLink :to="`/article/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
                 :class="'article-title link-offset-2   d-block link-underline-opacity-0 me-2'">
-                {{ post.title.rendered.length >= 80
-                  ? `${post.title.rendered.substring(0, 80)}...`
+                {{ post.title.rendered.length >= 60
+                  ? `${post.title.rendered.substring(0, 60)}...`
                   : post.title.rendered
                 }}
               </NuxtLink>

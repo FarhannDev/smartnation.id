@@ -163,24 +163,7 @@ const filterdKategoriInternasional = categories.filter(category => {
             </ul>
           </li>
 
-          <!-- Show Dropdown display in laptop or desktop -->
-          <!-- <li @mouseenter="showDropdown(true)" @mouseleave="showDropdown(false)"
-            class="nav-item dropdown d-none d-lg-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/article' || route.path === `/article/${route.params.id}` ? 'active' : ''
-              }`" to="/article" role="button" data-bs-toggle="dropdown1" aria-expanded="false">
-              Berita
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="currentColor">
-                <path
-                  d="M5.74714 6.19354L8.3338 8.7802L10.9205 6.19354C11.1805 5.93354 11.6005 5.93354 11.8605 6.19354C12.1205 6.45354 12.1205 6.87354 11.8605 7.13354L8.80047 10.1935C8.54047 10.4535 8.12047 10.4535 7.86047 10.1935L4.80047 7.13354C4.54047 6.87354 4.54047 6.45354 4.80047 6.19354C5.06047 5.9402 5.48714 5.93354 5.74714 6.19354Z"
-                  fill="currentColor" />
-              </svg>
-            </NuxtLink>
-            <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
-              <li v-for="category in categoriesData" :key="category.id">
-                <NuxtLink class="dropdown-item" :to="`/article/category/${category.slug}`">{{ category.name }}</NuxtLink>
-              </li>
-            </ul>
-          </li> -->
+
           <li @mouseenter="showDropdownEvents(true)" @mouseleave="showDropdownEvents(false)"
             class="nav-item dropdown d-none d-lg-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path === `/events/${route.params.id}` ? 'active' : ''
@@ -203,27 +186,53 @@ const filterdKategoriInternasional = categories.filter(category => {
 
           <!-- Showing dropdown display in mobile or tablet -->
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/article' || route.path === `/${route.params.id}` ? 'active' : ''
-              }`" to="/article" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Berita
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+            <a class="nav-link  mx-md-1 " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Berita <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                 <path
                   d="M5.74714 6.19354L8.3338 8.7802L10.9205 6.19354C11.1805 5.93354 11.6005 5.93354 11.8605 6.19354C12.1205 6.45354 12.1205 6.87354 11.8605 7.13354L8.80047 10.1935C8.54047 10.4535 8.12047 10.4535 7.86047 10.1935L4.80047 7.13354C4.54047 6.87354 4.54047 6.45354 4.80047 6.19354C5.06047 5.9402 5.48714 5.93354 5.74714 6.19354Z"
                   fill="#5D5D5D" />
               </svg>
-            </NuxtLink>
-            <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :to="`/article`">Indeks</NuxtLink>
-              </li>
-              <li v-for="category in categoriesData" :key="category.id">
-                <NuxtLink @click="toggleMenu()" class="dropdown-item" :to="`/article/category/${category.slug}`">{{
-                  category.name
-                }}</NuxtLink>
-              </li>
-            </ul>
+            </a>
+            <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdownMenuLink">
+              <div class="row mx-1">
+                <div class="col-md-auto">
+                  <div class="vstach gap-3">
+                    <div>
+                      <h5 class="mega-menu__heading">Kategori Utama </h5>
+                      <ul class="list-unstyled">
+                        <li v-for="category in filteredKategoriUtama" :key="category.id"><a
+                            :href="`/article/category/${category.slug}`"
+                            class="link-offset-2 link-underline link-underline-opacity-0 link-secondary">{{ category.name
+                            }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 class="mega-menu__heading">Nasional</h5>
+                      <ul class="list-unstyled">
+                        <li v-for="category in filterdKategoriNasional" :key="category.id"><a
+                            :href="`/article/category/${category.slug}`"
+                            class="link-offset-2 link-underline link-underline-opacity-0 link-secondary">{{ category.name
+                            }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 class="mega-menu__heading">Internasional</h5>
+                      <ul class="list-unstyled">
+                        <li v-for="category in filterdKategoriInternasional" :key="category.id"><a
+                            :href="`/article/category/${category.slug}`"
+                            class="link-offset-2 link-underline link-underline-opacity-0 link-secondary">{{ category.name
+                            }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
-
           <li class="nav-item dropdown d-lg-none d-md-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path === `/events/${route.params.id}` ? 'active' : ''
               }`" to="/events" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -509,5 +518,22 @@ const filterdKategoriInternasional = categories.filter(category => {
 
 .dark-mode .dropdown-menu .dropdown-item {
   color: #e7e7e7;
+}
+
+.mega-menu {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.mega-menu .mega-menu__heading {
+  color: var(--Danger-600, #CE2F2F);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  padding-top: 13px;
 }
 </style>

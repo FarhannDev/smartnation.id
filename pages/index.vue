@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { categories } from '~/utils/data/getInitialCategoryPostData';
 import { posts } from "~/utils/data/getInitialPostsData"
 
@@ -17,6 +17,8 @@ useSeoMeta({
   ogUrl: "https://smartnation.vercel.app",
 });
 
+
+const colorMode: ColorModeInstance = useColorMode()
 </script>
 
 <template>
@@ -104,7 +106,8 @@ useSeoMeta({
             v-for="category in categories.filter(category => category.id === 84 || category.id === 85 || category.id === 86).slice(0, 3)"
             :key="category.id" class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">
 
-            <LazyHeadingContentHeadingTitle :title="category.name" class="content-heading__category" />
+            <LazyHeadingContentHeadingTitle :title="category.name"
+              :class="colorMode.preference !== 'dark' && 'content-heading__category2'" />
             <div class="line-break"></div>
             <div class="d-grid pt-3 gap-3">
               <LazyContentLatestArticleListNumberThumbnail :categoryId="category.id" />
@@ -139,8 +142,8 @@ useSeoMeta({
   border-bottom: 1px solid var(--danger-600, #CE2F2F);
 }
 
-.content-heading__category {
-  color: var(--font-600, #5D5D5D);
+.content-heading__category2 {
+  color: var(--font-600, #5D5D5D) !important;
   font-family: Poppins;
   font-size: 22px;
   font-style: normal;

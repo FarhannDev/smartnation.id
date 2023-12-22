@@ -49,7 +49,8 @@ useSeoMeta({
                     <div class="card border-0 rounded-0">
                       <div class="row justify-content-start align-items-center g-3">
                         <div class="col-xl-4 col-xxl-4 col-lg-4  col-md-12 ">
-                          <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
+                          <NuxtLink :to="`/article/${post.slug}`"
+                            :aria-label="`Baca Selengkapnya ${post.title.rendered}`">
                             <NuxtImg :class="'article-thumbnail'" :src="post.featured_media" loading="lazy"
                               :alt="post.title.rendered" />
                           </NuxtLink>
@@ -63,7 +64,8 @@ useSeoMeta({
                               }}</span>
                             </div>
 
-                            <NuxtLink :to="`/${post.slug}`" :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
+                            <NuxtLink :to="`/article/${post.slug}`"
+                              :aria-label="`Baca Selengkapnya ${post.title.rendered}`"
                               :class="'article-title lh-base link-offset-2 link-underline link-underline-opacity-0 '">
                               {{
                                 post.title.rendered.length >= 80

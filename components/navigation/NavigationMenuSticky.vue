@@ -1,5 +1,6 @@
 
 <script lang="ts" setup>
+import $ from 'jquery';
 import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { RouteLocationNormalizedLoaded } from "vue-router";
 import { categories } from "~/utils/data/getInitialCategoryPostData";
@@ -86,6 +87,16 @@ const filterdKategoriNasional = categories.filter(category => {
 const filterdKategoriInternasional = categories.filter(category => {
   return category.parent === Number(85)
 })
+
+
+const collapseId = ref('yourCollapseId');
+
+const toggleCollapse = () => {
+  const collapseElement = document.getElementById(collapseId.value);
+  if (collapseElement) {
+    collapseElement.classList.toggle('show');
+  }
+};
 
 
 </script>
@@ -205,31 +216,58 @@ const filterdKategoriInternasional = categories.filter(category => {
               </li>
             </ul>
           </li>
+
           <!-- Showing dropdown display in mobile or tablet -->
           <li class="nav-item dropdown d-lg-none d-md-block">
-            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/article'
-              || route.path == `/article/category/${routePathMenu}` ? 'active' : ''
-              }`" to="/article" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Berita
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+            <a class="nav-link  mx-md-1 " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Berita <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"
+                fill="currentColor">
                 <path
                   d="M5.74714 6.19354L8.3338 8.7802L10.9205 6.19354C11.1805 5.93354 11.6005 5.93354 11.8605 6.19354C12.1205 6.45354 12.1205 6.87354 11.8605 7.13354L8.80047 10.1935C8.54047 10.4535 8.12047 10.4535 7.86047 10.1935L4.80047 7.13354C4.54047 6.87354 4.54047 6.45354 4.80047 6.19354C5.06047 5.9402 5.48714 5.93354 5.74714 6.19354Z"
-                  fill="#5D5D5D" />
+                  fill="currentColor" />
               </svg>
-            </NuxtLink>
-            <ul class="dropdown-menu" :class="{ show: isDropdownVisible }">
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`" :to="`/article`">
-                  Indeks
-                </NuxtLink>
-              </li>
-              <li v-for="category in categoriesData" :key="category.id">
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`"
-                  :to="`/article/category/${category.slug}`">{{ category.name }}
-                </NuxtLink>
-              </li>
-            </ul>
+            </a>
+            <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdownMenuLink">
+              <div class="row mx-1">
+                <div class="col-md-auto">
+                  <div class="vstach gap-3">
+                    <div>
+                      <h5 class="mega-menu__heading">Kategori Utama </h5>
+                      <ul class="list-unstyled">
+                        <li v-for="category in filteredKategoriUtama" :key="category.id"><a
+                            :href="`/article/category/${category.slug}`"
+                            class="link-offset-2 link-underline link-underline-opacity-0 link-secondary">{{ category.name
+                            }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 class="mega-menu__heading">Nasional</h5>
+                      <ul class="list-unstyled">
+                        <li v-for="category in filterdKategoriNasional" :key="category.id"><a
+                            :href="`/article/category/${category.slug}`"
+                            class="link-offset-2 link-underline link-underline-opacity-0 link-secondary">{{ category.name
+                            }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 class="mega-menu__heading">Internasional</h5>
+                      <ul class="list-unstyled">
+                        <li v-for="category in filterdKategoriInternasional" :key="category.id"><a
+                            :href="`/article/category/${category.slug}`"
+                            class="link-offset-2 link-underline link-underline-opacity-0 link-secondary">{{ category.name
+                            }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
+
 
           <li class="nav-item dropdown d-lg-none d-md-block">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/events' || route.path == `/events/category/${routePathMenu}` ? 'active' : ''
@@ -275,7 +313,7 @@ const filterdKategoriInternasional = categories.filter(category => {
         <div class="hstack gx-2">
           <NavigationFeatureSearchBox isResults />
           <ButtonToggleColorMode />
-          <!-- <ButtonTranslateGoogleTranslateButtonSticky /> -->
+          <ButtonTranslateGoogleTranslateButtonSticky />
         </div>
       </div>
     </div>
@@ -322,6 +360,10 @@ const filterdKategoriInternasional = categories.filter(category => {
 }
 
 .nav-link.active {
+  color: #ce2f2f !important;
+}
+
+.nav-link:focus {
   color: #ce2f2f !important;
 }
 
@@ -543,5 +585,23 @@ const filterdKategoriInternasional = categories.filter(category => {
 
 .dark-mode .dropdown-menu .dropdown-item {
   color: #e7e7e7;
+}
+
+
+.mega-menu {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.mega-menu .mega-menu__heading {
+  color: var(--Danger-600, #CE2F2F);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  padding-top: 13px;
 }
 </style>
