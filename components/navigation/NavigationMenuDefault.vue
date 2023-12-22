@@ -44,6 +44,28 @@ const toggleMenu = (() => {
     : navbar?.classList.add('show')
 })
 
+const routePathMenu: globalThis.ComputedRef<string | string[]> = computed(() => route.params.id)
+
+const filteredKategoriUtama = categories.filter(category => {
+  return category.id === Number(148) ||
+    category.id === Number(82) ||
+    category.id === Number(83) ||
+    category.id === Number(114) ||
+    category.id === Number(117) ||
+    category.id === Number(113) ||
+    category.id === Number(139) ||
+    category.id === Number(154) ||
+    category.id === Number(137) ||
+    category.id === Number(129)
+})
+
+const filterdKategoriNasional = categories.filter(category => {
+  return category.parent === Number(84)
+})
+
+const filterdKategoriInternasional = categories.filter(category => {
+  return category.parent === Number(85)
+})
 
 </script>
 
@@ -95,69 +117,13 @@ const toggleMenu = (() => {
                 </NuxtLink>
               </li>
 
-
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Artikel
+              <li v-for="category in filteredKategoriUtama" :key="category.id">
+                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori"
+                  :to="`/article/category/${category.slug}`" :active-class="`active-menu`">
+                  {{ category.name }}
                 </NuxtLink>
               </li>
 
-
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Berita
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Citiasia Inc
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Events
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Pemerintahan
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Kesehatan
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Wawasan
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Smart City
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Smart Nation 2022
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                  :to="`/article`">
-                  Teknologi
-                </NuxtLink>
-              </li>
               <!-- Kategori Kedua - Submenu Nasional -->
               <li class="submenu-nasional">
                 <ul class="dropdown-menu nasional" :class="{ show: isDropdownVisible }">
@@ -167,36 +133,13 @@ const toggleMenu = (() => {
                       Nasional
                     </NuxtLink>
                   </li>
-                  <li>
-                    <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                      :to="`/article`">
-                      Jawa
+                  <li v-for="category in filterdKategoriNasional" :key="category.id">
+                    <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori"
+                      :to="`/article/category/${category.slug}`" :active-class="`active-menu`">
+                      {{ category.name }}
                     </NuxtLink>
                   </li>
-                  <li>
-                    <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                      :to="`/article`">
-                      Sumatera
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                      :to="`/article`">
-                      Kalimantan
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                      :to="`/article`">
-                      Sulawesi
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                      :to="`/article`">
-                      Papua
-                    </NuxtLink>
-                  </li>
+
                   <!-- Kategori Ketiga - Submenu Internasional -->
                   <li class="submenu-internasional">
                     <ul class="dropdown-menu internasional" :class="{ show: isDropdownVisible }">
@@ -206,46 +149,10 @@ const toggleMenu = (() => {
                           Internasional
                         </NuxtLink>
                       </li>
-                      <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                          :to="`/article`">
-                          Asia
-                        </NuxtLink>
-                      </li>
-                      <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                          :to="`/article`">
-                          Afrika
-                        </NuxtLink>
-                      </li>
-                      <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                          :to="`/article`">
-                          Amerika Utara
-                        </NuxtLink>
-                      </li>
-                      <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                          :to="`/article`">
-                          Amerika Selatan
-                        </NuxtLink>
-                      </li>
-                      <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                          :to="`/article`">
-                          Antartika
-                        </NuxtLink>
-                      </li>
-                      <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                          :to="`/article`">
-                          Eropa
-                        </NuxtLink>
-                      </li>
-                      <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori" :active-class="`active-menu`"
-                          :to="`/article`">
-                          Australia
+                      <li v-for="category in filterdKategoriInternasional" :key="category.id">
+                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori"
+                          :to="`/article/category/${category.slug}`" :active-class="`active-menu`">
+                          {{ category.name }}
                         </NuxtLink>
                       </li>
                     </ul>

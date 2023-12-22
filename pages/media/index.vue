@@ -20,7 +20,8 @@ const colorMode: ColorModeInstance = useColorMode();
 
     <section id="media-streams-section">
       <div class="container">
-        <ul class="nav nav-pills d-flex justify-content-center mb-3" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills d-flex justify-content-lg-center justify-content-start g-3 mb-3" id="pills-tab"
+          role="tablist">
           <li class="nav-item mx-2" role="presentation">
             <button class="btn btn-sm btn-outline-danger custom-button__streams active" id="pills-home-tab"
               data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
@@ -586,82 +587,13 @@ const colorMode: ColorModeInstance = useColorMode();
   font-weight: 600;
   line-height: 120%;
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 9px;
   text-transform: capitalize;
   text-align: center;
+  margin-bottom: 13px;
 }
 
 
-/*
-   Custom Style Live
-*/
-.media-streams__heading {
-  color: var(--Primary-600, #D71149);
-
-  /* Font/Tittle 2 SemiBold */
-  font-family: Poppins;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  /* 30px */
-}
-
-.media-streams-card__live {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  position: relative;
-}
-
-.media-streams-card__live .media-streams-card__live-thumbnail {
-  width: 100%;
-  min-width: 430px;
-  height: 250px;
-  border-radius: 4px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: brightness(50%);
-
-}
-
-.media-streams-card__live .media-streams-card__live-caption {
-  position: absolute;
-  top: 140px;
-  left: 30px;
-  right: 30px;
-}
-
-.media-streams-card__live .media-streams-card__live-caption .media-streams-card__live-caption__title {
-  overflow: hidden;
-  color: rgba(255, 255, 255, 0.80);
-  text-overflow: ellipsis;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  display: -webkit-box;
-  width: 228.681px;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-}
-
-.media-streams-card__live .media-streams-card__live-caption .media-streams-card__live-caption__description {
-  overflow: hidden;
-  color: rgba(255, 255, 255, 0.80);
-  text-overflow: ellipsis;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  display: -webkit-box;
-  width: fit-content;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
 
 /* podcats */
 

@@ -5,7 +5,7 @@ const props = defineProps({
   heading: { type: String },
   subheading: { type: String, required: true },
   description: { type: String, required: true },
-  images: { type: String, required: true },
+  images: { type: Array<string> },
   icon: { type: String, required: true },
   link: { type: String, required: true },
   name: { type: String, required: true }
