@@ -31,11 +31,11 @@ const followInstagramIcon: string = `<svg xmlns="http://www.w3.org/2000/svg" wid
                     title="Ikuti Di instagram" :description="'Towards Indonesia Smart Nation'"
                     :images="loadedImagesInstagram" :icon="followInstagramIcon"
                     link="https://www.instagram.com/smartnation.id/" name="Instagram"
-                    :class="'col-xxl-3 col-xl-4 col-lg-4 col-md-auto col-sm-8 col-xs-8 col-8'" />
+                    :class="'col-xxl-3 col-xl-4 col-lg-4 col-md-auto col-sm-8 col-xs-8 '" />
                 <NavigationFooterFollowAccountSociaMedia :heading="'Ikuti Kami'" :subheading="'Smartnation.id'"
                     title="Ikuti Di Tiktok" :description="'Towards Indonesia Smart Nation'" :images="loadedImagesTiktok"
                     :icon="followTiktokIcon" link="https://www.tiktok.com/@smartnation.id/" name="Tiktok"
-                    :class="'col-xxl-3 col-xl-4 col-lg-4 col-md-auto col-sm-8 col-xs-8 col-8'" />
+                    :class="'col-xxl-3 col-xl-4 col-lg-4 col-md-auto col-sm-8 col-xs-8 '" />
 
             </div>
         </div>
