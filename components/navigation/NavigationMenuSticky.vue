@@ -1,6 +1,5 @@
 
 <script lang="ts" setup>
-import $ from 'jquery';
 import { ColorModeInstance } from "@nuxtjs/color-mode/dist/runtime/types";
 import { RouteLocationNormalizedLoaded } from "vue-router";
 import { categories } from "~/utils/data/getInitialCategoryPostData";
@@ -89,22 +88,12 @@ const filterdKategoriInternasional = categories.filter(category => {
 })
 
 
-const collapseId = ref('yourCollapseId');
-
-const toggleCollapse = () => {
-  const collapseElement = document.getElementById(collapseId.value);
-  if (collapseElement) {
-    collapseElement.classList.toggle('show');
-  }
-};
-
-
 </script>
 
 <template>
   <nav :class="`navbar navbar-expand-xl fixed-top`">
     <div class="container">
-      <NuxtLink @click="toggleMenu()" href="/" aria-label="Smart Nation Logo" class="navbar-brand">
+      <NuxtLink href="/" aria-label="Smart Nation Logo" class="navbar-brand">
         <NuxtImg src="/images/logo.png" alt="Smart Nation Logo" loading="lazy"
           class="d-inline-block align-text-top navbar-brand__logo" />
       </NuxtLink>
@@ -121,8 +110,7 @@ const toggleCollapse = () => {
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1 ${route.path === '/' ? 'active' : ''}`"
-              aria-current="page" to="/">
+            <NuxtLink :class="`nav-link mx-md-1 ${route.path === '/' ? 'active' : ''}`" aria-current="page" to="/">
               Beranda
             </NuxtLink>
           </li>
@@ -154,8 +142,8 @@ const toggleCollapse = () => {
 
 
               <li v-for="category in filteredKategoriUtama" :key="category.id">
-                <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori"
-                  :to="`/article/category/${category.slug}`" :active-class="`active-menu`">
+                <NuxtLink class="dropdown-item sub-kategori" :to="`/article/category/${category.slug}`"
+                  :active-class="`active-menu`">
                   {{ category.name }}
                 </NuxtLink>
               </li>
@@ -164,14 +152,14 @@ const toggleCollapse = () => {
               <li class="submenu-nasional">
                 <ul class="dropdown-menu nasional" :class="{ show: isDropdownVisible }">
                   <li>
-                    <NuxtLink @click="toggleMenu" class="dropdown-item kategori" :to="`/article`">
+                    <NuxtLink class="dropdown-item kategori" :to="`/article`">
                       Nasional
                     </NuxtLink>
                   </li>
 
                   <li v-for="category in filterdKategoriNasional" :key="category.id">
-                    <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori"
-                      :to="`/article/category/${category.slug}`" :active-class="`active-menu`">
+                    <NuxtLink class="dropdown-item sub-kategori" :to="`/article/category/${category.slug}`"
+                      :active-class="`active-menu`">
                       {{ category.name }}
                     </NuxtLink>
                   </li>
@@ -181,13 +169,13 @@ const toggleCollapse = () => {
                   <li class="submenu-internasional">
                     <ul class="dropdown-menu internasional" :class="{ show: isDropdownVisible }">
                       <li>
-                        <NuxtLink @click="toggleMenu" class="dropdown-item kategori" :to="`/article`">
+                        <NuxtLink class="dropdown-item kategori" :to="`/article`">
                           Internasional
                         </NuxtLink>
                       </li>
                       <li v-for="category in filterdKategoriInternasional" :key="category.id">
-                        <NuxtLink @click="toggleMenu" class="dropdown-item sub-kategori"
-                          :to="`/article/category/${category.slug}`" :active-class="`active-menu`">
+                        <NuxtLink class="dropdown-item sub-kategori" :to="`/article/category/${category.slug}`"
+                          :active-class="`active-menu`">
                           {{ category.name }}
                         </NuxtLink>
                       </li>
@@ -210,9 +198,8 @@ const toggleCollapse = () => {
             </NuxtLink>
             <ul class="dropdown-menu" :class="{ show: isDropdownEvents }">
               <li v-for="category in categoriesEventsData" :key="category.id">
-                <NuxtLink @click="toggleMenu" class="dropdown-item" :active-class="`active-menu`"
-                  :to="`/events/category/${category.slug}`">{{
-                    category.name }}</NuxtLink>
+                <NuxtLink class="dropdown-item" :active-class="`active-menu`" :to="`/events/category/${category.slug}`">{{
+                  category.name }}</NuxtLink>
               </li>
             </ul>
           </li>
@@ -288,17 +275,17 @@ const toggleCollapse = () => {
             </ul>
           </li>
           <li class="nav-item">
-            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/media' || route.path === `/media/${route.params.id}` ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/media' || route.path === `/media/${route.params.id}` ? 'active' : ''
               }`" to="/media">Media
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/about' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/about' ? 'active' : ''
               }`" to="/about">Tentang Kami
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink @click="toggleMenu" :class="`nav-link mx-md-1  ${route.path === '/contact' ? 'active' : ''
+            <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/contact' ? 'active' : ''
               }`" to="/contact">Hubungi Kami
             </NuxtLink>
           </li>

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import "~/assets/css/themes/dark-mode.theme.css"
 
 const props = defineProps({
   title: { type: String, required: true, default: 'Judul Podcast' },
@@ -162,21 +163,7 @@ const podcatsId: string = props.link;
   filter: brightness(75%);
 }
 
-.dark-mode .media-streams-card-podcast {
-  background-color: #212120;
-}
 
-.dark-mode .media-streams-card-podcast .media-streams-podcast__title {
-  color: #fff;
-}
-
-.dark-mode .media-streams-card-podcast .media-streams-podcast__info-date {
-  color: #fff;
-}
-
-.dark-mode .media-streams-card-podcast .media-streams-podcast__info-views {
-  color: #fff;
-}
 
 @media (min-width: 1200px) {
   .media-streams-card-podcast .media-streams-podcast__title {
@@ -192,5 +179,25 @@ const podcatsId: string = props.link;
     font-size: 14px;
 
   }
+}
+
+/* 
+  * Dark Mode KOMPONEN MEDIA 
+  * CUSTOM STYLE DARK-MODE PODCAST 
+*/
+.dark-mode .media-streams-card-podcast {
+  background-color: #212120;
+}
+
+.dark-mode .media-streams-card-podcast .media-streams-podcast__title {
+  color: #fff;
+}
+
+.dark-mode .media-streams-card-podcast .media-streams-podcast__info-date {
+  color: #fff;
+}
+
+.dark-mode .media-streams-card-podcast .media-streams-podcast__info-views {
+  color: #fff;
 }
 </style>

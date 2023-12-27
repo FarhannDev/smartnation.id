@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 
-const thumbnail: string = 'https://i0.wp.com/www.printmag.com/wp-content/uploads/2020/11/b960fb_e982b0db7259429eb70df65bc477eb60mv2-scaled.jpg?fit=2560%2C1422&quality=89&ssl=1'
+// const thumbnail: string = 'https://i0.wp.com/www.printmag.com/wp-content/uploads/2020/11/b960fb_e982b0db7259429eb70df65bc477eb60mv2-scaled.jpg?fit=2560%2C1422&quality=89&ssl=1'
 
 defineProps({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  thumbnail: { type: String, required: true, default: thumbnail },
+  thumbnail: { type: String, required: true, default: '' },
   link: { type: String, required: true },
 })
 </script>

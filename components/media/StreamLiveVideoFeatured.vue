@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 const videoTitle: string = 'NASA Live: Official Stream of NASA TV'
-const videos: string = 'https://www.youtube.com/embed/21X5lGlDOfg?si=XkeXjXl6d7JOLV12'
+const videos: string = 'https://www.youtube.com/embed/21X5lGlDOfg?si=XkeXjXl6d7JOLV12&autoplay=1'
 
 defineProps({
   title: { type: String, required: true, default: videoTitle },
@@ -58,10 +58,10 @@ defineProps({
   overflow: hidden;
   color: var(--Font-400, #888);
   text-align: justify;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  /* text-overflow: ellipsis;
+  white-space: nowrap; */
   font-family: Poppins;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%;

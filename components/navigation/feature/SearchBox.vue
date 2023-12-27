@@ -20,8 +20,8 @@ const props = defineProps({ isResults: { type: Boolean } })
 <template>
   <div>
     <form @submit.prevent="onSearchHandler" class="d-flex" role="search">
-      <input v-model="searchQuery" class="form-control search-input-container me-2" type="search"
-        placeholder="Cari Artikel Terkait" aria-label="Cari Artikel Terkait" autocomplete="name" />
+      <input v-model="searchQuery" class="form-control search-input-container me-2" type="search" placeholder="Cari"
+        aria-label="Cari" autocomplete="name" />
     </form>
 
     <div v-if="isResults">

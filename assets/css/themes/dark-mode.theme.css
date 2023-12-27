@@ -1,0 +1,38 @@
+/* 
+  * Dark Mode KOMPONEN MEDIA 
+  * CUSTOM STYLE DARK-MODE PODCAST 
+*/
+.dark-mode .media-streams-card-podcast {
+  background-color: #212120;
+}
+
+.dark-mode .media-streams-card-podcast .media-streams-podcast__title {
+  color: #fff;
+}
+
+.dark-mode .media-streams-card-podcast .media-streams-podcast__info-date {
+  color: #fff;
+}
+
+.dark-mode .media-streams-card-podcast .media-streams-podcast__info-views {
+  color: #fff;
+}
+
+/* 
+  * Dark Mode KOMPONEN MEDIA 
+  * CUSTOM STYLE DARK-MODE TIKTOK 
+*/
+
+.dark-mode .media-streams-card-tiktok {
+  background-color: #212120;
+  border: 0;
+}
+
+.dark-mode .media-streams-card-tiktok .media-streams-tiktok-content .media-streams-tiktok-content__title {
+  color: #fff;
+}
+
+.dark-mode .media-streams-card-tiktok .media-streams-tiktok-content .media-streams-card-tiktok-content-info__date {
+  color: #fff;
+}
+

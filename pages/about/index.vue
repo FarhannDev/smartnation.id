@@ -6,8 +6,8 @@ import { categories } from '~/utils/data/getInitialCategoryPostData';
 
 // Set Meta SEO
 useSeoMeta({
-  title: "Citiasia Center for Smart Nation (CCSN)",
-  ogTitle: "Citiasia Center for Smart Nation (CCSN)",
+  title: "Tentang Kami",
+  ogTitle: "Tentang Kami",
   description: "Citiasia Center for Smart Nation (CCSN) merupakan salah satu sayap strategis dari Citiasia Inc. dalam menyebarkan semangat membangun bangsa menuju Indonesia Smart Nation",
 });
 
@@ -415,5 +415,15 @@ const handleClickButton = (values: any) => {
   text-align: center;
   border-radius: 4px;
   vertical-align: top;
+}
+
+
+.dark-mode .dropdown-menu {
+  background-color: #262626;
+}
+
+.dark-mode .dropdown-item {
+  color: #fff;
+
 }
 </style>

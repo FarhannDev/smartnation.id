@@ -4,7 +4,8 @@
 defineProps({
   title: { type: String, required: true, default: 'Judul Live Streaming' },
   description: { type: String, required: true, default: 'Deskripsi Live Streaming' },
-  thumbnail: { type: String, required: true, default: 'https://s3-alpha-sig.figma.com/img/b5b3/81e1/003f4e27072680372aae5be30b0f1640?Expires=1703462400&Signature=FPhtUtqEczbMfuGUe~R~v01OCB9mKdWgHe82w047Qx5vlXMMikCs1lPIoqr3ElImM3hsewHcKmxmBkd9jziZ0XyNkaNsExJwkBBgagmIF82L4KZQOY2lV~NBJEFU3us-vbb4ax5CsGWpJ3YuviMM3KWmfpBgrfKyra5DqPda1OqTfrZd6CyC6yt1i~gDLvvrftzX8YTGTuvTcJAN5MqtGefdfo3LGMxP7tPPVN2jMxno1Yhu9iIcU2UlJ-isB9shVC0DaCZPE1WZjHoHD3z9XIWhekRtXr7xPPnOO3eQeoTDPkjkdHpH79yBel8DLb4yM7tUCC-mqVuL9T3fDyilbQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' }
+  thumbnail: { type: String, required: true, default: 'https://s3-alpha-sig.figma.com/img/b5b3/81e1/003f4e27072680372aae5be30b0f1640?Expires=1703462400&Signature=FPhtUtqEczbMfuGUe~R~v01OCB9mKdWgHe82w047Qx5vlXMMikCs1lPIoqr3ElImM3hsewHcKmxmBkd9jziZ0XyNkaNsExJwkBBgagmIF82L4KZQOY2lV~NBJEFU3us-vbb4ax5CsGWpJ3YuviMM3KWmfpBgrfKyra5DqPda1OqTfrZd6CyC6yt1i~gDLvvrftzX8YTGTuvTcJAN5MqtGefdfo3LGMxP7tPPVN2jMxno1Yhu9iIcU2UlJ-isB9shVC0DaCZPE1WZjHoHD3z9XIWhekRtXr7xPPnOO3eQeoTDPkjkdHpH79yBel8DLb4yM7tUCC-mqVuL9T3fDyilbQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' },
+  link: { type: String, required: true }
 })
 </script>
 
@@ -13,13 +14,16 @@ defineProps({
 <template>
   <div>
     <figure class="figure media-streams-card__live">
-      <img :src="thumbnail" class="media-streams-card__live-thumbnail" :alt="title">
-      <figcaption class="figure-caption media-streams-card__live-caption">
-        <div class="d-block w-100">
-          <h3 class=" media-streams-card__live-caption__title">{{ title }}</h3>
-          <p class=" media-streams-card__live-caption__description">{{ description }}</p>
-        </div>
-      </figcaption>
+      <NuxtLink :to="link" aria-label="Selengkapnya">
+        <img :src="thumbnail" class="media-streams-card__live-thumbnail" :alt="title">
+        <figcaption class="figure-caption media-streams-card__live-caption">
+          <div class="d-block w-100">
+            <h3 class=" media-streams-card__live-caption__title">{{ title }}</h3>
+            <p class=" media-streams-card__live-caption__description">{{ description }}</p>
+          </div>
+        </figcaption>
+      </NuxtLink>
+
     </figure>
   </div>
 </template>
