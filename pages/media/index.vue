@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 
+
+
 import { ColorModeInstance } from '@nuxtjs/color-mode/dist/runtime/types';
 
 // Set Meta SEO
 useSeoMeta({
-  title: "Media Smart Nation",
+  title: "Media",
   description: "Kumpulan semua media smart nation",
-  ogTitle: "Media Smart Nation",
+  ogTitle: "Media",
   ogDescription: "Kumpulan semua media smart nation",
 });
 
@@ -90,7 +92,8 @@ const colorMode: ColorModeInstance = useColorMode();
                       <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
                         <MediaStreamBackgroundCardItem :title="`Judul Live Streaming Ke-${idx + 1}`"
                           :description="`Deskripsi Live Streaming Ke-${idx + 1}`"
-                          thumbnail="/images/social-media/follow-tt-2.jpeg" />
+                          thumbnail="/images/social-media/follow-tt-2.jpeg"
+                          :link="`/media/stream/media_stream_ke-${idx + 1}`" />
                       </SwiperSlide>
                       <!-- Custom Navigation -->
                       <div class="custom-navigation">
@@ -155,7 +158,8 @@ const colorMode: ColorModeInstance = useColorMode();
   },
 }">
                       <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
-                        <MediaTiktokCardItem :title="`Judul Tiktok Ke-${idx + 1}`" :date="new Date().toISOString()" />
+                        <MediaTiktokCardItem :title="`Judul Tiktok Ke-${idx + 1}`" :date="new Date().toISOString()"
+                          thumbnail="/images/social-media/follow-tt-3.jpeg" />
                       </SwiperSlide>
 
                       <!-- Custom Navigation -->
@@ -205,7 +209,8 @@ const colorMode: ColorModeInstance = useColorMode();
   },
 }">
                       <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
-                        <MediaTiktokCardItem :title="`Judul Instagram Ke-${idx + 1}`" :date="new Date().toISOString()" />
+                        <MediaTiktokCardItem :title="`Judul Instagram Ke-${idx + 1}`" :date="new Date().toISOString()"
+                          thumbnail="/images/social-media/follow-tt-3.jpeg" />
                       </SwiperSlide>
 
                       <!-- Custom Navigation -->
@@ -224,30 +229,7 @@ const colorMode: ColorModeInstance = useColorMode();
           <div class="tab-pane fade" id="pills-media-live" role="tabpanel" aria-labelledby="pills-profile-tab"
             tabindex="0">
 
-            <div class="row justify-content-start g-3 pt-4">
-              <div class="col">
 
-                <div class="row justify-content-arround g-5">
-                  <div class="col-xl-7 col-lg-6 col-md-auto col-sm-auto">
-                    <MediaStreamLiveVideoFeatured title="NASA Live: Official Stream of NASA TV"
-                      description="Direct from America's space program to YouTube, watch NASA TV live streaming here to get the latest from our exploration of the universe and learn how we discover our home planet. " />
-                  </div>
-                  <div class="col-xl-5 col-lg-5 col-md-auto col-sm-auto">
-                    <div class="d-flex flex-column">
-
-                      <MediaStreamContentHeading title="Terpopuler" />
-
-                      <MediaStreamRelatedVideo v-for="(video, idx) in 6" :key="idx"
-                        title="NASA Live: Official Stream of NASA TV"
-                        description="Direct from America's space program to YouTube, watch NASA TV live streaming here to get the latest from our exploration of the universe and learn how we discover our home planet."
-                        link="https://www.youtube.com/@NASA"
-                        thumbnail="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/scientists-working-in-nasa-programing-design-template-1a970e6dc72557b73e3a246a0b4a5f74_screen.jpg?ts=1638090744" />
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div class="row justify-content-start g-2 pt-4">
               <div class="col">
@@ -286,7 +268,8 @@ const colorMode: ColorModeInstance = useColorMode();
                       <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
                         <MediaStreamBackgroundCardItem :title="`Judul Live Streaming Ke-${idx + 1}`"
                           :description="`Deskripsi Live Streaming Ke-${idx + 1}`"
-                          thumbnail="/images/social-media/follow-tt-2.jpeg" />
+                          thumbnail="/images/social-media/follow-tt-2.jpeg"
+                          :link="`/media/stream/media_stream_ke-${idx + 1}`" />
                       </SwiperSlide>
                       <!-- Custom Navigation -->
                       <div class="custom-navigation">
@@ -302,10 +285,9 @@ const colorMode: ColorModeInstance = useColorMode();
               </div>
             </div>
 
-            <div class="row justify-content-start g-3 pt-4">
+            <div v-for="(loop, idx) in 8" :key="idx" class="row justify-content-start g-2 pt-4">
               <div class="col">
-
-                <MediaStreamContentHeading title="Baru Diputar" />
+                <MediaStreamContentHeading :title="`Judul Vidio Ke-${idx + 1}`" />
 
                 <div class="row justify-content-start g-3">
                   <div class="col">
@@ -336,16 +318,19 @@ const colorMode: ColorModeInstance = useColorMode();
     translate: ['100%', 0, 0],
   },
 }">
-                      <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
-                        <MediaTiktokCardItem :title="`Baru Diputar Ke-${idx + 1}`" :date="new Date().toISOString()" />
-                      </SwiperSlide>
 
+                      <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
+                        <MediaStreamBackgroundCardItem :title="`Judul Vidio  Ke-${idx + 1}`"
+                          :description="`Berisi Deskripsi Judul Vidio Ke-${idx + 1}`"
+                          thumbnail="/images/social-media/follow-tt-3.jpeg"
+                          :link="`/media/stream/media_stream_ke-${idx + 1}`" />
+                      </SwiperSlide>
                       <!-- Custom Navigation -->
                       <div class="custom-navigation">
-                        <!-- <div class="swiper-pagination"></div> -->
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                       </div>
+
                     </Swiper>
                   </div>
 
@@ -394,7 +379,8 @@ const colorMode: ColorModeInstance = useColorMode();
                       <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
                         <MediaStreamBackgroundCardItem :key="idx" :title="`Judul Podcast Terbaru ${idx + 1}`"
                           :description="`Deskripsi Podcast Ke-${idx + 1}`"
-                          thumbnail="/images/social-media/follow-tt-3.jpeg" />
+                          thumbnail="/images/social-media/follow-tt-3.jpeg"
+                          :link="`/media/podcast/media_podcast_ke-${idx + 1}`" />
                       </SwiperSlide>
                       <!-- Custom Navigation -->
                       <div class="custom-navigation">
@@ -463,7 +449,7 @@ const colorMode: ColorModeInstance = useColorMode();
 }">
                       <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
                         <MediaTiktokCardItem :title="`Judul Tiktok Terbaru Ke-${idx + 1}`"
-                          :date="new Date().toISOString()" />
+                          :date="new Date().toISOString()" thumbnail="/images/social-media/follow-tt-3.jpeg" />
                       </SwiperSlide>
 
                       <!-- Custom Navigation -->
@@ -485,9 +471,10 @@ const colorMode: ColorModeInstance = useColorMode();
             <div class="row justify-content-start g-3 pt-4">
               <div class="col">
                 <MediaStreamContentHeading title="Semua" />
-                <div class="row justify-content-start g-3 pt-3">
-                  <MediaTiktokCardItem v-for="(loop, idx) in 50" :key="idx" class="col-lg-6 col-xl-4 col-md-12 col-sm-12"
-                    :title="`Judul Tiktok Ke-${idx + 1}`" :date="new Date().toISOString()" />
+                <div class="row justify-content-start g-4 pt-3">
+                  <MediaTiktokCardItem v-for="(loop, idx) in 99" :key="idx" class="col-lg-6 col-xl-4 col-md-12 col-sm-12"
+                    :title="`Judul Tiktok Ke-${idx + 1}`" :date="new Date().toISOString()"
+                    thumbnail="/images/social-media/follow-tt-2.jpeg" />
                 </div>
               </div>
             </div>
@@ -502,7 +489,7 @@ const colorMode: ColorModeInstance = useColorMode();
               <div class="col">
                 <MediaStreamContentHeading title="Terbaru" />
 
-                <div class="row justify-content-start g-3">
+                <div class="row justify-content-start g-4">
                   <div class="col">
                     <Swiper class="py-5" :modules="[SwiperAutoplay, SwiperNavigation, SwiperPagination]" :pagination="{
                       clickable: true,
@@ -533,9 +520,8 @@ const colorMode: ColorModeInstance = useColorMode();
 }">
                       <SwiperSlide v-for="(loop, idx) in 12" :key="idx">
                         <MediaTiktokCardItem :title="`Judul Instagram Terbaru Ke-${idx + 1}`"
-                          :date="new Date().toISOString()" />
+                          :date="new Date().toISOString()" thumbnail="/images/social-media/follow-tt-2.jpeg" />
                       </SwiperSlide>
-
                       <!-- Custom Navigation -->
                       <div class="custom-navigation">
                         <!-- <div class="swiper-pagination"></div> -->
@@ -544,21 +530,17 @@ const colorMode: ColorModeInstance = useColorMode();
                       </div>
                     </Swiper>
                   </div>
-
                 </div>
-
                 <hr class="text-secondary" />
               </div>
             </div>
-
-
             <div class="row justify-content-start g-3 pt-4">
               <div class="col">
-
                 <MediaStreamContentHeading title="Semua" />
-                <div class="row justify-content-start g-3 pt-3">
-                  <MediaTiktokCardItem v-for="(loop, idx) in 50" :key="idx" class="col-lg-6 col-xl-4 col-md-12 col-sm-12"
-                    :title="`Judul Instagram Ke-${idx + 1}`" :date="new Date().toISOString()" />
+                <div class="row justify-content-start g-4 pt-3">
+                  <MediaTiktokCardItem v-for="(loop, idx) in 99" :key="idx" class="col-lg-6 col-xl-4 col-md-12 col-sm-12"
+                    :title="`Judul Instagram Ke-${idx + 1}`" :date="new Date().toISOString()"
+                    thumbnail="/images/social-media/follow-tt-2.jpeg" />
                 </div>
               </div>
             </div>
@@ -573,6 +555,9 @@ const colorMode: ColorModeInstance = useColorMode();
 
 
 <style lang="css" scoped>
+@import url("~/assets/css/custom-swiper-pagination.css");
+@import url("~/assets/css/custom-swiper-navigation.css");
+
 #media-streams-section {
   width: 100%;
   height: auto;
@@ -734,159 +719,5 @@ const colorMode: ColorModeInstance = useColorMode();
   left: 40px;
   right: 40px;
   /* width: 100%; */
-}
-
-
-/* 
-  Custom Navigation SWIPER
-*/
-
-.swiper-button-prev {
-  display: flex;
-  width: 64px;
-  height: 63.27px;
-  padding: 8px;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  color: #454545;
-  border-radius: 36px;
-  border: 1px solid var(--Font-200, #D1D1D1);
-  background: #FFF;
-  /* Medium */
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px 1px rgba(103, 110, 118, 0.16), 0px 2px 5px 0px rgba(103, 110, 118, 0.08);
-}
-
-.swiper-button-next {
-  display: flex;
-  width: 64px;
-  height: 63.27px;
-  padding: 8px;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 36px;
-  border: 1px solid var(--Font-200, #D1D1D1);
-  background: #FFF;
-  /* Medium */
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px 1px rgba(103, 110, 118, 0.16), 0px 2px 5px 0px rgba(103, 110, 118, 0.08);
-}
-
-.swiper-button-prev::after {
-  color: #323232;
-  width: 42px;
-  text-align: center;
-}
-
-.swiper-button-next::after {
-  color: #323232;
-  width: 42px;
-  text-align: center;
-}
-
-.swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
-  color: #000;
-  opacity: 1;
-  /* background: var(--grey-400, #BDBDBD); */
-  fill: var(--Grey-600, #757575);
-}
-
-.swiper-pagination-bullet-active {
-  color: #fff;
-  background: #C70943;
-}
-
-
-/* Live */
-
-
-.media-stream-live .media-stream-live__iframe {
-  /* min-width: 100%; */
-  width: 100%;
-  height: 400px;
-  border-radius: 4px;
-  background: #D9D9D9;
-}
-
-
-.media-stream-live__info {
-  width: 100%;
-  height: auto;
-  padding-top: 20px;
-}
-
-.media-stream-live__info .media-stream-live__info-heading {
-  color: var(--Font-600, #5D5D5D);
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  /* 24px */
-}
-
-.media-stream-live__info .media-stream-live__info-description {
-  overflow: hidden;
-  color: var(--Font-400, #888);
-  text-align: justify;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  /* 18px */
-}
-
-
-/* related media */
-
-.media-stream-live-related .media-stream-live-related__info .media-stream-live-related__info-title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  align-self: stretch;
-  overflow: hidden;
-  color: var(--Font-600, #5D5D5D);
-  text-overflow: ellipsis;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  /* 18px */
-}
-
-.media-stream-live-related .media-stream-live-related__info .media-stream-live-related__info-description {
-  overflow: hidden;
-  color: var(--Font-400, #888);
-  text-align: justify;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: Poppins;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  width: 286px;
-  height: 36px;
-}
-
-.media-stream-live-related .media-streams-live-related__thumbnail {
-  width: 81px;
-  height: 54px;
-  border-radius: 4px;
-  background: #D9D9D9;
-  margin-right: 13px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  /* filter: brightness(50%); */
 }
 </style>

@@ -182,15 +182,8 @@ useSeoMeta({
           </div>
           <div class="col-xl-4 col-xxl-4 col-lg-12 ">
             <article>
-              <h1 class="berita-section-title text-decoration-underline">
-                Terpopuler
-              </h1>
-
-              <div class="d-flex flex-column">
-                <div class="vstack g-3">
-                  <ArticlesArticleListTitle :posts="popularEventsData" />
-                </div>
-              </div>
+              <LazyHeadingContentHeadingTitle title="Terpopuler" class="text-decoration-underline" />
+              <LazyContentRelatedArticle :posts="popularEventsData" />
             </article>
           </div>
         </div>

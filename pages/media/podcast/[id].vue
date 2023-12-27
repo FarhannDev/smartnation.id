@@ -6,12 +6,12 @@ import { RouteLocationNormalizedLoaded } from "vue-router";
 definePageMeta({ layout: 'content-layout' })
 
 useSeoMeta({
-  title: "Media Podcast Smart Nation",
+  title: "Media Podcast",
   description: "Kumpulan Media Podscast Smart Nation",
 })
 
 const route: RouteLocationNormalizedLoaded = useRoute()
-const colorMode: ColorModeInstancetance = useColorMode()
+const colorMode: ColorModeInstance = useColorMode()
 
 </script>
 

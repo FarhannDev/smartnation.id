@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 
+
 defineProps({ title: { type: String, required: true, default: 'Judul Tiktok Terbaru' }, date: { type: String, required: true, default: '2023-12-15T14:03:08.321Z' }, thumbnail: { type: String, required: true, default: 'https://s3-alpha-sig.figma.com/img/cafd/2db1/0d8268db15a5de0c4d2c70f97a749793?Expires=1703462400&Signature=OLJJbMqWUi-WKSsjFDqg5wwYa9e5SsO0VvQUt979Smj~xxvhYRvtajcNMTo7l0jqK7S-cznfL6-rwbX2FMZ~WjaWrCuWl1gzTXhS7Yw3CB3DkN~UghUMCnND1hfoX7sLjdmi457--sGjvYRDz0bDxNZPY~O05-uMOlcPU0VlyDhwpDR2IHOMooAoDM3MQ4vEhV1OfDCw0Xh5NWRrzFmNxXR8MAuHu2Rp0K~V9fWnLMn-52ve1~7oARY-Cy0s~80pQlZhTRbbC4V0XWXCdymGaiiXXn8QV8Mq7~SmK5oMjW93JFpJkfvkQ15~wb8tSXGvXTxPHnSaWj13fo~PwkTGIQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' } })
 
 </script>
@@ -113,6 +114,12 @@ defineProps({ title: { type: String, required: true, default: 'Judul Tiktok Terb
   opacity: 0.5;
   /* filter: brightness(75%); */
 }
+
+
+/* 
+  * Dark Mode KOMPONEN MEDIA 
+  * CUSTOM STYLE DARK-MODE TIKTOK 
+*/
 
 .dark-mode .media-streams-card-tiktok {
   background-color: #212120;

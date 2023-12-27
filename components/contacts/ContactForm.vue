@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import Swal from "sweetalert2"
+import "~/assets/css/contact.css"
+import "~/assets/css/themes/dark-mode.theme.css"
 
 const props = defineProps({ title: { type: String }, description: { type: String } })
 
@@ -86,18 +88,18 @@ const sendMessageToEmail = () => {
                   aria-describedby="emailHelp" placeholder="Isikan Dengan Alamat Email Anda" autocomplete="email">
               </div>
               <div class="mb-3">
-                <label for="inputMessage" class="form-label contact-form__label__input">Pesan <!-- <div class="text-end text-secondary fw-normal contact-limit__karakter">{{ limitKarakter - inputMessage.length }}
-            Karakter
-            Tersisa
-          </div> --> <span class="text-danger">*</span></label>
+                <label for="inputMessage" class="form-label contact-form__label__input">Pesan <span
+                    class="text-danger">*</span></label>
                 <textarea v-model="inputMessage" placeholder="Tuliskan Isi Pesan"
                   class="form-control contact-form__input__textarea " id="inputMessage" rows="7"
                   :maxlength="limitKarakter"></textarea>
 
 
               </div>
-              <button :disabled="!inputName || !inputEmail || !inputMessage" type="submit"
-                class="contact-input__button ">Kirim</button>
+              <div class="pt-3">
+                <button :disabled="!inputName || !inputEmail || !inputMessage" type="submit"
+                  class="contact-input__button ">Kirim</button>
+              </div>
             </form>
           </div>
 
@@ -108,152 +110,4 @@ const sendMessageToEmail = () => {
   <!-- section kontak end -->
 </template>
 
-<style scoped>
-.contact-heading-container {
-  position: relative;
-  padding: 0px;
-}
-
-.contact-title {
-  color: var(--danger-600, #CE2F2F);
-  /* Font/Title 2 Bold */
-  font-family: Poppins;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-  margin-bottom: 13px;
-  /* 30px */
-}
-
-
-.contact-desc {
-  /* position: absolute; */
-  color: var(--font-500, #6D6D6D);
-  text-align: start;
-
-  /* Font/Title 3 */
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 24px */
-}
-
-.contact-form__label__input {
-  color: var(--font-600, #5D5D5D);
-
-
-  /* Font/Body 2 */
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  /* 19.2px */
-}
-
-.contact-form__input {
-  color: var(--font-800, #454545);
-  /* Font/Body 2 */
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  height: 48px;
-  border-radius: 12px;
-  border: 1px solid var(--Primary, #545F71);
-  background: var(--Background, #FFF);
-  /* 19.2px */
-}
-
-
-
-.contact-form__input__textarea {
-  color: var(--font-600, #5D5D5D);
-  /* Font/Body 2 */
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  border-radius: 12px;
-  border: 1px solid var(--Primary, #545F71);
-  height: 176px;
-  /* 19.2px */
-}
-
-.contact-input__button {
-  background: var(--primary-600, #D71149);
-  color: var(--Background, #FFF);
-  width: 100px;
-  padding: 12px 16px;
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  transition: ease 300ms;
-}
-
-.contact-input__button:hover {
-  background: var(--primary-600, #D71149);
-}
-
-.contact-input__button:disabled {
-  border-radius: 8px;
-  background: var(--font-300, #B0B0B0);
-}
-
-
-/*
- Dark mode 
-*/
-.dark-mode .contact-desc {
-  color: #fff;
-}
-
-.dark-mode .contact-form__input {
-  background-color: #262626;
-  color: #fff;
-}
-
-.dark-mode .contact-form__input::placeholder {
-  color: #fff;
-}
-
-.dark-mode .contact-form__label__input {
-  color: #fff;
-}
-
-.dark-mode .contact-form__input__textarea {
-  background-color: #262626;
-  color: #fff;
-}
-
-.dark-mode .contact-form__input__textarea::placeholder {
-  color: #fff;
-}
-
-.dark-mode .contact-limit__karakter {
-  color: #fff !important;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  margin-top: 8px;
-}
-
-
-/* //Set media query X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .contact-heading-container {
-    padding: 12px 12px;
-  }
-}
-</style>
+<style scoped></style>

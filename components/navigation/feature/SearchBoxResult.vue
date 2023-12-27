@@ -14,7 +14,7 @@ const props = defineProps({ search: { type: String, required: true } })
         <div v-for="(result, index) in posts.filter(post => post.title.rendered.toLowerCase().includes(props.search.toLowerCase())
             ).sort((a, b) => b.modified_gmt.toString().localeCompare(a.modified_gmt.toString())).slice(0, 5)"
           :key="index" class="d-flex justify-content-between g-0 mb-3">
-          <NuxtLink :to="`/${result.slug}`" aria-label="Selengkapnya" class="search-result__title">
+          <NuxtLink :to="`/article/${result.slug}`" aria-label="Selengkapnya" class="search-result__title">
             {{ result.title.rendered.length >= 60
               ? `${result.title.rendered.substring(0, 60)}...`
               : result.title.rendered

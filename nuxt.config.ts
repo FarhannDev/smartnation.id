@@ -29,6 +29,9 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/index.css',
     '~/assets/css/custom-scrollbar.css',
+    '~/assets/css/custom-swiper-navigation.css',
+    '~/assets/css/custom-swiper-pagination.css',
+    '~/assets/css/themes/dark-mode.theme.css',
     '~/node_modules/bootstrap/dist/css/bootstrap.min.css',
     '~/node_modules/aos/dist/aos.css',
   ],
@@ -47,10 +50,10 @@ export default defineNuxtConfig({
         { name: 'keywords', content: 'Sarana Berita Smart City Terkini' },
         { name: 'author', content: 'Smart Nation' },
       ],
-      // titleTemplate: "%s - Smart Nation",
-      titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} - Site Title` : 'Site Title';
-      },
+      titleTemplate: '%s - Smart Nation',
+      // titleTemplate: (titleChunk) => {
+      //   return titleChunk ? `${titleChunk} - Site Title` : 'Site Title';
+      // },
       link: [
         {
           rel: 'icon',
@@ -82,7 +85,7 @@ export default defineNuxtConfig({
 
   image: {
     inject: true,
-    quality: 75,
+    quality: 100,
     format: ['webp', 'png'],
     domains: ['https://smartnation.id'],
   },
