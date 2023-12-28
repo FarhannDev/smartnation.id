@@ -71,6 +71,11 @@ const relatedPostsData = posts
             <article>
               <LazyHeadingContentHeadingTitle title="Terpopuler" class="text-decoration-underline" />
               <LazyContentRelatedArticle :posts="relatedPostsData" />
+              <div class="row justify-content-start g-3 pt-3">
+                <div class="col">
+                  <AdvertisingAdsVerticalMiniCardItem title="Ads" />
+                </div>
+              </div>
             </article>
           </div>
         </div>

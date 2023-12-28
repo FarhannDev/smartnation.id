@@ -45,6 +45,13 @@ const colorMode: ColorModeInstance = useColorMode()
           </div>
         </div>
 
+        <div class="row justify-content-start g-3 pt-4">
+          <div class="col">
+            <AdvertisingAdsHorizontalCardItem title="Ads" />
+          </div>
+        </div>
+
+
         <div class="row justify-content-start g-2 pt-5">
           <div class="col">
             <MediaStreamContentHeading title="Terbaru" />
