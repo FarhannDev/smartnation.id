@@ -26,7 +26,8 @@ const colorMode: ColorModeInstance = useColorMode()
     <LazyHeroParallaxBackgroundHeroSwipe :posts="posts" />
     <!-- Latest Article Section -->
     <section class="py-5">
-      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <div class="container position-relative" data-aos="fade-up" data-aos-duration="1000">
+        <AdvertisingAdsPopupModal />
         <LazyHeadingContentHeadingTitle title="Postingan Terbaru" />
         <div class="row justify-content-start g-3 pt-3">
           <div class="col-lg-6 col-xl-4 col-xxl-4 col-md-12">
@@ -40,6 +41,12 @@ const colorMode: ColorModeInstance = useColorMode()
           <div class=" col-lg-auto col-xl-4 col-xxl-4 col-md-12">
             <LazyHeadingContentHeadingTitle title="Terpopuler" class="text-decoration-underline" />
             <LazyContentRelatedArticle :posts="posts.slice(0, 5)" />
+          </div>
+        </div>
+
+        <div class="row justify-content-start g-3 pt-3">
+          <div class="col">
+            <AdvertisingAdsHorizontalCardItem title="Ads" />
           </div>
         </div>
       </div>
@@ -80,28 +87,35 @@ const colorMode: ColorModeInstance = useColorMode()
     <!-- Article Category Section Start -->
     <section class="py-5">
       <div class="container" data-aos="fade-up" data-aos-duration="1500">
-        <LazyHeadingContentHeadingTitle title="Artikel" />
-        <div class="row justify-content-start align-items-start g-5 py-3">
-          <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-12">
-            <LazyContentLatestArticleCardColumn :posts="posts.filter(post => post.categories.find(category => category === Number(148)))
-              .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
-              .slice(0, 5)" />
-          </div>
+        <div class="row justify-content-start align-items-start py-5">
+          <div class="col">
+            <LazyHeadingContentHeadingTitle title="Artikel" />
+            <div class="row justify-content-start align-items-start g-5 pt-3">
+              <div class="col-xl-8 col-xxl-8 col-lg-12 col-md-12">
+                <LazyContentLatestArticleCardColumn :posts="posts.filter(post => post.categories.find(category => category === Number(148)))
+                  .sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString()))
+                  .slice(0, 5)" />
+              </div>
 
-          <div class="col-xl-4 col-xxl-4 col-lg-12 col-md-12">
-            <div>
-              <LazyHeadingContentHeadingTitle class=" text-decoration-underline" title="Seputar Citiasia Inc" />
-              <div class="d-flex flex-column">
-                <div class="vstack g-3">
-                  <LazyContentRelatedArticle
-                    :posts="posts.filter(post => post.categories.find(category => category === Number(83))).sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)" />
+              <div class="col-xl-4 col-xxl-4 col-lg-12 col-md-12">
+                <div>
+                  <LazyHeadingContentHeadingTitle class=" text-decoration-underline" title="Seputar Citiasia Inc" />
+                  <div class="d-flex flex-column">
+                    <div class="vstack gap-4">
+                      <LazyContentRelatedArticle
+                        :posts="posts.filter(post => post.categories.find(category => category === Number(83))).sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 10)" />
 
+                      <AdvertisingAdsVerticalCardItem title="Ads" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
-        <div v-if="categories" class="row justify-content-arround g-3 py-5">
+
+        <div v-if="categories" class="row justify-content-start g-3 py-5">
           <div
             v-for="category in categories.filter(category => category.id === 84 || category.id === 85 || category.id === 86).slice(0, 3)"
             :key="category.id" class="col-xl-4 col-xxl-4 col-lg-6 col-md-12">

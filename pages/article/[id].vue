@@ -79,6 +79,13 @@ const colorMode: ColorModeInstance = useColorMode()
                 </div>
 
                 <div class="article-details__content" v-html="post.content.rendered"></div>
+                <div class="row justify-content-start g-3 py-3">
+                  <div class="col">
+                    <AdvertisingAdsHorizontalCardItem title="Ads" />
+                  </div>
+                </div>
+
+                <div class="article-details__content" v-html="post.content.rendered"></div>
 
                 <div class="article-details__content__share pt-3">
                   <div class="d-flex flex-wrap justify-content-end g-2">
@@ -101,27 +108,38 @@ const colorMode: ColorModeInstance = useColorMode()
             <!-- Komentar form -->
             <div class="d-grid gap-3 py-3">
               <ContentDetailsCommentsForm title="Komentar"
-                description="Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai" />
+                description="Alamat Email Anda Tidak Akan Dipublikasikan. Bidang yang Wajib Ditandai" class="mb-5" />
               <!-- Komentar user -->
               <ContentDetailsCommentsCardItem user="Farhan" text="Di komentar oleh Farhan" />
               <ContentDetailsCommentsCardItem user="Bella" text="Di komentar oleh Bella" />
               <ContentDetailsCommentsCardItem user="Reza" text="Di komentar oleh Reza" />
               <ContentDetailsCommentsCardItem user="Abdul" text="Di komentar oleh Abdul" />
 
-              <ButtonLoadContent />
+              <!-- <ButtonLoadContent /> -->
             </div>
           </section>
 
         </div>
         <div class="col-lg-auto col-xl-4 col-md-auto">
           <div class="px-md-3 mx-md-2">
-            <LazyHeadingContentHeadingTitle title="Berita Terpopuler" />
 
+            <div class="row justify-content-start g-3 mb-5">
+              <div class="col">
+                <AdvertisingAdsVerticalMiniCardItem title="Ads" />
+              </div>
+            </div>
+            <LazyHeadingContentHeadingTitle title="Berita Terpopuler" />
             <div class="row justify-content-start g-3 pt-3">
               <div
                 v-for="post in posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 3)"
                 :key="post.id" class="col-xl-12 col-lg-4 col-md-6">
                 <ContentRelatedPost :post="post" />
+              </div>
+            </div>
+
+            <div class="row justify-content-start g-3 py-3">
+              <div class="col">
+                <AdvertisingAdsVerticalCardItem title="Ads" />
               </div>
             </div>
 

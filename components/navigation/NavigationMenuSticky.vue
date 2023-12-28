@@ -276,7 +276,7 @@ const filterdKategoriInternasional = categories.filter(category => {
           </li>
           <li class="nav-item">
             <NuxtLink :class="`nav-link mx-md-1  ${route.path === '/media' || route.path === `/media/${route.params.id}` ? 'active' : ''
-              }`" to="/media">Media
+              }`" to="/media">Stream
             </NuxtLink>
           </li>
           <li class="nav-item">

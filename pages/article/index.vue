@@ -42,14 +42,29 @@ useSeoMeta({
             </article>
             <article class="article-section position-relative mb-3">
               <LazyHeadingContentHeadingTitleSecondary title="Berita Terpopuler" />
-              <div class="row justify-content-arround g-3 py-3">
+              <div class="row justify-content-arround g-3">
                 <LazyContentPostListCardFeaturedHorizontal
                   :posts="posts.sort((a, b) => b.date_gmt.toString().localeCompare(a.date_gmt.toString())).slice(0, 2)" />
               </div>
+              <div class="row justify-content-start g-3">
+                <div class="col">
+                  <AdvertisingAdsHorizontalCardItem title="Ads" />
+                </div>
+              </div>
             </article>
             <article class="d-block d-md-block d-lg-none d-xl-none">
+              <div class="row justify-content-start g-3 mb-3">
+                <div class="col">
+                  <AdvertisingAdsVerticalMiniCardItem title="Ads" />
+                </div>
+              </div>
               <LazyHeadingContentHeadingTitle title="Terpopuler" class="text-decoration-underline" />
               <LazyContentRelatedArticle :posts="posts.slice(0, 10)" />
+              <div class="row justify-content-start g-3 pt-3">
+                <div class="col">
+                  <AdvertisingAdsVerticalCardItem title="Ads" />
+                </div>
+              </div>
             </article>
             <article
               v-for="category in categories.filter(category => category.id !== Number(88) && category.parent !== Number(88) && category.id !== Number(90) && category.parent !== Number(90))"
@@ -65,9 +80,21 @@ useSeoMeta({
           </div>
           <div class="col-xl-4 col-xxl-4 col-lg-12 d-none d-lg-block d-xl-block d-xxl-block">
             <article>
+              <div class="row justify-content-start g-3 mb-3">
+                <div class="col">
+                  <AdvertisingAdsVerticalMiniCardItem title="Ads" />
+                </div>
+              </div>
               <LazyHeadingContentHeadingTitleSecondary title="Terpopuler" class="text-decoration-underline" />
               <LazyContentRelatedArticle :posts="posts.slice(0, 10)" />
+
+              <div class="row justify-content-start g-3 pt-3">
+                <div class="col">
+                  <AdvertisingAdsVerticalCardItem title="Ads" />
+                </div>
+              </div>
             </article>
+
           </div>
         </div>
       </div>

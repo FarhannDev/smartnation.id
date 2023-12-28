@@ -6,9 +6,9 @@ import { ColorModeInstance } from '@nuxtjs/color-mode/dist/runtime/types';
 
 // Set Meta SEO
 useSeoMeta({
-  title: "Media",
+  title: "Stream",
   description: "Kumpulan semua media smart nation",
-  ogTitle: "Media",
+  ogTitle: "Stream",
   ogDescription: "Kumpulan semua media smart nation",
 });
 
@@ -17,8 +17,7 @@ const colorMode: ColorModeInstance = useColorMode();
 
 <template>
   <div>
-    <LazyHeroParallaxBackground text="Media Smart Nation" desc="Kumpulan semua media smart nation"
-      background="/images/background/bg-contact-me.png" />
+    <LazyHeroParallaxBackground text="Stream Smart Nation" background="/images/background/bg-contact-me.png" />
 
     <section id="media-streams-section">
       <div class="container">
